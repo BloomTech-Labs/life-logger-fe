@@ -1,5 +1,5 @@
 GRADE BADGE
-https://codeclimate.com/github/Lambda-School-Labs/life-logger-fe/maintainability
+https://api.codeclimate.com/v1/badges/0915a297bde344a86b20/maintainability
 
 🚫 Note: All lines that start with 🚫 are instructions and should be deleted before this is posted to your portfolio. This is intended to be a guideline, feel free to add your own flare to it.
 
