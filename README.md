@@ -1,1 +1,1 @@
-This is the life logger README
+This is the life logger README.
