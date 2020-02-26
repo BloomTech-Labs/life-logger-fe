@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import todosReducer from './todosReducers';
+import RegisterReducer from './RegisterReducer';
 
  const rootReducer = combineReducers({
-  todos: todosReducer
+  users: RegisterReducer
 });
 
  export default rootReducer;
