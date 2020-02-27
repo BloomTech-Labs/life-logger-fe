@@ -7,7 +7,7 @@ import Registraition from './Registraition'
 function LandingPage() {
   return (
     <div >
-     <h1>This is the Dashboard!</h1>
+     <h1>This is the Landing Page</h1>
      <Login/>
      <Registraition/>
 
