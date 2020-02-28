@@ -12,7 +12,6 @@ function Dashboard() {
      <Header/>
      <Body/>
      <Footer/>
-
     </div>
   );
 }
