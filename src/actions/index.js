@@ -1,7 +1,7 @@
 
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 
-// Action Types
+// User Actions
 export const FETCH_USER_LOADING = "FETCH_USER_LOADING";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 export const FETCH_USER_FAILURE = "FETCH_USER_FAILURE";
@@ -18,9 +18,13 @@ export const UPDATE_USER_START = "UPDATE_USER_START";
 export const UPDATE_USER_SUCCESS = "UPDATE_USER_SUCCESS";
 export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 
+//Landing Page Actions
+export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
+
+
 const host = `http://localhost:3000`;
 
-// Async action creators
+// Async action creators for users
 
 export const fetchUser = () => dispatch => {
   dispatch({ type: FETCH_USER_LOADING });
@@ -64,3 +68,5 @@ export const updateUser = (editedUser, id) => dispatch => {
     })
     .catch(error => dispatch({ type: UPDATE_USER_FAILURE, payload: error }));
 };
+
+

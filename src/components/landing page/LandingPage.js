@@ -1,29 +1,25 @@
-import React from "react";
-import { Component } from "react";
+import React, { useState } from "react";
 import Login from "./Login";
 import Registraition from "./Registraition";
 
-class LandingPage extends Component {
-  state = {
-    isUser: true
+function LandingPage(){
+  
+  const [isUser, setIsUser] = useState(true);
+
+
+  const ToggleRegisterComponent = e => {
+    setIsUser(false);
   };
 
-ToggleRegisterComponent() {
-  this.setState({
-    isUser: false
-  })
-}
 
-  render() {
-    return this.state.isUser ? (
+    return isUser ? (
       <div>
         <Login />{" "}
-        <button onClick={() => this.ToggleRegisterComponent()}>Or register here!</button>
+        <button onClick={() => ToggleRegisterComponent()}>Or register here!</button>
       </div>
     ) : (
-      <Registraition />
+      <Registraition isUser = {isUser} setIsUser = {setIsUser} />
     );
   }
-}
 
 export default LandingPage;
