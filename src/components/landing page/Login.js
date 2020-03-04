@@ -11,7 +11,7 @@ const initialValues = {
 const FetchUserForm = props => {
   const [user, setUser] = useState(initialValues);
 
-  const handleChange = e => { setUser({...user, [e.target.name] : e.target.value}); };
+  const handleChange = e => {setUser({...user, [e.target.name] : e.target.value})};
 
   const handleSubmit = e => {
     e.preventDefault();
