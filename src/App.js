@@ -13,7 +13,7 @@ import LandingPage from "./components/landing page/LandingPage";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Route exact path = "/" component = {LandingPage}/>
       <PrivateRoute path = "/dashboard" component = {Dashboard}/>
       <Dashboard /> {/* to view dashboard without a token */}

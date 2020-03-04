@@ -6,11 +6,16 @@ import { createUser } from "../../actions/index";
 const initialValues = {
   username: "",
   password: "",
-  email: ""
+  email: "",
 };
 
 const AddUserForm = props => {
   const [newUser, setNewUser] = useState(initialValues);
+
+  const ToggleRegisterComponent = e => {
+    console.log(props)
+    props.setIsUser(true)
+  };
 
   const handleChange = event => {
     setNewUser({ ...newUser, [event.target.name]: event.target.value });
@@ -18,8 +23,8 @@ const AddUserForm = props => {
 
   const handleSubmit = event => {
     event.preventDefault();
-
-    props.createUser(newUser);
+    ToggleRegisterComponent();
+    // props.createUser(newUser);
   };
 
   return (
