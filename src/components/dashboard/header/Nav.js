@@ -12,19 +12,19 @@ function Nav() {
         </div>
 
         <div className = "nav-link">
-          <Link to = "/dashboard">Dashboard</Link>
+          <Link to = "/dashboard">Events</Link>
         </div>
 
         <div className = "nav-link">
-          <Link to = "/dashboard">Dashboard</Link>
+          <Link to = "/dashboard">Settings</Link>
         </div>
 
         <div className = "nav-link">
-          <Link to = "/dashboard">Dashboard</Link>
+          <Link to = "/">Log Out</Link>
         </div>
         
         <div className = "nav-search">
-          <Link to = "/dashboard">Dashboard</Link>
+          <button>Search Button</button>
         </div>
       </div>
     </div>
