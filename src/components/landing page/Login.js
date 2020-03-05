@@ -22,30 +22,46 @@ const FetchUserForm = props => {
   };
 
   return (
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <div>
-            <input
-              name="username"
-              placeholder="username or email"
-              value={user.username}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <input
-              name="password"
-              placeholder="password"
-              type="password"
-              value={user.password}
-              onChange={handleChange}
-            />
-          </div>
-          <button type="submit">Submit</button>
+    <div className = "login-container">
+      <div className = "login-details-container">
+        <div className = "login-title-container">
+          <h1>Life Logger</h1>
         </div>
-      </form>
+
+        <div className = "login-info-container">
+          <span>
+          Organize all the things about life that are irregular. The things you forget to do. Change your oil, rotate your tires, replace your AC air filter. Home, auto, other maintenance tasks. Log events, later searchable so you can remember when/where/what you did.
+          </span>
+        </div>
+
+        <div className = "login-img"></div>
+      </div>
+      
+      <div className = "login-form-container">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <div>
+              <input
+                name="username"
+                placeholder="username or email"
+                value={user.username}
+                onChange={handleChange}
+              />
+            </div>
+            
+            <div>
+              <input
+                name="password"
+                placeholder="password"
+                type="password"
+                value={user.password}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
