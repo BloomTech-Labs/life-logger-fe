@@ -2,11 +2,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+//Components
+import { NavContainer } from "../../../styles/Styles"
+
 
 function Nav() {
   return (
-    <div className = "nav-container">
-      <div className = "nav-links">
+    <NavContainer>
         <div className = "nav-link">
           <Link to = "/dashboard">Dashboard</Link>
         </div>
@@ -26,8 +28,7 @@ function Nav() {
         <div className = "nav-search">
           <button>Search Button</button>
         </div>
-      </div>
-    </div>
+    </NavContainer>
   );
 }
 

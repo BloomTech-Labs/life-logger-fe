@@ -1,5 +1,5 @@
 //Packages
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import { connect } from "react-redux";
@@ -11,15 +11,23 @@ import Header from "./components/dashboard/header/Header"
 import PrivateRoute from "./PrivateRoute"
 import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/landing page/LandingPage";
+import { AppContainer } from "./styles/Styles";
+import Footer from "./components/dashboard/Footer";
 
 function App() {
+  const token = localStorage.token;
+
   return (
-    <div className="App">
+    
+    <AppContainer>
       <Header />
-      <Route exact path = "/" component = {LandingPage}/>
-      <PrivateRoute path = "/dashboard" component = {Dashboard}/>
-      {/* <Dashboard /> to view dashboard without a token */}
-    </div>
+    {token?
+      <PrivateRoute path = "/dashboard" component = {Dashboard}/> : 
+      <Route exact path = "/" component = {LandingPage}/>}
+      {/* <Dashboard /> */}
+       {/* to view dashboard without a token */}
+       <Footer />
+    </AppContainer>
   );
 }
 

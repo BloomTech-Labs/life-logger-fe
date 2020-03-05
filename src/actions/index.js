@@ -22,14 +22,14 @@ export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
 
 
-const host = `http://localhost:3000`;
+const host = `https://stage-lifelogger-be.herokuapp.com/`;
 
 // Async action creators for users
 
 export const fetchUser = () => dispatch => {
   dispatch({ type: FETCH_USER_LOADING });
   axiosWithAuth()
-    .get(`${host}/api/users`)
+    .get(`${host}/api/auth/login`)
     .then(response => dispatch({ type: FETCH_USER_SUCCESS, payload: response.data }))
     .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
 };
