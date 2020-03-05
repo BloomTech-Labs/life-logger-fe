@@ -3,20 +3,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 //Components
-import Nav from './Nav'
+import Nav from "./Nav"
+import { HeaderContainer } from "../../../styles/Styles"
 
 
 function Header() {
   return (
-    <div className = "header-container">
-      <div className = "header-logo-container">
+    <HeaderContainer>
         <h4>Logo Goes Here</h4>
-      </div>
 
-      <div className = "header-nav-container">
         <Nav />
-      </div>
-    </div>
+
+    </HeaderContainer>
   );
 }
 
