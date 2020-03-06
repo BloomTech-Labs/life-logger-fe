@@ -24,8 +24,7 @@ function App() {
     {token?
       <PrivateRoute path = "/dashboard" component = {Dashboard}/> : 
       <Route exact path = "/" component = {LandingPage}/>}
-      {/* <Dashboard /> */}
-       {/* to view dashboard without a token */}
+      {/* <Dashboard /> */} {/* to view dashboard without a token */}
        <Footer />
     </AppContainer>
   );
