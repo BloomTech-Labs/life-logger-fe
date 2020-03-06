@@ -1,6 +1,7 @@
 //Packages
 import React, { useState } from "react";
 import "./App.css";
+import { Redirect } from "react-router-dom";
 
 import { connect } from "react-redux";
 import { createUser, fetchUser, /*updateUser*/ } from "./actions/index";
@@ -13,7 +14,8 @@ import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/landing page/LandingPage";
 import { AppContainer } from "./styles/Styles";
 import Footer from "./components/dashboard/Footer";
-
+import Login from "./components/landing page/Login"
+ 
 function App() {
   const token = localStorage.token;
 
@@ -22,9 +24,10 @@ function App() {
     <AppContainer>
       <Header />
     {token?
-      <PrivateRoute path = "/dashboard" component = {Dashboard}/> : 
+      <Redirect to="/dashboard" />: 
       <Route exact path = "/" component = {LandingPage}/>}
-      {/* <Dashboard /> */} {/* to view dashboard without a token */}
+      <PrivateRoute path = "/dashboard" component = {Dashboard}/>
+      <Route path = "/login" component = {Login} />
        <Footer />
     </AppContainer>
   );
