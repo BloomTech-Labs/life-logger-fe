@@ -6,6 +6,7 @@ flex-direction: column;
 `
 
 export const HeaderContainer = styled.div`
+background-color: grey; 
 display: flex;
 width: 100%;
 justify-content: space-between;

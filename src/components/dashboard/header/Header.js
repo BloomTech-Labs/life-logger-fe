@@ -10,7 +10,7 @@ import { HeaderContainer } from "../../../styles/Styles"
 function Header() {
   return (
     <HeaderContainer>
-        <h4>Logo Goes Here</h4>
+        <Link to = "/"><h4>Logo Goes Here</h4> </Link>
 
         <Nav />
 

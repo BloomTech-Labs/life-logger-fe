@@ -10,7 +10,10 @@ import {
   DELETE_USER_FAILURE,
   UPDATE_USER_START,
   UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILURE
+  UPDATE_USER_FAILURE,
+  UNFETCH_USER_LOADING,
+  UNFETCH_USER_SUCCESS,
+  UNFETCH_USER_FAILURE
 } from "../actions/index";
 
 const initialState = {
@@ -35,6 +38,25 @@ function RegisterReducer(state = initialState, action) {
         error: null
       };
     case FETCH_USER_FAILURE:
+      return {
+        ...state,
+        restData: [],
+        isFetching: false,
+        error: action.payload
+      };
+    case UNFETCH_USER_LOADING:
+      return {
+        ...state,
+        isFetching: true,
+        error: null
+      };
+    case UNFETCH_USER_SUCCESS:
+      return {
+        ...state,
+        restData: action.payload,
+        error: null
+      };
+    case UNFETCH_USER_FAILURE:
       return {
         ...state,
         restData: [],

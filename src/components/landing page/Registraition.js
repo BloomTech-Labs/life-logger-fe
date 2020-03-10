@@ -34,8 +34,8 @@ const AddUserForm = props => {
         <form onSubmit={handleSubmit}>
           <div>
             <div>
-              <input
-                name="name"
+            <input
+                name="username"
                 placeholder="Username"
                 value={newUser.username}
                 onChange={handleChange}
@@ -43,6 +43,7 @@ const AddUserForm = props => {
             </div>
             <div>
               <input
+                type = "password"
                 name="password"
                 placeholder="Password"
                 value={newUser.password}
