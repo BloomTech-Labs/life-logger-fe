@@ -13,7 +13,6 @@ function Header() {
         <Link to = "/"><h4>Logo Goes Here</h4> </Link>
 
         <Nav />
-
     </HeaderContainer>
   );
 }

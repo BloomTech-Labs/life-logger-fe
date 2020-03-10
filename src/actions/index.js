@@ -1,6 +1,5 @@
 
 import { axiosWithAuth } from '../utils/axiosWithAuth';
-import axios from "axios"
 
 // User Actions
 export const FETCH_USER_LOADING = "FETCH_USER_LOADING";

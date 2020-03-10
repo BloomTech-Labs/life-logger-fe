@@ -1,34 +1,37 @@
 //Packages
-import React, { useState } from "react";
-import "./App.css";
-import { Redirect } from "react-router-dom";
-
+import React from "react";
+import { Redirect, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { createUser, fetchUser, /*updateUser*/ } from "./actions/index";
-import { Route } from "react-router-dom";
 
 //Components
 import Header from "./components/dashboard/header/Header"
+import { createUser, fetchUser, /*updateUser*/ } from "./actions/index";
 import PrivateRoute from "./PrivateRoute"
 import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/landing page/LandingPage";
-import { AppContainer } from "./styles/Styles";
 import Footer from "./components/dashboard/Footer";
-import Login from "./components/landing page/Login"
+import Register from "./components/landing page/Registraition"
+
+//Style
+import "./App.css";
+import { AppContainer } from "./styles/Styles";
+
+
  
 function App() {
   const token = localStorage.token;
 
   return (
-    
     <AppContainer>
       <Header />
-    {token?
-      <Redirect to="/dashboard" />: 
-      <Route exact path = "/" component = {LandingPage}/>}
+      
+      {token? <Redirect to="/dashboard" /> : <Route exact path = "/" component = {LandingPage}/>}
+
       <PrivateRoute path = "/dashboard" component = {Dashboard}/>
-      <Route path = "/login" component = {Login} />
-       <Footer />
+
+      <Route path = "/Register" component = {Register} />
+
+      <Footer />
     </AppContainer>
   );
 }
