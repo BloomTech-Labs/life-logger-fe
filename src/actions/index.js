@@ -22,7 +22,7 @@ export const UPDATE_USER_FAILURE = "UPDATE_USER_FAILURE";
 export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
 
 
-const host = `https://stage-lifelogger-be.herokuapp.com/`;
+const host = `https://stage-lifelogger-be.herokuapp.com`;
 
 // Async action creators for users
 

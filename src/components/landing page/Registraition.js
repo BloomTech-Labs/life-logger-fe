@@ -24,7 +24,7 @@ const AddUserForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     ToggleRegisterComponent();
-    // props.createUser(newUser);
+    props.createUser(newUser);
   };
 
   return (
@@ -35,7 +35,7 @@ const AddUserForm = props => {
           <div>
             <div>
               <input
-                name="name"
+                name="username"
                 placeholder="Username"
                 value={newUser.username}
                 onChange={handleChange}

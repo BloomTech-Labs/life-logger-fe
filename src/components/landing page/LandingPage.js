@@ -7,15 +7,14 @@ function LandingPage(){
   const [isUser, setIsUser] = useState(true);
 
 
-  const ToggleRegisterComponent = e => {
-    setIsUser(false);
-  };
-
+ 
 
     return isUser ? (
       <div>
-        <Login />{" "}
-        <button onClick={() => ToggleRegisterComponent()}>Or register here!</button>
+        <div>
+        <Login isUser = {isUser} setIsUser = {setIsUser}/>
+        
+        </div>
       </div>
     ) : (
       <Registraition isUser = {isUser} setIsUser = {setIsUser} />
