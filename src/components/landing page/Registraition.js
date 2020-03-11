@@ -35,7 +35,11 @@ const AddUserForm = props => {
         <RegisterForm onSubmit={handleSubmit}>
           <div>
             <div>
-              <input
+
+             
+
+            <input
+
                 name="username"
                 placeholder="Username"
                 value={newUser.username}
@@ -44,6 +48,7 @@ const AddUserForm = props => {
             </div>
             <div>
               <input
+                type = "password"
                 name="password"
                 placeholder="Password"
                 value={newUser.password}

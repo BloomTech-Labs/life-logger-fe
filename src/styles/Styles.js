@@ -18,10 +18,12 @@ export const AppContainer = styled.div`
 //Header
 
 export const HeaderContainer = styled.div`
+
   display: flex;
   width: 100%;
   justify-content: space-between;
 `;
+
 
 export const NavContainer = styled.div`
   display: flex;
