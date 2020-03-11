@@ -24,9 +24,7 @@ You can find the deployed project at [lyfe-logger.com](https://www.lyfe-logger.c
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
-![Typescript](https://img.shields.io/npm/types/typescript.svg?style=flat)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5c4db1c-b10d-42c3-b157-3746edd9e81d/deploy-status)](netlify link goes in these parenthesis)
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 
 🚫 more info on using badges [here](https://github.com/badges/shields)
 
@@ -45,18 +43,20 @@ Log events, later searchable so you can remember when/where/what you did.
 
 ### Key Features
 
--     Access a calendar with events displayed
--     Ability to create events with various information. When, where, category (work,home life, recreation).
--     Search feature so you can remember when/where/what you did.
--     Functional user dashboard to manage events.
+- Access a calendar with events displayed
+- Ability to create events with various information. When, where, category (work,home life, recreation).
+- Search feature so you can remember when/where/what you did.
+- Functional user dashboard to manage events.
 
 ## Tech Stack
 
-### Front end built using:
+#### Front end built using:
 
 #### Front end deployed to `🚫insert service here`
 
 #### [Back end](https://github.com/Lambda-School-Labs/life-logger-be) built using:
+
+#### Back end deployed to `🚫insert service here`
 
 # APIs
 
