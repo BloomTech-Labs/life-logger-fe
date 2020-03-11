@@ -17,7 +17,7 @@ import {
   } from "../actions/index";
   
   const initialState = {
-    userData: [],
+    eventData: [],
     error: null,
     isFetching: false
   };

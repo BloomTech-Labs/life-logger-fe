@@ -10,7 +10,8 @@ import PrivateRoute from "./PrivateRoute"
 import Dashboard from "./components/dashboard/Dashboard";
 import LandingPage from "./components/landing page/LandingPage";
 import Footer from "./components/dashboard/Footer";
-import Register from "./components/landing page/Registraition"
+import Register from "./components/landing page/Registraition";
+import CreateEventForm from "./components/events/CreateEvent";
 
 //Style
 import "./App.css";
@@ -31,6 +32,8 @@ function App() {
 
       <Route path = "/Register" component = {Register} />
 
+      <Route path = "/addEvent" component = {CreateEventForm} />
+
       <Footer />
     </AppContainer>
   );
@@ -40,7 +43,8 @@ function App() {
 
 const mapStateToProps = state => {
   return {
-    users: state.users
+    users: state.users,
+    events: state.events
   };
 };
 
