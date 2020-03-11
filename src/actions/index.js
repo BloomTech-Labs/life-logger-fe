@@ -49,7 +49,9 @@ export const UPDATE_EVENT_FAILURE = "UPDATE_EVENT_FAILURE";
 export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
 
 
+
 const host = `http://localhost:5011`;
+
 
 // Async action creators for users
 

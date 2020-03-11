@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { createUser } from "../../actions/index";
+import { RegisterWrapper, RegisterForm } from "../../styles/Styles";
 
 const initialValues = {
   username: "",
@@ -24,17 +25,21 @@ const AddUserForm = props => {
   const handleSubmit = event => {
     event.preventDefault();
     ToggleRegisterComponent();
-    // props.createUser(newUser);
+    props.createUser(newUser);
   };
 
   return (
-    <div>
+    <RegisterWrapper>
       <div>
         <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
+        <RegisterForm onSubmit={handleSubmit}>
           <div>
             <div>
+
+             
+
             <input
+
                 name="username"
                 placeholder="Username"
                 value={newUser.username}
@@ -61,9 +66,9 @@ const AddUserForm = props => {
 
             <button type="submit">Submit</button>
           </div>
-        </form>
+        </RegisterForm>
       </div>
-    </div>
+    </RegisterWrapper>
   );
 };
 
