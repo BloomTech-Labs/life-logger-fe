@@ -26,7 +26,6 @@ export const HeaderContainer = styled.div`
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
-
 `;
 
 //Login Component
@@ -94,7 +93,6 @@ width: 100%;
   }
 `;
 
-
 //Footer
 
 export const FooterWrapper = styled.div`
@@ -104,17 +102,16 @@ export const FooterWrapper = styled.div`
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  
+
   justify-content: space-around;
   @media (max-width: 760px) {
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
-    width:100%; 
+    width: 100%;
     padding-top: 5%;
     padding-bottom: 5%;
   }
 `;
-
 
 export const ContactInfo = styled.div`
 width: 45%;
@@ -138,10 +135,59 @@ export const SocialFollow = styled.div`
   }
 `;
 export const SocialIcon = styled.a`
- padding:3%;
- &:hover{
-  color:aqua;
-  transition: 0.3s;
-  box-shadow: 0 5px 15px rgba(0,0,0,1);
-}
+  padding: 3%;
+  &:hover {
+    color: aqua;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 1);
+  }
+`;
+
+//Register
+
+export const RegisterWrapper = styled.div`
+  background-color: rgba(0, 22, 46, 0.5);
+  color: white;
+  min-height: 50vh;
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+  }
+  > div {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
+    > h1 {
+      padding: 5%;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+    }
+    @media (max-width: 850px) {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding-top: 5%;
+      padding-bottom: 5%;
+    }
+  }
+`;
+
+
+export const RegisterForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  > div {
+    > div {
+      > input {
+        margin:1% 0%;
+       }
+    }
+    }
+  }
 `;
