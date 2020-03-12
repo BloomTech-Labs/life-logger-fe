@@ -6,6 +6,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
+
 import { createStore, compose, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";

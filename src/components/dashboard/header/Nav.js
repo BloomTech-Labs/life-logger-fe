@@ -12,7 +12,7 @@ import { Redirect } from "react-router-dom";
 const Nav = props => {
 
   const token = window.localStorage.token
-  return (
+  return( 
     <NavContainer>
         <div className = "nav-link">
             <Link to = "/dashboard">Dashboard</Link> 
@@ -27,7 +27,7 @@ const Nav = props => {
         </div>
 
         <div className = "nav-link">
-          <Link to = "" onClick = {()=>props.unfetchUser() }>Log Out</Link>
+          <Link to = "/" onClick = {()=>props.unfetchUser() }>Log Out</Link>
         </div>
         
         <div className = "nav-search">
