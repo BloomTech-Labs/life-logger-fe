@@ -2,20 +2,24 @@ import React, { useState } from "react";
 
 import { connect } from "react-redux";
 import { createUser } from "../../actions/index";
-import { RegisterWrapper, RegisterForm } from "../../styles/Styles";
+import {
+  RegisterWrapper,
+  RegisterForm,
+  RegisterButton
+} from "../../styles/Styles";
 
 const initialValues = {
   username: "",
   password: "",
-  email: "",
+  email: ""
 };
 
 const AddUserForm = props => {
   const [newUser, setNewUser] = useState(initialValues);
 
   const ToggleRegisterComponent = e => {
-    console.log(props)
-    props.setIsUser(true)
+    console.log(props);
+    props.setIsUser(true);
   };
 
   const handleChange = event => {
@@ -36,11 +40,7 @@ const AddUserForm = props => {
         <RegisterForm onSubmit={handleSubmit}>
           <div>
             <div>
-
-             
-
-            <input
-
+              <input
                 name="username"
                 placeholder="Username"
                 value={newUser.username}
@@ -49,7 +49,7 @@ const AddUserForm = props => {
             </div>
             <div>
               <input
-                type = "password"
+                type="password"
                 name="password"
                 placeholder="Password"
                 value={newUser.password}
@@ -65,7 +65,7 @@ const AddUserForm = props => {
               />
             </div>
 
-            <button type="submit">Submit</button>
+            <RegisterButton type="submit">Submit</RegisterButton>
           </div>
         </RegisterForm>
       </div>

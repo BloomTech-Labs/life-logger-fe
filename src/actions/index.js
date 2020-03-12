@@ -133,7 +133,7 @@ export const fetchEvent = id => dispatch => {
 export const createEvent = newEvent => dispatch => {
   dispatch({ type: CREATE_EVENT_START });
   axiosWithAuth()
-    .post(`${host}/api/events/new`, newEvent)
+    .post(`${host}/api/events`, newEvent)
     .then(response =>
       dispatch({ type: CREATE_EVENT_SUCCESS, payload: response.data })
     )
@@ -153,7 +153,7 @@ export const deleteEvent = id => dispatch => {
 export const updateEvent = (editedEvent, id) => dispatch => {
   dispatch({ type: UPDATE_EVENT_START });
   axiosWithAuth()
-    .put(`${host}/api/events/update/${id}`, editedEvent)
+    .put(`${host}/api/events/${id}`, editedEvent)
     .then(response =>
       dispatch({ type: UPDATE_EVENT_SUCCESS, payload: response.data })
     )
