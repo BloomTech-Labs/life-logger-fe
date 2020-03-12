@@ -26,6 +26,7 @@ const AddUserForm = props => {
     event.preventDefault();
     ToggleRegisterComponent();
     props.createUser(newUser);
+
   };
 
   return (

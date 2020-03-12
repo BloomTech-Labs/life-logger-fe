@@ -34,6 +34,7 @@ const FetchUserForm = props => {
 
   return (
     
+
     <LoginWrapper>
       <div className="login-details-container">
         <div className="login-info-container">
@@ -56,23 +57,25 @@ const FetchUserForm = props => {
           <div>
             <div>
               <input
-                name="username"
-                placeholder="username or email"
-                value={user.username}
-                onChange={handleChange}
+                name = "username"
+                placeholder = "username or email"
+                value = {user.username}
+                onChange = {handleChange}
               />
             </div>
 
             <div>
               <input
-                name="password"
-                placeholder="password"
-                type="password"
-                value={user.password}
-                onChange={handleChange}
+                name = "password"
+                placeholder = "password"
+                type = "password"
+                value = {user.password}
+                onChange = {handleChange}
               />
             </div>
+    
             <LoginRegisterButton type="submit">Submit</LoginRegisterButton>
+    
           </div>
           <LoginRegisterButton onClick={() => ToggleRegisterComponent()}>
             Or register here!

@@ -4,7 +4,8 @@ import EventReducer from './EventReducer';
 
 
  const rootReducer = combineReducers({
-  users: RegisterReducer
+  users: RegisterReducer,
+  events: EventReducer
 });
 
  export default rootReducer;
