@@ -45,7 +45,9 @@ export const UPDATE_EVENT_FAILURE = "UPDATE_EVENT_FAILURE";
 //Landing Page Actions
 export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
 
+
 const host = `https://production-life-logger-be.herokuapp.com`;
+
 
 // Async action creators for users
 
