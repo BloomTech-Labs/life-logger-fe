@@ -15,11 +15,11 @@ const Nav = props => {
   return( 
     <NavContainer>
         <div className = "nav-link">
-            <Link to = "/dashboard">Dashboard</Link> 
+            <Link to = "/">Home</Link> 
         </div>
 
         <div className = "nav-link">
-          <Link to = "/">Events</Link>
+          <Link to = "/events">My Events</Link>
         </div>
 
         <div className = "nav-link">

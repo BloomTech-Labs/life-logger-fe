@@ -12,6 +12,7 @@ import LandingPage from "./components/landing page/LandingPage";
 import Footer from "./components/dashboard/Footer";
 import Register from "./components/landing page/Registraition";
 import CreateEventForm from "./components/events/CreateEvent";
+import LoadEvents from "./components/events/LoadEvents";
 
 //Style
 import "./App.css";
@@ -26,13 +27,15 @@ function App() {
     <AppContainer>
       <Header />
       
-      {token? <Redirect to="/dashboard" /> : <Route exact path = "/" component = {LandingPage}/>}
+      {!token? <Route exact path = "/" component = {LandingPage}/> :  null}
 
-      <PrivateRoute path = "/dashboard" component = {Dashboard}/>
+      <PrivateRoute exact path = "/" component = {Dashboard}/>
 
       <Route path = "/Register" component = {Register} />
 
-      <Route path = "/addEvent" component = {CreateEventForm} />
+      <Route path = "/addevent" component = {CreateEventForm} />
+
+      <Route path = "events" component = {LoadEvents} />
 
       <Footer />
     </AppContainer>
