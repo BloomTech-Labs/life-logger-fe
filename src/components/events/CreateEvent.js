@@ -16,6 +16,8 @@ const initialValues = {
     event_resource : ""
 }
 
+
+
 const CreateEventForm = props => {
   const [newEvent, setNewEvent] = useState(initialValues);
 
@@ -23,11 +25,6 @@ const CreateEventForm = props => {
     setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    console.log(newEvent);
-    props.createEvent(newEvent);
-  };
 
     const handleSubmit = e => {
         e.preventDefault();

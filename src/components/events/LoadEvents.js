@@ -3,10 +3,13 @@ import { connect } from "react-redux";
 import { fetchEvents, fetchEvent } from "../../actions/index";
 import { axiosWithAuth } from "../../utils/axiosWithAuth";
 import Body from "../dashboard/Body";
+import UpdateEventForm from "./UpdateForm";
 
 const LoadEvents = props => {
     
     const [events, setEvents] = useState();
+
+  
 
     useEffect(()=> {
         axiosWithAuth()
@@ -17,8 +20,12 @@ const LoadEvents = props => {
             .catch(err => console.log(err))
     }, [])
 
+
 return(
+    <div>
     <Body events={events}/>
+    <UpdateEventForm/>
+    </div>
 )
 }
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { updateEvent } from "../actions/actions";
+import { updateEvent } from "../../actions/index";
 
 const initialValues = {
   title: "",
