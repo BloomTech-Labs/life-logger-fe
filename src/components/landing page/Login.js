@@ -33,8 +33,6 @@ const FetchUserForm = props => {
   };
 
   return (
-    
-
     <LoginWrapper>
       <div className="login-details-container">
         <div className="login-info-container">

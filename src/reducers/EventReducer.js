@@ -23,7 +23,6 @@ import {
   };
   
   function EventReducer(state = initialState, action) {
-    console.log("Reducer Firing", action);
     switch (action.type) {
       case FETCH_EVENTS_LOADING:
         return {
@@ -72,7 +71,7 @@ import {
       case CREATE_EVENT_SUCCESS:
         return {
           ...state,
-          restData: [...state, action.payload],
+          restData: action.payload,
           error: null
         };
       case CREATE_EVENT_FAILURE:

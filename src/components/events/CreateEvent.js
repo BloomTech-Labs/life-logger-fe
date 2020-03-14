@@ -4,11 +4,16 @@ import { connect } from "react-redux";
 import { createEvent } from "../../actions/index";
 
 const initialValues = {
+    user_id : 0,
     title : "",
-    start : "",
-    end : "",
-    allDay : true,
-    resource : ""
+    event_text : "",
+    location : "",
+    category : 1,
+    event_ct_tm : "",
+    event_st_tm : "",
+    event_et_tm : "",
+    all_day : true,
+    event_resource : ""
 }
 
 const CreateEventForm = props => {
@@ -21,7 +26,9 @@ const CreateEventForm = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(newEvent)
+        
+        newEvent.user_id = window.localStorage.id
+
         props.createEvent(newEvent);
     };
 
@@ -35,33 +42,61 @@ const CreateEventForm = props => {
             />
 
             <input 
-                name = "start"
+                name = "event_text"
+                placeholder = "Event Text"
+                value = {newEvent.event_text}
+                onChange = {handleChange}
+            /> 
+
+            <input 
+                name = "location"
+                placeholder = "Location"
+                value = {newEvent.location}
+                onChange = {handleChange}
+            />  
+
+            <input 
+                name = "event_st_tm"
                 placeholder = "start date"
-                value = {newEvent.start}
+                value = {newEvent.event_st_tm}
                 onChange = {handleChange}
             />     
 
             <input 
-                name = "end"
+                name = "event_et_tm"
                 placeholder = "end date"
-                value = {newEvent.end}
+                value = {newEvent.event_et_tm}
                 onChange = {handleChange}
             />
+
+            <input 
+                name = "event_ct_tm"
+                placeholder = "date"
+                value = {newEvent.event_ct_tm}
+                onChange = {handleChange}
+            />  
+
+            <input 
+                name = "category"
+                placeholder = "Category"
+                value = {newEvent.catergory}
+                onChange = {handleChange}
+            />  
             <label>
                 All Day
             <input 
-                name = "allDay"
+                name = "all_day"
                 type = "checkbox"
-                checked = {newEvent.allDay}
+                checked = {newEvent.all_day}
                 // value = {newEvent.allDay}
                 onChange = {handleChange}
             />
             </label>
 
             <input 
-                name = "resource"
+                name = "event_resource"
                 placeholder = "other info"
-                value = {newEvent.resource}
+                value = {newEvent.event_resource}
                 onChange = {handleChange}
             />
 

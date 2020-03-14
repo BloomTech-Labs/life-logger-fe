@@ -19,6 +19,10 @@ const Nav = props => {
         </div>
 
         <div className = "nav-link">
+          <Link to = "/addevent">Add Event</Link>
+        </div>
+
+        <div className = "nav-link">
           <Link to = "/events">My Events</Link>
         </div>
 

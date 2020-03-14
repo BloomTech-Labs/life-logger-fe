@@ -46,7 +46,7 @@ export const UPDATE_EVENT_FAILURE = "UPDATE_EVENT_FAILURE";
 export const TOGGLE_IS_USER = "TOGGLE_IS_USER";
 
 
-const host = `https://lyfe-logger-staging.herokuapp.com`;
+const host = `https://lyfe-logger-be.herokuapp.com`;
 
 
 // Async action creators for users
@@ -56,6 +56,7 @@ export const fetchUser = user => dispatch => {
   axiosWithAuth()
     .post(`${host}/api/auth/login`, user)
     .then(response => {
+      window.localStorage.setItem("id", response.data.user_id);
       window.localStorage.setItem("token", response.data.token);
       dispatch({ type: FETCH_USER_SUCCESS, payload: response.data });
     })
@@ -67,7 +68,7 @@ export const unfetchUser = () => dispatch => {
   axiosWithAuth()
     .get(`${host}`)
     .then(response => {
-      window.localStorage.clear("token");
+      window.localStorage.clear();
       dispatch({ type: UNFETCH_USER_SUCCESS, payload: response.data });
     })
     .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
@@ -133,7 +134,7 @@ export const fetchEvent = id => dispatch => {
 export const createEvent = newEvent => dispatch => {
   dispatch({ type: CREATE_EVENT_START });
   axiosWithAuth()
-    .post(`${host}/api/events/new`, newEvent)
+    .post(`${host}/api/events/insertevents`, newEvent)
     .then(response =>
       dispatch({ type: CREATE_EVENT_SUCCESS, payload: response.data })
     )

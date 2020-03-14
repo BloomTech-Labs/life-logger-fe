@@ -1,17 +1,35 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchEvents, fetchEvent } from "../../actions/index";
+import { axiosWithAuth } from "../../utils/axiosWithAuth";
+import Body from "../dashboard/Body";
 
 const LoadEvents = props => {
     
     const [events, setEvents] = useState();
 
-    return(
-            {/* <button onClick = {setEvents(fetchEvents())}>My Events</button> */}
-            events.map(event => {
-                event
-            })
-    );
+    useEffect(()=> {
+        axiosWithAuth()
+            .get(`https://lyfe-logger-be.herokuapp.com/api/events/byuserid/${window.localStorage.id}`)
+            .then(res => { 
+                console.log(res)
+                setEvents(res.data)})
+            .catch(err => console.log(err))
+    }, [])
+
+return(
+    <Body events={events}/>
+)
 }
 
-export default LoadEvents
+
+export default connect(
+    state => {
+        return {
+            eventData: state.eventData,
+            isFetching: state.isFetching,
+            error: state.eroor
+        }
+    },
+    { fetchEvents }
+)(LoadEvents);

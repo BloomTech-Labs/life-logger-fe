@@ -35,7 +35,7 @@ function App() {
 
       <Route path = "/addevent" component = {CreateEventForm} />
 
-      <Route path = "events" component = {LoadEvents} />
+      <Route path = "/events" component = {LoadEvents} />
 
       <Footer />
     </AppContainer>
