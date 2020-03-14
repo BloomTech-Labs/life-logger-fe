@@ -11,7 +11,6 @@ export const AppContainer = styled.div`
   background-size: cover;
   color: white;
   min-height: 100vh;
-  max-width: 1400px;
   margin: auto;
 `;
 
@@ -146,6 +145,12 @@ export const SocialIcon = styled.a`
 `;
 
 //Register
+
+export const RegisterButton = styled.button`
+  margin: 5% 0%;
+  border: 1px solid white;
+  }
+`;
 
 export const RegisterWrapper = styled.div`
   background-color: rgba(0, 22, 46, 0.5);

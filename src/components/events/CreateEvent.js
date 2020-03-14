@@ -17,12 +17,17 @@ const initialValues = {
 }
 
 const CreateEventForm = props => {
-    const [newEvent, setNewEvent] = useState(initialValues);
+  const [newEvent, setNewEvent] = useState(initialValues);
 
+  const handleChange = e => {
+    setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
+  };
 
-    const handleChange = e => {
-        setNewEvent({ ...newEvent, [e.target.name]: e.target.value });
-        };
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(newEvent);
+    props.createEvent(newEvent);
+  };
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -99,19 +104,19 @@ const CreateEventForm = props => {
                 value = {newEvent.event_resource}
                 onChange = {handleChange}
             />
-
-            <button onSubmit = {handleSubmit}>Submit</button>
-        </form>
-    </div>);
-}
+        <button onSubmit={handleSubmit}>Submit</button>
+      </form>
+    </div>
+  );
+};
 
 export default connect(
-    state => {
-        return {
-            eventData: state.eventData,
-            isFetching: state.isFetching,
-            error: state.error
-        }
-    },
-    {createEvent}
-)(CreateEventForm)
+  state => {
+    return {
+      eventData: state.eventData,
+      isFetching: state.isFetching,
+      error: state.error
+    };
+  },
+  { createEvent }
+)(CreateEventForm);
