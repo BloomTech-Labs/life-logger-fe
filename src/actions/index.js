@@ -121,6 +121,18 @@ export const fetchEvents = () => dispatch => {
     .catch(error => dispatch({ type: FETCH_EVENTS_FAILURE, payload: error }));
 };
 
+
+export const fetchEventsByUserId = (user_id) => dispatch => {
+  dispatch({ type: FETCH_EVENTS_LOADING });
+  axiosWithAuth()
+    .get(`${host}/api/events/byuserid/${user_id}`)
+    .then(response =>
+      dispatch({ type: FETCH_EVENTS_SUCCESS, payload: response.data })
+    )
+    .catch(error => dispatch({ type: FETCH_EVENTS_FAILURE, payload: error }));
+};
+
+
 export const fetchEvent = id => dispatch => {
   dispatch({ type: FETCH_EVENT_LOADING });
   axiosWithAuth()
@@ -144,7 +156,7 @@ export const createEvent = newEvent => dispatch => {
 export const deleteEvent = id => dispatch => {
   dispatch({ type: DELETE_EVENT_START });
   axiosWithAuth()
-    .delete(`${host}/api/events/delete/${id}`)
+    .delete(`${host}/api/events/deleteevent/${id}`)
     .then(response =>
       dispatch({ type: DELETE_EVENT_SUCCESS, payload: response })
     )

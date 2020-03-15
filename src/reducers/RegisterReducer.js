@@ -34,13 +34,13 @@ function RegisterReducer(state = initialState, action) {
     case FETCH_USER_SUCCESS:
       return {
         ...state,
-        restData: action.payload,
+        userData: action.payload,
         error: null
       };
     case FETCH_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         isFetching: false,
         error: action.payload
       };
@@ -53,13 +53,13 @@ function RegisterReducer(state = initialState, action) {
     case UNFETCH_USER_SUCCESS:
       return {
         ...state,
-        restData: action.payload,
+        userData: action.payload,
         error: null
       };
     case UNFETCH_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         isFetching: false,
         error: action.payload
       };
@@ -72,13 +72,13 @@ function RegisterReducer(state = initialState, action) {
     case CREATE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: [...state, action.payload],
         error: null
       };
     case CREATE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     case DELETE_USER_START:
@@ -90,13 +90,13 @@ function RegisterReducer(state = initialState, action) {
     case DELETE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: [...state, action.payload],
         error: null
       };
     case DELETE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     case UPDATE_USER_START:
@@ -108,13 +108,13 @@ function RegisterReducer(state = initialState, action) {
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: [...state, action.payload],
         error: null
       };
     case UPDATE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     default:

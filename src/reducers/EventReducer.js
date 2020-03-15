@@ -33,13 +33,13 @@ import {
       case FETCH_EVENTS_SUCCESS:
         return {
             ...state,
-            restData: action.payload,
+            eventData: action.payload,
             error: null
         };
       case FETCH_EVENTS_FAILURE:
         return {
             ...state,
-            restData: [],
+            eventData: [],
             isFetching: false,
             error: action.payload
         };
@@ -52,13 +52,13 @@ import {
       case FETCH_EVENT_SUCCESS:
         return {
           ...state,
-          restData: action.payload,
+          eventData: action.payload,
           error: null
         };
       case FETCH_EVENT_FAILURE:
         return {
           ...state,
-          restData: [],
+          eventData: [],
           isFetching: false,
           error: action.payload
         };
@@ -71,13 +71,13 @@ import {
       case CREATE_EVENT_SUCCESS:
         return {
           ...state,
-          restData: action.payload,
+          eventData: action.payload,
           error: null
         };
       case CREATE_EVENT_FAILURE:
         return {
           ...state,
-          restData: [],
+          eventData: [],
           error: action.payload
         };
       case DELETE_EVENT_START:
@@ -89,13 +89,13 @@ import {
       case DELETE_EVENT_SUCCESS:
         return {
           ...state,
-          restData: [...state, action.payload],
+          eventData: [...state, action.payload],
           error: null
         };
       case DELETE_EVENT_FAILURE:
         return {
           ...state,
-          restData: [],
+          eventData: [],
           error: action.payload
         };
       case UPDATE_EVENT_START:
@@ -107,13 +107,13 @@ import {
       case UPDATE_EVENT_SUCCESS:
         return {
           ...state,
-          restData: [...state, action.payload],
+          eventData: [...state, action.payload],
           error: null
         };
       case UPDATE_EVENT_FAILURE:
         return {
           ...state,
-          restData: [],
+          eventData: [],
           error: action.payload
         };
       default:
