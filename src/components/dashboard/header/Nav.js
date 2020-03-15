@@ -6,12 +6,13 @@ import { connect } from "react-redux"
 //Components
 import { unfetchUser } from "../../../actions/index";
 import { NavContainer } from "../../../styles/Styles";
-import { Redirect } from "react-router-dom";
+
 
 
 const Nav = props => {
 
-  const token = window.localStorage.token
+  // const token = window.localStorage.token
+
   return( 
     <NavContainer>
         <div className = "nav-link">

@@ -1,6 +1,6 @@
 //Packages
 import React from "react";
-import { Redirect, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 //Components

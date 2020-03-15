@@ -136,7 +136,7 @@ export const fetchEventsByUserId = (user_id) => dispatch => {
 export const fetchEvent = id => dispatch => {
   dispatch({ type: FETCH_EVENT_LOADING });
   axiosWithAuth()
-    .get(`${host}/api/events/${id}`)
+    .get(`${host}/api/events/findbyid/${id}`)
     .then(response =>
       dispatch({ type: FETCH_EVENT_SUCCESS, payload: response.data })
     )
@@ -166,7 +166,7 @@ export const deleteEvent = id => dispatch => {
 export const updateEvent = (editedEvent, id) => dispatch => {
   dispatch({ type: UPDATE_EVENT_START });
   axiosWithAuth()
-    .put(`${host}/api/events/${id}`, editedEvent)
+    .put(`${host}/api/events/updateevent/${id}`, editedEvent)
     .then(response =>
       dispatch({ type: UPDATE_EVENT_SUCCESS, payload: response.data })
     )

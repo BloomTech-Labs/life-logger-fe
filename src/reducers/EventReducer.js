@@ -33,6 +33,7 @@ import {
       case FETCH_EVENTS_SUCCESS:
         return {
             ...state,
+            isFetching:false,
             eventData: action.payload,
             error: null
         };

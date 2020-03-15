@@ -1,26 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { updateEvent } from "../../actions/index";
-
-const initialValues = {
-  title: "",
-  start: "",
-  end: "",
-  allDay: true,
-  resource: ""
-};
+import { updateEvent, fetchEvent } from "../../actions/index";
 
 const UpdateEventForm = props => {
-  const [updateEvent, setUpdateEvent] = useState(initialValues);
+  const [updateEventObject, setUpdateEventObject] = useState({
+    title: props.eventData[0].title,
+  event_text: props.eventData[0].event_text,
+  location: props.eventData[0].location,
+  category: props.eventData[0].category,
+  event_ct_tm: props.eventData[0].event_ct_tm,
+  event_st_tm: props.eventData[0].event_st_tm,
+  event_et_tm: props.eventData[0].event_et_tm,
+  all_day: props.eventData[0].all_day,
+  event_resource: props.eventData[0].event_resource
+  });
 
   const handleChange = event => {
-    setUpdateEvent({ ...updateEvent, [event.target.name]: event.target.value });
+    setUpdateEventObject({
+      ...updateEventObject,
+      [event.target.name]: event.target.value
+    });
   };
 
-  const handleSubmit = event => {
-    event.preventDefault();
-
-    props.updateEvent(updateEvent, props.match.params.id);
+  const handleSubmit = asdf => {
+    asdf.preventDefault();
+    
+    props.updateEvent(updateEventObject, props.eventData[0].id);
   };
 
   return (
@@ -30,29 +35,57 @@ const UpdateEventForm = props => {
         <div>
           <div>
             <label>Title: </label>
-
             <input
               name="title"
               placeholder="title Name"
-              value={updateEvent.title}
+              value={updateEventObject.title}
               onChange={handleChange}
             />
           </div>
+          <div>
+            <label>Event Text: </label>
+            <input
+              name=" event_text"
+              placeholder="event_text"
+              value={updateEventObject.event_text}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <label>Location:</label>
+            <input
+              name="location"
+              placeholder="location"
+              value={updateEventObject.location}
+              onChange={handleChange}
+            />
+          </div>
+
+          <div>
+            <label>Category:</label>
+            <input
+              name="category"
+              placeholder="category"
+              value={updateEventObject.category}
+              onChange={handleChange}
+            />
+          </div>
+
           <div>
             <label>Start: </label>
             <input
               name="start"
               placeholder="start"
-              value={updateEvent.start}
+              value={updateEventObject.event_st_tm}
               onChange={handleChange}
             />
           </div>
           <div>
-            <label>City: </label>
+            <label>End: </label>
             <input
               name="end"
               placeholder="end"
-              value={updateEvent.end}
+              value={updateEventObject.event_et_tm}
               onChange={handleChange}
             />
           </div>
@@ -61,7 +94,7 @@ const UpdateEventForm = props => {
             <input
               name="allDay"
               type="checkbox"
-              checked={updateEvent.allDay}
+              checked={updateEventObject.allDay}
               // value = {newEvent.allDay}
               onChange={handleChange}
             />
@@ -69,7 +102,7 @@ const UpdateEventForm = props => {
             <input
               name="resource"
               placeholder="resource"
-              value={updateEvent.resource}
+              value={updateEventObject.resource}
               onChange={handleChange}
             />
           </div>
@@ -84,10 +117,10 @@ const UpdateEventForm = props => {
 export default connect(
   state => {
     return {
-      eventData: state.eventData,
+      eventData: state.events.eventData,
       isFetching: state.isFetching,
       error: state.error
     };
   },
-  { updateEvent }
+  { updateEvent, fetchEvent }
 )(UpdateEventForm);

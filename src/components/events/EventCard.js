@@ -1,22 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { deleteEvent, fetchEventsByUserId } from "../../actions/index";
+import {
+  deleteEvent,
+  fetchEventsByUserId,
+} from "../../actions/index";
+import UpdateEventForm from "./UpdateForm";
 
 const EventCard = props => {
   useEffect(() => {
+    FetchUser();
+  }, []);
+
+  function FetchUser() {
     props.fetchEventsByUserId(props.userData.user_id);
-  }, [props.userData.user_id]);
+  }
 
   return (
     <div>
       <h1>Card</h1>
-      {console.log("Event Data", props)}
       {props.eventData.map((event, key) => {
         return (
           <div key={event.id}>
             <div>
               <div>{event.title}</div>
-              <button onClick={()=>props.deleteEvent(event.id)}>Delete event</button>
+              <button onClick={() => props.deleteEvent(event.id)}>
+                Delete event
+              </button>
+              <button> Update Event</button>
+              <div>
+                <UpdateEventForm />
+              </div>
             </div>
           </div>
         );
