@@ -5,7 +5,7 @@ import './App.css';
 import React from 'react';
 import { Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import Dashboard from './components/dash-board';
+import Dashboard from './components/dashboard';
 //Components
 import Header from './components/dashboard/header/Header';
 import LandingPage from './components/landing-page/index';
