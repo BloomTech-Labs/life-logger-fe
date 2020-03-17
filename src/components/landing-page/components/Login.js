@@ -1,17 +1,15 @@
-import React, { useState } from "react";
-
-import { connect } from "react-redux";
-import { fetchUser } from "../../actions/index";
-
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { fetchUser } from '../../../store/actions';
 import {
-  LoginWrapper,
   LoginForm,
-  LoginRegisterButton
-} from "../../styles/Styles";
+  LoginRegisterButton,
+  LoginWrapper
+} from '../../../styles/Styles';
 
 const initialValues = {
-  username: "",
-  password: ""
+  username: '',
+  password: ''
 };
 
 const FetchUserForm = props => {
@@ -38,44 +36,48 @@ const FetchUserForm = props => {
         <div className="login-info-container">
           <h1>Life Logger</h1>
           <span>
-            Organize all the things about life that are irregular. The things
-            you forget to do. Change your oil, rotate your tires, replace your
-            AC air filter. Home, auto, other maintenance tasks. Log events,
-            later searchable so you can remember when /where /what you did.
+            Organize all the things about life that are
+            irregular. The things you forget to do. Change
+            your oil, rotate your tires, replace your AC air
+            filter. Home, auto, other maintenance tasks. Log
+            events, later searchable so you can remember
+            when /where /what you did.
           </span>
         </div>
 
-        <div className="login-img"></div>
+        <div className="login-img" />
       </div>
 
       <div className="login-form-container">
-      
         <LoginForm onSubmit={handleSubmit}>
-        <h2> Login</h2>
+          <h2> Login</h2>
           <div>
             <div>
               <input
-                name = "username"
-                placeholder = "username or email"
-                value = {user.username}
-                onChange = {handleChange}
+                name="username"
+                placeholder="username or email"
+                value={user.username}
+                onChange={handleChange}
               />
             </div>
 
             <div>
               <input
-                name = "password"
-                placeholder = "password"
-                type = "password"
-                value = {user.password}
-                onChange = {handleChange}
+                name="password"
+                placeholder="password"
+                type="password"
+                value={user.password}
+                onChange={handleChange}
               />
             </div>
-    
-            <LoginRegisterButton type="submit">Submit</LoginRegisterButton>
-    
+
+            <LoginRegisterButton type="submit">
+              Submit
+            </LoginRegisterButton>
           </div>
-          <LoginRegisterButton onClick={() => ToggleRegisterComponent()}>
+          <LoginRegisterButton
+            onClick={() => ToggleRegisterComponent()}
+          >
             Or register here!
           </LoginRegisterButton>
         </LoginForm>

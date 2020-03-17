@@ -1,48 +1,27 @@
-//Packages
-import React from "react";
-import { Route } from "react-router-dom";
-import { connect } from "react-redux";
-
-//Components
-import Header from "./components/dashboard/header/Header"
-import { createUser, fetchUser, /*updateUser*/ } from "./actions/index";
-import PrivateRoute from "./PrivateRoute"
-import Dashboard from "./components/dashboard/Dashboard";
-import LandingPage from "./components/landing page/LandingPage";
-import Footer from "./components/dashboard/Footer";
-import Register from "./components/landing page/Registraition";
-import CreateEventForm from "./components/events/CreateEvent";
-import LoadEvents from "./components/events/LoadEvents";
-
 //Style
-import "./App.css";
-import { AppContainer } from "./styles/Styles";
+import './App.css';
 
+//Packages
+import React from 'react';
+import { connect } from 'react-redux';
+import { Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import Dashboard from './components/dashboard/Dashboard';
+//Components
+import Header from './components/dashboard/header/Header';
+import LandingPage from './components/landing-page/index';
+import { createUser, fetchUser } from './store/actions';
+import { AppContainer } from './styles/Styles';
 
- 
 function App() {
-  const token = localStorage.token;
-
   return (
     <AppContainer>
       <Header />
-      
-      {!token? <Route exact path = "/" component = {LandingPage}/> :  null}
-
-      <PrivateRoute exact path = "/" component = {Dashboard}/>
-
-      <Route path = "/Register" component = {Register} />
-
-      <Route path = "/addevent" component = {CreateEventForm} />
-
-      <Route path = "/events" component = {LoadEvents} />
-
-      <Footer />
+      <PrivateRoute exact path="/" component={Dashboard} />
+      <Route exact path="/home" component={LandingPage} />
     </AppContainer>
   );
 }
-
-
 
 const mapStateToProps = state => {
   return {
@@ -51,4 +30,7 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { fetchUser, createUser })(App);
+export default connect(mapStateToProps, {
+  fetchUser,
+  createUser
+})(App);

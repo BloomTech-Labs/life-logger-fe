@@ -1,43 +1,49 @@
-import styled from "styled-components";
-import BackgroundImg from "../assets/img/Background.jpg";
+import styled from 'styled-components';
+import BackgroundImg from '../assets/img/Background.jpg';
 
 export const AppContainer = styled.div`
-  min-width: fit-content;
-  text-align: center;
-  background: url(${BackgroundImg}) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  color: white;
-  min-height: 100vh;
-  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: "#E8EEF1";
+  color: black;
 `;
 
 //Header
 
 export const HeaderContainer = styled.div`
-
   display: flex;
-  width: 100%;
   justify-content: space-between;
+  position: absolute;
+  padding: 0 20px;
+  width: 100%;
+  background-color: #057dcd;
 `;
-
 
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 500px;
 `;
 
 //Login Component
 
 export const LoginWrapper = styled.div`
-  background-color: rgba(0, 22, 46, 0.5);
-  color: white;
+  background-color: "#E8EEF1";
+  color: black;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  min-height: 50vh;
+  justify-content: center;
+  height: 100vh;
+  border: 1px solid black;
+  h1 {
+    width: 100%;
+  }
   @media (max-width: 850px) {
     flex-direction: column;
     align-items: center;
@@ -76,6 +82,11 @@ export const LoginWrapper = styled.div`
 export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
+  align-items:center;
+  h2 {
+    width: 100%;
+    text-align:center;
+  }
   > div {
     > div {
       > input {
@@ -100,7 +111,7 @@ export const FooterWrapper = styled.div`
   background: rgb(0, 0, 0); /* The Fallback */
   background-color: rgba(0, 22, 46, 0.5);
   width: 100%;
-  margin-top: 5%;
+  /* margin-top: 5%; */
   display: flex;
   flex-direction: row;
 
@@ -115,13 +126,14 @@ export const FooterWrapper = styled.div`
 `;
 
 export const ContactInfo = styled.div`
-width: 45%;
-margin: auto;
->p {
-  text-align: center;
-}
-@media (max-width: 600px) {
-  width:auto;
+  width: 45%;
+  margin: auto;
+  > p {
+    text-align: center;
+  }
+  @media (max-width: 600px) {
+    width: auto;
+  }
 `;
 
 export const SocialFollow = styled.div`
@@ -184,7 +196,6 @@ export const RegisterWrapper = styled.div`
     }
   }
 `;
-
 
 export const RegisterForm = styled.form`
   display: flex;
