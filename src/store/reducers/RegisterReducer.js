@@ -1,20 +1,20 @@
 import {
-  FETCH_USER_LOADING,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_FAILURE,
+  CREATE_USER_FAILURE,
   CREATE_USER_START,
   CREATE_USER_SUCCESS,
-  CREATE_USER_FAILURE,
+  DELETE_USER_FAILURE,
   DELETE_USER_START,
   DELETE_USER_SUCCESS,
-  DELETE_USER_FAILURE,
-  UPDATE_USER_START,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILURE,
+  FETCH_USER_FAILURE,
+  FETCH_USER_LOADING,
+  FETCH_USER_SUCCESS,
+  UNFETCH_USER_FAILURE,
   UNFETCH_USER_LOADING,
   UNFETCH_USER_SUCCESS,
-  UNFETCH_USER_FAILURE
-} from "../actions/index";
+  UPDATE_USER_FAILURE,
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS
+} from '../actions/index';
 
 const initialState = {
   userData: [],
@@ -23,7 +23,7 @@ const initialState = {
 };
 
 function RegisterReducer(state = initialState, action) {
-  console.log("Reducer Firing", action);
+  console.log('Reducer Firing', action);
   switch (action.type) {
     case FETCH_USER_LOADING:
       return {
@@ -72,7 +72,7 @@ function RegisterReducer(state = initialState, action) {
     case CREATE_USER_SUCCESS:
       return {
         ...state,
-        userData: [...state, action.payload],
+        userData: action.payload,
         error: null
       };
     case CREATE_USER_FAILURE:

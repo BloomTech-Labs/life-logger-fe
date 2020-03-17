@@ -21,6 +21,7 @@ const RegisterForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(createUser(newUser));
+    props.setActiveForm('login');
   };
 
   return (
