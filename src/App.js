@@ -7,7 +7,7 @@ import { Route } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard';
 //Components
-import Header from './components/dashboard/header/Header';
+import Header from './components/landing-page/components/Header';
 import LandingPage from './components/landing-page/index';
 import { AppContainer } from './styles/Styles';
 

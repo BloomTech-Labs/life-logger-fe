@@ -8,39 +8,36 @@ import { unfetchUser } from '../../../store/actions/index';
 import { NavContainer } from '../../../styles/Styles';
 
 const Nav = props => {
-  const { loggedIn } = useSelector(state => state.users);
-  
+  const { isLoggedIn } = useSelector(state => state.users);
+  console.log('loggedIn', isLoggedIn);
   return (
     <NavContainer>
-      {loggedIn &&
+      {isLoggedIn &&
         <>
           <div className="nav-link">
             <Link to="/">Home</Link>
           </div>
-            <div className="nav-link">
-              <Link to="/addevent">Add Event</Link>
-            </div>
 
-            <div className="nav-link">
-              <Link to="/events">My Events</Link>
-            </div>
+          <div className="nav-link">
+            <Link to="/calendar">Calendar</Link>
+          </div>
 
-            <div className="nav-link">
-              <Link to="/">Settings</Link>
-            </div>
+          <div className="nav-link">
+            <Link to="/">Settings</Link>
+          </div>
 
-            <div className="nav-link">
-              <Link
-                to="/"
-                onClick={() => props.unfetchUser()}
-              >
-                Log Out
-              </Link>
-            </div>
+          <div className="nav-link">
+            <Link
+              to="/settings"
+              onClick={() => props.unfetchUser()}
+            >
+              Log Out
+            </Link>
+          </div>
 
-            <div className="nav-search">
-              <button>Search Button</button>
-            </div>
+          <div className="nav-search">
+            <button>Search Button</button>
+          </div>
         </>}
     </NavContainer>
   );

@@ -18,6 +18,7 @@ import {
 
 const initialState = {
   userData: [],
+  isLoggedIn: false,
   error: null,
   isFetching: false
 };
@@ -28,12 +29,14 @@ function RegisterReducer(state = initialState, action) {
     case FETCH_USER_LOADING:
       return {
         ...state,
+        isLoggedIn: false,
         isFetching: true,
         error: null
       };
     case FETCH_USER_SUCCESS:
       return {
         ...state,
+        isLoggedIn: true,
         userData: action.payload,
         error: null
       };
@@ -41,18 +44,21 @@ function RegisterReducer(state = initialState, action) {
       return {
         ...state,
         userData: [],
+        isLoggedIn: false,
         isFetching: false,
         error: action.payload
       };
     case UNFETCH_USER_LOADING:
       return {
         ...state,
+        isLoggedIn: true,
         isFetching: true,
         error: null
       };
     case UNFETCH_USER_SUCCESS:
       return {
         ...state,
+        isLoggedIn: false,
         userData: action.payload,
         error: null
       };
@@ -60,6 +66,7 @@ function RegisterReducer(state = initialState, action) {
       return {
         ...state,
         userData: [],
+        isLoggedIn: true,
         isFetching: false,
         error: action.payload
       };
