@@ -9,7 +9,6 @@ import { NavContainer } from '../../../styles/Styles';
 
 const Nav = props => {
   const { isLoggedIn } = useSelector(state => state.users);
-  console.log('loggedIn', isLoggedIn);
   return (
     <NavContainer>
       {isLoggedIn &&
