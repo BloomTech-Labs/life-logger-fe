@@ -14,7 +14,7 @@ const Nav = props => {
       {isLoggedIn &&
         <>
           <div className="nav-link">
-            <Link to="/">Home</Link>
+            <Link exact to="/">Home</Link>
           </div>
 
           <div className="nav-link">
@@ -22,20 +22,16 @@ const Nav = props => {
           </div>
 
           <div className="nav-link">
-            <Link to="/">Settings</Link>
+            <Link to="/settings">Settings</Link>
           </div>
 
           <div className="nav-link">
             <Link
-              to="/settings"
+              exact to="/"
               onClick={() => props.unfetchUser()}
             >
               Log Out
             </Link>
-          </div>
-
-          <div className="nav-search">
-            <button>Search Button</button>
           </div>
         </>}
     </NavContainer>
