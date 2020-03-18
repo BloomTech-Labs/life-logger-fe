@@ -27,15 +27,11 @@ const Nav = props => {
 
           <div className="nav-link">
             <Link
-              to="/settings"
+              to="/home"
               onClick={() => props.unfetchUser()}
             >
               Log Out
             </Link>
-          </div>
-
-          <div className="nav-search">
-            <button>Search Button</button>
           </div>
         </>}
     </NavContainer>
