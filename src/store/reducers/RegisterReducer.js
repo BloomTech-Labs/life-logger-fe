@@ -1,65 +1,72 @@
 import {
-  FETCH_USER_LOADING,
-  FETCH_USER_SUCCESS,
-  FETCH_USER_FAILURE,
+  CREATE_USER_FAILURE,
   CREATE_USER_START,
   CREATE_USER_SUCCESS,
-  CREATE_USER_FAILURE,
+  DELETE_USER_FAILURE,
   DELETE_USER_START,
   DELETE_USER_SUCCESS,
-  DELETE_USER_FAILURE,
-  UPDATE_USER_START,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILURE,
+  FETCH_USER_FAILURE,
+  FETCH_USER_LOADING,
+  FETCH_USER_SUCCESS,
+  UNFETCH_USER_FAILURE,
   UNFETCH_USER_LOADING,
   UNFETCH_USER_SUCCESS,
-  UNFETCH_USER_FAILURE
-} from "../actions/index";
+  UPDATE_USER_FAILURE,
+  UPDATE_USER_START,
+  UPDATE_USER_SUCCESS
+} from '../actions/index';
 
 const initialState = {
   userData: [],
+  isLoggedIn: false,
   error: null,
   isFetching: false
 };
 
 function RegisterReducer(state = initialState, action) {
-  console.log("Reducer Firing", action);
+  console.log('Reducer Firing', action);
   switch (action.type) {
     case FETCH_USER_LOADING:
       return {
         ...state,
+        isLoggedIn: false,
         isFetching: true,
         error: null
       };
     case FETCH_USER_SUCCESS:
       return {
         ...state,
-        restData: action.payload,
+        isLoggedIn: true,
+        userData: action.payload,
         error: null
       };
     case FETCH_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
+        isLoggedIn: false,
         isFetching: false,
         error: action.payload
       };
     case UNFETCH_USER_LOADING:
       return {
         ...state,
+        isLoggedIn: true,
         isFetching: true,
         error: null
       };
     case UNFETCH_USER_SUCCESS:
       return {
         ...state,
-        restData: action.payload,
+        isLoggedIn: false,
+        userData: action.payload,
         error: null
       };
     case UNFETCH_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
+        isLoggedIn: true,
         isFetching: false,
         error: action.payload
       };
@@ -72,13 +79,13 @@ function RegisterReducer(state = initialState, action) {
     case CREATE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: action.payload,
         error: null
       };
     case CREATE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     case DELETE_USER_START:
@@ -90,13 +97,13 @@ function RegisterReducer(state = initialState, action) {
     case DELETE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: [...state, action.payload],
         error: null
       };
     case DELETE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     case UPDATE_USER_START:
@@ -108,13 +115,13 @@ function RegisterReducer(state = initialState, action) {
     case UPDATE_USER_SUCCESS:
       return {
         ...state,
-        restData: [...state, action.payload],
+        userData: [...state, action.payload],
         error: null
       };
     case UPDATE_USER_FAILURE:
       return {
         ...state,
-        restData: [],
+        userData: [],
         error: action.payload
       };
     default:

@@ -1,12 +1,24 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Route } from 'react-router-dom';
+import LandingPage from './components/landing-page';
+const PrivateRoute = ({
+  component: Component,
+  ...rest
+}) => {
+  const { token } = useSelector(
+    state => state.users.userData
+  );
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
-  const token = localStorage.token
-  console.log('PrivateRoute: token=', token)
   return (
-    <Route {...rest} render = {props => token ? <Component {...props} {...rest} /> : <Redirect to='/' />} />
-  )
-}
+    <Route
+      {...rest}
+      render={props =>
+        token
+          ? <Component {...props} {...rest} />
+          : <LandingPage />}
+    />
+  );
+};
 
-export default PrivateRoute
+export default PrivateRoute;
