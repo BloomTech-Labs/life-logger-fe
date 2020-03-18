@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchEventsByUserId } from '../../store/actions';
 import NewTaskForm from './components/NewTaskForm';
@@ -14,7 +14,7 @@ const Dashboard = () => {
     () => {
       dispatch(fetchEventsByUserId(userData.user_id));
     },
-    [userData, eventData, dispatch]
+    [userData, dispatch]
   );
 
   return (

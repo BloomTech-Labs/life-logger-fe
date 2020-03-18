@@ -202,8 +202,14 @@ export const fetchEvent = id => dispatch => {
       })
     );
 };
+// `${host}/api/events/byuserid/${user_id}`
+// fetchEventsByUserId(userData.user_id)
+export const createEvent = newEvent => (
+  dispatch,
+  state
+) => {
+  const user_id = state().users.userData.user_id;
 
-export const createEvent = newEvent => dispatch => {
   dispatch({ type: CREATE_EVENT_START });
   axiosWithAuth()
     .post(`${host}/api/events/insertevents`, newEvent)
@@ -213,6 +219,9 @@ export const createEvent = newEvent => dispatch => {
         payload: response.data
       })
     )
+    .then(() => {
+      dispatch(fetchEventsByUserId(user_id));
+    })
     .catch(error =>
       dispatch({
         type: CREATE_EVENT_FAILURE,
@@ -221,7 +230,8 @@ export const createEvent = newEvent => dispatch => {
     );
 };
 
-export const deleteEvent = id => dispatch => {
+export const deleteEvent = id => (dispatch, state) => {
+  const user_id = state().users.userData.user_id;
   dispatch({ type: DELETE_EVENT_START });
   axiosWithAuth()
     .delete(`${host}/api/events/deleteevent/${id}`)
@@ -231,6 +241,9 @@ export const deleteEvent = id => dispatch => {
         payload: response
       })
     )
+    .then(() => {
+      dispatch(fetchEventsByUserId(user_id));
+    })
     .catch(error =>
       dispatch({
         type: DELETE_EVENT_FAILURE,
@@ -239,10 +252,11 @@ export const deleteEvent = id => dispatch => {
     );
 };
 
-export const updateEvent = (
-  editedEvent,
-  id
-) => dispatch => {
+export const updateEvent = (editedEvent, id) => (
+  dispatch,
+  state
+) => {
+  const user_id = state().users.userData.user_id;
   dispatch({ type: UPDATE_EVENT_START });
   axiosWithAuth()
     .put(
@@ -255,6 +269,9 @@ export const updateEvent = (
         payload: response.data
       })
     )
+    .then(() => {
+      dispatch(fetchEventsByUserId(user_id));
+    })
     .catch(error =>
       dispatch({
         type: UPDATE_EVENT_FAILURE,
