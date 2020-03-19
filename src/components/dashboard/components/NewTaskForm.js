@@ -46,10 +46,6 @@ const NewTaskForm = () => {
       .utc()
       .format();
 
-    console.log('today', today);
-    console.log('startDateUTC', startDateUTC);
-    console.log('endDateUTC', endDateUTC);
-
     dispatch(
       createEvent({
         ...newTask,
@@ -132,6 +128,8 @@ const NewTaskForm = () => {
               />
             </div>
           </div>
+          <span>Event Notes:</span>
+        <textarea name="event_text" value={newTask.event_text} onChange={handleChange}/>
           <div className="task-form-buttons">
             <button
               type="button"

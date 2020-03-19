@@ -18,6 +18,7 @@ import {
 
 const initialState = {
   eventData: [],
+  currentEvent: null,
   error: null,
   isFetching: false
 };
@@ -53,13 +54,12 @@ function EventReducer(state = initialState, action) {
     case FETCH_EVENT_SUCCESS:
       return {
         ...state,
-        eventData: action.payload,
+        currentEvent: action.payload,
         error: null
       };
     case FETCH_EVENT_FAILURE:
       return {
         ...state,
-        eventData: [],
         isFetching: false,
         error: action.payload
       };
@@ -92,13 +92,12 @@ function EventReducer(state = initialState, action) {
     case DELETE_EVENT_SUCCESS:
       return {
         ...state,
-        eventData: [...state, action.payload],
+        currentEvent: action.payload,
         error: null
       };
     case DELETE_EVENT_FAILURE:
       return {
         ...state,
-        eventData: [],
         error: action.payload
       };
     case UPDATE_EVENT_START:
@@ -110,13 +109,12 @@ function EventReducer(state = initialState, action) {
     case UPDATE_EVENT_SUCCESS:
       return {
         ...state,
-        eventData: [...state, action.payload],
+        currentEvent: action.payload,
         error: null
       };
     case UPDATE_EVENT_FAILURE:
       return {
         ...state,
-        eventData: [],
         error: action.payload
       };
     default:
