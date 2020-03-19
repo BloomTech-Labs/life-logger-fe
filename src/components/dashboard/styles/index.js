@@ -34,16 +34,16 @@ export const NewTaskForm = styled.form`
 
   padding-top: 60px;
 
+  button {
+    align-self: flex-end;
+  }
+
   div.task-input-title {
     display: flex;
     justify-content: space-between;
 
     input {
-      width: 85%;
-    }
-
-    button {
-      width: 10%;
+      width: 100%;
     }
   }
 

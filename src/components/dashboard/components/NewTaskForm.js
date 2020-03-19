@@ -6,7 +6,7 @@ import { NewTaskForm as Form } from '../styles';
 
 const NewTaskForm = () => {
   const dispatch = useDispatch();
-  const {userData} = useSelector(state => state.users)
+  const { userData } = useSelector(state => state.users);
   const [startDate, setStartDate] = useState('');
   const [startTime, setStartTime] = useState('');
   const [endDate, setEndDate] = useState('');
@@ -36,7 +36,7 @@ const NewTaskForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
 
-    const today = moment().utc().format()
+    const today = moment().utc().format();
 
     const startDateUTC = moment(`${startDate} ${startTime}`)
       .utc()
@@ -46,9 +46,9 @@ const NewTaskForm = () => {
       .utc()
       .format();
 
-    console.log("today", today);
-    console.log("startDateUTC", startDateUTC);
-    console.log("endDateUTC", endDateUTC);
+    console.log('today', today);
+    console.log('startDateUTC', startDateUTC);
+    console.log('endDateUTC', endDateUTC);
 
     dispatch(
       createEvent({
@@ -59,28 +59,30 @@ const NewTaskForm = () => {
       })
     );
 
-    setToggleForm(false)
+    setToggleForm(false);
   };
 
   return (
     <Form>
-      <div className="task-input-title">
-        <input
-          type="text"
-          name="title"
-          value={newTask.title}
-          onChange={handleChange}
-          placeholder="Add a task..."
-        />
+      {!toggleForm &&
         <button
           type="button"
           onClick={() => setToggleForm(true)}
         >
           Create Task
-        </button>
-      </div>
+        </button>}
+
       {toggleForm &&
         <>
+          <div className="task-input-title">
+            <input
+              type="text"
+              name="title"
+              value={newTask.title}
+              onChange={handleChange}
+              placeholder="Add a task..."
+            />
+          </div>
           <div className="task-input-info">
             <div>
               <span>Start Date:</span>
@@ -102,7 +104,7 @@ const NewTaskForm = () => {
               <input
                 type="date"
                 value={endDate}
-              onChange={e => setEndDate(e.target.value)}
+                onChange={e => setEndDate(e.target.value)}
               />
               <span>End Time:</span>
               <input
@@ -113,14 +115,21 @@ const NewTaskForm = () => {
             </div>
             <div>
               <span>Category</span>
-              <select name="category" onChange={handleChange}>
+              <select
+                name="category"
+                onChange={handleChange}
+              >
                 <option value="">Select...</option>
                 <option value={0}>Category 1</option>
                 <option value={1}>Category 1</option>
                 <option value={2}>Category 1</option>
               </select>
               <span>Location:</span>
-              <input type="text" name="location" onChange={handleChange} />
+              <input
+                type="text"
+                name="location"
+                onChange={handleChange}
+              />
             </div>
           </div>
           <div className="task-form-buttons">
