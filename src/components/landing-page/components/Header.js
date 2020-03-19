@@ -8,8 +8,12 @@ import Nav from './Nav';
 function Header() {
   return (
     <HeaderContainer>
-      <Link to="/">
-        <h4>Lyfe Logger</h4>{' '}
+      <Link to="/" style={{
+        marginLeft: '40px', textDecoration: 'none',
+        color: 'white'
+      }}
+      >
+        <h4>LYFE LOGGER</h4>{' '}
       </Link>
 
       <Nav />

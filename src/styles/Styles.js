@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import BackgroundImg from '../assets/img/Background.jpg';
 
 export const AppContainer = styled.div`
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,17 +19,20 @@ export const AppContainer = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
   padding: 0 20px;
   width: 100%;
+  height: 50px;
   background-color: #057dcd;
 `;
 
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 500px;
+  justify-content: space-around;
+  width: 35%;
+  margin-right: 20px;
 `;
 
 //Login Component
