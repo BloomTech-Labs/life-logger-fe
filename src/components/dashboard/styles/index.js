@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,9 +18,10 @@ export const ListContainer = styled.div`
 
 export const ListItem = styled.div`
   display: flex;
-  justify-content: flex-start
+  justify-content: flex-start;
   width: 100%;
   border-bottom: 1px solid black;
+  cursor: pointer;
 `;
 
 export const NewTaskForm = styled.form`
@@ -58,6 +58,11 @@ export const NewTaskForm = styled.form`
     }
   }
 
+  textarea {
+    width: 100%;
+    height: 50px;
+  }
+
   div.task-form-buttons {
     display: flex;
     justify-content: flex-end;
@@ -74,6 +79,56 @@ export const NewTaskForm = styled.form`
 
     button.confirm-button {
       background: light-green;
+    }
+  }
+`;
+
+export const TaskContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 30px;
+  padding-top: 60px;
+  height: 100vh;
+  width: 1200px;
+
+  .category {
+    width: 100px;
+    background: '#a0a0a0';
+    border: 1px solid black;
+  }
+
+  .task-info {
+    display: flex;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      width: 400px;
+
+      margin-bottom: 10px;
+    }
+  }
+
+  .description {
+    width: 100%;
+    height: 250px;
+
+    border: 1px solid black;
+    padding: 5px;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+
+    button {
+      width: 100px;
+      height: 20px;
+      margin-left: 10px;
     }
   }
 `;
