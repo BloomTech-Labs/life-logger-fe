@@ -156,7 +156,7 @@ const EditTask = props => {
               </div>
           </div>
           <p className="description">
-            <input
+            <textarea
             className="event-text-edit"
             type="text"
             name="event_text"

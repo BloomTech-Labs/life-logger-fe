@@ -131,9 +131,11 @@ export const TaskContainer = styled.div`
     padding: 5px;
   }
   
-  .event-text-edit {
+  textarea {
+    width: 100%;
+    height: 100%;
     border: none;
-    width:100%
+    outline:none;
   }
 
   .button-container {
