@@ -25,6 +25,10 @@ export const HeaderContainer = styled.div`
   height: 60px;
   background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+
+  h4 {
+    font-size: 2.5rem;
+  }
 `;
 
 export const NavContainer = styled.div`

@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100vh;
   width: 1200px;
 
-  border: 1px solid black;
+  // border: 1px solid black;
 `;
 
 export const ListContainer = styled.div`
@@ -19,9 +19,16 @@ export const ListContainer = styled.div`
 export const ListItem = styled.div`
   display: flex;
   justify-content: flex-start;
-  width: 100%;
-  border-bottom: 1px solid black;
+  align-items: center;
+  width: 50%;
+  height: 30px;
+  border-bottom: 1px solid #9033DF;
+  border-left: 3px solid green;
+  
+  // background-color: #9033DF;
+  // color: white;
   cursor: pointer;
+  margin: 5px 0;
 `;
 
 export const NewTaskForm = styled.form`
@@ -30,12 +37,21 @@ export const NewTaskForm = styled.form`
 
   width: 100%;
 
-  border: 1px solid black;
-
   padding-top: 60px;
+
+  input {
+    height: 30px;
+    margin: 10px;
+    border: 1px solid #82D1F1;
+  }
 
   button {
     align-self: flex-end;
+    width: 220px;
+    height: 40px;
+    background-color: #0abcf9;
+    background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+    color: white;
   }
 
   div.task-input-title {
