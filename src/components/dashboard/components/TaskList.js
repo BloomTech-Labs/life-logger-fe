@@ -14,7 +14,9 @@ const TaskList = props => {
       {props.events.map(event => {
         return (
           <ListItem onClick={() => handleClick(event.id)}>
-            {event.title}
+            <div>
+              {event.title}
+            </div>
           </ListItem>
         );
       })}

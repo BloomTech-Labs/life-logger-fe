@@ -64,6 +64,7 @@ const NewTaskForm = () => {
         <button
           type="button"
           onClick={() => setToggleForm(true)}
+          style={{ marginTop: '20px'}}
         >
           Create Task
         </button>}
@@ -77,6 +78,7 @@ const NewTaskForm = () => {
               value={newTask.title}
               onChange={handleChange}
               placeholder="Add a task..."
+              style={{marginTop: "30px"}}
             />
           </div>
           <div className="task-input-info">
@@ -111,6 +113,7 @@ const NewTaskForm = () => {
             </div>
             <div>
               <span>Category</span>
+              <br/>
               <select
                 name="category"
                 onChange={handleChange}

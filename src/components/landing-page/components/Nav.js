@@ -1,8 +1,7 @@
 //Packages
 import React from 'react';
 import { connect, useSelector } from 'react-redux';
-import { Link as UnstyledLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 //Components
 import { unfetchUser } from '../../../store/actions/index';
 import { NavContainer } from '../../../styles/Styles';
@@ -14,21 +13,28 @@ const Nav = props => {
       {isLoggedIn &&
         <>
           <div className="nav-link">
-            <Link exact to="/">Home</Link>
+            <Link exact to="/" style={{ textDecoration: 'none',color: 'white'}}>
+              Home
+            </Link>
           </div>
 
           <div className="nav-link">
-            <Link to="/calendar">Calendar</Link>
+            <Link to="/calendar" style={{ textDecoration: 'none',color: 'white'}}>
+              Calendar
+            </Link>
           </div>
 
           <div className="nav-link">
-            <Link to="/settings">Settings</Link>
+            <Link to="/settings" style={{ textDecoration: 'none',color: 'white'}}>
+              Settings
+            </Link>
           </div>
 
           <div className="nav-link">
             <Link
               exact to="/"
               onClick={() => props.unfetchUser()}
+              style={{ textDecoration: 'none',color: 'white'}}
             >
               Log Out
             </Link>
@@ -37,10 +43,6 @@ const Nav = props => {
     </NavContainer>
   );
 };
-
-const Link = styled(UnstyledLink)`
-
-`;
 
 export default connect(
   state => {

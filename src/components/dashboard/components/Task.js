@@ -36,7 +36,7 @@ const Task = props => {
         );
 
         setDueDate(
-          moment(currentEvent.event_st_tm).format(
+          moment(currentEvent.event_et_tm).format(
             'ddd, MMM Do, YYYY - H:mm A'
           )
         );
