@@ -105,7 +105,7 @@ const EditTask = props => {
             onChange={handleChange}
           /></h1>
           <div className="task-info">
-          <div>
+              <div>
                 <span>Start Date:</span>
                 <input
                   type="date"
@@ -165,8 +165,8 @@ const EditTask = props => {
             />
           </p>
           <div className="button-container">
-            <button onClick={handleSubmit}>Confirm</button>
             <button onClick={()=>history.push(`/task/${eventID}`)}>Cancel</button>
+            <button onClick={handleSubmit}>Confirm</button>
           </div>
       </TaskContainer>
       </form>

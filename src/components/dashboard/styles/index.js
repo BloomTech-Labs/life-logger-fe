@@ -108,9 +108,10 @@ export const TaskContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: center;
   padding: 0 30px;
   padding-top: 60px;
-  height: 100vh;
+  height: 80vh;
   width: 1200px;
   margin-top: 40px;
 
@@ -122,7 +123,7 @@ export const TaskContainer = styled.div`
   .category {
     width: 100px;
     background: '#a0a0a0';
-    border: 1px solid black;
+    border: 0.5px solid #0abcf9;
   }
 
   .task-title-edit {
@@ -134,7 +135,12 @@ export const TaskContainer = styled.div`
 
   input:focus {
     outline:none;
-}
+  }
+  
+  input {
+    width: 220px;
+    height: 30px;
+  }
 
   .task-info {
     display: flex;
@@ -143,7 +149,7 @@ export const TaskContainer = styled.div`
     div {
       display: flex;
       justify-content: space-between;
-      width: 400px;
+      width: 550px;
       margin: 10px;
     }
   }
