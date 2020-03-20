@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import BackgroundImg from '../assets/img/Background.jpg';
 
 export const AppContainer = styled.div`
+  font-size: 1.6rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
   height: 100vh;
-
-  background-color: "#E8EEF1";
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%);
   color: black;
 `;
 
@@ -18,17 +18,25 @@ export const AppContainer = styled.div`
 export const HeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   position: absolute;
   padding: 0 20px;
-  width: 100%;
-  background-color: #057dcd;
+  width: 97%;
+  height: 60px;
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+
+  h4 {
+    font-size: 2.5rem;
+  }
 `;
 
 export const NavContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 500px;
+  justify-content: space-around;
+  width: 35%;
+  margin-right: 20px;
 `;
 
 //Login Component
