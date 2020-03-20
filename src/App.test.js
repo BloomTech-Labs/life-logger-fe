@@ -1,9 +1,11 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import App from './App';
+import ReactDom from 'react-dom';
+import { BrowserRouter, Link} from 'react-router-dom';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+it('renders without crashing', ()=> {
+    <BrowserRouter>
+    const div = document.createElement('div');
+    ReactDom.render(<App />, div);
+    </BrowserRouter>
+})
