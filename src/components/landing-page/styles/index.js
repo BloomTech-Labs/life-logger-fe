@@ -13,7 +13,7 @@ export const Hero = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
+  width: 55%;
   height: 100vh;
   padding: 20px;
   margin-top: 35px;
@@ -26,7 +26,7 @@ export const Hero = styled.div`
   p {
     font-size: 2.0rem;
     margin-top: 30px;
-    width: 300px;
+    width: 55%;
     text-align: justify;
   }
 `;
