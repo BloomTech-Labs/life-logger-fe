@@ -11,7 +11,7 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.19.2",
-    "jest": "^25.1.0",
+    "jest": "^24.9.0",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "react": "^16.12.0",
