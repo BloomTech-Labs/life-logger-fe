@@ -105,6 +105,10 @@ export const TaskContainer = styled.div`
     width:100%
   }
 
+  input:focus {
+    outline:none;
+}
+
   .task-info {
     display: flex;
     flex-direction: column;
