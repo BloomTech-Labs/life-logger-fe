@@ -6,11 +6,10 @@ export const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   width: 100%;
   height: 100vh;
-
-  background-color: "#E8EEF1";
+  background: rgb(255,255,255);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%);
   color: black;
 `;
 
@@ -22,9 +21,10 @@ export const HeaderContainer = styled.div`
   align-items: center;
   position: absolute;
   padding: 0 20px;
-  width: 100%;
-  height: 50px;
-  background-color: #057dcd;
+  width: 97%;
+  height: 60px;
+  background-color: #045de9;
+  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
 `;
 
 export const NavContainer = styled.div`

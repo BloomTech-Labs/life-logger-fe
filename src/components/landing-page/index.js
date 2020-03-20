@@ -10,7 +10,7 @@ const LandingPage = () => {
     <Container>
       <Hero>
         <h1>Life Logger</h1>
-        <p>
+        <p >
           Organize all the things about life that are
           irregular. The things you forget to do. Change
           your oil, rotate your tires, replace your AC air
