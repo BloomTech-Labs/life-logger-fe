@@ -41,6 +41,7 @@ const EditTask = props => {
   useEffect(
     () => {
       if (currentEvent) {
+        console.log(currentEvent)
         setTask({
           ...task, 
         title: currentEvent.title,
@@ -80,7 +81,6 @@ const EditTask = props => {
       .utc()
       .format();
 
-      console.log(task)
     dispatch(
       updateEvent({
         ...task,
@@ -89,7 +89,7 @@ const EditTask = props => {
         event_et_tm: endDateUTC
       }, eventID)
     );
-    history.push(`/task/${eventID}`)
+    history.push(`/`)
   };
 
 
@@ -138,7 +138,7 @@ const EditTask = props => {
                 <span>Category</span>
                 <select
                   name="category"
-                  value={currentEvent.category}
+                  value={task.category}
                   onChange={handleChange}
                 >
                   <option value="">Select...</option>
@@ -150,7 +150,7 @@ const EditTask = props => {
                 <input
                   type="text"
                   name="location"
-                  value={currentEvent.location}
+                  value={task.location}
                   onChange={handleChange}
                 />
               </div>
