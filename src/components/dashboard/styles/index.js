@@ -98,6 +98,13 @@ export const TaskContainer = styled.div`
     border: 1px solid black;
   }
 
+  .task-title-edit {
+    font-size:32px;
+    font-weight: bold;
+    border: none;
+    width:100%
+  }
+
   .task-info {
     display: flex;
     flex-direction: column;
@@ -112,11 +119,17 @@ export const TaskContainer = styled.div`
   }
 
   .description {
+    vertical-align: text-top;
     width: 100%;
     height: 250px;
 
     border: 1px solid black;
     padding: 5px;
+  }
+  
+  .event-text-edit {
+    border: none;
+    width:100%
   }
 
   .button-container {
