@@ -24,14 +24,14 @@ describe('Events Reducer', () => {
     expect(newState.events.isFetching).toBe(false);
     expect(newState.events.error).toBe(null);
   });
-/*
-  /// FETCH EVENTS FAILURE
-  it('FETCH EVENTS FAILURE', () => {
+
+  /// FETCH EVENTS LOADING
+  it('FETCH EVENTS LOADING', () => {
     
-    store.dispatch({ type: 'FETCH_EVENTS_FAILURE' });
+    store.dispatch({ type: 'FETCH_EVENT_LOADING' });
     newState = store.getState();
     expect(newState.events.isFetching).toBe(false);
     expect(newState.events.error).toBe(null);
   });
-*/
+
 });
