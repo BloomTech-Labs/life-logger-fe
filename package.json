@@ -29,7 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test", 
+    "testj": "jest",
     "eject": "react-scripts eject",
     "coverage": "jest --coverage --detectOpenHandles --forceExit || true"
   },
