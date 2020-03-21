@@ -25,8 +25,8 @@ describe('Events Reducer', () => {
     expect(newState.events.error).toBe(null);
   });
 
-  /// FETCH EVENTS LOADING
-  it('FETCH EVENTS LOADING', () => {
+  /// FETCH EVENT LOADING
+  it('FETCH EVENT LOADING', () => {
     
     store.dispatch({ type: 'FETCH_EVENT_LOADING' });
     newState = store.getState();
