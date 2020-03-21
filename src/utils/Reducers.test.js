@@ -30,7 +30,7 @@ describe('Events Reducer', () => {
     
     store.dispatch({ type: 'FETCH_EVENT_LOADING' });
     newState = store.getState();
-    expect(newState.events.isFetching).toBe(false);
+    expect(newState.events.isFetching).toBe(true);
     expect(newState.events.error).toBe(null);
   });
 
