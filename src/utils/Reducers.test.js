@@ -34,4 +34,33 @@ describe('Events Reducer', () => {
     expect(newState.events.error).toBe(null);
   });
 
+  /// CREATE EVENT START
+  it('CREATE EVENT START', () => {
+    
+    store.dispatch({ type: 'CREATE_EVENT_START' });
+    newState = store.getState();
+    expect(newState.events.isFetching).toBe(true);
+    expect(newState.events.error).toBe(null);
+  });
+
+  /// DELETE EVENT START
+  it('DELETE EVENT START', () => {
+    
+    store.dispatch({ type: 'DELETE_EVENT_START' });
+    newState = store.getState();
+    expect(newState.events.isFetching).toBe(true);
+    expect(newState.events.error).toBe(null);
+  });
+
+  /// UPDATE EVENT START
+  it('UPDATE EVENT START', () => {
+    
+    store.dispatch({ type: 'UPDATE_EVENT_START' });
+    newState = store.getState();
+    expect(newState.events.isFetching).toBe(true);
+    expect(newState.events.error).toBe(null);
+  });
+
+
+
 });
