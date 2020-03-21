@@ -1,11 +1,11 @@
-import thunk from 'redux-thunk';
 import { applyMiddleware, createStore } from 'redux';
-import { rootReducer } from '../store/reducers/index.js';
+import thunk from 'redux-thunk';
+import rootReducer from '../store/reducers/index';
 const createAStore = () => {
-  const returnStore = createStore(rootReducer, applyMiddleware(thunk));
-  //const returnStore = createStore(rootReducer,['Use Redux']);
-  
+  const returnStore = createStore(
+    rootReducer,
+    applyMiddleware(thunk)
+  );
   return returnStore;
 };
 export default createAStore;
-
