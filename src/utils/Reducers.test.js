@@ -1,4 +1,4 @@
-import testStore from './testStore';
+import testStore from './testStore.js';
 
 describe('Events Reducer', () => {
     const expectedState = {
