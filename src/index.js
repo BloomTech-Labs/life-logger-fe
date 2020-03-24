@@ -1,25 +1,20 @@
 //Packages and Modules
 
-import './index.css';
-import 'react-big-calendar/lib/css/react-big-calendar.css';
+import "./index.css";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
-import {
-  applyMiddleware,
-  compose,
-  createStore
-} from 'redux';
-import logger from 'redux-logger';
-import thunk from 'redux-thunk';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
-import rootReducer from './store/reducers';
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
+import { applyMiddleware, compose, createStore } from "redux";
+import logger from "redux-logger";
+import thunk from "redux-thunk";
+import App from "./App";
+import * as serviceWorker from "./serviceWorker";
+import rootReducer from "./store/reducers";
 
-const composeEnhancer =
-  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 ReactDOM.render(
   <Provider
@@ -30,9 +25,9 @@ ReactDOM.render(
   >
     <Router>
       <App />
-    </Router>{' '}
+    </Router>{" "}
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
