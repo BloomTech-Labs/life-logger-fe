@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { createUser } from '../../../store/actions';
-import { RegisterForm as Form } from '../styles';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createUser } from "../../../store/actions";
+import { RegisterForm as Form } from "../styles";
 
 const RegisterForm = props => {
   const dispatch = useDispatch();
   const [newUser, setNewUser] = useState({
-    username: '',
-    password: '',
-    email: ''
+    username: "",
+    password: "",
+    email: ""
   });
 
   const handleChange = e => {
@@ -21,7 +21,7 @@ const RegisterForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(createUser(newUser));
-    props.setActiveForm('login');
+    props.setActiveForm("login");
   };
 
   return (
@@ -33,6 +33,7 @@ const RegisterForm = props => {
           placeholder="Username"
           value={newUser.username}
           onChange={handleChange}
+          required
         />
 
         <input
@@ -41,6 +42,7 @@ const RegisterForm = props => {
           placeholder="Password"
           value={newUser.password}
           onChange={handleChange}
+          required
         />
 
         <input
@@ -48,13 +50,11 @@ const RegisterForm = props => {
           placeholder="Email"
           value={newUser.email}
           onChange={handleChange}
+          required
         />
+
         <button type="submit">Submit</button>
-        <button
-          onClick={() => props.setActiveForm('login')}
-        >
-          Go Back
-        </button>
+        <button onClick={() => props.setActiveForm("login")}>Go Back</button>
       </div>
     </Form>
   );
