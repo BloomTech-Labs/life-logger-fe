@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchEventsByUserId } from '../../store/actions';
 import NewTaskForm from './components/NewTaskForm';
 import TaskList from './components/TaskList';
-import { Container } from './styles';
+import { Container, ListHeader } from './styles';
 
 const Dashboard = () => {
   const dispatch = useDispatch();

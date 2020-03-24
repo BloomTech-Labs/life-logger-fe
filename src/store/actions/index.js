@@ -54,22 +54,14 @@ export const fetchUser = user => dispatch => {
   axiosWithAuth()
     .post(`${host}/api/auth/login`, user)
     .then(response => {
-      window.localStorage.setItem(
-        'id',
-        response.data.user_id
-      );
-      window.localStorage.setItem(
-        'token',
-        response.data.token
-      );
+      window.localStorage.setItem('id', response.data.user_id);
+      window.localStorage.setItem('token', response.data.token);
       dispatch({
         type: FETCH_USER_SUCCESS,
         payload: response.data
       });
     })
-    .catch(error =>
-      dispatch({ type: FETCH_USER_FAILURE, payload: error })
-    );
+    .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
 };
 
 export const unfetchUser = () => dispatch => {
@@ -83,9 +75,7 @@ export const unfetchUser = () => dispatch => {
         payload: response.data
       });
     })
-    .catch(error =>
-      dispatch({ type: FETCH_USER_FAILURE, payload: error })
-    );
+    .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
 };
 
 export const createUser = newUser => dispatch => {
@@ -171,12 +161,28 @@ export const fetchEventsByUserId = user_id => dispatch => {
   dispatch({ type: FETCH_EVENTS_LOADING });
   axiosWithAuth()
     .get(`${host}/api/events/byuserid/${user_id}`)
-    .then(response =>
+    .then(response => {
+      let events = response.data;
+      console.log('events', events);
+      events.sort((event1, event2) => {
+        if (new Date(event1.event_et_tm) < new Date(event2.event_et_tm)) {
+          return -1;
+        }
+
+        if (new Date(event1.event_et_tm) > new Date(event2.event_et_tm)) {
+          return 1;
+        }
+
+        return 0;
+      });
+
+      console.log('events after', events);
+
       dispatch({
         type: FETCH_EVENTS_SUCCESS,
-        payload: response.data
-      })
-    )
+        payload: events
+      });
+    })
     .catch(error =>
       dispatch({
         type: FETCH_EVENTS_FAILURE,
@@ -204,10 +210,7 @@ export const fetchEvent = id => dispatch => {
 };
 // `${host}/api/events/byuserid/${user_id}`
 // fetchEventsByUserId(userData.user_id)
-export const createEvent = newEvent => (
-  dispatch,
-  state
-) => {
+export const createEvent = newEvent => (dispatch, state) => {
   const user_id = state().users.userData.user_id;
 
   dispatch({ type: CREATE_EVENT_START });
@@ -252,17 +255,11 @@ export const deleteEvent = id => (dispatch, state) => {
     );
 };
 
-export const updateEvent = (editedEvent, id) => (
-  dispatch,
-  state
-) => {
+export const updateEvent = (editedEvent, id) => (dispatch, state) => {
   const user_id = state().users.userData.user_id;
   dispatch({ type: UPDATE_EVENT_START });
   axiosWithAuth()
-    .put(
-      `${host}/api/events/updateevent/${id}`,
-      editedEvent
-    )
+    .put(`${host}/api/events/updateevent/${id}`, editedEvent)
     .then(response =>
       dispatch({
         type: UPDATE_EVENT_SUCCESS,
