@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
-import Fade from 'react-reveal/Fade';
+import Fade from 'react-reveal';
 // styling:
 import { Container, Hero } from './styles';
 
