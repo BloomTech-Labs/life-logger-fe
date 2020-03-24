@@ -17,22 +17,55 @@ export const ListContainer = styled.div`
   margin-top: 30px;
 `;
 
+export const ListHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 30px;
+  border-bottom: 1px solid #9033df;
+  margin-left: 5px;
+  // background-color: #9033DF;
+  // color: white;
+  margin: 5px 0;
+
+  div.task-title {
+    margin-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  div.task-due-date {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    font-size: 20px;
+    font-weight: bold;
+  }
+`;
+
 export const ListItem = styled.div`
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
-  width: 50%;
+  width: 100%;
   height: 30px;
-  border-bottom: 1px solid #9033DF;
+  border-bottom: 1px solid #9033df;
   border-left: 5px solid green;
-  
+
   // background-color: #9033DF;
   // color: white;
   cursor: pointer;
   margin: 5px 0;
-  
-  div {
+
+  div.task-title {
     margin-left: 10px;
+  }
+
+  div.task-due-date {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
   }
 `;
 
@@ -46,8 +79,8 @@ export const NewTaskForm = styled.form`
 
   input {
     height: 30px;
-    margin: 10px;
-    border: 1px solid #82D1F1;
+    border: 1px solid #82d1f1;
+    margin-bottom: 20px;
   }
 
   button {
@@ -62,6 +95,7 @@ export const NewTaskForm = styled.form`
   div.task-input-title {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 5px;
 
     input {
       width: 100%;
@@ -76,12 +110,14 @@ export const NewTaskForm = styled.form`
       display: flex;
       flex-direction: column;
       width: 30%;
+      margin-bottom: 5px;
     }
   }
 
   textarea {
     width: 100%;
-    height: 50px;
+    height: 70px;
+    margin-bottom: 10px;
   }
 
   div.task-form-buttons {
@@ -127,16 +163,16 @@ export const TaskContainer = styled.div`
   }
 
   .task-title-edit {
-    font-size:32px;
+    font-size: 32px;
     font-weight: bold;
     border: none;
-    width:100%
+    width: 100%;
   }
 
   input:focus {
-    outline:none;
+    outline: none;
   }
-  
+
   input {
     width: 220px;
     height: 30px;
@@ -162,12 +198,12 @@ export const TaskContainer = styled.div`
     border: 0.5px solid #0abcf9;
     padding: 5px;
   }
-  
+
   textarea {
     width: 100%;
     height: 100%;
     border: none;
-    outline:none;
+    outline: none;
   }
 
   .button-container {

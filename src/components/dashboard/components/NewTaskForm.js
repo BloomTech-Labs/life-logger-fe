@@ -55,6 +55,24 @@ const NewTaskForm = () => {
       })
     );
 
+    setNewTask({
+      user_id: userData.user_id,
+      title: '',
+      event_text: '',
+      location: '',
+      category: 1,
+      event_ct_tm: '',
+      event_st_tm: '',
+      event_et_tm: '',
+      all_day: true,
+      event_resource: ''
+    })
+    
+    setStartDate('')
+    setStartTime('')
+    setEndDate('')
+    setEndTime('')
+
     setToggleForm(false);
   };
 
@@ -119,9 +137,9 @@ const NewTaskForm = () => {
                 onChange={handleChange}
               >
                 <option value="">Select...</option>
-                <option value={0}>Category 1</option>
-                <option value={1}>Category 1</option>
-                <option value={2}>Category 1</option>
+                <option value={0}>Work</option>
+                <option value={1}>Home</option>
+                <option value={2}>Family</option>
               </select>
               <span>Location:</span>
               <input
@@ -139,7 +157,7 @@ const NewTaskForm = () => {
               className="delete-button"
               onClick={() => setToggleForm(false)}
             >
-              Delete
+              Close
             </button>
             <button
               className="confirm-button"

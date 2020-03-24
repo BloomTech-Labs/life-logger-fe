@@ -2,10 +2,7 @@ import moment from 'moment-timezone';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-  deleteEvent,
-  fetchEvent
-} from '../../../store/actions';
+import { deleteEvent, fetchEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
 
 const Task = props => {
@@ -14,9 +11,7 @@ const Task = props => {
 
   const [startDate, setStartDate] = useState();
   const [dueDate, setDueDate] = useState();
-  const { currentEvent } = useSelector(
-    state => state.events
-  );
+  const { currentEvent } = useSelector(state => state.events);
   const eventID = props.match.params.id;
 
   useEffect(
@@ -30,15 +25,11 @@ const Task = props => {
     () => {
       if (currentEvent) {
         setStartDate(
-          moment(currentEvent.event_st_tm).format(
-            'ddd, MMM Do, YYYY - H:mm A'
-          )
+          moment(currentEvent.event_st_tm).format('ddd, MMM Do, YYYY - h:mm A')
         );
 
         setDueDate(
-          moment(currentEvent.event_et_tm).format(
-            'ddd, MMM Do, YYYY - H:mm A'
-          )
+          moment(currentEvent.event_et_tm).format('ddd, MMM Do, YYYY - h:mm A')
         );
       }
     },
