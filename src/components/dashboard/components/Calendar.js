@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { render } from "react-dom";
+//import { render } from "react-dom";
 import events from "./CalendarItem";
-import BigCalendar from "react-big-calendar";
-import moment from "moment";
+import {Calendar} from "react-big-calendar";
+//import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
-moment.locale("en");
-BigCalendar.momentLocalizer(moment);
+//moment.locale("en");
+//Calendar.momentLocalizer(moment);
 
 class CalenderApp extends Component {
     state = {
@@ -26,12 +26,12 @@ class CalenderApp extends Component {
         <div style={{ height: 700 }}>
           <button onClick={() => this.setState({ view: "day" })}>Day</button>
           <button onClick={() => this.setState({ view: "month" })}>Month</button>
-          <BigCalendar
+          <Calendar
             style={{ height: 500, width: this.state.width }}
             toolbar={false}
             events={events}
             step={60}
-            views={allViews}
+            //views={allViews}
             view={this.state.view}
             onView={() => {}}
             date={this.state.date}
@@ -43,4 +43,3 @@ class CalenderApp extends Component {
   }
   
   export default CalenderApp;
-  

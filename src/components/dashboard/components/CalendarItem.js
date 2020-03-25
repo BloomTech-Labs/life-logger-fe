@@ -1,4 +1,4 @@
-export default [
+const events = [
     {
       'title': 'All Day Event very long title',
       'allDay': true,
@@ -89,3 +89,5 @@ export default [
     }
   ]
   
+
+  export default events;
