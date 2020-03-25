@@ -10,12 +10,14 @@ const myEventsList = eventsList;
 
 function CalenderApp() {
   return (
-    <div className="CalenderApp">
+    <div className="CalenderApp" style={{ height: 700 }}>
       <Calendar
+        date={new Date(2020, 3, 25)}
         localizer={thelocalizer}
         events={myEventsList}
         startAccessor="start"
         endAccessor="end"
+        view="month"
       />
     </div>
   );
