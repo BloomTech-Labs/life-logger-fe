@@ -2,7 +2,7 @@ const eventsList = [
     {
       'title': 'All Day Event very long title',
       'allDay': true,
-      'start': new Date(2020, 3, 0),
+      'start': new Date(2020, 3, 1),
       'end': new Date(2020, 3, 1)
     },
     {
@@ -86,6 +86,11 @@ const eventsList = [
       'title': 'Multi-day Event',
       'start': new Date(2020, 3, 20, 19, 30, 0),
       'end': new Date(2020, 3, 22, 2, 0, 0)
+    },
+    {
+      'title': 'Multi-day Event',
+      'start': new Date(2020, 4, 20, 19, 30, 0),
+      'end': new Date(2020, 4, 22, 2, 0, 0)
     }
   ]
   
