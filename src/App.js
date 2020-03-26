@@ -13,8 +13,7 @@ import LandingPage from "./components/landing-page/index";
 import { AppContainer } from "./styles/Styles";
 import GAinit, { initGA } from './InitGA'
 import CalendarApp from "./components/dashboard/components/Calendar";
-//import BGCalendar from "./components/dashboard/components/Calendar2";
-//<Route path="/calendar2" component={BGCalendar} />
+
 function App(props) {
   useEffect(() => {
  initGA();

@@ -1,0 +1,16 @@
+.calendar-app {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+    width: 800px;
+
+  }
+  
+  .calendar-app-top {
+    margin: 0 0 3em;
+    width: 800px;
+  }
+  
+  .calendar-app-calendar {
+    margin: 0 auto;
+    width: 800px;
+  }
