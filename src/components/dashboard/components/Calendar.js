@@ -22,7 +22,7 @@ export default class CalendarApp extends Component {
     
     render() {
       return (
-        <div className="calendar-app" style={{ height: 600, width: 800, marginTop:100 }}>
+        <div className="calendar-app" style={{ height: 600, width: 700, marginTop:100, marginBottom:50 }}>
           
           <div className="calendar-app-calendar">
             <FullCalendar
