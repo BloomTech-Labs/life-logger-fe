@@ -47,13 +47,15 @@ export default class CalendarApp extends Component {
       );
     }
     // Routes
-    routeChange() {
-      let path = `/edit-task/66`;
+    routeChange(evtId,urlPath) {
+      let path = urlPath + evtId;
       this.props.history.push(path);
     }
     // Add a new event
     handleDateClick = arg => {
-      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {      
+      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {    
+        
+        this.routeChange("","/") 
 
       }
     }
@@ -62,7 +64,7 @@ export default class CalendarApp extends Component {
    handleEventClick = eventId=> {
 
       if (window.confirm("Would you like to modify this event? ID# " )) {
-        this.routeChange()  
+        this.routeChange(66,"/edit-task/")  
       }
 
       
