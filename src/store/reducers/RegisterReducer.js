@@ -60,6 +60,7 @@ function RegisterReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: false,
+        isFetching: false,
         userData: action.payload,
         error: null
       };
