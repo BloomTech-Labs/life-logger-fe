@@ -7,19 +7,25 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
+import { useHistory } from 'react-router-dom';
+
+ 
+
 
 export default class CalendarApp extends Component {
-     
+  
+  
+  
     constructor(props) {
         super(props);
-      
-        this. state = {        
+       
+        this.state = {        
             calendarWeekends: true,
-            calendarEvents: eventsList
-         
+            calendarEvents: eventsList,                
+            history: []
             }
         }
-    
+       
     render() {
       return (
         <div className="calendar-app" style={{ height: 600, width: 700, marginTop:100, marginBottom:50 }}>
@@ -36,13 +42,14 @@ export default class CalendarApp extends Component {
               weekends={this.state.calendarWeekends}
               events={this.state.calendarEvents}
               dateClick={this.handleDateClick}
+              eventClick={this.handleEventClick}
             />
           </div>
         </div>
       );
     }
   
-  
+    // Add a new event
     handleDateClick = arg => {
       if (window.confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
         this.setState({
@@ -55,5 +62,19 @@ export default class CalendarApp extends Component {
           })
         });
       }
-    }}
+    }
+    
+    // Update an event. 
+    handleEventClick = eventID => {
+      if (window.confirm("Would you like to mofiy this event? ID# ")) {
+        
+        this.history = useHistory(); 
+
+        this.history.push(`/task/${eventID}`);
+
+        this.setState({ });
+      }
+    }
+
+  }
   
