@@ -31,13 +31,13 @@ const Task = props => {
       if (currentEvent) {
         setStartDate(
           moment(currentEvent.event_st_tm).format(
-            'ddd, MMM Do, YYYY - H:mm A'
+            'ddd, MMM Do, YYYY - HH:mm A'
           )
         );
 
         setDueDate(
           moment(currentEvent.event_et_tm).format(
-            'ddd, MMM Do, YYYY - H:mm A'
+            'ddd, MMM Do, YYYY - HH:mm A'
           )
         );
       }
@@ -64,6 +64,7 @@ const Task = props => {
   else
     return (
       <TaskContainer>
+        <button onClick={()=>{history.push('/')}}>Back</button>
         <h1>
           {currentEvent.title}
         </h1>
