@@ -12,7 +12,7 @@ import Header from "./components/landing-page/components/Header";
 import LandingPage from "./components/landing-page/index";
 import { AppContainer } from "./styles/Styles";
 import GAinit, { initGA } from './InitGA'
-import CalendarApp from "./components/dashboard/components/Calendar";
+import Calendarlist from "./components/dashboard/components/Calendarlist";
 
 function App(props) {
   useEffect(() => {
@@ -26,7 +26,7 @@ function App(props) {
       <Route path="/home" component={LandingPage} />
       <Route path="/task/:id" component={Task} />
       <Route path="/edit-task/:id" component={EditTask} />
-      <Route path="/calendar" component={CalendarApp} />
+      <Route path="/calendar" component={Calendarlist} />
       
     </AppContainer>
   );
