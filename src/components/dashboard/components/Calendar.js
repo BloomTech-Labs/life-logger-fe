@@ -9,18 +9,31 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
 import moment from 'moment-timezone';
-import { Container, ListHeader } from '../styles';
+import { Container } from '../styles';
+import { useDispatch, useSelector } from 'react-redux';
+
+ 
 
 export default class CalendarApp extends Component {
+  
         constructor(props) {
         super(props);
         this.routeChange = this.routeChange.bind(this);
+       
         this.state = {        
             calendarWeekends: true,
-            calendarEvents: eventsList,                
-           
+           calendarEvents: eventsList, 
+                      
+            currentEvent: []
             }
-        }
+        }          
+          // componentWillMount() {
+
+          //  const { eventData } = useSelector(state => state.events);
+
+           // console.log("eventData: " + eventData);
+
+           //}
 
     render() {
       return (
@@ -31,6 +44,7 @@ export default class CalendarApp extends Component {
           <div className="calendar-app-calendar">
             <FullCalendar
               defaultView="dayGridMonth"
+              editable= {true}
               header={{
                 left: "prev,next",
                 center: "title",
@@ -39,6 +53,7 @@ export default class CalendarApp extends Component {
               plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
               weekends={this.state.calendarWeekends}
               events={this.state.calendarEvents}
+              //events = {this.getEventData}
               dateClick={this.handleDateClick}
               eventClick={this.handleEventClick}
             />
@@ -61,8 +76,8 @@ export default class CalendarApp extends Component {
     }
     
     // Update an event. 
-   handleEventClick = eventId=> {
-
+   handleEventClick = arg => {
+      //this.currentEvent = useSelector(state => state.events);
       if (window.confirm("Would you like to modify this event? ID# " )) {
         this.routeChange(66,"/edit-task/")  
       }
