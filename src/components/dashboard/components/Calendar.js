@@ -7,14 +7,10 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
-import { useHistory } from 'react-router-dom';
-
- 
+import { useHistory } from 'react-router-dom'; 
 
 
 export default class CalendarApp extends Component {
-  
-  
   
     constructor(props) {
         super(props);
@@ -25,11 +21,11 @@ export default class CalendarApp extends Component {
             history: []
             }
         }
-       
+
     render() {
       return (
         <div className="calendar-app" style={{ height: 600, width: 700, marginTop:100, marginBottom:50 }}>
-          
+         
           <div className="calendar-app-calendar">
             <FullCalendar
               defaultView="dayGridMonth"
@@ -66,13 +62,13 @@ export default class CalendarApp extends Component {
     
     // Update an event. 
     handleEventClick = eventID => {
-      if (window.confirm("Would you like to mofiy this event? ID# ")) {
+      if (window.confirm("Would you like to modify this event? ID# ")) {
         
         this.history = useHistory(); 
 
         this.history.push(`/task/${eventID}`);
 
-        this.setState({ });
+        
       }
     }
 
