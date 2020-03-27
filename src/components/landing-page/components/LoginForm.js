@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchUser } from '../../../store/actions';
 import { LoginForm as Form } from '../styles';
 
 const LoginForm = props => {
   const dispatch = useDispatch();
+
+  const { isFetching } = useSelector(state => state.users);
+  console.log('is fetching: ', isFetching );
 
   const [user, setUser] = useState({
     username: '',

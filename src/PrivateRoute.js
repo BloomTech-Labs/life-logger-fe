@@ -2,21 +2,21 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route } from 'react-router-dom';
 import LandingPage from './components/landing-page';
-const PrivateRoute = ({
-  component: Component,
-  ...rest
-}) => {
+
+const PrivateRoute = ({ component: Component, ...rest }) => {
   const { token } = useSelector(
     state => state.users.userData
   );
 
+  const storageToken = localStorage.getItem('token');
+  console.log('localstorage token: ', storageToken);
+
   return (
-    <Route
-      {...rest}
-      render={props =>
-        token
-          ? <Component {...props} {...rest} />
-          : <LandingPage />}
+    <Route {...rest} render={props =>
+      // token ?
+      storageToken ?
+          <Component {...props} {...rest} />
+        : <LandingPage />}
     />
   );
 };
