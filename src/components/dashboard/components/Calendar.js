@@ -56,7 +56,7 @@ export default class CalendarApp extends Component {
     // Update an event. 
    handleEventClick = eventId=> {
 
-      if (window.confirm("Would you like to modify this event? ID# " + {event.tit} )) {
+      if (window.confirm("Would you like to modify this event? ID# " + {eventId} )) {
         
         this.history = useHistory(); 
 
