@@ -8,7 +8,7 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
 import { useHistory } from 'react-router-dom'; 
-
+import moment from 'moment-timezone';
 
 export default class CalendarApp extends Component {
   
@@ -47,27 +47,20 @@ export default class CalendarApp extends Component {
   
     // Add a new event
     handleDateClick = arg => {
-      if (window.confirm("Would you like to add an event to " + arg.dateStr + " ?")) {
-        this.setState({
-           
-          calendarEvents: this.state.calendarEvents.concat({
-            
-            title: "New Event",
-            start: arg.date,
-            allDay: arg.allDay
-          })
-        });
+      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {
+               
+
       }
     }
     
     // Update an event. 
-    handleEventClick = eventID => {
-      if (window.confirm("Would you like to modify this event? ID# ")) {
+   handleEventClick = eventId=> {
+
+      if (window.confirm("Would you like to modify this event? ID# " + {event.tit} )) {
         
         this.history = useHistory(); 
 
-        this.history.push(`/task/${eventID}`);
-
+        this.history.push(`/task/${eventId}`);
         
       }
     }
