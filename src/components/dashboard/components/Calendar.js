@@ -7,11 +7,12 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
-import { useHistory } from 'react-router-dom'; 
+import Nav from '../../landing-page/components/Nav';
 import moment from 'moment-timezone';
+import { Container } from '../styles';
 
 export default class CalendarApp extends Component {
-  
+
     constructor(props) {
         super(props);
        
@@ -24,8 +25,9 @@ export default class CalendarApp extends Component {
 
     render() {
       return (
+        <Container>
         <div className="calendar-app" style={{ height: 600, width: 700, marginTop:100, marginBottom:50 }}>
-         
+        
           <div className="calendar-app-calendar">
             <FullCalendar
               defaultView="dayGridMonth"
@@ -41,27 +43,22 @@ export default class CalendarApp extends Component {
               eventClick={this.handleEventClick}
             />
           </div>
-        </div>
+        </div></Container>
       );
     }
   
     // Add a new event
     handleDateClick = arg => {
-      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {
-               
+      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {      
 
       }
     }
     
     // Update an event. 
    handleEventClick = eventId=> {
-
+  
       if (window.confirm("Would you like to modify this event? ID# " + {eventId} )) {
-        
-        this.history = useHistory(); 
-
-        this.history.push(`/task/${eventId}`);
-        
+             
       }
     }
 
