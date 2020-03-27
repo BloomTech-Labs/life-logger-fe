@@ -12,8 +12,8 @@ import Header from "./components/landing-page/components/Header";
 import LandingPage from "./components/landing-page/index";
 import { AppContainer } from "./styles/Styles";
 import GAinit, { initGA } from './InitGA'
-//import CalendarApp from "./components/dashboard/components/Calendar";
-import CalendarApp from "./components/dashboard/components/CalendarFC";
+import CalendarApp from "./components/dashboard/components/Calendar";
+
 function App(props) {
   useEffect(() => {
  initGA();
