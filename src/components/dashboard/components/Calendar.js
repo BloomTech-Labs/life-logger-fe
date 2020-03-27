@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { useHistory } from 'react-router-dom';
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
@@ -7,25 +8,24 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
-import Nav from '../../landing-page/components/Nav';
 import moment from 'moment-timezone';
-import { Container } from '../styles';
+import { Container, ListHeader } from '../styles';
 
 export default class CalendarApp extends Component {
-
-    constructor(props) {
+        constructor(props) {
         super(props);
-       
+        this.routeChange = this.routeChange.bind(this);
         this.state = {        
             calendarWeekends: true,
             calendarEvents: eventsList,                
-            history: []
+           
             }
         }
 
     render() {
       return (
         <Container>
+          
         <div className="calendar-app" style={{ height: 600, width: 700, marginTop:100, marginBottom:50 }}>
         
           <div className="calendar-app-calendar">
@@ -46,7 +46,11 @@ export default class CalendarApp extends Component {
         </div></Container>
       );
     }
-  
+    // Routes
+    routeChange() {
+      let path = `/edit-task/66`;
+      this.props.history.push(path);
+    }
     // Add a new event
     handleDateClick = arg => {
       if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {      
@@ -56,10 +60,12 @@ export default class CalendarApp extends Component {
     
     // Update an event. 
    handleEventClick = eventId=> {
-  
-      if (window.confirm("Would you like to modify this event? ID# " + {eventId} )) {
-             
+
+      if (window.confirm("Would you like to modify this event? ID# " )) {
+        this.routeChange()  
       }
+
+      
     }
 
   }
