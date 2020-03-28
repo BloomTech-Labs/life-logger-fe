@@ -32,7 +32,7 @@ const Calendaritems = props => {
                   right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                events={props.eventData} 
+                events={props.events} 
                 
               />
             </div>

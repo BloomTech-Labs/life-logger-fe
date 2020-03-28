@@ -1,10 +1,8 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import Calendaritems from './Calendar';
 import { fetchEventsByUserId } from '../../../store/actions';
-import NewTaskForm from './components/NewTaskForm';
-import TaskList from './components/TaskList';
-import { Container, ListHeader } from './styles';
+import { Container} from './styles';
 import Loading from '../UI/Loading';
 
 const CalendarApp = () => {
@@ -18,7 +16,7 @@ const CalendarApp = () => {
 
   useEffect(
     () => {
-      // dispatch(fetchEventsByUserId(userData.user_id));
+      
       dispatch(fetchEventsByUserId(tempUserDataId));
     },
     [userData, dispatch]
@@ -30,8 +28,8 @@ const CalendarApp = () => {
   return (
       <Container>
         {isFetching ? <Loading />
-        : (<> <NewTaskForm />
-        <TaskList events={eventData} /> </>)}
+        : (<> 
+        <Calendaritems events={eventData} /> </>)}
       </Container>
   );
 };
