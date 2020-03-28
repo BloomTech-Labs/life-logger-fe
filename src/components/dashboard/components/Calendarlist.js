@@ -2,8 +2,8 @@ import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Calendaritems from './Calendar';
 import { fetchEventsByUserId } from '../../../store/actions';
-import { Container} from './styles';
-import Loading from '../UI/Loading';
+import { Container} from '../styles';
+import Loading from '../../UI/Loading';
 
 const CalendarApp = () => {
   const dispatch = useDispatch();
