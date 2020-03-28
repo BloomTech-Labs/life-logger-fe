@@ -55,6 +55,7 @@ const Task = props => {
   else
     return (
       <TaskContainer>
+        <button onClick={()=>{history.push('/')}}>back</button>
         <h1>
           {currentEvent.title}
         </h1>
