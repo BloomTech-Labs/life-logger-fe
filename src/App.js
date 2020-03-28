@@ -11,7 +11,7 @@ import Task from "./components/dashboard/components/Task";
 import Header from "./components/landing-page/components/Header";
 import { AppContainer } from "./styles/Styles";
 import GAinit, { initGA } from './InitGA'
-import CalendarApp from "./components/dashboard/components/Calendar";
+import CalendarApp from "./components/dashboard/components/Calendarlist";
 
 function App(props) {
   useEffect(() => {

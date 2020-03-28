@@ -9,26 +9,14 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 //import moment from 'moment-timezone';
 //import eventsList from "./TestData";
-import { Container } from '../styles';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchEventsByUserId } from '../../../store/actions';
 
-const CalendarApp = () => {
-  const dispatch = useDispatch();
-  const { userData } = useSelector(state => state.users);
-  const { eventData } = useSelector(state => state.events);
-    
-  useEffect(
-    () => {
-      dispatch(fetchEventsByUserId(userData.user_id));
-    },
-    [userData, dispatch]
-  );
+const Calendaritems = props => {
+  const history = useHistory();
 
-    
+      
     return (
 
-        <Container>         
+           
           
           <div className="calendar-app" style={{ marginTop:100, marginBottom:50 }}>
           
@@ -44,17 +32,17 @@ const CalendarApp = () => {
                   right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                events={eventData} 
-                //events={eventsList} 
+                events={props.eventData} 
+                
               />
             </div>
           </div>
           
-          </Container>
+          
         
       );
 
 
 };
 
-export default CalendarApp;
+export default Calendaritems;
