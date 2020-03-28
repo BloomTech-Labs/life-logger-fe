@@ -11,6 +11,7 @@ import Task from "./components/dashboard/components/Task";
 import Header from "./components/landing-page/components/Header";
 import { AppContainer } from "./styles/Styles";
 import GAinit, { initGA } from './InitGA'
+import CalendarApp from "./components/dashboard/components/Calendar";
 
 function App(props) {
   useEffect(() => {
@@ -23,6 +24,8 @@ function App(props) {
       <PrivateRoute exact path="/" component={Dashboard} />
       <Route path="/task/:id" component={Task} />
       <Route path="/edit-task/:id" component={EditTask} />
+      <Route path="/calendar" component={CalendarApp} />
+      
     </AppContainer>
   );
 }
