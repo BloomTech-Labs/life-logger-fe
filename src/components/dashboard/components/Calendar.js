@@ -12,8 +12,24 @@ import "@fullcalendar/timegrid/main.css";
 
 const Calendaritems = props => {
   const history = useHistory();
+  const AllEvents = props.events; 
+  //const AllEvents = [];
+    // props.events.map(event => {AllEvents});
+  
+
+     //const AllEvents = Object.entries(props.events);
+     // let AllEvents2 = {};
 
       
+
+     // AllEvents.forEach(([key, value]) => {
+      //  console.log(key);  
+       // console.log(value);  
+       // Array.prototype.push.apply(AllEvents2,);
+      //})
+      
+     console.log("AllEvents: " + AllEvents );
+
     return (
 
            
@@ -32,7 +48,7 @@ const Calendaritems = props => {
                   right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                events={props.events} 
+                events={AllEvents} 
                 
               />
             </div>
