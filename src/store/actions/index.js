@@ -163,7 +163,7 @@ export const fetchEventsByUserId = user_id => dispatch => {
     .get(`${host}/api/events/byuserid/${user_id}`)
     .then(response => {
       let events = response.data;
-      console.log('events', events);
+      // console.log('events', events);
       events.sort((event1, event2) => {
         if (new Date(event1.event_et_tm) < new Date(event2.event_et_tm)) {
           return -1;
@@ -176,7 +176,7 @@ export const fetchEventsByUserId = user_id => dispatch => {
         return 0;
       });
 
-      console.log('events after', events);
+      // console.log('events after', events);
 
       dispatch({
         type: FETCH_EVENTS_SUCCESS,
