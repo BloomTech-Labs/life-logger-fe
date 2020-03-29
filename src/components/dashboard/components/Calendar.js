@@ -8,27 +8,26 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 //import moment from 'moment-timezone';
-//import eventsList from "./TestData";
+import eventsList from "./TestData";
 
 const Calendaritems = props => {
   const history = useHistory();
-  const AllEvents = props.events; 
-  //const AllEvents = [];
-    // props.events.map(event => {AllEvents});
+  
   
 
-     //const AllEvents = Object.entries(props.events);
-     // let AllEvents2 = {};
-
-      
-
-     // AllEvents.forEach(([key, value]) => {
-      //  console.log(key);  
-       // console.log(value);  
-       // Array.prototype.push.apply(AllEvents2,);
-      //})
-      
-     console.log("AllEvents: " + AllEvents );
+  function getCalendarEvents(evt) {
+     
+    let AllEvents = Object.entries(props.events); 
+    let AllEvents2 = {};
+      AllEvents.forEach(([key, value]) => {
+      console.log(key);  
+      console.log(value);  
+      AllEvents2 = Array.prototype.push(value);
+    })
+  
+      //return eventsList
+      return AllEvents2
+   };      
 
     return (
 
@@ -46,10 +45,11 @@ const Calendaritems = props => {
                   left: "prev,next",
                   center: "title",
                   right: "dayGridMonth,timeGridWeek,timeGridDay,listWeek"
+                  
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                events={AllEvents} 
-                
+                events={getCalendarEvents(props.events)} 
+                             
               />
             </div>
           </div>
@@ -57,7 +57,7 @@ const Calendaritems = props => {
           
         
       );
-
+      
 
 };
 
