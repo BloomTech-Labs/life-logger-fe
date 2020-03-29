@@ -11,23 +11,14 @@ import "@fullcalendar/timegrid/main.css";
 import eventsList from "./TestData";
 
 const Calendaritems = props => {
-  const history = useHistory();
   
+  const history = useHistory(); 
   
-
-  function getCalendarEvents(evt) {
-     
-    let AllEvents = Object.entries(props.events); 
-    let AllEvents2 = {};
-      AllEvents.forEach(([key, value]) => {
-      console.log(key);  
-      console.log(value);  
-      AllEvents2 = Array.prototype.push(value);
-    })
-  
-      //return eventsList
-      return AllEvents2
-   };      
+    // Grab the events 
+    const theEvents = props.events.map(AllEvents => { return{id: AllEvents.id,title: AllEvents.title,start: AllEvents.event_st_tm,end: AllEvents.event_et_tm };
+           
+    }); 
+          
 
     return (
 
@@ -48,8 +39,8 @@ const Calendaritems = props => {
                   
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
-                events={getCalendarEvents(props.events)} 
-                             
+                events={theEvents} 
+               // events={eventsList}             
               />
             </div>
           </div>
