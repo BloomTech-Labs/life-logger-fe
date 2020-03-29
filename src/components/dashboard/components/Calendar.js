@@ -7,7 +7,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
-//import moment from 'moment-timezone';
+import moment from 'moment-timezone';
 //import eventsList from "./TestData";
 
 const Calendaritems = props => {
@@ -28,7 +28,15 @@ const Calendaritems = props => {
           if (window.confirm("Would you like to modify this event?")) {
         history.push(`/task/${eventID}`); 
     }};
+    
+    // Add a new event
+    const handleDateClick = arg => {
+      if (window.confirm("Would you like to add an event to " + moment(arg.dateStr).format('MM/DD/YYYY') + " ?")) {    
+        
+        history.push(`/`);
 
+      }
+    }
     
     return (           
           
@@ -49,6 +57,7 @@ const Calendaritems = props => {
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 events={theEvents} 
                 eventClick={() => handleEventClick(66)}
+                dateClick={handleDateClick}
                 //eventClick={() => handleEventClick(theEvents.id)}          
               />
             </div>
