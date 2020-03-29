@@ -21,11 +21,15 @@ const Calendaritems = props => {
     
     //Update an event
     const handleEventClick = eventID => {
+
+      console.log("AllEvents:" + theEvents);
+      
       console.log("event id: " + eventID)
           if (window.confirm("Would you like to modify this event?")) {
         history.push(`/task/${eventID}`); 
     }};
 
+    
     return (           
           
           <div className="calendar-app" style={{ marginTop:100, marginBottom:50 }}>
@@ -44,7 +48,8 @@ const Calendaritems = props => {
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 events={theEvents} 
-                eventClick={() => handleEventClick(66)}          
+                eventClick={() => handleEventClick(66)}
+                //eventClick={() => handleEventClick(theEvents.id)}          
               />
             </div>
           </div>          
