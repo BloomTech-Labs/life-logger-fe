@@ -8,21 +8,25 @@ import "@fullcalendar/core/main.css";
 import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/timegrid/main.css";
 //import moment from 'moment-timezone';
-import eventsList from "./TestData";
+//import eventsList from "./TestData";
 
 const Calendaritems = props => {
   
   const history = useHistory(); 
   
-    // Grab the events 
+    // Grab All of the events for the logged in user.  
     const theEvents = props.events.map(AllEvents => { return{id: AllEvents.id,title: AllEvents.title,start: AllEvents.event_st_tm,end: AllEvents.event_et_tm };
            
     }); 
-          
+    
+    //Update an event
+    const handleEventClick = eventID => {
+      console.log("event id: " + eventID)
+          if (window.confirm("Would you like to modify this event?")) {
+        history.push(`/task/${eventID}`); 
+    }};
 
-    return (
-
-           
+    return (           
           
           <div className="calendar-app" style={{ marginTop:100, marginBottom:50 }}>
           
@@ -40,16 +44,12 @@ const Calendaritems = props => {
                 }}
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 events={theEvents} 
-               // events={eventsList}             
+                eventClick={() => handleEventClick(66)}          
               />
             </div>
-          </div>
-          
-          
+          </div>          
         
       );
-      
-
 };
 
 export default Calendaritems;
