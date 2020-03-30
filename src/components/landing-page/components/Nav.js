@@ -8,9 +8,11 @@ import { NavContainer } from '../../../styles/Styles';
 
 const Nav = props => {
   const { isLoggedIn } = useSelector(state => state.users);
+  const id = localStorage.getItem("id");
   return (
     <NavContainer>
-      {isLoggedIn &&
+      {/* {isLoggedIn && */}
+      { id &&
         <>
           <div className="nav-link">
             <Link exact to="/" style={{ textDecoration: 'none',color: 'white'}}>

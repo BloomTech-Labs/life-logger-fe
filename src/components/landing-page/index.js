@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import LoginForm from './components/LoginForm';
 import RegisterForm from './components/RegisterForm';
 import Fade from 'react-reveal';
+import { useSelector } from 'react-redux';
+import Loading from "../UI/Loading";
 // styling:
 import { Container, Hero } from './styles';
 
 const LandingPage = () => {
   const [activeForm, setActiveForm] = useState('login');
+  const { isFetching } = useSelector(state => state.users);
 
   return (
     <Container>
@@ -25,9 +28,12 @@ const LandingPage = () => {
           </p>
         </Fade>
       </Hero>
-      {activeForm === 'login'
-        ? <LoginForm setActiveForm={setActiveForm} />
-        : <RegisterForm setActiveForm={setActiveForm} />}
+      {isFetching ? <Loading /> :
+        <>{activeForm === 'login'
+          ? <LoginForm setActiveForm={setActiveForm} />
+          : <RegisterForm setActiveForm={setActiveForm} />}
+        </>
+      }
     </Container>
   );
 };

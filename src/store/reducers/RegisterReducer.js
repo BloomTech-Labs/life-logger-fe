@@ -20,7 +20,7 @@ const initialState = {
   userData: [],
   isLoggedIn: false,
   error: null,
-  isFetching: false
+  isFetching: false,
 };
 
 function RegisterReducer(state = initialState, action) {
@@ -37,6 +37,7 @@ function RegisterReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: true,
+        isFetching: false,
         userData: action.payload,
         error: null
       };
@@ -59,6 +60,7 @@ function RegisterReducer(state = initialState, action) {
       return {
         ...state,
         isLoggedIn: false,
+        isFetching: false,
         userData: action.payload,
         error: null
       };
