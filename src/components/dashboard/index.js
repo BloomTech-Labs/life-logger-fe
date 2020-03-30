@@ -1,38 +1,33 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { fetchEventsByUserId } from '../../store/actions';
+import Loading from '../UI/Loading';
 import NewTaskForm from './components/NewTaskForm';
 import TaskList from './components/TaskList';
-import { Container, ListHeader } from './styles';
-import Loading from '../UI/Loading';
+import { Container } from './styles';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const { isFetching } = useSelector(state => state.users);
-  const { userData } = useSelector(state => state.users);
-  const { eventData } = useSelector(state => state.events);
+  const { isFetching, eventData } = useSelector(state => state.events);
 
-  const tempUserDataId = localStorage.getItem("id")
-  console.log("here", tempUserDataId)
+  const tempUserDataId = localStorage.getItem('id');
 
   useEffect(
     () => {
-      // dispatch(fetchEventsByUserId(userData.user_id));
       dispatch(fetchEventsByUserId(tempUserDataId));
     },
-    [userData, dispatch]
+    [tempUserDataId, dispatch]
   );
-  console.log('is fetching from dashboard: ', isFetching )
-  console.log('userData dashboard: ', userData);
 
+  if (isFetching) {
+    return <Loading />;
+  }
 
   return (
-      <Container>
-        {isFetching ? <Loading />
-        : (<> <NewTaskForm />
-        <TaskList events={eventData} /> </>)}
-      </Container>
+    <Container>
+      <NewTaskForm />
+      <TaskList events={eventData} />
+    </Container>
   );
 };
 
