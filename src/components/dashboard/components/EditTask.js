@@ -54,7 +54,7 @@ const EditTask = props => {
         setEndTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
       }
     },
-    [currentEvent]
+    [currentEvent, task]
   );
 
   const handleChange = e => {
