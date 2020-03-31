@@ -2,8 +2,10 @@ import '@fullcalendar/core/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 
+import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
@@ -17,6 +19,8 @@ const Calendar = () => {
   const tempUserDataId = localStorage.getItem('id');
   const [events, setEvents] = useState([]);
   const { eventData, isFetching, error } = useSelector(state => state.events);
+
+  const history = useHistory();
 
   useEffect(
     () => {
@@ -46,6 +50,24 @@ const Calendar = () => {
     [eventData, isFetching, error]
   );
 
+  const handleClick = e => {
+    if (window.confirm('Would you like to modify this event?')) {
+      history.push(`/task/${e.event.id}`);
+    }
+  };
+
+  const handleDateClick = arg => {
+    if (
+      window.confirm(
+        'Would you like to add an event to ' +
+          moment(arg.dateStr).format('MM/DD/YYYY') +
+          ' ?'
+      )
+    ) {
+      history.push(`/`);
+    }
+  };
+
   if (isFetching) {
     return <Loading />;
   }
@@ -69,6 +91,8 @@ const Calendar = () => {
             }}
             plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
             events={events}
+            eventClick={handleClick}
+            dateClick={handleDateClick}
           />
         </div>
       </div>
