@@ -55,7 +55,12 @@ const Task = props => {
   else
     return (
       <TaskContainer>
-        <button onClick={()=>{history.push('/')}}>back</button>
+        <div
+          style={{ justifyContent: "flex-start" }}
+          className="button-container"
+        >
+          <button onClick={()=>{history.goBack()}}>back</button>
+        </div>
         <h1>
           {currentEvent.title}
         </h1>
