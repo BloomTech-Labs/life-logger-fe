@@ -24,7 +24,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   position: absolute;
   padding: 0 20px;
-  width: 97%;
+  width: 100vw;
   height: 60px;
   background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);

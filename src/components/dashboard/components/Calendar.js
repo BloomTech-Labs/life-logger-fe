@@ -10,6 +10,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import Swal from 'sweetalert2';
+
 import { fetchEventsByUserId } from '../../../store/actions';
 import Loading from '../../UI/Loading';
 import { Container } from '../styles';
@@ -38,6 +40,7 @@ const Calendar = () => {
           return {
             id: event.id,
             title: event.title,
+            text: event.event_text,
             allDay: event.all_day,
             start: event.event_st_tm,
             end: event.event_et_tm
@@ -51,9 +54,22 @@ const Calendar = () => {
   );
 
   const handleClick = e => {
-    if (window.confirm('Would you like to modify this event?')) {
-      history.push(`/task/${e.event.id}`);
-    }
+    console.log('event', e.event)
+    Swal.fire({
+      title: e.event.title,
+      icon: 'info',
+      text: e.event.extendedProps.text,
+      showCancelButton: true,
+      cancelButtonText: "Close",
+      confirmButtonText: "View"
+    }).then(result => {
+      if (result.value){
+        history.push(`/task/${e.event.id}`);
+      }
+    })
+    // if (window.confirm('Would you like to modify this event?')) {
+    //   history.push(`/task/${e.event.id}`);
+    // }
   };
 
   const handleDateClick = arg => {
