@@ -156,7 +156,7 @@ export const TaskContainer = styled.div`
   padding: 0 30px;
   padding-top: 60px;
   height: 80vh;
-  width: 1200px;
+  width: 80%;
   margin-top: 40px;
 
   h1 {
