@@ -73,11 +73,10 @@ const Calendar = () => {
   };
 
   const handleDateClick = arg => {
+    const date = moment(arg.dateStr).format('MM/DD/YYYY');
     if (
       window.confirm(
-        'Would you like to add an event to ' +
-          moment(arg.dateStr).format('MM/DD/YYYY') +
-          ' ?'
+        `Would you like to add an event to ${date}?`
       )
     ) {
       history.push(`/`);
