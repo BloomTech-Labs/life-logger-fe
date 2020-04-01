@@ -59,7 +59,7 @@ const Task = props => {
           style={{ justifyContent: "flex-start" }}
           className="button-container"
         >
-          <button onClick={()=>{history.goBack()}}>back</button>
+          <button onClick={()=>{history.goBack()}}>Back</button>
         </div>
         <h1>
           {currentEvent.title}
