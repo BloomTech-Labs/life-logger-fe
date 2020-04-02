@@ -78,7 +78,6 @@ const Calendar = () => {
     Swal.fire({
       title: `Would you like to add an event to ${date}?`,
       icon: 'question',
-      // text: e.event.extendedProps.text,
       showCancelButton: true,
       cancelButtonText: "Nope",
       confirmButtonText: "Yeah"

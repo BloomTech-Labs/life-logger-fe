@@ -8,12 +8,16 @@ import { useHistory } from 'react-router-dom';
 
 const NewTaskForm = () => {
   const history = useHistory();
+  // this variable indicates if user is coming from calendar view:
   const fromCalendar = history.location.state;
+
   const dispatch = useDispatch();
   const { userData } = useSelector(state => state.users);
+
+  // pre-populate dates picked from calendar view
   const [startDate, setStartDate] = useState(fromCalendar ? fromCalendar.date : '');
-  const [startTime, setStartTime] = useState('');
   const [endDate, setEndDate] = useState(fromCalendar ? fromCalendar.date : '');
+  const [startTime, setStartTime] = useState('');
   const [endTime, setEndTime] = useState('');
   const [newTask, setNewTask] = useState({
     user_id: userData.user_id,
@@ -29,8 +33,8 @@ const NewTaskForm = () => {
 
   });
   
+  // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
-
   console.log('history state:', fromCalendar);
 
   const handleChange = e => {
@@ -81,6 +85,8 @@ const NewTaskForm = () => {
     setEndTime('')
 
     setToggleForm(false);
+
+    // reroute back if coming from calendar 
     if (fromCalendar) history.goBack();
   };
 
@@ -111,6 +117,7 @@ const NewTaskForm = () => {
             <div>
               <span>Start Date:</span>
               <input
+                // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
                 name=""
                 value={startDate}
@@ -126,6 +133,7 @@ const NewTaskForm = () => {
             <div>
               <span>End Date:</span>
               <input
+                // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
@@ -163,6 +171,7 @@ const NewTaskForm = () => {
             <button
               type="button"
               className="delete-button"
+              // reroute back if coming from calendar. Otherwise close form
               onClick={() => fromCalendar ? history.goBack() : setToggleForm(false)}
             >
               Close
