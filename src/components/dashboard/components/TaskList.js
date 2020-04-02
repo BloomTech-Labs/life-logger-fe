@@ -21,7 +21,7 @@ const TaskList = props => {
       </ListHeader>
       {props.events.map(event => {
         return (
-          <ListItem onClick={() => handleClick(event.id)}>
+          <ListItem onClick={() => handleClick(event.id)} key={event.id}>
             <div className="task-title">
               {event.title}
             </div>

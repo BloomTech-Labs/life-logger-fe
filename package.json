@@ -7,6 +7,11 @@
     "@fortawesome/free-brands-svg-icons": "^5.10.1",
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@fullcalendar/core": "^4.4.0",
+    "@fullcalendar/daygrid": "^4.4.0",
+    "@fullcalendar/interaction": "4.4.0",
+    "@fullcalendar/react": "4.4.0",
+    "@fullcalendar/timegrid": "4.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -16,7 +21,7 @@
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28",
     "react": "^16.12.0",
-    "react-big-calendar": "^0.24.0",
+    "react-big-calendar": "^0.24.1",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
     "react-loader-spinner": "^3.1.5",
@@ -27,7 +32,9 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "sweetalert2": "^9.10.8",
+    "typescript": "3.6.4"
   },
   "scripts": {
     "start": "react-scripts start",

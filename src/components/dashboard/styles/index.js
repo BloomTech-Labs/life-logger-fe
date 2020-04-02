@@ -15,6 +15,10 @@ export const ListContainer = styled.div`
   width: 100%;
   height: fit-content;
   margin-top: 30px;
+
+  @media (max-width: 1200px) {
+    width: 80vw;
+  }
 `;
 
 export const ListHeader = styled.div`
@@ -71,11 +75,15 @@ export const ListItem = styled.div`
 
 export const NewTaskForm = styled.form`
   display: flex;
-  flex-direction: column;
+  flex-flow: column nowrap;
 
   width: 100%;
 
   padding-top: 60px;
+  
+  @media (max-width: 1200px) {
+    width: 60vw;
+  }
 
   input {
     height: 30px;
@@ -148,7 +156,7 @@ export const TaskContainer = styled.div`
   padding: 0 30px;
   padding-top: 60px;
   height: 80vh;
-  width: 1200px;
+  width: 80%;
   margin-top: 40px;
 
   h1 {

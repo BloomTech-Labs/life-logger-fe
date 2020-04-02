@@ -1,0 +1,13 @@
+.calendar-app {
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+
+    border: .5px blue;
+
+  }
+   
+  
+  .calendar-app-calendar {
+    margin: 0 auto;
+    border: .5px blue;
+  }

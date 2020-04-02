@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import BackgroundImg from '../assets/img/Background.jpg';
 
 export const AppContainer = styled.div`
   font-size: 1.6rem;
@@ -8,8 +7,12 @@ export const AppContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100vh;
-  background: rgb(255,255,255);
-  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(242,242,242,1) 100%);
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(242, 242, 242, 1) 100%
+  );
   color: black;
 `;
 
@@ -21,7 +24,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   position: absolute;
   padding: 0 20px;
-  width: 97%;
+  width: 100vw;
   height: 60px;
   background-color: #045de9;
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
