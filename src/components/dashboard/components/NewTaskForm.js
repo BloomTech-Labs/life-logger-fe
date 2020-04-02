@@ -4,12 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
 
+import { useHistory } from 'react-router-dom';
+
 const NewTaskForm = () => {
+  const history = useHistory();
+  const fromCalendar = history.location.state;
   const dispatch = useDispatch();
   const { userData } = useSelector(state => state.users);
-  const [startDate, setStartDate] = useState('');
+  const [startDate, setStartDate] = useState(fromCalendar ? fromCalendar.date : '');
   const [startTime, setStartTime] = useState('');
-  const [endDate, setEndDate] = useState('');
+  const [endDate, setEndDate] = useState(fromCalendar ? fromCalendar.date : '');
   const [endTime, setEndTime] = useState('');
   const [newTask, setNewTask] = useState({
     user_id: userData.user_id,
@@ -22,9 +26,12 @@ const NewTaskForm = () => {
     event_et_tm: '',
     all_day: true,
     event_resource: ''
-  });
 
-  const [toggleForm, setToggleForm] = useState(false);
+  });
+  
+  const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
+
+  console.log('history state:', fromCalendar);
 
   const handleChange = e => {
     setNewTask({
@@ -74,6 +81,7 @@ const NewTaskForm = () => {
     setEndTime('')
 
     setToggleForm(false);
+    if (fromCalendar) history.goBack();
   };
 
   return (
@@ -103,7 +111,7 @@ const NewTaskForm = () => {
             <div>
               <span>Start Date:</span>
               <input
-                type="date"
+                type={history.location.state ? "text" : "date"}
                 name=""
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
@@ -118,7 +126,7 @@ const NewTaskForm = () => {
             <div>
               <span>End Date:</span>
               <input
-                type="date"
+                type={history.location.state ? "text" : "date"}
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
               />
@@ -155,7 +163,7 @@ const NewTaskForm = () => {
             <button
               type="button"
               className="delete-button"
-              onClick={() => setToggleForm(false)}
+              onClick={() => fromCalendar ? history.goBack() : setToggleForm(false)}
             >
               Close
             </button>

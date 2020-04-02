@@ -14,6 +14,7 @@ import Swal from 'sweetalert2';
 
 import { fetchEventsByUserId } from '../../../store/actions';
 import Loading from '../../UI/Loading';
+import NewTaskForm from './NewTaskForm';
 import { Container } from '../styles';
 
 const Calendar = () => {
@@ -74,13 +75,19 @@ const Calendar = () => {
 
   const handleDateClick = arg => {
     const date = moment(arg.dateStr).format('MM/DD/YYYY');
-    if (
-      window.confirm(
-        `Would you like to add an event to ${date}?`
-      )
-    ) {
-      history.push(`/`);
-    }
+    Swal.fire({
+      title: `Would you like to add an event to ${date}?`,
+      icon: 'question',
+      // text: e.event.extendedProps.text,
+      showCancelButton: true,
+      cancelButtonText: "Nope",
+      confirmButtonText: "Yeah"
+    }).then(result => {
+      if (result.value){
+        console.log('wooohoooo!!')
+        history.push(`/`, {date, visible: true});
+      }
+    })
   };
 
   if (isFetching) {
