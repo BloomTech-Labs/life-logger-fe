@@ -67,21 +67,22 @@ const Calendar = () => {
         history.push(`/task/${e.event.id}`);
       }
     })
-    // if (window.confirm('Would you like to modify this event?')) {
-    //   history.push(`/task/${e.event.id}`);
-    // }
   };
 
   const handleDateClick = arg => {
-    if (
-      window.confirm(
-        'Would you like to add an event to ' +
-          moment(arg.dateStr).format('MM/DD/YYYY') +
-          ' ?'
-      )
-    ) {
-      history.push(`/`);
-    }
+    const date = moment(arg.dateStr).format('MM/DD/YYYY');
+    Swal.fire({
+      title: `Would you like to add an event to ${date}?`,
+      icon: 'question',
+      showCancelButton: true,
+      cancelButtonText: "Nope",
+      confirmButtonText: "Yeah"
+    }).then(result => {
+      if (result.value){
+        console.log('wooohoooo!!')
+        history.push(`/`, {date, visible: true});
+      }
+    })
   };
 
   if (isFetching) {
