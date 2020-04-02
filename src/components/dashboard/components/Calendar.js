@@ -14,7 +14,6 @@ import Swal from 'sweetalert2';
 
 import { fetchEventsByUserId } from '../../../store/actions';
 import Loading from '../../UI/Loading';
-import NewTaskForm from './NewTaskForm';
 import { Container } from '../styles';
 
 const Calendar = () => {
@@ -68,9 +67,6 @@ const Calendar = () => {
         history.push(`/task/${e.event.id}`);
       }
     })
-    // if (window.confirm('Would you like to modify this event?')) {
-    //   history.push(`/task/${e.event.id}`);
-    // }
   };
 
   const handleDateClick = arg => {
