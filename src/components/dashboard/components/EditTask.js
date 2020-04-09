@@ -48,13 +48,13 @@ const EditTask = props => {
         setStartDate(currentEvent.event_st_tm.split('T')[0]);
 
         setStartTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
-
+        
         setEndDate(currentEvent.event_et_tm.split('T')[0]);
 
         setEndTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
       }
     },
-    [currentEvent, task]
+    [currentEvent]
   );
 
   const handleChange = e => {
