@@ -13,10 +13,10 @@ const Nav = () => {
   // and never re-run based on the user logging in/logging out
   // This is a bad pattern, and needs to be corrected at some point.
   const { isLoggedIn } = useSelector(state => state.users);
-  const id = localStorage.getItem("id");
+  // const id = localStorage.getItem("id");
   return (
     <NavContainer>
-      {id &&
+      {isLoggedIn &&
         <>
           <div className="nav-link">
             <Link exact to="/" style={{ textDecoration: 'none',color: 'white'}}>
