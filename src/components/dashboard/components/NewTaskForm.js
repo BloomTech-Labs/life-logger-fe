@@ -1,10 +1,11 @@
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import * as Yup from 'yup';
+
 import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
-
-import { useHistory } from 'react-router-dom';
 
 const NewTaskForm = () => {
   const history = useHistory();
@@ -32,6 +33,15 @@ const NewTaskForm = () => {
     event_resource: ''
 
   });
+
+  // State for error messages:
+  // we will use this for form validation:
+  const [errors, setErrors] = useState({
+    title: "",
+    event_text: "",
+    start_date: "",
+    end_date: "",
+  });
   
   // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
@@ -56,6 +66,8 @@ const NewTaskForm = () => {
     const endDateUTC = moment(`${endDate} ${endTime}`)
       .utc()
       .format();
+
+    console.log(startDate, endDate);
 
     dispatch(
       createEvent({
@@ -119,7 +131,7 @@ const NewTaskForm = () => {
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
-                name=""
+                name="start_date"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
@@ -135,6 +147,7 @@ const NewTaskForm = () => {
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
+                name="end_date"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
               />

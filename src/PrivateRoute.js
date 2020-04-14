@@ -12,14 +12,14 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
 
   // We are only ever checking that a token exists, but we are
   // never validating that token
-  const storageToken = localStorage.getItem('token');
+  // const storageToken = localStorage.getItem('token');
 
   return (
     <Route
       {...rest}
       render={props =>
-        // token ?
-        storageToken ? <Component {...props} {...rest} /> : <LandingPage />}
+        // storageToken ?
+        token ? <Component {...props} {...rest} /> : <LandingPage />}
     />
   );
 };
