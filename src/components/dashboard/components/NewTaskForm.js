@@ -34,7 +34,8 @@ const NewTaskForm = () => {
 
   });
 
-  // State for error messages: 
+  // State for error messages:
+  // we will use this for form validation:
   const [errors, setErrors] = useState({
     title: "",
     event_text: "",
@@ -100,29 +101,6 @@ const NewTaskForm = () => {
     // reroute back if coming from calendar 
     if (fromCalendar) history.goBack();
   };
-
-  // const formSchema = Yup.object().shape({
-  //   title: Yup
-  //     .string()
-  //     .required("Must include event name."),
-  //   event_text: Yup
-  //     .string()
-  //     .required("Please enter some notes"),
-  //   start_date: Yup
-  //     .string()
-  //     .required("Please enter start date"),
-  //   end_date: Yup
-  //     .string()
-  //     .required("Please enter end date"),
-  // });
-  // useEffect(() => {
-  //   /* We pass the entire state into the entire schema, no need to use reach here. 
-  //   We want to make sure it is all valid before we allow a user to submit
-  //   isValid comes from Yup directly */
-  //   formSchema.isValid(newTask).then(valid => {
-  //     setButtonDisabled(!valid);
-  //   });
-  // }, [newTask]);
 
   return (
     <Form>
