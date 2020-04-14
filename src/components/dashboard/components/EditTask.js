@@ -54,7 +54,7 @@ const EditTask = props => {
         setEndTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
       }
     },
-    [currentEvent, task]
+    [currentEvent]
   );
 
   const handleChange = e => {
@@ -72,6 +72,8 @@ const EditTask = props => {
     const startDateUTC = moment(`${startDate} ${startTime}`).utc().format();
 
     const endDateUTC = moment(`${endDate} ${endTime}`).utc().format();
+
+    console.log('start date, end date: ', startDateUTC, endDateUTC);
 
     dispatch(
       updateEvent(

@@ -1,10 +1,11 @@
 import moment from 'moment-timezone';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import * as Yup from 'yup';
+
 import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
-
-import { useHistory } from 'react-router-dom';
 
 const NewTaskForm = () => {
   const history = useHistory();
@@ -32,6 +33,14 @@ const NewTaskForm = () => {
     event_resource: ''
 
   });
+
+  // State for error messages: 
+  const [errors, setErrors] = useState({
+    title: "",
+    event_text: "",
+    start_date: "",
+    end_date: "",
+  });
   
   // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
@@ -56,6 +65,8 @@ const NewTaskForm = () => {
     const endDateUTC = moment(`${endDate} ${endTime}`)
       .utc()
       .format();
+
+    console.log(startDate, endDate);
 
     dispatch(
       createEvent({
@@ -90,6 +101,29 @@ const NewTaskForm = () => {
     if (fromCalendar) history.goBack();
   };
 
+  // const formSchema = Yup.object().shape({
+  //   title: Yup
+  //     .string()
+  //     .required("Must include event name."),
+  //   event_text: Yup
+  //     .string()
+  //     .required("Please enter some notes"),
+  //   start_date: Yup
+  //     .string()
+  //     .required("Please enter start date"),
+  //   end_date: Yup
+  //     .string()
+  //     .required("Please enter end date"),
+  // });
+  // useEffect(() => {
+  //   /* We pass the entire state into the entire schema, no need to use reach here. 
+  //   We want to make sure it is all valid before we allow a user to submit
+  //   isValid comes from Yup directly */
+  //   formSchema.isValid(newTask).then(valid => {
+  //     setButtonDisabled(!valid);
+  //   });
+  // }, [newTask]);
+
   return (
     <Form>
       {!toggleForm &&
@@ -119,7 +153,7 @@ const NewTaskForm = () => {
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
-                name=""
+                name="start_date"
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
@@ -135,6 +169,7 @@ const NewTaskForm = () => {
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
+                name="end_date"
                 value={endDate}
                 onChange={e => setEndDate(e.target.value)}
               />

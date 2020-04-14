@@ -11,16 +11,13 @@ const Dashboard = () => {
   const { users, events } = useSelector(state => {
     return state
   });
-
   console.log('users  events', users, events);
-
-  const userId = users.userData.user_id
 
   useEffect(
     () => {
-      dispatch(fetchEventsByUserId(userId));
+      dispatch(fetchEventsByUserId(users.userData.user_id));
     },
-    [userId, dispatch]
+    [users, dispatch]
   );
 
   if (events.isFetching) {
