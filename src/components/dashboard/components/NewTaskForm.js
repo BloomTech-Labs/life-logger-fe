@@ -94,40 +94,40 @@ const NewTaskForm = () => {
   };
 
   // schema for form validation yup:
-  const formSchema = Yup.object().shape({
-    title: Yup
-      .string()
-      .required("Must include title"),
-    start_date: Yup
-      .string()
-      .required("Must include start date"),
-    end_date: Yup
-      .string()
-      .required("Must include end date"),
-    event_text: Yup
-    .string()
-    .required("Please describe an event"),
-  });
+  // const formSchema = Yup.object().shape({
+  //   title: Yup
+  //     .string()
+  //     .required("Must include title"),
+  //   start_date: Yup
+  //     .string()
+  //     .required("Must include start date"),
+  //   end_date: Yup
+  //     .string()
+  //     .required("Must include end date"),
+  //   event_text: Yup
+  //   .string()
+  //   .required("Please describe an event"),
+  // });
 
   // State for error messages:
   // we will use this for form validation:
-  const [errors, setErrors] = useState({
-    title: "",
-    event_text: "",
-    start_date: "",
-    end_date: "",
-  });
+  // const [errors, setErrors] = useState({
+  //   title: "",
+  //   event_text: "",
+  //   start_date: "",
+  //   end_date: "",
+  // });
 
   /* Each time the form value state is updated, check to see if it is valid per our schema. 
   This will allow us to enable/disable the submit button.*/
-  useEffect(() => {
-    /* We pass the entire state into the entire schema, no need to use reach here. 
-    We want to make sure it is all valid before we allow a user to submit
-    isValid comes from Yup directly */
-    formSchema.isValid(formState).then(valid => {
-      setButtonDisabled(!valid);
-    });
-  }, [formState]);
+  // useEffect(() => {
+  //   /* We pass the entire state into the entire schema, no need to use reach here. 
+  //   We want to make sure it is all valid before we allow a user to submit
+  //   isValid comes from Yup directly */
+  //   formSchema.isValid(formState).then(valid => {
+  //     setButtonDisabled(!valid);
+  //   });
+  // }, [formState]);
 
   return (
     <Form>
@@ -192,10 +192,14 @@ const NewTaskForm = () => {
                 name="category"
                 onChange={handleChange}
               >
-                <option value="">Select...</option>
+                {/* <option value="">Select...</option> */}
                 <option value={0}>Work</option>
                 <option value={1}>Home</option>
                 <option value={2}>Family</option>
+                <option value={3}>uncategorized</option>
+
+                // work on this
+
               </select>
               <span>Location:</span>
               <input

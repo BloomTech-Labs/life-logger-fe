@@ -45,7 +45,8 @@ export const UPDATE_EVENT_FAILURE = 'UPDATE_EVENT_FAILURE';
 //Landing Page Actions
 export const TOGGLE_IS_USER = 'TOGGLE_IS_USER';
 
-const host = `https://lyfe-logger-be.herokuapp.com`;
+// const host = `https://lyfe-logger-be.herokuapp.com`;
+const host = `http://localhost:5000`;
 
 // Async action creators for users
 

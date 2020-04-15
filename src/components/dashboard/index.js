@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchEventsByUserId } from '../../store/actions';
 import Loading from '../UI/Loading';
 import NewTaskForm from './components/NewTaskForm';
+import TaskForm from './components/FormikForm';
 import TaskList from './components/TaskList';
 import { Container } from './styles';
 
@@ -26,7 +27,8 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <NewTaskForm />
+      {/* <NewTaskForm /> */}
+      <TaskForm />
       <TaskList events={events.eventData} />
     </Container>
   );
