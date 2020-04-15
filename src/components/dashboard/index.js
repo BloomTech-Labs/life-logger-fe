@@ -8,25 +8,26 @@ import { Container } from './styles';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-  const { isFetching, eventData } = useSelector(state => state.events);
-
-  const tempUserDataId = localStorage.getItem('id');
+  const { users, events } = useSelector(state => {
+    return state
+  });
+  console.log('users  events', users, events);
 
   useEffect(
     () => {
-      dispatch(fetchEventsByUserId(tempUserDataId));
+      dispatch(fetchEventsByUserId(users.userData.user_id));
     },
-    [tempUserDataId, dispatch]
+    [users, dispatch]
   );
 
-  if (isFetching) {
+  if (events.isFetching) {
     return <Loading />;
   }
 
   return (
     <Container>
       <NewTaskForm />
-      <TaskList events={eventData} />
+      <TaskList events={events.eventData} />
     </Container>
   );
 };
