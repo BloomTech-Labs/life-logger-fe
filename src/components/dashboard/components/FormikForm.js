@@ -8,7 +8,7 @@ import * as Yup from 'yup';
 import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
 
-const TaskForm = () => {
+const TaskForm = props => {
   const history = useHistory();
   // this variable indicates if user is coming from calendar view:
   const fromCalendar = history.location.state;
@@ -19,34 +19,33 @@ const TaskForm = () => {
   
   // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
-  console.log('history state:', fromCalendar);
+  // console.log('history state:', fromCalendar);
+  // console.log('props: ', props.values);
 
 
   return (
-    <FormikForm>
-      <Form>
-        {!toggleForm &&
-          <button
-          type="button"
-          onClick={() => setToggleForm(true)}
-          style={{ marginTop: '20px'}}
-          >
-            Create Task
-          </button>}
+    <Form>
+      {!toggleForm &&
+        <button
+        type="button"
+        onClick={() => setToggleForm(true)}
+        style={{ marginTop: '20px'}}
+        >
+          Create Task
+        </button>}
 
+      <FormikForm>
         {toggleForm &&
-          <>
-            <div className="task-input-title">
-              <label>
-                Name:
-                <Field
-                  type="text"
-                  name="title"
-                  placeholder="Add a task..."
-                  style={{marginTop: "30px"}}
-                  />
-              </label>
-            </div>
+        <>
+          <div className="task-input-title">
+            <span>Name:</span>
+            <Field
+              type="text"
+              name="title"
+              placeholder="Add a task..."
+              style={{marginTop: "30px"}}
+              />
+          </div>
             <div className="task-input-info">
               <div>
                 <span>Start Date:</span>
@@ -116,12 +115,39 @@ const TaskForm = () => {
                 Confirm
               </button>
             </div>
-          </>}
-      </Form>
-    </FormikForm>
+        </>}
+      </FormikForm>
+    </Form>
   );
 };
 
 export default withFormik({
-
+  mapPropsToValues: props => ({
+    title: "",
+    start_date: '',
+    start_time: '',
+    end_date: '',
+    end_time: '',
+    category: '',
+    location: '',
+    event_text: '',
+  }),
+  validationSchema: Yup.object().shape({
+    title: Yup
+      .string()
+      .required("Please name your Task"),
+    start_date: Yup
+      .string()
+      .required("Enter start date"),
+    end_date: Yup
+      .string()
+      .required("Yo! I think your task is not endless"),
+    event_text: Yup
+      .string()
+      .required("Describe your task"),
+  }),
+  handleSubmit: (values, { resetForm }) => {
+    console.log(values);
+    resetForm();
+  }
 })(TaskForm);
