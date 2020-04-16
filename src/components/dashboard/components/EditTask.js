@@ -56,11 +56,6 @@ const EditTask = props => {
     [currentEvent]
   );
 
-  console.log('startDate', startDate);
-  console.log('startTime', startTime);
-  console.log('endDate', endDate);
-  console.log('endTime', endTime);
-
   const handleChange = e => {
     setTask({
       ...task,
@@ -109,7 +104,7 @@ const EditTask = props => {
               <span>Start Date:</span>
               <input
                 type="date"
-                value="2020-04-15"
+                value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
               <span>Start Time:</span>
