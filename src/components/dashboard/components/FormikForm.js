@@ -2,7 +2,7 @@ import moment from 'moment-timezone';
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { withFormik, Form as FormikForm, Field} from 'formik';
+import { withFormik, Form as FormikForm, Field } from 'formik';
 import * as Yup from 'yup';
 
 import { createEvent } from '../../../store/actions';
@@ -38,14 +38,19 @@ const TaskForm = props => {
         {toggleForm &&
         <>
           <div className="task-input-title">
-            <span>Name:</span>
             <Field
               type="text"
               name="title"
-              placeholder="Add a task..."
+              placeholder= "Add a task..."
               style={{marginTop: "30px"}}
-              />
+            />
           </div>
+           <div className="error">
+            {props.touched.title && props.errors.title && (
+              <p>{props.errors.title}</p>
+            )}
+          </div>
+          
             <div className="task-input-info">
               <div>
                 <span>Start Date:</span>

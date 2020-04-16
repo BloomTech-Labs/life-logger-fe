@@ -85,6 +85,13 @@ export const NewTaskForm = styled.form`
     width: 60vw;
   }
 
+  .error {
+    color: red;
+    align-self: flex-start;
+    position: absolute;
+    margin-top: -25px;
+  }
+
   input {
     height: 30px;
     border: 1px solid #82d1f1;
