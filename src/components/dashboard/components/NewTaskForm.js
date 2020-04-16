@@ -80,7 +80,7 @@ const NewTaskForm = () => {
     title: '',
     event_text: '',
     location: '',
-    category: 1,
+    category: 3,
     event_ct_tm: '',
     event_st_tm: '',
     event_et_tm: '',
@@ -238,6 +238,7 @@ const NewTaskForm = () => {
                 <option value={0}>Work</option>
                 <option value={1}>Home</option>
                 <option value={2}>Family</option>
+                <option value={3}>Uncategorized</option>
               </select>
               <span>Location:</span>
               <input
