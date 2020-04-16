@@ -80,7 +80,7 @@ export const NewTaskForm = styled.form`
   width: 100%;
 
   padding-top: 60px;
-  
+
   @media (max-width: 1200px) {
     width: 60vw;
   }
@@ -212,6 +212,22 @@ export const TaskContainer = styled.div`
     height: 100%;
     border: none;
     outline: none;
+  }
+
+  .back-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+    button {
+      margin: 10px 10px;
+      width: 220px;
+      height: 40px;
+      background-color: #0abcf9;
+      background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+      color: white;
+    }
   }
 
   .button-container {
