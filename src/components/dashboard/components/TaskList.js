@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { deleteEvent } from '../../../store/actions';
 import { ListContainer, ListHeader, ListItem } from '../styles';
+import trashBin from '../../../assets/img/trash.png'
 
 const TaskList = props => {
   const history = useHistory();
@@ -40,14 +41,14 @@ const TaskList = props => {
               {event.title}
             </div>
             <div className="task-due-date">
-              <span onClick={() => { history.push('/calendar') }}>
+              <span onClick={() => history.push('/calendar') }>
                 {moment(event.event_et_tm).format('MM/DD/YYYY')}
               </span>
               <span>
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
               <div onClick={() => handleDelete(event.id)}>
-                  del
+                <img alt="trash bin" src={trashBin} style={{width: '17px'}} />
               </div>
             </div>
           </ListItem>

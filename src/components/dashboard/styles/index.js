@@ -75,6 +75,12 @@ export const ListItem = styled.div`
     justify-content: space-between;
     width: 32%;
   }
+  
+  img:hover {
+    transform: rotate(-28deg);
+    cursor: pointer;
+  }
+
 `;
 
 export const NewTaskForm = styled.form`
