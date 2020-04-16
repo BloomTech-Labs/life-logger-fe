@@ -1,13 +1,27 @@
 import moment from 'moment-timezone';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { deleteEvent } from '../../../store/actions';
 import { ListContainer, ListHeader, ListItem } from '../styles';
 
 const TaskList = props => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const handleClick = eventID => {
     history.push(`/task/${eventID}`);
+  };
+
+  const handleDelete = id => {
+    const confirmed = window.confirm(
+      'Are you sure you want to delete this task?'
+    );
+
+    if (confirmed) {
+      dispatch(deleteEvent(id));
+    }
   };
 
   return (
@@ -32,7 +46,7 @@ const TaskList = props => {
               <span>
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
-              <div onClick={() => alert('here!')}>
+              <div onClick={() => handleDelete(event.id)}>
                   del
               </div>
             </div>
