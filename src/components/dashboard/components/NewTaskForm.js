@@ -1,11 +1,64 @@
 import moment from 'moment-timezone';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import * as Yup from 'yup';
-
 import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
+import { useHistory } from 'react-router-dom';
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'SET_ERRORS': 
+    return {
+      ...state,
+      errors: action.payload
+    };
+    
+    case 'SET_FIELD_TOUCHED': 
+    return {
+      ...state,
+      touched: {
+        ...state.touched,
+        ...action.payload.touched
+      },
+        values: {
+          ...state.values,
+          ...action.payload.values
+        }
+    };
+    default:
+      return state;
+  }
+
+}
+
+function useFormik(props){
+  const [state, dispatch] = useReducer(reducer, {
+    values: props.initialValues,
+    touched: {},
+    errors: {}
+  });
+
+  useEffect(() => {
+      if (props.validate) {
+        const errors = props.validate(state.values)
+        dispatch({type: 'SET_ERRORS', payload: errors})
+      }
+    },[state.values]
+  )
+
+  const handleBlur = e => {
+    e.persist();
+    dispatch({
+      type: 'SET_FIELD_TOUCHED',
+      payload: { 
+        touched: {[e.target.name]: true}, 
+        values: {[e.target.name]: e.target.value}
+      }
+    })
+  }
+
+  return { handleBlur, ...state }
+}
 
 const NewTaskForm = () => {
   const history = useHistory();
@@ -25,7 +78,7 @@ const NewTaskForm = () => {
     title: '',
     event_text: '',
     location: '',
-    category: 1,
+    category: 3,
     event_ct_tm: '',
     event_st_tm: '',
     event_et_tm: '',
@@ -33,74 +86,70 @@ const NewTaskForm = () => {
     event_resource: ''
 
   });
-
-  // State for error messages:
-  // we will use this for form validation:
-  const [errors, setErrors] = useState({
-    title: "",
-    event_text: "",
-    start_date: "",
-    end_date: "",
-  });
   
   // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
-  console.log('history state:', fromCalendar);
 
   const handleChange = e => {
+    e.persist()
     setNewTask({
       ...newTask,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = e => {
-    e.preventDefault();
-
-    const today = moment().utc().format();
-
-    const startDateUTC = moment(`${startDate} ${startTime}`)
-      .utc()
-      .format();
-
-    const endDateUTC = moment(`${endDate} ${endTime}`)
-      .utc()
-      .format();
-
-    console.log(startDate, endDate);
-
-    dispatch(
-      createEvent({
-        ...newTask,
-        event_ct_tm: today,
-        event_st_tm: startDateUTC,
-        event_et_tm: endDateUTC
+  const formik = useFormik({
+    initialValues: {...newTask, startDate, startTime, endDate, endTime},
+    validate: values => {
+      let errors = {};
+      Object.entries(values).map(([key, value])=> {
+        if(key.includes('event_')){
+        } else {
+          if (!value) {
+            errors[key] = "required"
+          }
+        }
       })
-    );
+      return errors
+    }
+  });
 
-    setNewTask({
-      user_id: userData.user_id,
-      title: '',
-      event_text: '',
-      location: '',
-      category: 1,
-      event_ct_tm: '',
-      event_st_tm: '',
-      event_et_tm: '',
-      all_day: true,
-      event_resource: ''
-    })
-    
-    setStartDate('')
-    setStartTime('')
-    setEndDate('')
-    setEndTime('')
+  let { handleBlur, touched, errors} = formik;
 
-    setToggleForm(false);
+  const handleSubmit = e => {
+    if (Object.keys(errors).length !== 0) {
+      
+      e.preventDefault();
+      alert('all required fields MUST be filled in');
 
-    // reroute back if coming from calendar 
-    if (fromCalendar) history.goBack();
+    } else {
+      e.preventDefault();
+
+      const today = moment().utc().format();
+
+      const startDateUTC = moment(`${startDate} ${startTime}`)
+        .utc()
+        .format();
+
+      const endDateUTC = moment(`${endDate} ${endTime}`)
+        .utc()
+        .format();
+
+      dispatch(
+        createEvent({
+          ...newTask,
+          event_ct_tm: today,
+          event_st_tm: startDateUTC,
+          event_et_tm: endDateUTC
+        })
+      );
+      setToggleForm(false);
+
+      // reroute back if coming from calendar 
+      if (fromCalendar) history.goBack();
+    }
   };
+  console.log(errors)
 
   return (
     <Form>
@@ -112,51 +161,62 @@ const NewTaskForm = () => {
         >
           Create Task
         </button>}
-
       {toggleForm &&
         <>
           <div className="task-input-title">
             <input
               type="text"
               name="title"
-              value={newTask.title}
+              onBlur={handleBlur}
               onChange={handleChange}
+              value={newTask.title}
               placeholder="Add a task..."
               style={{marginTop: "30px"}}
             />
           </div>
+          {touched.title && errors.title && (<div style={{color: 'red', marginTop: -25, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
           <div className="task-input-info">
             <div>
               <span>Start Date:</span>
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
-                name="start_date"
+                name="startDate"
                 value={startDate}
+                onBlur={handleBlur}
                 onChange={e => setStartDate(e.target.value)}
               />
+              {touched.startDate && errors.startDate && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
               <span>Start Time:</span>
               <input
+                name="startTime"
                 type="time"
                 value={startTime}
                 onChange={e => setStartTime(e.target.value)}
+                onBlur={handleBlur}
               />
+              {touched.startTime && errors.startTime && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startTime}</div>)}
             </div>
             <div>
               <span>End Date:</span>
               <input
                 // needs to be type 'text' to fill the form picked from calendar view. Otherwise 'date'
                 type={history.location.state ? "text" : "date"}
-                name="end_date"
+                name="endDate"
                 value={endDate}
+                onBlur={handleBlur}
                 onChange={e => setEndDate(e.target.value)}
               />
+              {touched.endDate && errors.endDate && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.endDate}</div>)}
               <span>End Time:</span>
               <input
+                name="endTime"
                 type="time"
                 value={endTime}
+                onBlur={handleBlur}
                 onChange={e => setEndTime(e.target.value)}
               />
+              {touched.endTime && errors.endTime && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.endTime}</div>)}
             </div>
             <div>
               <span>Category</span>
@@ -164,22 +224,25 @@ const NewTaskForm = () => {
               <select
                 name="category"
                 onChange={handleChange}
+                onBlur={handleBlur}
               >
                 <option value="">Select...</option>
                 <option value={0}>Work</option>
                 <option value={1}>Home</option>
                 <option value={2}>Family</option>
+                <option value={3}>Uncategorized</option>
               </select>
               <span>Location:</span>
               <input
                 type="text"
                 name="location"
                 onChange={handleChange}
+                onBlur={handleBlur}
               />
             </div>
           </div>
           <span>Event Notes:</span>
-        <textarea name="event_text" value={newTask.event_text} onChange={handleChange}/>
+        <textarea name="event_text" value={newTask.event_text} onChange={handleChange} onBlur={handleBlur}/>
           <div className="task-form-buttons">
             <button
               type="button"
