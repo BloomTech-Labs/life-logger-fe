@@ -15,23 +15,26 @@ const TaskList = props => {
       <ListHeader>
         <div className="task-title">Task</div>
         <div className="task-due-date">
-          <span>Due Date</span>
-          <span>Due Time</span>
+          <div>Due Date</div>
+          <div style={{marginRight: '40px'}}>Due Time</div>
         </div>
       </ListHeader>
       {props.events.map(event => {
         return (
-          <ListItem onClick={() => handleClick(event.id)} key={event.id}>
-            <div className="task-title">
+          <ListItem key={event.id}>
+            <div className="task-title" onClick={() => handleClick(event.id)}>
               {event.title}
             </div>
             <div className="task-due-date">
-              <span>
+              <span onClick={() => { history.push('/calendar') }}>
                 {moment(event.event_et_tm).format('MM/DD/YYYY')}
               </span>
               <span>
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
+              <div onClick={() => alert('here!')}>
+                  del
+              </div>
             </div>
           </ListItem>
         );

@@ -41,8 +41,8 @@ export const ListHeader = styled.div`
 
   div.task-due-date {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    justify-content: space-around;
+    width: 36%;
     font-size: 20px;
     font-weight: bold;
   }
@@ -59,17 +59,21 @@ export const ListItem = styled.div`
 
   // background-color: #9033DF;
   // color: white;
-  cursor: pointer;
+  // cursor: pointer;
   margin: 5px 0;
 
   div.task-title {
     margin-left: 10px;
+    cursor: pointer;
   }
 
   div.task-due-date {
+    span:first-child {
+      cursor: pointer
+    }
     display: flex;
     justify-content: space-between;
-    width: 20%;
+    width: 32%;
   }
 `;
 
