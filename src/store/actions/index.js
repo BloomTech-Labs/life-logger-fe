@@ -56,6 +56,7 @@ export const fetchUser = user => dispatch => {
     .then(response => {
       window.localStorage.setItem('id', response.data.user_id);
       window.localStorage.setItem('token', response.data.token);
+      console.log('response on login ', response.data);
       dispatch({
         type: FETCH_USER_SUCCESS,
         payload: response.data

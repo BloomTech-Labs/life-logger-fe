@@ -73,6 +73,8 @@ const EditTask = props => {
 
     const endDateUTC = moment(`${endDate} ${endTime}`).utc().format();
 
+    console.log('start date, end date: ', startDateUTC, endDateUTC);
+
     dispatch(
       updateEvent(
         {
