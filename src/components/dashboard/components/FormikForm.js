@@ -15,7 +15,6 @@ const TaskForm = props => {
 
   const dispatch = useDispatch();
   const { userData } = useSelector(state => state.users);
-
   
   // open form by default if coming from calendar
   const [toggleForm, setToggleForm] = useState(fromCalendar ? true : false);
@@ -50,7 +49,7 @@ const TaskForm = props => {
               <p>{props.errors.title}</p>
             )}
           </div>
-          
+
             <div className="task-input-info">
               <div>
                 <span>Start Date:</span>

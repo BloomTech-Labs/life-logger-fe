@@ -27,8 +27,8 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {/* <NewTaskForm /> */}
-      <TaskForm />
+      <NewTaskForm />
+      {/* <TaskForm /> */}
       <TaskList events={events.eventData} />
     </Container>
   );
