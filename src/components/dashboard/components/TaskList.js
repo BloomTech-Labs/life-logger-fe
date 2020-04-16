@@ -2,6 +2,7 @@ import moment from 'moment-timezone';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import Swal from 'sweetalert2';
 
 import { deleteEvent } from '../../../store/actions';
 import { ListContainer, ListHeader, ListItem } from '../styles';
@@ -16,13 +17,17 @@ const TaskList = props => {
   };
 
   const handleDelete = id => {
-    const confirmed = window.confirm(
-      'Are you sure you want to delete this task?'
-    );
-
-    if (confirmed) {
-      dispatch(deleteEvent(id));
-    }
+    Swal.fire({
+      title: `Are you sure you want to delete this task?`,
+      icon: 'error',
+      showCancelButton: true,
+      cancelButtonText: "NOOOO",
+      confirmButtonText: "YES"
+    }).then(result => {
+      if (result.value){
+        dispatch(deleteEvent(id));
+      }
+    })
   };
 
   return (

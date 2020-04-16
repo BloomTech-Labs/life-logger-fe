@@ -77,7 +77,8 @@ export const ListItem = styled.div`
   }
   
   img:hover {
-    transform: rotate(-28deg);
+    transform: rotate(-25deg);
+    transition-duration: 0.5s;
     cursor: pointer;
   }
 
