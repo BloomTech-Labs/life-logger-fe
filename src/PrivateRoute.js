@@ -13,6 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   // We are only ever checking that a token exists, but we are
   // never validating that token
   const storageToken = localStorage.getItem('token');
+  console.log(storageToken)
 
   return (
     <Route
