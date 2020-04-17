@@ -22,7 +22,8 @@ const initialState = existId ?
   {
     userData: {
       user_id: existId,
-      token: localStorage.getItem('token')
+      token: localStorage.getItem('token'),
+      username: localStorage.getItem('username')
     },
     isLoggedIn: true,
     error: null,
@@ -96,6 +97,7 @@ function RegisterReducer(state = initialState, action) {
     case CREATE_USER_SUCCESS:
       return {
         ...state,
+        isFetching: false,
         userData: action.payload,
         error: null
       };

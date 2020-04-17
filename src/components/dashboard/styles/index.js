@@ -71,9 +71,15 @@ export const ListItem = styled.div`
     justify-content: space-between;
     width: 32%;
   }
+
+  img {
+    opacity: 0.3;
+    transition: 0.3s;
+  }
   
   img:hover {
-    transform: rotate(-25deg);
+    transform: rotate(-15deg);
+    opacity: 1;
     transition-duration: 0.5s;
     cursor: pointer;
   }

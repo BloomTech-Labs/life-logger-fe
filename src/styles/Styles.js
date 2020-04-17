@@ -32,6 +32,12 @@ export const HeaderContainer = styled.div`
   h4 {
     font-size: 2.5rem;
   }
+  .user {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2rem;
+  }
 `;
 
 export const NavContainer = styled.div`
