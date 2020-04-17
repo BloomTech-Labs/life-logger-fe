@@ -103,11 +103,8 @@ const NewTaskForm = () => {
     validate: values => {
       let errors = {};
       Object.entries(values).map(([key, value])=> {
-        if(key.includes('event_')){
-        } else {
-          if (!value) {
+        if(((key === 'title' ) || (key === 'startTime' ) || (key === 'endTime' ) || (key === 'event_text' ) || (key === 'category' )) && !value){
             errors[key] = "required"
-          }
         }
       })
       return errors
@@ -116,11 +113,17 @@ const NewTaskForm = () => {
 
   let { handleBlur, touched, errors} = formik;
 
+  let errs = []; //List of required field errors
+
   const handleSubmit = e => {
     if (Object.keys(errors).length !== 0) {
+
+      Object.keys(errors).map((key, i) => {
+        errs[i] =" " + key.toUpperCase()
+      })
       
       e.preventDefault();
-      alert('all required fields MUST be filled in');
+      alert(`The Following Fields MUST be filled in: ${errs}`);
 
     } else {
       e.preventDefault();
@@ -149,7 +152,7 @@ const NewTaskForm = () => {
       if (fromCalendar) history.goBack();
     }
   };
-  console.log(errors)
+  console.log(touched, errors)
 
   return (
     <Form>
@@ -174,7 +177,7 @@ const NewTaskForm = () => {
               style={{marginTop: "30px"}}
             />
           </div>
-          {touched.title && errors.title && (<div style={{color: 'red', marginTop: -25, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
+          {errors.title && touched.title && (<div style={{color: 'red', marginTop: -24, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.title}</div>)}
           <div className="task-input-info">
             <div>
               <span>Start Date:</span>
@@ -186,16 +189,15 @@ const NewTaskForm = () => {
                 onBlur={handleBlur}
                 onChange={e => setStartDate(e.target.value)}
               />
-              {touched.startDate && errors.startDate && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
+              {errors.startDate &&  (<h4 style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</h4>)}
               <span>Start Time:</span>
               <input
                 name="startTime"
                 type="time"
                 value={startTime}
                 onChange={e => setStartTime(e.target.value)}
-                onBlur={handleBlur}
+                // onBlur={handleBlur}
               />
-              {touched.startTime && errors.startTime && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startTime}</div>)}
             </div>
             <div>
               <span>End Date:</span>
@@ -213,10 +215,8 @@ const NewTaskForm = () => {
                 name="endTime"
                 type="time"
                 value={endTime}
-                onBlur={handleBlur}
                 onChange={e => setEndTime(e.target.value)}
               />
-              {touched.endTime && errors.endTime && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.endTime}</div>)}
             </div>
             <div>
               <span>Category</span>
@@ -237,12 +237,12 @@ const NewTaskForm = () => {
                 type="text"
                 name="location"
                 onChange={handleChange}
-                onBlur={handleBlur}
               />
             </div>
           </div>
           <span>Event Notes:</span>
         <textarea name="event_text" value={newTask.event_text} onChange={handleChange} onBlur={handleBlur}/>
+        {touched.event_text && errors.event_text && (<div style={{color: 'red', marginTop: -9, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.event_text}</div>)}
           <div className="task-form-buttons">
             <button
               type="button"

@@ -33,7 +33,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.0.1",
-    "sweetalert2": "^9.10.8",
+    "sweetalert2": "^9.10.12",
     "typescript": "3.6.4",
     "yup": "^0.28.3"
   },

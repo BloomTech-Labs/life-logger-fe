@@ -5,3 +5,38 @@
   text-align: center;
 
 }
+
+.dark-mode__toggle {
+  background: papayawhip;
+  border-radius: 30px;
+  border: 1px solid black;
+  height: 20px;
+  position: relative;
+  width: 39px;
+}
+
+.toggle {
+  background: #f68819;
+  border-radius: 50px;
+  height: 20px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+}
+
+.toggled {
+  left: 18px;
+}
+
+.dark-mode {
+  color: #fff;
+  background-color: #313843 !important;
+
+}
+
+.dark-mode.navbar {
+  background-color: #1F2022 !important;
+  background-image: linear-gradient(315deg, #1F2022 0%, #1F2022 74%);
+  border: none;
+}

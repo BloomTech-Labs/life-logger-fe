@@ -17,7 +17,7 @@ export const Hero = styled.div`
   height: 100vh;
   padding: 20px;
   margin-top: 35px;
-
+  
   h1 {
     font-size: 50px;
     color: #4A4A4A
