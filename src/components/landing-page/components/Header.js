@@ -7,7 +7,7 @@ import Nav from './Nav';
 
 function Header() {
   return (
-    <HeaderContainer id='navbar' class='navbar'>
+    <HeaderContainer id='navbar' className='navbar'>
       <Link to="/" style={{
         marginLeft: '40px', textDecoration: 'none',
         color: 'white'

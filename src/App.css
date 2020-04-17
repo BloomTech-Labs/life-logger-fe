@@ -30,12 +30,12 @@
 }
 
 .dark-mode {
-  color: #fff;
-  background-color: #313843 !important;
+  color: #fff!important;
+  background: #313843 !important;
 
 }
 
-.dark-mode.navbar {
+.dark-mode .navbar {
   background-color: #1F2022 !important;
   background-image: linear-gradient(315deg, #1F2022 0%, #1F2022 74%);
   border: none;

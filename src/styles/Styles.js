@@ -1,13 +1,5 @@
 import styled from 'styled-components';
 
-var bg = 'background-color:#045de9; background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);'
-
-if(document.body.classList.contains('dark-mode')){
-  bg = 'background-color: #1F2022;  background-image: linear-gradient(315deg, #1F2022 0%, #1F2022 74%);'
-} else {
-  bg =  'background-color:#045de9; background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);'
-}
-
 export const AppContainer = styled.div`
   font-size: 1.6rem;
   display: flex;
@@ -20,7 +12,7 @@ export const AppContainer = styled.div`
     90deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(242, 242, 242, 1) 100%
-  );
+  );!important
   color: black;
 `;
 

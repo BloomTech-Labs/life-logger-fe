@@ -7,12 +7,11 @@ export const useDarkMode = initialValue => {
     const [ storedValue, setStoredValue ] = useLocalStorage(
         'darkModeToggler', initialValue);
 
-
     useEffect(()=>{
         if(storedValue === true){
-            return document.getElementById('navbar').classList.add('dark-mode', 'navbar')
+            return (document.getElementById('container').classList.add('dark-mode'))
         }
-        return document.getElementById('navbar').classList.remove('dark-mode', 'navbar')
+        return (document.getElementById('container').classList.remove('dark-mode'))
     }, [storedValue]);
     
 

@@ -18,7 +18,7 @@ function App() {
   }, []);
 
   return (
-    <AppContainer>
+    <AppContainer id="container">
       <Header />
       <PrivateRoute exact path="/" component={Dashboard} />
       <PrivateRoute path="/task/:id" component={Task} />
