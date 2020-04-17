@@ -149,7 +149,7 @@ const NewTaskForm = () => {
       if (fromCalendar) history.goBack();
     }
   };
-  console.log(errors)
+  // console.log(errors)
 
   return (
     <Form>

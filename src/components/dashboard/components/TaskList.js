@@ -29,23 +29,52 @@ const TaskList = props => {
       }
     })
   };
-
+  // const today = moment().utc().format();
+  // const today = moment().format("MMMM DD YYYY"); 
+  // const today = moment().isSameOrAfter(event.event_et_tm)
+  // console.log('moment', today)
+  
+  let showOnce = true;
   return (
     <ListContainer>
       <ListHeader>
         <div className="task-title">Task</div>
         <div className="task-due-date">
           <div>Due Date</div>
-          <div style={{marginRight: '40px'}}>Due Time</div>
+          <div style={{ marginRight: '40px' }}>Due Time</div>
         </div>
       </ListHeader>
       {props.events.map(event => {
+        // check to see if event is upcoming or past
+        const upcoming = moment().isSameOrBefore(event.event_et_tm);
+
+        // show upcoming message once
+        if (showOnce && upcoming) {
+          showOnce = false;
+          return (
+            <div style={{textAlign: 'center', margin: '10px'}}>
+              upcoming:
+            </div>
+          )
+        }
+
         return (
-          <ListItem key={event.id}>
-            <div className="task-title" onClick={() => handleClick(event.id)}>
+          <ListItem
+            key={event.id}
+            style={{
+              borderLeft: "10px solid #53dc98",
+              borderBottom: upcoming ? "1.2px solid #53dc98" : "1px solid red",
+            }}
+           >
+            <div
+              className="task-title"
+              onClick={() => handleClick(event.id)}
+            >
               {event.title}
             </div>
-            <div className="task-due-date">
+            <div
+              className="task-due-date"
+            >
               <span onClick={() => history.push('/calendar') }>
                 {moment(event.event_et_tm).format('MM/DD/YYYY')}
               </span>

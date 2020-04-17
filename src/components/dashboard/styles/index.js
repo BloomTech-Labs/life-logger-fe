@@ -27,11 +27,11 @@ export const ListHeader = styled.div`
   align-items: center;
   width: 100%;
   height: 30px;
-  border-bottom: 1px solid #9033df;
+  border-bottom: 0.1px solid #9033df;
   margin-left: 5px;
   // background-color: #9033DF;
   // color: white;
-  margin: 5px 0;
+  margin: 5px 0 12px;
 
   div.task-title {
     margin-left: 10px;
@@ -54,12 +54,8 @@ export const ListItem = styled.div`
   align-items: center;
   width: 100%;
   height: 30px;
-  border-bottom: 1px solid #9033df;
-  border-left: 5px solid green;
-
-  // background-color: #9033DF;
-  // color: white;
-  // cursor: pointer;
+  // border-bottom: 1px solid #9033df;
+  // border-left: 15px solid #53dc98;
   margin: 5px 0;
 
   div.task-title {
