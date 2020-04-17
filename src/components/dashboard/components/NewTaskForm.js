@@ -174,7 +174,7 @@ const NewTaskForm = () => {
               onChange={handleChange}
               value={newTask.title}
               placeholder="Add a task..."
-              style={{marginTop: "30px"}}
+              style={{marginTop: "30px", fontColor: 'white'}}
             />
           </div>
           {errors.title && touched.title && (<div style={{color: 'red', marginTop: -24, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.title}</div>)}
