@@ -243,7 +243,7 @@ export const TaskContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
-
+    
     button {
       margin: 20px 10px;
       align-self: flex-end;
@@ -253,6 +253,19 @@ export const TaskContainer = styled.div`
       background-color: #0abcf9;
       background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
       color: white;
+    }
+    
+    img {
+      cursor: pointer;
+      margin: 20px 10px;
+      align-self: flex-end;
+      height: 35px;
+    }
+
+    img:hover {
+      transform: rotate(-15deg);
+      transition-duration: 0.5s;
+      cursor: pointer;
     }
   }
 `;

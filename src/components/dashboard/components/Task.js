@@ -2,8 +2,11 @@ import moment from 'moment-timezone';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
+
 import { deleteEvent, fetchEvent, updateEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
+import trashBin from '../../../assets/img/trash.png'
 
 const Task = props => {
   const dispatch = useDispatch();
@@ -37,14 +40,17 @@ const Task = props => {
   );
 
   const handleDelete = () => {
-    const confirmed = window.confirm(
-      'Are you sure you want to delete this task?'
-    );
-
-    if (confirmed) {
-      dispatch(deleteEvent(eventID));
-      history.push('/');
-    }
+    Swal.fire({
+      title: `Are you sure you want to delete this task?`,
+      icon: 'error',
+      showCancelButton: true,
+      cancelButtonText: "No",
+      confirmButtonText: "Yes"
+    }).then(result => {
+      if (result.value){
+        dispatch(deleteEvent(eventID));
+      }
+    })
   };
 
   const handleEdit = () => {
@@ -72,17 +78,17 @@ const Task = props => {
         <div className="back-button-container">
           <button
             onClick={() => {
-              history.push('/calendar');
-            }}
-          >
-            Go to Calendar
-          </button>
-          <button
-            onClick={() => {
               history.push('/');
             }}
           >
             Back to Task List
+          </button>
+          <button
+            onClick={() => {
+              history.push('/calendar');
+            }}
+          >
+            Go to Calendar
           </button>
         </div>
         <h1>
@@ -118,6 +124,9 @@ const Task = props => {
           <button onClick={handleEdit}>Edit</button>
           <button onClick={markCompleted}>Comleted!</button>
           {/* <button onClick={handleDelete}>Delete</button> */}
+          <div onClick={handleDelete}>
+            <img alt="trash bin" src={trashBin}/>
+          </div>
         </div>
       </TaskContainer>
     );
