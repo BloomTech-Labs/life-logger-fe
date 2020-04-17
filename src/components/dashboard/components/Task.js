@@ -2,7 +2,7 @@ import moment from 'moment-timezone';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { deleteEvent, fetchEvent } from '../../../store/actions';
+import { deleteEvent, fetchEvent, updateEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
 
 const Task = props => {
@@ -51,6 +51,20 @@ const Task = props => {
     history.push(`/edit-task/${eventID}`);
   };
 
+  const markCompleted = () => {
+    dispatch(
+      updateEvent(
+        {
+          ...currentEvent,
+          iscomplete: true,
+        },
+        eventID
+      )
+    );
+    history.push('/');
+  }
+  // console.log('currentevetn', currentEvent)
+
   if (!currentEvent) return <h1>Loading...</h1>;
   else
     return (
@@ -61,7 +75,7 @@ const Task = props => {
               history.push('/calendar');
             }}
           >
-            Back to Calendar
+            Go to Calendar
           </button>
           <button
             onClick={() => {
@@ -101,8 +115,9 @@ const Task = props => {
           {currentEvent.event_text}
         </p>
         <div className="button-container">
-          <button onClick={handleDelete}>Delete</button>
           <button onClick={handleEdit}>Edit</button>
+          <button onClick={markCompleted}>Comleted!</button>
+          {/* <button onClick={handleDelete}>Delete</button> */}
         </div>
       </TaskContainer>
     );

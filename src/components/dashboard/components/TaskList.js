@@ -52,8 +52,8 @@ const TaskList = props => {
         if (showOnce && upcoming) {
           showOnce = false;
           return (
-            <div style={{textAlign: 'center', margin: '10px'}}>
-              upcoming:
+            <div style={{textAlign: 'center', marginTop: '10px'}}>
+              Today's Date: {moment().format("MMMM DD YYYY")}
             </div>
           )
         }
@@ -62,7 +62,7 @@ const TaskList = props => {
           <ListItem
             key={event.id}
             style={{
-              borderLeft: "10px solid #53dc98",
+              borderLeft: event.iscomplete? "10px solid #53dc98" : "10px solid #ec3e61",
               borderBottom: upcoming ? "1.2px solid #53dc98" : "1px solid red",
             }}
            >

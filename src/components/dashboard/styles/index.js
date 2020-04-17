@@ -168,7 +168,7 @@ export const TaskContainer = styled.div`
 
   h1 {
     font-size: 3rem;
-    margin: 10px;
+    margin: 25px 10px;
   }
 
   .category {
@@ -210,7 +210,8 @@ export const TaskContainer = styled.div`
     width: 100%;
     height: 250px;
     margin-top: 20px;
-    border: 0.5px solid #0abcf9;
+    border-top: 0.5px solid #0abcf9;
+    border-right: 0.5px solid #0abcf9;
     padding: 5px;
   }
 
@@ -223,14 +224,15 @@ export const TaskContainer = styled.div`
 
   .back-button-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
     width: 100%;
 
     button {
       margin: 10px 10px;
-      width: 220px;
+      width: 180px;
       height: 40px;
+      border-radius: 25px;
       background-color: #0abcf9;
       background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
       color: white;
@@ -245,8 +247,9 @@ export const TaskContainer = styled.div`
     button {
       margin: 20px 10px;
       align-self: flex-end;
-      width: 220px;
+      width: 180px;
       height: 40px;
+      border-radius: 10px 15px;
       background-color: #0abcf9;
       background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
       color: white;
