@@ -52,8 +52,8 @@ const TaskList = props => {
         if (showOnce && upcoming) {
           showOnce = false;
           return (
-            <div style={{textAlign: 'center', marginTop: '10px'}}>
-              Today's Date: {moment().format("MMMM DD YYYY")}
+            <div style={{textAlign: 'center', marginTop: '10px', fontSize: '1.4rem', fontStyle: 'italic'}}>
+              Today: {moment().format("MMMM DD YYYY")}
             </div>
           )
         }
