@@ -45,7 +45,10 @@ export const UPDATE_EVENT_FAILURE = 'UPDATE_EVENT_FAILURE';
 //Landing Page Actions
 export const TOGGLE_IS_USER = 'TOGGLE_IS_USER';
 
-const host = `https://lyfe-logger-be.herokuapp.com`;
+// const host = `https://lyfe-logger-be.herokuapp.com`;
+
+// this host for local development before pushing to master:
+const host = `http://localhost:5000`;
 
 // Async action creators for users
 
@@ -56,6 +59,7 @@ export const fetchUser = user => dispatch => {
     .then(response => {
       window.localStorage.setItem('id', response.data.user_id);
       window.localStorage.setItem('token', response.data.token);
+      window.localStorage.setItem('username', response.data.username);
       console.log('response on login ', response.data);
       dispatch({
         type: FETCH_USER_SUCCESS,

@@ -52,6 +52,11 @@ export const HeaderContainer = styled.div`
   }
   .toggled {
     left: 18px;
+  .user {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2rem;
   }
 `;
 

@@ -152,7 +152,6 @@ const NewTaskForm = () => {
       if (fromCalendar) history.goBack();
     }
   };
-  console.log(touched, errors)
 
   return (
     <Form>
@@ -196,7 +195,6 @@ const NewTaskForm = () => {
                 type="time"
                 value={startTime}
                 onChange={e => setStartTime(e.target.value)}
-                // onBlur={handleBlur}
               />
             </div>
             <div>
