@@ -5,9 +5,6 @@
   text-align: center;
 }
 
-.dark-mode.app-container {
-  height: 150vh !important;
-}
 
 .dark-mode .dark-mode__toggle {
   background: #292929 !important;
@@ -35,11 +32,6 @@
 
 .dark-mode .task-title-header {
   border-bottom: 1.5px solid #1F2022 ;
-}
-
-.dark-mode .task-item {
-  border-bottom: 1.5px solid #1F2022 ;
-  border-left: 5px solid #09c6f9;
 }
 
 .dark-mode input {
