@@ -103,7 +103,7 @@ const NewTaskForm = () => {
     validate: values => {
       let errors = {};
       Object.entries(values).map(([key, value])=> {
-        if(((key === 'title' ) || (key === 'startTime' ) || (key === 'endTime' ) || (key === 'event_text' ) || (key === 'category' )) && !value){
+        if(((key === 'title' ) || (key === 'startDate' ) || (key === 'endDate' ) || (key === 'event_text' ) || (key === 'category' )) && !value){
             errors[key] = "required"
         }
       })
@@ -189,7 +189,7 @@ const NewTaskForm = () => {
                 onBlur={handleBlur}
                 onChange={e => setStartDate(e.target.value)}
               />
-              {errors.startDate && touched.startDate (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
+              {errors.startDate && touched.startDate && (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
               <span>Start Time:</span>
               <input
                 name="startTime"
