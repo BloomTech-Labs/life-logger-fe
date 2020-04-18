@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 //Components
 import { unfetchUser } from '../../../store/actions/index';
 import { NavContainer } from '../../../styles/Styles';
+import { useDarkMode } from '../../../hooks/useDarkMode';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -14,10 +15,23 @@ const Nav = () => {
   // This is a bad pattern, and needs to be corrected at some point.
   const { isLoggedIn } = useSelector(state => state.users);
   // const id = localStorage.getItem("id");
+
+  const [darkMode, setDarkMode] = useDarkMode(false);
+
+  const toggleMode = e => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
   return (
-    <NavContainer>
+    <NavContainer >
       {isLoggedIn &&
         <>
+          <div className="nav-link">
+            <div className="dark-mode__toggle">
+              <div onClick={toggleMode} className={darkMode ? 'toggle toggled' : 'toggle'}/>  
+            </div>
+          </div>
+
           <div className="nav-link">
             <Link exact to="/" style={{ textDecoration: 'none',color: 'white'}}>
               Home

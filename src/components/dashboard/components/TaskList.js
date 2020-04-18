@@ -37,7 +37,7 @@ const TaskList = props => {
   let showOnce = true;
   return (
     <ListContainer>
-      <ListHeader>
+      <ListHeader className="task-title-header">
         <div className="task-title">Task</div>
         <div className="task-due-date">
           <div>Due Date</div>

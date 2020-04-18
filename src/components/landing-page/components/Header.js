@@ -11,7 +11,7 @@ function Header() {
   console.log('userdata in header: ', username)
 
   return (
-    <HeaderContainer>
+    <HeaderContainer className='navbar'>
       <Link to="/" style={{
         marginLeft: '40px', textDecoration: 'none',
         color: 'white'
