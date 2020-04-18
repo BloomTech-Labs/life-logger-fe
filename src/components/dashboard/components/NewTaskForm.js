@@ -189,7 +189,7 @@ const NewTaskForm = () => {
                 onBlur={handleBlur}
                 onChange={e => setStartDate(e.target.value)}
               />
-              {errors.startDate &&  (<h4 style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</h4>)}
+              {errors.startDate && touched.startDate (<div style={{color: 'red', marginTop: -20, marginBottom: 5, fontStyle: "italic", fontSize: 10}}>{errors.startDate}</div>)}
               <span>Start Time:</span>
               <input
                 name="startTime"
