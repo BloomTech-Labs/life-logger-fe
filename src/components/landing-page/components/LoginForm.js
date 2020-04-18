@@ -7,7 +7,7 @@ const LoginForm = props => {
   const dispatch = useDispatch();
 
   const { isFetching } = useSelector(state => state.users);
-  console.log('is fetching: ', isFetching );
+  // console.log('is fetching: ', isFetching );
 
   const [user, setUser] = useState({
     username: '',
