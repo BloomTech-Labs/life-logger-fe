@@ -53,7 +53,7 @@
 }
 
 .dark-mode .fc-event, .fc-event-dot{
-  background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+  background-color: #09c6f9;
   border: 1px solid #09c6f9;
 }
 
