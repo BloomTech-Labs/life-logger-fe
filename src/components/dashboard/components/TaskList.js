@@ -16,7 +16,8 @@ const TaskList = props => {
     history.push(`/task/${eventID}`);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id, e) => {
+    e.preventDefault();
     Swal.fire({
       title: `Are you sure you want to delete this task?`,
       icon: 'error',
@@ -77,7 +78,7 @@ const TaskList = props => {
               <span>
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
-              <div onClick={() => handleDelete(event.id)}>
+              <div onClick={e => handleDelete(event.id, e)}>
                 <img alt="trash bin" src={trashBin} style={{width: '17px'}} />
               </div>
             </div>

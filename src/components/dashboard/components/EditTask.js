@@ -83,7 +83,7 @@ const EditTask = props => {
         eventID
       )
     );
-    history.push(`/`);
+    history.goBack();
   };
 
   if (!currentEvent) return <h1>Loading...</h1>;
