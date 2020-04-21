@@ -205,9 +205,13 @@ export const TaskContainer = styled.div`
 
     div {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       width: 550px;
       margin: 10px;
+
+      span {
+        margin-left: 20px;
+      }
     }
   }
 
