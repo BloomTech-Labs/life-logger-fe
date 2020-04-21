@@ -195,4 +195,26 @@ describe('Events Reducer', () => {
     expect(newState.users.error).toBe(null);
   });
 
+  /// CREATE USER SUCCESS
+  it('CREATE USER SUCCESS', () => {
+    
+    store.dispatch({ type: 'CREATE_USER_SUCCESS' });
+    newState = store.getState();
+      
+    expect(newState.users.error).toBe(null);
+  });
+
+  /// DELETE USER START
+  it('DELETE USER START', () => {
+    
+    store.dispatch({ type: 'DELETE_USER_START' });
+    newState = store.getState();
+   
+    expect(newState.users.isFetching).toBe(true);
+    expect(newState.users.error).toBe(null);
+  });
+
+  
+
+
 });
