@@ -1,4 +1,5 @@
 import createAStore from './testStore.js';
+import { fetchUser } from '../store/actions/index.js';
 
 describe('dataloader Actions', () => {
     const expectedState = {
@@ -9,7 +10,7 @@ describe('dataloader Actions', () => {
     const store =  createAStore();
     let newState = store.getState();
 
-        
+     
 
 
 
