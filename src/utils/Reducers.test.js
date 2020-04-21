@@ -213,7 +213,18 @@ describe('Events Reducer', () => {
     expect(newState.users.isFetching).toBe(true);
     expect(newState.users.error).toBe(null);
   });
+  
+  /// UPDATE USER START
+  it('UPDATE USER START', () => {
+    
+    store.dispatch({ type: 'UPDATE_USER_START' });
+    newState = store.getState();
+       
+    expect(newState.users.isFetching).toBe(true);
+    expect(newState.users.error).toBe(null);
 
+  });
+  
   
 
 
