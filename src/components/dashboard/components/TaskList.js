@@ -21,7 +21,7 @@ const TaskList = props => {
       title: `Are you sure you want to delete this task?`,
       icon: 'error',
       showCancelButton: true,
-      cancelButtonText: "NOOOO",
+      cancelButtonText: "NO",
       confirmButtonText: "YES"
     }).then(result => {
       if (result.value){
@@ -29,10 +29,6 @@ const TaskList = props => {
       }
     })
   };
-  // const today = moment().utc().format();
-  // const today = moment().format("MMMM DD YYYY"); 
-  // const today = moment().isSameOrAfter(event.event_et_tm)
-  // console.log('moment', today)
   
   let showOnce = true;
   return (
