@@ -38,20 +38,19 @@ const EditTask = props => {
   useEffect(
     () => {
       if (currentEvent) {
-        console.log(currentEvent);
-        setTask({
+        setTask(task => ({
           ...task,
           title: currentEvent.title,
           event_text: currentEvent.event_text,
           location: currentEvent.location
-        });
-        setStartDate(currentEvent.event_st_tm.split('T')[0]);
+        }));
+        setStartDate(moment(currentEvent.event_st_tm).format('YYYY-MM-DD'));
 
-        setStartTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
+        setStartTime(moment(currentEvent.event_st_tm).format('HH:mm'));
 
-        setEndDate(currentEvent.event_et_tm.split('T')[0]);
+        setEndDate(moment(currentEvent.event_et_tm).format('YYYY-MM-DD'));
 
-        setEndTime(currentEvent.event_st_tm.split('T')[1].split('.')[0]);
+        setEndTime(moment(currentEvent.event_et_tm).format('HH:mm'));
       }
     },
     [currentEvent]
@@ -72,8 +71,6 @@ const EditTask = props => {
     const startDateUTC = moment(`${startDate} ${startTime}`).utc().format();
 
     const endDateUTC = moment(`${endDate} ${endTime}`).utc().format();
-
-    console.log('start date, end date: ', startDateUTC, endDateUTC);
 
     dispatch(
       updateEvent(
@@ -107,7 +104,6 @@ const EditTask = props => {
               <span>Start Date:</span>
               <input
                 type="date"
-                name=""
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />

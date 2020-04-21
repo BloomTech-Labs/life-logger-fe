@@ -12,7 +12,7 @@ export const AppContainer = styled.div`
     90deg,
     rgba(255, 255, 255, 1) 0%,
     rgba(242, 242, 242, 1) 100%
-  );
+  );!important
   color: black;
 `;
 
@@ -26,11 +26,37 @@ export const HeaderContainer = styled.div`
   padding: 0 20px;
   width: 100vw;
   height: 60px;
-  background-color: #045de9;
+  background-color:#045de9; 
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
-
   h4 {
     font-size: 2.5rem;
+  }
+
+  .dark-mode__toggle {
+    background: white;
+    border-radius: 17px;
+    border: 1px solid black;
+    height: 20px;
+    position: relative;
+    width: 37px;
+  }
+
+  .toggle {
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+    border-radius: 50px;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    transition: 0.2s;
+    width: 20px;
+  }
+  .toggled {
+    left: 18px;
+  .user {
+    color: white;
+    font-style: italic;
+    text-align: center;
+    font-size: 1.2rem;
   }
 `;
 
