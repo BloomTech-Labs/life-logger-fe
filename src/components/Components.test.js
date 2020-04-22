@@ -6,6 +6,9 @@ import TaskList from './dashboard/components/TaskList';
 import Dashboard from './dashboard/index';
 import { BrowserRouter} from 'react-router-dom';
 import SortListButton from './dashboard/components/TaskList';
+import CalendarApp from './dashboard/components/Calendar';
+import CalendarItems from './dashboard/components/Calendarlist';
+
 // Sorting buttons render test
 
 it('renders without crashing', ()=> {
@@ -14,6 +17,7 @@ it('renders without crashing', ()=> {
     ReactDom.render(<SortListButton />, div);
     </BrowserRouter>
 })
+
 
 // EditTask render test
 it('renders without crashing', ()=> {
@@ -52,5 +56,21 @@ it('renders without crashing', ()=> {
     <BrowserRouter>
     const div = document.createElement('div');
     ReactDom.render(<Dashboard />, div);
+    </BrowserRouter>
+})
+
+// CalendarApp render test
+it('renders without crashing', ()=> {
+    <BrowserRouter>
+    const div = document.createElement('div');
+    ReactDom.render(<CalendarApp />, div);
+    </BrowserRouter>
+})
+
+// CalendarItems render test
+it('renders without crashing', ()=> {
+    <BrowserRouter>
+    const div = document.createElement('div');
+    ReactDom.render(<CalendarItems />, div);
     </BrowserRouter>
 })

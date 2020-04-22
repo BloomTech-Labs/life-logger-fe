@@ -11,7 +11,7 @@ const Dashboard = () => {
   const { users, events } = useSelector(state => {
     return state
   });
-  console.log('users  events', users, events);
+  // console.log('users  events', users, events);
 
   useEffect(
     () => {

@@ -12,9 +12,14 @@ export const Container = styled.div`
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: fit-content;
+  width: 90vw;
   margin-top: 30px;
+  margin-bottom: 50px;
+  overflow: hidden;
+
+  .listItemContainer {
+    overflow-y: auto;
+  }
 
   @media (max-width: 1200px) {
     width: 80vw;
@@ -25,13 +30,10 @@ export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90vw;
   height: 30px;
-  border-bottom: 1px solid #9033df;
   margin-left: 5px;
-  // background-color: #9033DF;
-  // color: white;
-  margin: 5px 0;
+  margin: 5px 0 12px;
 
   div.task-title {
     margin-left: 10px;
@@ -41,8 +43,8 @@ export const ListHeader = styled.div`
 
   div.task-due-date {
     display: flex;
-    justify-content: space-between;
-    width: 20%;
+    justify-content: space-around;
+    width: 36%;
     font-size: 20px;
     font-weight: bold;
   }
@@ -52,25 +54,35 @@ export const ListItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 30px;
-  border-bottom: 1px solid #9033df;
-  border-left: 5px solid green;
-
-  // background-color: #9033DF;
-  // color: white;
-  cursor: pointer;
   margin: 5px 0;
 
   div.task-title {
     margin-left: 10px;
+    cursor: pointer;
   }
 
   div.task-due-date {
+    span:first-child {
+      cursor: pointer
+    }
     display: flex;
     justify-content: space-between;
-    width: 20%;
+    width: 32%;
   }
+
+  img {
+    opacity: 0.3;
+    transition: 0.3s;
+  }
+  
+  img:hover {
+    transform: rotate(-15deg);
+    opacity: 1;
+    transition-duration: 0.5s;
+    cursor: pointer;
+  }
+
 `;
 
 export const NewTaskForm = styled.form`
@@ -161,7 +173,7 @@ export const TaskContainer = styled.div`
 
   h1 {
     font-size: 3rem;
-    margin: 10px;
+    margin: 25px 10px;
   }
 
   .category {
@@ -192,9 +204,13 @@ export const TaskContainer = styled.div`
 
     div {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       width: 550px;
       margin: 10px;
+
+      span {
+        margin-left: 20px;
+      }
     }
   }
 
@@ -203,7 +219,8 @@ export const TaskContainer = styled.div`
     width: 100%;
     height: 250px;
     margin-top: 20px;
-    border: 0.5px solid #0abcf9;
+    border-top: 0.5px solid #0abcf9;
+    border-right: 0.5px solid #0abcf9;
     padding: 5px;
   }
 
@@ -214,19 +231,50 @@ export const TaskContainer = styled.div`
     outline: none;
   }
 
+  .back-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+
+    button {
+      margin: 10px 10px;
+      width: 180px;
+      height: 40px;
+      border-radius: 25px;
+      background-color: #0abcf9;
+      background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+      color: white;
+    }
+  }
+
   .button-container {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-
+    
     button {
       margin: 20px 10px;
       align-self: flex-end;
-      width: 220px;
+      width: 180px;
       height: 40px;
+      border-radius: 10px 15px;
       background-color: #0abcf9;
       background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
       color: white;
+    }
+    
+    img {
+      cursor: pointer;
+      margin: 20px 10px;
+      align-self: flex-end;
+      height: 35px;
+    }
+
+    img:hover {
+      transform: rotate(-15deg);
+      transition-duration: 0.5s;
+      cursor: pointer;
     }
   }
 `;
