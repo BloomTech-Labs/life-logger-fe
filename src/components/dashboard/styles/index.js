@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -178,7 +178,7 @@ export const TaskContainer = styled.div`
 
   .category {
     width: 100px;
-    background: '#a0a0a0';
+    background: "#a0a0a0";
     border: 0.5px solid #0abcf9;
   }
 
@@ -277,4 +277,13 @@ export const TaskContainer = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+export const SortListButton = styled.button`
+  margin: 2%;
+  width: 100px;
+  height: 40px;
+  background-color: #0abcf9;
+  background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
+  color: white;
 `;
