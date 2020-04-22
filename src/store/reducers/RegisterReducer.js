@@ -18,27 +18,28 @@ import {
 
 const existId = localStorage.getItem('id');
 
-const initialState = existId
-  ? {
-      userData: {
-        user_id: existId,
-        token: localStorage.getItem('token'),
-        username: localStorage.getItem('username')
-      },
-      isLoggedIn: true,
-      error: null,
-      isFetching: false
-    }
-  : {
-      userData: {},
-      isLoggedIn: false,
-      error: null,
-      isFetching: false
-    };
+const initialState = existId ?
+  {
+    userData: {
+      user_id: existId,
+      token: localStorage.getItem('token'),
+      username: localStorage.getItem('username')
+    },
+    isLoggedIn: true,
+    error: null,
+    isFetching: false,
+  }
+: {
+    userData: {},
+    isLoggedIn: false,
+    error: null,
+    isFetching: false,
+  };
 
 function RegisterReducer(state = initialState, action) {
   // console.log('Reducer Firing', action);
-
+  console.log('exists?', existId);
+  
   switch (action.type) {
     case FETCH_USER_LOADING:
       return {

@@ -1,8 +1,10 @@
-import ReactGA from 'react-ga';
+import ReactGA from "react-ga";
+
 
 //tracks page view.
 export const initGA = () => {
-  ReactGA.initialize('UA-161545292-1');
+  console.log("initializing google analytics");
+  ReactGA.initialize("UA-161545292-1");
   ReactGA.pageview(window.location.pathname);
 };
 

@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import trashBin from '../../../assets/img/trash.png';
+
 import { deleteEvent, fetchEvent, updateEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
+import trashBin from '../../../assets/img/trash.png'
 
 const Task = props => {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const Task = props => {
   const [dueDate, setDueDate] = useState();
   const { currentEvent } = useSelector(state => state.events);
   const eventID = props.match.params.id;
+
+  console.log("currentEvent: ", currentEvent);
 
   useEffect(
     () => {
@@ -43,13 +46,13 @@ const Task = props => {
       title: `Are you sure you want to delete this task?`,
       icon: 'error',
       showCancelButton: true,
-      cancelButtonText: 'No',
-      confirmButtonText: 'Yes'
+      cancelButtonText: "No",
+      confirmButtonText: "Yes"
     }).then(result => {
-      if (result.value) {
+      if (result.value){
         dispatch(deleteEvent(eventID));
       }
-    });
+    })
   };
 
   const handleEdit = () => {
@@ -61,14 +64,14 @@ const Task = props => {
       updateEvent(
         {
           ...currentEvent,
-          iscomplete: !currentEvent.iscomplete
+          iscomplete: !currentEvent.iscomplete,
         },
         eventID
       )
     );
     // console.log("iscomplete: ", currentEvent.iscomplete)
     history.push('/');
-  };
+  }
 
   if (!currentEvent) return <h1>Loading...</h1>;
   else
@@ -112,19 +115,19 @@ const Task = props => {
           <div>
             <span>Location:</span>
             <span>
-              {currentEvent.location ? currentEvent.location : 'Not specified'}
+              {currentEvent.location? currentEvent.location : "Not specified"}
             </span>
           </div>
           <div>
             <span>Status:</span>
             <span
               style={{
-                backgroundColor: currentEvent.iscomplete ? '#39FF13' : 'red',
+                backgroundColor: currentEvent.iscomplete? "#39FF13" : "red",
                 borderRadius: '25px',
-                width: '18px',
-                marginLeft: '36px'
-              }}
-            />
+                width: "18px",
+                marginLeft: "36px"
+              }}>
+            </span>
           </div>
         </div>
         <p className="description">
@@ -133,11 +136,11 @@ const Task = props => {
         <div className="button-container">
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleComplete}>
-            {currentEvent.iscomplete ? 'Not Completed' : 'Mark Completed'}
+            {currentEvent.iscomplete ? "Not Completed" : "Mark Completed" }
           </button>
           {/* <button onClick={handleDelete}>Delete</button> */}
           <div onClick={handleDelete}>
-            <img alt="trash bin" src={trashBin} />
+            <img alt="trash bin" src={trashBin}/>
           </div>
         </div>
       </TaskContainer>
