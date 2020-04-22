@@ -17,6 +17,8 @@ const Task = props => {
   const { currentEvent } = useSelector(state => state.events);
   const eventID = props.match.params.id;
 
+  console.log("currentEvent: ", currentEvent);
+
   useEffect(
     () => {
       dispatch(fetchEvent(eventID));
@@ -57,19 +59,19 @@ const Task = props => {
     history.push(`/edit-task/${eventID}`);
   };
 
-  const markCompleted = () => {
+  const handleComplete = () => {
     dispatch(
       updateEvent(
         {
           ...currentEvent,
-          iscomplete: true,
+          iscomplete: !currentEvent.iscomplete,
         },
         eventID
       )
     );
+    // console.log("iscomplete: ", currentEvent.iscomplete)
     history.push('/');
   }
-  // console.log('currentevetn', currentEvent)
 
   if (!currentEvent) return <h1>Loading...</h1>;
   else
@@ -113,7 +115,18 @@ const Task = props => {
           <div>
             <span>Location:</span>
             <span>
-              {currentEvent.location}
+              {currentEvent.location? currentEvent.location : "Not specified"}
+            </span>
+          </div>
+          <div>
+            <span>Status:</span>
+            <span
+              style={{
+                backgroundColor: currentEvent.iscomplete? "#39FF13" : "red",
+                borderRadius: '25px',
+                width: "18px",
+                marginLeft: "36px"
+              }}>
             </span>
           </div>
         </div>
@@ -122,7 +135,9 @@ const Task = props => {
         </p>
         <div className="button-container">
           <button onClick={handleEdit}>Edit</button>
-          <button onClick={markCompleted}>Comleted!</button>
+          <button onClick={handleComplete}>
+            {currentEvent.iscomplete ? "Not Completed" : "Mark Completed" }
+          </button>
           {/* <button onClick={handleDelete}>Delete</button> */}
           <div onClick={handleDelete}>
             <img alt="trash bin" src={trashBin}/>

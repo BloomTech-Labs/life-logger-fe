@@ -16,12 +16,13 @@ const TaskList = props => {
     history.push(`/task/${eventID}`);
   };
 
-  const handleDelete = id => {
+  const handleDelete = (id, e) => {
+    e.preventDefault();
     Swal.fire({
       title: `Are you sure you want to delete this task?`,
       icon: 'error',
       showCancelButton: true,
-      cancelButtonText: "NOOOO",
+      cancelButtonText: "NO",
       confirmButtonText: "YES"
     }).then(result => {
       if (result.value){
@@ -29,10 +30,6 @@ const TaskList = props => {
       }
     })
   };
-  // const today = moment().utc().format();
-  // const today = moment().format("MMMM DD YYYY"); 
-  // const today = moment().isSameOrAfter(event.event_et_tm)
-  // console.log('moment', today)
   
   let showOnce = true;
   return (
@@ -44,6 +41,9 @@ const TaskList = props => {
           <div style={{ marginRight: '40px' }}>Due Time</div>
         </div>
       </ListHeader>
+
+      {/* bellow is content of events: */}
+      <div className="listItemContainer">
       {props.events.map(event => {
         // check to see if event is upcoming or past
         const upcoming = moment().isSameOrBefore(event.event_et_tm);
@@ -81,13 +81,14 @@ const TaskList = props => {
               <span>
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
-              <div onClick={() => handleDelete(event.id)}>
-                <img alt="trash bin" src={trashBin} style={{width: '17px'}} />
+              <div onClick={e => handleDelete(event.id, e)}>
+                <img alt="trash bin" src={trashBin} style={{width: '17px', marginRight: '20px'}} />
               </div>
             </div>
           </ListItem>
         );
       })}
+      </div>
     </ListContainer>
   );
 };
