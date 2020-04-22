@@ -18,7 +18,7 @@ function Header() {
       }}>
         <h4>LYFE LOGGER</h4>{' '}
       <div className='user'>
-        {username? username : null}
+        {username? `Logged in as: ${username}` : null}
       </div>
       </Link>
       <Nav />

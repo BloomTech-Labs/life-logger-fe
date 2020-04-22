@@ -12,9 +12,14 @@ export const Container = styled.div`
 export const ListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: fit-content;
+  width: 90vw;
   margin-top: 30px;
+  margin-bottom: 50px;
+  overflow: hidden;
+
+  .listItemContainer {
+    overflow-y: auto;
+  }
 
   @media (max-width: 1200px) {
     width: 80vw;
@@ -25,12 +30,9 @@ export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: 90vw;
   height: 30px;
-  border-bottom: 0.1px solid #9033df;
   margin-left: 5px;
-  // background-color: #9033DF;
-  // color: white;
   margin: 5px 0 12px;
 
   div.task-title {
@@ -52,10 +54,7 @@ export const ListItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 30px;
-  // border-bottom: 1px solid #9033df;
-  // border-left: 15px solid #53dc98;
   margin: 5px 0;
 
   div.task-title {

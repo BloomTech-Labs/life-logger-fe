@@ -41,6 +41,9 @@ const TaskList = props => {
           <div style={{ marginRight: '40px' }}>Due Time</div>
         </div>
       </ListHeader>
+      
+      {/* bellow is content of events: */}
+      <div className="listItemContainer">
       {props.events.map(event => {
         // check to see if event is upcoming or past
         const upcoming = moment().isSameOrBefore(event.event_et_tm);
@@ -85,6 +88,7 @@ const TaskList = props => {
           </ListItem>
         );
       })}
+      </div>
     </ListContainer>
   );
 };
