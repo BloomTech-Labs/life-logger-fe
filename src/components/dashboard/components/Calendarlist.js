@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchEventsByUserId } from '../../../store/actions';
-import Loading from '../../UI/Loading';
-import { Container } from '../styles';
 import Calendaritems from './Calendar';
+import { fetchEventsByUserId } from '../../../store/actions';
+import { Container} from '../styles';
+import Loading from '../../UI/Loading';
 
 const CalendarApp = () => {
   const dispatch = useDispatch();
@@ -12,16 +12,17 @@ const CalendarApp = () => {
   const { eventData } = useSelector(state => state.events);
 
   const tempUserDataId = localStorage.getItem("id")
-
+  console.log("here", tempUserDataId)
 
   useEffect(
     () => {
       
       dispatch(fetchEventsByUserId(tempUserDataId));
     },
-    [userData, dispatch, tempUserDataId]
+    [userData, dispatch]
   );
-
+  console.log('is fetching from dashboard: ', isFetching )
+  console.log('userData dashboard: ', userData);
 
 
   return (

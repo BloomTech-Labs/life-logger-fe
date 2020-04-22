@@ -19,6 +19,7 @@ const LoginForm = props => {
   };
 
   const handleSubmit = e => {
+    console.log('login');
     e.preventDefault();
     dispatch(fetchUser(user));
   };
@@ -44,7 +45,9 @@ const LoginForm = props => {
         />
 
         <button type="submit">Submit</button>
-        <button onClick={() => props.setActiveForm('register')}>
+        <button
+          onClick={() => props.setActiveForm('register')}
+        >
           Or register here!
         </button>
       </div>
