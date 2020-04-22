@@ -1,5 +1,8 @@
 exclude_patterns:
-- "tests/"
-- "spec/"
-- "**/vendor/"
-- "**/node_modules/"
+  - "tests/"
+  - "spec/"
+  - "**/public/**"
+  - "**/node_modules/**"
+  - "!babel.config.js"
+  - "!webpack.config.js"
+  - "!initGA.js"
