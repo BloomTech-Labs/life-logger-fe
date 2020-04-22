@@ -5,6 +5,15 @@ import Task from './dashboard/components/Task';
 import TaskList from './dashboard/components/TaskList'; 
 import Dashboard from './dashboard/index';
 import { BrowserRouter} from 'react-router-dom';
+import SortListButton from './dashboard/components/TaskList';
+// Sorting buttons render test
+
+it('renders without crashing', ()=> {
+    <BrowserRouter>
+    const div = document.createElement('div');
+    ReactDom.render(<SortListButton />, div);
+    </BrowserRouter>
+})
 
 // EditTask render test
 it('renders without crashing', ()=> {
