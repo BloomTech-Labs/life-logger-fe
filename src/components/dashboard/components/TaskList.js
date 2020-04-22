@@ -1,5 +1,5 @@
 import moment from "moment-timezone";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ListContainer, ListHeader, ListItem, SortListButton } from "../styles";
 
