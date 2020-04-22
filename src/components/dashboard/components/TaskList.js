@@ -41,7 +41,7 @@ const TaskList = props => {
           <div style={{ marginRight: '40px' }}>Due Time</div>
         </div>
       </ListHeader>
-      
+
       {/* bellow is content of events: */}
       <div className="listItemContainer">
       {props.events.map(event => {
@@ -82,7 +82,7 @@ const TaskList = props => {
                 {moment(event.event_et_tm).format('hh:mm A')}
               </span>
               <div onClick={e => handleDelete(event.id, e)}>
-                <img alt="trash bin" src={trashBin} style={{width: '17px'}} />
+                <img alt="trash bin" src={trashBin} style={{width: '17px', marginRight: '20px'}} />
               </div>
             </div>
           </ListItem>
