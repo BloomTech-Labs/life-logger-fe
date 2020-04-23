@@ -1,24 +1,45 @@
-import createAStore from './testStore.js';
-import { fetchUser } from '../store/actions/index.js';
+import configureStore from "redux-mock-store";
+import MockAdapter from "axios-mock-adapter";
+import axios from "axios";
+import thunk from "redux-thunk";
+import { fetchUser } from "../store/actions/index";
+import { FETCH_USER_SUCCESS } from "../store/actions/index";
+// import rootReducer from "../store/reducers/index";
 
-describe('dataloader Actions', () => {
-    // const expectedState = {
-    //   title: 'Example title'
-    // };
-    const store =  createAStore();
-    let newState = store.getState();
+// declare middlewares
+const middlewares = [thunk];
 
-    test("dataRequested", () => {
-      const payload = {
-        user_id: "01",
-        token: "some random string",
-        username: "bob"
-      };
-      const action = fetchUser.dispatch(payload);
-      expect(action).toEqual({
-        payload: payload,
-        type: "FETCH_USER_SUCCESS"
-      });
+// initialize mockStore which is only the configureStore method which take middlesware as its parameters
+const mockStore = configureStore(middlewares);
+
+//creating a mock instance from the MockAdapter of axios
+const mock = new MockAdapter(axios);
+
+const store = mockStore({});
+
+// firing up the test Suite
+describe("Testing fetchUser()", () => {
+  beforeEach(() => {
+    // Runs before each test in the suite
+    store.clearActions();
+  });
+  it("should get FETCH_USER_SUCCESS", () => {
+    mock.onGet("/users").reply(200, {
+      data: [{ id: 1, name: "John Smith" }],
     });
 
+    store
+      .dispatch(fetchUser({ username: "demo", password: "demo" }))
+      .then(() => {
+        let expectedActions = [
+          {
+            type: FETCH_USER_SUCCESS,
+            payload: {
+              data: [{ id: 1, name: "John Smith" }],
+            },
+          },
+        ];
+        expect(store.getActions()).toEqual(expectedActions);
+      });
+  });
 });
