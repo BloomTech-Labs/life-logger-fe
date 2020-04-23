@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { deleteEvent } from "../../../store/actions";
 import { ListContainer, ListHeader, ListItem, SortListButton } from "../styles";
 import trashBin from "../../../assets/img/trash.png";
+import tag from "../../../assets/img/tag.png"
 
 const TaskList = (props) => {
   const history = useHistory();
@@ -51,36 +52,42 @@ const TaskList = (props) => {
 
   return (
     <ListContainer>
-      <div>
-        <SortListButton
-          onClick={() => {
-            handleWorkSort();
-          }}
-        >
-          Work
-        </SortListButton>
-        <SortListButton
-          onClick={() => {
-            handleHomeSort();
-          }}
-        >
-          Home
-        </SortListButton>
-
-        <SortListButton
-          onClick={() => {
-            handleFamilySort();
-          }}
-        >
-          Family
-        </SortListButton>
-        <SortListButton
+      <div className="tags">
+        <img
+          alt="tags"
+          src={tag}
+          style={{ width: "20px"}}
+        />Tags:
+        <div
           onClick={() => {
             handleAllSort();
           }}
         >
           All
-        </SortListButton>
+        </div>
+        <div
+          onClick={() => {
+            handleHomeSort();
+          }}
+        >
+          Home
+        </div>
+
+        <div
+          onClick={() => {
+            handleFamilySort();
+          }}
+        >
+          Family
+        </div>
+        
+        <div
+          onClick={() => {
+            handleWorkSort();
+          }}
+        >
+          Work
+        </div>
       </div>
       <ListHeader>
         <div className="task-title">Task</div>
