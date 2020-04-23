@@ -60,7 +60,6 @@ export const fetchUser = user => dispatch => {
       window.localStorage.setItem('id', response.data.user_id);
       window.localStorage.setItem('token', response.data.token);
       window.localStorage.setItem('username', response.data.username);
-      console.log('response on login ', response.data);
       dispatch({
         type: FETCH_USER_SUCCESS,
         payload: response.data
@@ -88,7 +87,6 @@ export const createUser = newUser => dispatch => {
   axiosWithAuth()
     .post(`${host}/api/auth/register`, newUser)
     .then(response => {
-      console.log('Response from POST: ', response);
       dispatch({
         type: CREATE_USER_SUCCESS,
         payload: response.data
@@ -103,12 +101,10 @@ export const createUser = newUser => dispatch => {
 };
 
 export const deleteUser = id => dispatch => {
-  console.log('deleteUser passed ID: ', id);
   dispatch({ type: DELETE_USER_START });
   axiosWithAuth()
     .delete(`${host}/api/users/delete/${id}`)
     .then(response => {
-      console.log('Delete User Response: ', response);
       dispatch({
         type: DELETE_USER_SUCCESS,
         payload: response
@@ -123,12 +119,10 @@ export const deleteUser = id => dispatch => {
 };
 
 export const updateUser = (editedUser, id) => dispatch => {
-  console.log('editedUser getting passed in: ', id);
   dispatch({ type: UPDATE_USER_START });
   axiosWithAuth()
     .put(`${host}/api/users/update/${id}`, editedUser)
     .then(response => {
-      console.log('updateUser response: ', response);
       dispatch({
         type: UPDATE_USER_SUCCESS,
         payload: response.data

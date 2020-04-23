@@ -6,12 +6,11 @@ import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import FullCalendar from '@fullcalendar/react';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import Swal from 'sweetalert2';
-
 import { fetchEventsByUserId } from '../../../store/actions';
 import Loading from '../../UI/Loading';
 import { Container } from '../styles';
@@ -54,19 +53,18 @@ const Calendar = () => {
   );
 
   const handleClick = e => {
-    console.log('event', e.event)
     Swal.fire({
       title: e.event.title,
       icon: 'info',
       text: e.event.extendedProps.text,
       showCancelButton: true,
-      cancelButtonText: "Close",
-      confirmButtonText: "View"
+      cancelButtonText: 'Close',
+      confirmButtonText: 'View'
     }).then(result => {
-      if (result.value){
+      if (result.value) {
         history.push(`/task/${e.event.id}`);
       }
-    })
+    });
   };
 
   const handleDateClick = arg => {
@@ -75,14 +73,13 @@ const Calendar = () => {
       title: `Would you like to add an event to ${date}?`,
       icon: 'question',
       showCancelButton: true,
-      cancelButtonText: "Nope",
-      confirmButtonText: "Yeah"
+      cancelButtonText: 'Nope',
+      confirmButtonText: 'Yeah'
     }).then(result => {
-      if (result.value){
-        console.log('wooohoooo!!')
-        history.push(`/`, {date, visible: true});
+      if (result.value) {
+        history.push(`/`, { date, visible: true });
       }
-    })
+    });
   };
 
   if (isFetching) {
