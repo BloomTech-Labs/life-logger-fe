@@ -24,6 +24,24 @@ export const ListContainer = styled.div`
   @media (max-width: 1200px) {
     width: 80vw;
   }
+
+  .tags {
+    display: flex;
+    // border: 0.5px solid black;
+    width: 300px;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    align-items: center;
+
+    div {
+      width: 50px;
+      // border: 0.2px solid red;
+      text-align: center;
+      font-size: 1.3rem;
+      background-color: #EDEBEB;
+      cursor: pointer;
+    }
+  }
 `;
 
 export const ListHeader = styled.div`
