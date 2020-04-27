@@ -27,7 +27,6 @@ export const ListContainer = styled.div`
 
   .tags {
     display: flex;
-    // border: 0.5px solid black;
     width: 300px;
     justify-content: space-evenly;
     margin-bottom: 10px;
@@ -35,10 +34,9 @@ export const ListContainer = styled.div`
 
     div {
       width: 50px;
-      // border: 0.2px solid red;
+      border: 0.2px dashed blue;
       text-align: center;
       font-size: 1.3rem;
-      background-color: #EDEBEB;
       cursor: pointer;
     }
   }
