@@ -54,7 +54,6 @@ const host = `https://lyfe-logger-be.herokuapp.com`;
 
 export const fetchUser = user => dispatch => {
   dispatch({ type: FETCH_USER_LOADING });
-  
   return axiosWithAuth()
     .post(`${host}/api/auth/login`, user)
     .then(response => {
@@ -66,7 +65,10 @@ export const fetchUser = user => dispatch => {
         payload: response.data
       });
     })
-    .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: FETCH_USER_FAILURE, payload: error });
+    });
 };
 
 export const unfetchUser = () => dispatch => {
