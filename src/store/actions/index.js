@@ -54,7 +54,7 @@ const host = `https://lyfe-logger-be.herokuapp.com`;
 
 export const fetchUser = user => dispatch => {
   dispatch({ type: FETCH_USER_LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(`${host}/api/auth/login`, user)
     .then(response => {
       window.localStorage.setItem('id', response.data.user_id);
@@ -65,12 +65,15 @@ export const fetchUser = user => dispatch => {
         payload: response.data
       });
     })
-    .catch(error => dispatch({ type: FETCH_USER_FAILURE, payload: error }));
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: FETCH_USER_FAILURE, payload: error });
+    });
 };
 
 export const unfetchUser = () => dispatch => {
   dispatch({ type: UNFETCH_USER_LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(`${host}`)
     .then(response => {
       window.localStorage.clear();
@@ -84,7 +87,7 @@ export const unfetchUser = () => dispatch => {
 
 export const createUser = newUser => dispatch => {
   dispatch({ type: CREATE_USER_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(`${host}/api/auth/register`, newUser)
     .then(response => {
       dispatch({
@@ -102,7 +105,7 @@ export const createUser = newUser => dispatch => {
 
 export const deleteUser = id => dispatch => {
   dispatch({ type: DELETE_USER_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(`${host}/api/users/delete/${id}`)
     .then(response => {
       dispatch({
@@ -120,7 +123,7 @@ export const deleteUser = id => dispatch => {
 
 export const updateUser = (editedUser, id) => dispatch => {
   dispatch({ type: UPDATE_USER_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(`${host}/api/users/update/${id}`, editedUser)
     .then(response => {
       dispatch({
@@ -140,7 +143,7 @@ export const updateUser = (editedUser, id) => dispatch => {
 
 export const fetchEvents = () => dispatch => {
   dispatch({ type: FETCH_EVENTS_LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(`${host}/api/events/`)
     .then(response =>
       dispatch({
@@ -158,7 +161,7 @@ export const fetchEvents = () => dispatch => {
 
 export const fetchEventsByUserId = user_id => dispatch => {
   dispatch({ type: FETCH_EVENTS_LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(`${host}/api/events/byuserid/${user_id}`)
     .then(response => {
       let events = response.data;
@@ -192,7 +195,7 @@ export const fetchEventsByUserId = user_id => dispatch => {
 
 export const fetchEvent = id => dispatch => {
   dispatch({ type: FETCH_EVENT_LOADING });
-  axiosWithAuth()
+  return axiosWithAuth()
     .get(`${host}/api/events/findbyid/${id}`)
     .then(response =>
       dispatch({
@@ -213,7 +216,7 @@ export const createEvent = newEvent => (dispatch, state) => {
   const user_id = state().users.userData.user_id;
 
   dispatch({ type: CREATE_EVENT_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .post(`${host}/api/events/insertevents`, newEvent)
     .then(response =>
       dispatch({
@@ -235,7 +238,7 @@ export const createEvent = newEvent => (dispatch, state) => {
 export const deleteEvent = id => (dispatch, state) => {
   const user_id = state().users.userData.user_id;
   dispatch({ type: DELETE_EVENT_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .delete(`${host}/api/events/deleteevent/${id}`)
     .then(response =>
       dispatch({
@@ -257,7 +260,7 @@ export const deleteEvent = id => (dispatch, state) => {
 export const updateEvent = (editedEvent, id) => (dispatch, state) => {
   const user_id = state().users.userData.user_id;
   dispatch({ type: UPDATE_EVENT_START });
-  axiosWithAuth()
+  return axiosWithAuth()
     .put(`${host}/api/events/updateevent/${id}`, editedEvent)
     .then(response =>
       dispatch({
