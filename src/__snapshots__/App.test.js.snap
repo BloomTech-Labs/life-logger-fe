@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyComponent should render correctly in "debug" mode 1`] = `
+<styled.div
+  className="app-container"
+  id="container"
+>
+  <Header />
+  <PrivateRoute
+    component={[Function]}
+    exact={true}
+    path="/"
+  />
+  <PrivateRoute
+    component={[Function]}
+    path="/task/:id"
+  />
+  <PrivateRoute
+    component={[Function]}
+    path="/edit-task/:id"
+  />
+  <PrivateRoute
+    component={[Function]}
+    path="/calendar"
+  />
+</styled.div>
+`;
