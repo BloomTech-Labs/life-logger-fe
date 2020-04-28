@@ -26,11 +26,11 @@ const Nav = () => {
     <NavContainer >
       {isLoggedIn &&
         <>
-          <div className="nav-link">
+          {/* <div className="nav-link">
             <div className="dark-mode__toggle">
               <div onClick={toggleMode} className={darkMode ? 'toggle toggled' : 'toggle'}/>  
             </div>
-          </div>
+          </div> */}
 
           <div className="nav-link">
             <Link exact to="/" style={{ textDecoration: 'none',color: 'white'}}>
