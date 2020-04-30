@@ -9,32 +9,23 @@ You can find the deployed project at [lyfe-logger.com](https://www.lyfe-logger.c
 
 ## Contributors
 
-🚫Add contributor info below, make sure add images and edit the social links for each member. Add to or delete these place-holders as needed
-
-|                                                      [Student 1](https://github.com/sagdish)                                                       |                                                       [Student 2](https://github.com/Carl-Stanley)                                                        |                                                      [Student 3](https://github.com/JHaydenDev)                                                       |                                                       [Student 4](https://github.com/kly001)                                                        |                                                      [Student 5](https://github.com/denvinnpaolo)                                                       |                                                      [Student 6](https://github.com/eric-wise)                                                       |
-| :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-female.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) | [<img src="https://www.dalesjewelers.com/wp-content/uploads/2018/10/placeholder-silhouette-male.png" width = "200" />](https://github.com/) |
-|                                [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)                                |                            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/honda0306)                             |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Mister-Corn)                           |                          [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/NandoTheessen)                           |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |                           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/wvandolah)                            |
-|                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                 [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                 |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |                [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)                |
+|                                                                         [Sagdi Formanov](https://github.com/sagdish)                                                                          |                                                                      [Carl Stanley](https://github.com/Carl-Stanley)                                                                      |                                                                              [Joseph Hayden](https://github.com/JHaydenDev)                                                                               |                                                                        [Karen Yearwood](https://github.com/kly001)                                                                         |                                                                          [Eric Wise](https://github.com/eric-wise)                                                                          |
+| :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
+|                                                     [<img src="./contributors/sagdi.png" width = "200" />](https://github.com/prietop97)                                                      |                                                    [<img src="./contributors/carl.png" width = "200" />](https://github.com/Chards79)                                                     |                                                        [<img src="./contributors/joseph.png" width = "200" />](https://github.com/JessicaGCooper)                                                         |                                                     [<img src="./contributors/karen.png" width = "200" />](https://github.com/HoopCha)                                                     |                                                   [<img src="./contributors/eric.png" width = "200" />](https://github.com/dave-vazquez)                                                    |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com) [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JessicaGCooper)  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com)  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com)   [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com) |  |
 
 <br>
 <br>
-
-🚫 4️⃣ Optional examples of using images with links for your tech stack, make sure to change these to fit your project
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 
-
-🚫 more info on using badges [here](https://github.com/badges/shields)
 
 ## Project Overview
 
 [Trello Board](https://trello.com/b/kfJ5JVr9/labspt7-life-logger)
 
 [Product Canvas](https://www.notion.so/Life-Logger-7281115559ed4d9282db7fcde90238c0)
-
-[UX Design files](🚫add link to design files here) - 🚫 delete if not applicable
 
 Organize all the things about life that are irregular. The things you forget to do. 
 Change your oil, rotate your tires, replace your AC air filter. Home, auto, other maintenance tasks. 
@@ -55,21 +46,13 @@ Log events, later searchable so you can remember when/where/what you did.
 	- React, using Create React as a framework.
 	- useContext and Redux for state management.
 
-#### Front end deployed to `Heroku`
+#### Front end deployed to [Heroku](https://github.com/Lambda-School-Labs/life-logger-fe)
 
-#### [Back end](https://github.com/Lambda-School-Labs/life-logger-be) built using:
-
-#### Back end deployed to `Heroku``
-
-# APIs
-
-## 2️⃣ Authentication API here
-
-	Redux / State Management.
+#### Back end deployed to [Heroku](https://github.com/Lambda-School-Labs/life-logger-be)
 
 # Testing
 
-	Jest test suite. To run tests type npm test at the command line in the root of the project. 
+	Jest test suite. To run tests type npm test or npm run coverage at the command line in the root of the project. 
 
 # Installation Instructions
 

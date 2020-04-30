@@ -54,9 +54,8 @@
       "!wrapper.js",
       "!InitGA.js"
     ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "setupFiles": ["./src/setupTests.js"],
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
       "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
@@ -85,13 +84,17 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^24.9.0",
+    "babel-jest": "24.9.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4",
+    "expect": "^25.4.0",
+    "fetch-mock": "^9.4.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
     "jest-fetch-mock": "^2.1.2",
-    "react-test-renderer": "^16.9.0"
+    "moxios": "^0.4.0",
+    "react-test-renderer": "^16.9.0",
+    "redux-mock-store": "^1.5.4"
   }
 }
