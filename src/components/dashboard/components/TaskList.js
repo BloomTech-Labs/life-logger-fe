@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import Swal from "sweetalert2";
 import { deleteEvent } from "../../../store/actions";
-import { ListContainer, ListHeader, ListItem, SortListButton } from "../styles";
+import { ListContainer, ListHeader, ListItem } from "../styles";
 import trashBin from "../../../assets/img/trash.png";
 import tag from "../../../assets/img/tag.png"
 

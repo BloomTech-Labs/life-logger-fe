@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import trashBin from '../../../assets/img/trash.png';
 import { deleteEvent, fetchEvent, updateEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
+import Loading from "../../UI/Loading";
 
 const Task = props => {
   const dispatch = useDispatch();
@@ -49,6 +50,7 @@ const Task = props => {
       if (result.value) {
         dispatch(deleteEvent(eventID));
       }
+      history.goBack();
     });
   };
 
@@ -67,10 +69,12 @@ const Task = props => {
       )
     );
     // console.log("iscomplete: ", currentEvent.iscomplete)
-    history.push('/');
+    history.goBack();
   };
 
-  if (!currentEvent) return <h1>Loading...</h1>;
+  console.log('current event', currentEvent)
+
+  if (!currentEvent) return <Loading />;
   else
     return (
       <TaskContainer>

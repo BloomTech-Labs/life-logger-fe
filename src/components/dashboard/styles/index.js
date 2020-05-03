@@ -43,6 +43,8 @@ export const ListContainer = styled.div`
 
   .listItemContainer {
     overflow-y: auto;
+    // display: flex;
+    // flex-direction: column-reverse;
   }
 
   @media (max-width: 1200px) {

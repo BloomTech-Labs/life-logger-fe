@@ -47,7 +47,7 @@ export const LoginForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin-top: 20px;
+  margin-top: 100px;
   width: 50%;
   // height: 100vh;
   height: 50vh;
@@ -84,7 +84,7 @@ export const RegisterForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin-top: 20px;
+  margin-top: 100px;
   width: 50%;
   height: 100vh;
   div {

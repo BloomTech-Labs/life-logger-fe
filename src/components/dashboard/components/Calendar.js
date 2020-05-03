@@ -87,10 +87,10 @@ const Calendar = () => {
   }
 
   return (
-    <Container>
+    <Container style={{overflow: 'hidden'}}>
       <div
         className="calendar-app"
-        style={{ marginTop: 100, marginBottom: 50 }}
+        style={{ marginTop: 100, marginBottom: 50, overflowY: "auto" }}
       >
         <div className="calendar-app-calendar">
           <FullCalendar
