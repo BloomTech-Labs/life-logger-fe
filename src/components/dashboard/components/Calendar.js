@@ -42,7 +42,8 @@ const Calendar = () => {
             text: event.event_text,
             allDay: event.all_day,
             start: event.event_st_tm,
-            end: event.event_et_tm
+            end: event.event_et_tm,
+            backgroundColor: event.iscomplete ? '#28b325' : 'red',
           };
         });
 
