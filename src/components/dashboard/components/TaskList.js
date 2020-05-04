@@ -16,10 +16,12 @@ const TaskList = (props) => {
     history.push(`/task/${eventID}`);
   };
 
-  const [sortStatus, setSortStatus] = useState("all");
+  const [sortStatus, setSortStatus] = useState(3);
+
+  // 3 is for every event, w/o sort
 
   const handleAllSort = () => {
-    setSortStatus("all");
+    setSortStatus(3);
   };
 
   const handleWorkSort = () => {
@@ -101,7 +103,7 @@ const TaskList = (props) => {
       <div className="listItemContainer">
         {props.events
           .filter((event) =>
-            sortStatus === "all" ? true : event.category === sortStatus
+            sortStatus === 3 ? true : event.category === sortStatus
           )
           .map((event) => {
             // check to see if event is upcoming or past
