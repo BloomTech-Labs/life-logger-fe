@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { unfetchUser } from '../../../store/actions/index';
 import { NavContainer } from '../../../styles/Styles';
 import { useDarkMode } from '../../../hooks/useDarkMode';
+import sun from '../../../assets/img/sun.png';
+import moon from '../../../assets/img/moon.png';
 
 const Nav = () => {
   const dispatch = useDispatch();
@@ -27,9 +29,11 @@ const Nav = () => {
       {isLoggedIn &&
         <>
           <div className="nav-link">
+            <img src={sun} alt='' />
             <div className="dark-mode__toggle">
               <div onClick={toggleMode} className={darkMode ? 'toggle toggled' : 'toggle'}/>  
             </div>
+            <img src={moon} alt='' />
           </div>
 
           <div className="nav-link">

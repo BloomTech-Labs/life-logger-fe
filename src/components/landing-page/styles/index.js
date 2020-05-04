@@ -29,6 +29,17 @@ export const Hero = styled.div`
     width: 55%;
     text-align: justify;
   }
+  
+  @media (max-width: 1230px) {
+    .top {
+      display: none
+    }
+  }
+
+  // @media (max-width: 1200px) {
+  //   width: 80vw;
+  // }
+
 `;
 
 export const LoginForm = styled.form`
@@ -36,9 +47,11 @@ export const LoginForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin-top: 20px;
+  margin-top: 100px;
   width: 50%;
-  height: 100vh;
+  // height: 100vh;
+  height: 50vh;
+
   div {
     display: flex;
     flex-direction: column;
@@ -71,7 +84,7 @@ export const RegisterForm = styled.form`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // margin-top: 20px;
+  margin-top: 100px;
   width: 50%;
   height: 100vh;
   div {

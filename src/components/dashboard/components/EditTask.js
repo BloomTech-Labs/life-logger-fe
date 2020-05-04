@@ -84,6 +84,7 @@ const EditTask = props => {
       )
     );
     history.goBack();
+    // history.push(`/task/${eventID}`)
   };
 
   if (!currentEvent) return <h1>Loading...</h1>;

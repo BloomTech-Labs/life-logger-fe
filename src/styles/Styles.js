@@ -24,7 +24,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   position: absolute;
   padding: 0 20px;
-  width: 100vw;
+  width: 100%;
   height: 60px;
   background-color:#045de9; 
   background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
@@ -53,6 +53,19 @@ export const HeaderContainer = styled.div`
   .toggled {
     left: 18px;
   }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    marginLeft: 20px;
+  }
+
+  .leftContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .user {
     color: white;
     font-style: italic;
@@ -67,6 +80,16 @@ export const NavContainer = styled.div`
   justify-content: space-around;
   width: 35%;
   margin-right: 20px;
+  
+  .nav-link{
+    display: flex;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+  }
 `;
 
 //Login Component
