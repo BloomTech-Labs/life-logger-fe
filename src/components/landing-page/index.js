@@ -13,9 +13,6 @@ import { Container, Hero } from './styles';
 const LandingPage = () => {
   const [activeForm, setActiveForm] = useState('login');
   const { isFetching } = useSelector(state => state.users);
-  // let replace = true;
-  // const func = () => setTimeout(() => replace = false, 3000);
-  // func();
   return (
     <Container>
       <Hero>

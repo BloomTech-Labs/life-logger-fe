@@ -67,6 +67,16 @@ export const NavContainer = styled.div`
   justify-content: space-around;
   width: 35%;
   margin-right: 20px;
+  
+  .nav-link{
+    display: flex;
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 5px;
+    }
+  }
 `;
 
 //Login Component

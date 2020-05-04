@@ -5,32 +5,7 @@ export const Container = styled.div`
   align-items: center;
   height: 100vh;
   width: 1200px;
-
-  // border: 1px solid black;
-
-  .dark-mode__toggle {
-    background: white;
-    border-radius: 17px;
-    border: 1px solid black;
-    height: 20px;
-    position: relative;
-    width: 37px;
-  }
-
-  .toggle {
-    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
-    border-radius: 50px;
-    height: 20px;
-    left: 0;
-    position: absolute;
-    transition: 0.2s;
-    width: 20px;
-  }
-  .toggled {
-    left: 18px;
-  }
-
-
+  
 `;
 
 export const ListContainer = styled.div`
