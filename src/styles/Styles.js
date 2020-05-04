@@ -53,6 +53,19 @@ export const HeaderContainer = styled.div`
   .toggled {
     left: 18px;
   }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    marginLeft: 20px;
+  }
+
+  .leftContent {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .user {
     color: white;
     font-style: italic;
