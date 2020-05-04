@@ -9,9 +9,8 @@ import { Container } from './styles';
 const Dashboard = () => {
   const dispatch = useDispatch();
   const { users, events } = useSelector(state => {
-    return state
+    return state;
   });
-  // console.log('users  events', users, events);
 
   useEffect(
     () => {
