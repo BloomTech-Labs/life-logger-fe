@@ -107,25 +107,7 @@ const TaskList = (props) => {
           )
           .map((event) => {
             // check to see if event is upcoming or past
-            const upcoming = moment().isSameOrBefore(event.event_et_tm);
-
-            // show upcoming message once
-            if (showOnce && upcoming) {
-              showOnce = false;
-              return (
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginTop: "10px",
-                    fontSize: "1.4rem",
-                    fontStyle: "italic",
-                  }}
-                >
-                  Today: {moment().format("MMMM DD YYYY")}
-                </div>
-              );
-            }
-
+            const upcoming = moment().isSameOrBefore(event.event_et_tm);        
             return (
               <ListItem
                 key={event.id}
