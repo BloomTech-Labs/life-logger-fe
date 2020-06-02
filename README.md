@@ -21,6 +21,7 @@ You can find the deployed project at [lyfe-logger-fe.herokuapp.com](https://lyfe
 |[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/)| -->
 
 |[Ana Carrillo, TL]|[Jackie Atwood]|[Wade Coplen]|[Devin Dias] |
+| :------: | :------: | :------: | :------: |
 |[<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3)| [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood)|[<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen)|[<img src="./contributors/dDias.png" width = "200" />](https://github.com/devin5)|
 |[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/devin5)|
 |[Janessa Garrow]|[Robert Kulp]|[David Moates]|
