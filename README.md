@@ -5,11 +5,12 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/aa8fc23117fc01a592c1/test_coverage)](https://codeclimate.com/github/Lambda-School-Labs/life-logger-fe/test_coverage)
 
-You can find the deployed project at [lyfe-logger.com](https://www.lyfe-logger.com).
+You can find the deployed project at [lyfe-logger-fe.herokuapp.com](https://lyfe-logger-fe.herokuapp.com/).
 
 ## Contributors
 
-|[Carl Stanley](https://github.com/Carl-Stanley)|[Sagdi Formanov](https://github.com/sagdish)|[Joseph Hayden](https://github.com/JHaydenDev)|[Karen Yearwood](https://github.com/kly001) |
+<!-- Previous Labs Group
+ |[Carl Stanley](https://github.com/Carl-Stanley)|[Sagdi Formanov](https://github.com/sagdish)|[Joseph Hayden](https://github.com/JHaydenDev)|[Karen Yearwood](https://github.com/kly001) |
 | :------: | :------: | :------: | :------: |
 |[<img src="./contributors/carl.png" width = "200" />](https://github.com/Carl-Stanley)| [<img src="./contributors/sagdi.png" width = "200" />](https://github.com/sagdish)|[<img src="./contributors/joseph.png" width = "200" />](https://github.com/JHaydenDev)|[<img src="./contributors/karen.png" width = "200" />](https://github.com/kly001)|
 |[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Carl-Stanley)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/sagdish)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JHaydenDev)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kly001)|
@@ -17,7 +18,16 @@ You can find the deployed project at [lyfe-logger.com](https://www.lyfe-logger.c
 |[Eric Wise](https://github.com/eric-wise)|[Denvinn Magsino](https://github.com/denvinnpaolo)|[Dave Vazquez](https://github.com/dave-vazquez)|
 |[<img src="./contributors/eric.png" width = "200" />](https://github.com/eric-wise)|[<img src="./contributors/denvinn.png" width = "200" />](https://github.com/denvinnpaolo)|[<img src="./contributors/dave.png" width = "200" />](https://github.com/dave-vazquez)|
 |[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/eric-wise)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denvinnpaolo)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dave-vazquez)|
-|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/)|
+|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/)| -->
+
+|[Ana Carrillo, TL]|[Jackie Atwood]|[Wade Coplen]|[Devin Dias] |
+| :------: | :------: | :------: | :------: |
+|[<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3)| [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood)|[<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen)|[<img src="./contributors/dDias.png" width = "200" />](https://github.com/devin5)|
+|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/devin5)|
+|[Janessa Garrow]|[Robert Kulp]|[David Moates]|
+|[<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow)|[<img src="./contributors/rKulp.png" width = "200" />](https://github.com/rabithole)|[<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates)|
+|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rabithole)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates)|
+
 
 <br/>
 
@@ -28,12 +38,12 @@ You can find the deployed project at [lyfe-logger.com](https://www.lyfe-logger.c
 
 ## Project Overview
 
-[Trello Board](https://trello.com/b/kfJ5JVr9/labspt7-life-logger)
+[Trello Board](https://trello.com/b/GHkoIW41/labs-pt11-life-logger)
 
-[Product Canvas](https://www.notion.so/Life-Logger-7281115559ed4d9282db7fcde90238c0)
+[Product Canvas](https://www.notion.so/Life-Logger-PVD-7281115559ed4d9282db7fcde90238c0)
 
-Organize all the things about life that are irregular. The things you forget to do. 
-Change your oil, rotate your tires, replace your AC air filter. Home, auto, other maintenance tasks. 
+Organize all the things about life that are irregular. The things you forget to do.
+Change your oil, rotate your tires, replace your AC air filter. Home, auto, other maintenance tasks.
 Log events, later searchable so you can remember when/where/what you did.
 
 
@@ -51,21 +61,21 @@ Log events, later searchable so you can remember when/where/what you did.
 	- React, using Create React as a framework.
 	- useContext and Redux for state management.
 
-#### Front end deployed to [Heroku](https://github.com/Lambda-School-Labs/life-logger-fe)
+#### Front end deployed to [Heroku](https://lyfe-logger-fe.herokuapp.com/)
 
-#### Back end deployed to [Heroku](https://github.com/Lambda-School-Labs/life-logger-be)
+#### Back end deployed to [Heroku](https://lyfe-logger-be.herokuapp.com/)
 
 # Testing
 
-	Jest test suite. To run tests type npm test or npm run coverage at the command line in the root of the project. 
+	Jest test suite. To run tests type npm test or npm run coverage at the command line in the root of the project.
 
 # Installation Instructions
 
-	type npm i in the root folder of the project. 
+	type npm i in the root folder of the project.
 
 
 ## Issue/Bug Request
-   
+
  **If you are having an issue with the existing project code, please submit a bug report under the following guidelines:**
  - Check first to see if your issue has already been reported.
  - Check to see if the issue has recently been fixed by attempting to reproduce the issue using the latest master branch in the repository.
