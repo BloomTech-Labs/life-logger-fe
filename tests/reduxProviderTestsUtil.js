@@ -2,11 +2,11 @@ import React from 'react';
 import { render as rtlRender } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import PropTypes from 'prop-types';
-import { createStore } from 'redux';
-import {
-  EventReducer,
-  initialState as reducerInitialState,
-} from '../src/store/reducers/EventReducer';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import { initialState as reducerInitialState } from '../src/store/reducers/EventReducer';
+import { initialState as userInitialState } from '../src/store/reducers/RegisterReducer';
+import rootReducer from '../src/store/reducers';
 
 // pass in a component ('ui'), a mock redux store, and whatever options
 // whatever you pass in will override the default values of the arguments
@@ -16,8 +16,8 @@ import {
 const render = (
   ui,
   {
-    initialState = reducerInitialState, // default value of initialState is reducerInitialState
-    store = createStore(EventReducer, initialState), // default value of store is createStore(reducer, initialState)
+    initialState = { ...reducerInitialState, ...userInitialState }, // default value of initialState is reducerInitialState
+    store = createStore(rootReducer, initialState, applyMiddleware(thunk)), // default value of store is createStore(reducer, initialState)
     ...renderOptions
   } = {}
 ) => {
