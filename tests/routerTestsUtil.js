@@ -17,11 +17,14 @@ export const renderWithRouter = (
     history = createMemoryHistory({ initialEntries: [route] }),
   } = {}
 ) => {
-  console.log('Ui: ', Ui);
   return {
     ...render(
       <Router history={history}>
-        <Route path={path} component={Ui} />
+        <Route
+          path={path}
+          route={route}
+          render={(props) => <Ui {...props} />}
+        />
       </Router>,
       renderOptions
     ),
