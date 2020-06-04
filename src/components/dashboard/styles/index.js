@@ -1,11 +1,10 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   width: 1200px;
-  
 `;
 
 export const ListContainer = styled.div`
@@ -28,7 +27,7 @@ export const ListContainer = styled.div`
 
   .tags {
     display: flex;
-    width: 300px;
+    width: 600px;
     justify-content: space-evenly;
     margin-bottom: 10px;
     align-items: center;
@@ -81,7 +80,7 @@ export const ListItem = styled.div`
 
   div.task-due-date {
     span:first-child {
-      cursor: pointer
+      cursor: pointer;
     }
     display: flex;
     justify-content: space-between;
@@ -92,14 +91,13 @@ export const ListItem = styled.div`
     opacity: 0.3;
     transition: 0.3s;
   }
-  
+
   img:hover {
     transform: rotate(-15deg);
     opacity: 1;
     transition-duration: 0.5s;
     cursor: pointer;
   }
-
 `;
 
 export const NewTaskForm = styled.form`
@@ -195,7 +193,7 @@ export const TaskContainer = styled.div`
 
   .category {
     width: 100px;
-    background: "#a0a0a0";
+    background: '#a0a0a0';
     border: 0.5px solid #0abcf9;
   }
 
@@ -269,7 +267,7 @@ export const TaskContainer = styled.div`
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    
+
     button {
       margin: 20px 10px;
       align-self: flex-end;
@@ -280,7 +278,7 @@ export const TaskContainer = styled.div`
       background-image: linear-gradient(315deg, #0abcf9 0%, #2c69d1 74%);
       color: white;
     }
-    
+
     img {
       cursor: pointer;
       margin: 20px 10px;
