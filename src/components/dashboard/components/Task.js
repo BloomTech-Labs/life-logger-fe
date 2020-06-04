@@ -6,38 +6,32 @@ import Swal from 'sweetalert2';
 import trashBin from '../../../assets/img/trash.png';
 import { deleteEvent, fetchEvent, updateEvent } from '../../../store/actions';
 import { TaskContainer } from '../styles';
-import Loading from "../../UI/Loading";
+import Loading from '../../UI/Loading';
 
-const Task = props => {
+const Task = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [startDate, setStartDate] = useState();
   const [dueDate, setDueDate] = useState();
-  const { currentEvent } = useSelector(state => state.events);
+  const { currentEvent } = useSelector((state) => state.events);
   const eventID = props.match.params.id;
 
-  useEffect(
-    () => {
-      dispatch(fetchEvent(eventID));
-    },
-    [eventID, dispatch]
-  );
+  useEffect(() => {
+    dispatch(fetchEvent(eventID));
+  }, [eventID, dispatch]);
 
-  useEffect(
-    () => {
-      if (currentEvent) {
-        setStartDate(
-          moment(currentEvent.event_st_tm).format('ddd, MMM Do, YYYY - h:mm A')
-        );
+  useEffect(() => {
+    if (currentEvent) {
+      setStartDate(
+        moment(currentEvent.event_st_tm).format('ddd, MMM Do, YYYY - h:mm A')
+      );
 
-        setDueDate(
-          moment(currentEvent.event_et_tm).format('ddd, MMM Do, YYYY - h:mm A')
-        );
-      }
-    },
-    [currentEvent]
-  );
+      setDueDate(
+        moment(currentEvent.event_et_tm).format('ddd, MMM Do, YYYY - h:mm A')
+      );
+    }
+  }, [currentEvent]);
 
   const handleDelete = () => {
     Swal.fire({
@@ -45,8 +39,8 @@ const Task = props => {
       icon: 'error',
       showCancelButton: true,
       cancelButtonText: 'No',
-      confirmButtonText: 'Yes'
-    }).then(result => {
+      confirmButtonText: 'Yes',
+    }).then((result) => {
       if (result.value) {
         dispatch(deleteEvent(eventID));
       }
@@ -63,16 +57,14 @@ const Task = props => {
       updateEvent(
         {
           ...currentEvent,
-          iscomplete: !currentEvent.iscomplete
+          iscomplete: !currentEvent.iscomplete,
         },
         eventID
       )
     );
-    // console.log("iscomplete: ", currentEvent.iscomplete)
+
     history.goBack();
   };
-
-  console.log('current event', currentEvent)
 
   if (!currentEvent) return <Loading />;
   else
@@ -94,24 +86,18 @@ const Task = props => {
             Go to Calendar
           </button>
         </div>
-        <h1>
-          {currentEvent.title}
-        </h1>
+        <h1 data-testid="taskTitle">{currentEvent.title}</h1>
         {/* <div className="category">
           {category}
         </div> */}
         <div className="task-info">
           <div>
             <span>Start Date:</span>
-            <span>
-              {startDate}
-            </span>
+            <span>{startDate}</span>
           </div>
           <div>
             <span>Due Date:</span>
-            <span>
-              {dueDate}
-            </span>
+            <span>{dueDate}</span>
           </div>
           <div>
             <span>Location:</span>
@@ -126,14 +112,12 @@ const Task = props => {
                 backgroundColor: currentEvent.iscomplete ? '#39FF13' : 'red',
                 borderRadius: '25px',
                 width: '18px',
-                marginLeft: '36px'
+                marginLeft: '36px',
               }}
             />
           </div>
         </div>
-        <p className="description">
-          {currentEvent.event_text}
-        </p>
+        <p className="description">{currentEvent.event_text}</p>
         <div className="button-container">
           <button onClick={handleEdit}>Edit</button>
           <button onClick={handleComplete}>
