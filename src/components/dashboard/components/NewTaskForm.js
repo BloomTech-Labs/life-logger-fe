@@ -5,6 +5,7 @@ import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
 import { useHistory } from 'react-router-dom';
 
+
 function reducer(state, action) {
   switch (action.type) {
     case 'SET_ERRORS':
@@ -121,6 +122,10 @@ const NewTaskForm = () => {
 
   let errs = []; //List of required field errors
 
+  //prohibits html picker before current date
+  let todayValidation = moment().format('YYYY-MM-DD');
+  console.log("HERE", todayValidation);
+
   const handleSubmit = (e) => {
     if (Object.keys(errors).length !== 0) {
       Object.keys(errors).map((key, i) => {
@@ -224,6 +229,7 @@ const NewTaskForm = () => {
               id="startDate"
               type={history.location.state ? 'text' : 'date'}
               name="startDate"
+              min={todayValidation}
               value={startDate}
               onBlur={handleBlur}
               onChange={(e) => setStartDate(e.target.value)}
@@ -254,6 +260,7 @@ const NewTaskForm = () => {
               id="endDate"
               type={history.location.state ? 'text' : 'date'}
               name="endDate"
+              min={todayValidation}
               value={endDate}
               onBlur={handleBlur}
               onChange={(e) => setEndDate(e.target.value)}
