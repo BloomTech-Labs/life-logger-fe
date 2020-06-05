@@ -5,7 +5,6 @@ import { createEvent } from '../../../store/actions';
 import { NewTaskForm as Form } from '../styles';
 import { useHistory } from 'react-router-dom';
 
-
 function reducer(state, action) {
   switch (action.type) {
     case 'SET_ERRORS':
@@ -107,7 +106,6 @@ const NewTaskForm = () => {
           (key === 'title' ||
             key === 'startDate' ||
             key === 'endDate' ||
-            key === 'event_text' ||
             key === 'category') &&
           !value
         ) {
@@ -120,11 +118,10 @@ const NewTaskForm = () => {
 
   let { handleBlur, touched, errors } = formik;
 
-  let errs = []; //List of required field errors
+  let errs = []; // List of required field errors
 
-  //prohibits html picker before current date
-  let todayValidation = moment().format('YYYY-MM-DD');
-  console.log("HERE", todayValidation);
+  // prohibits html picker before current date
+  const todayValidation = moment().format('YYYY-MM-DD');
 
   const handleSubmit = (e) => {
     if (Object.keys(errors).length !== 0) {
@@ -199,7 +196,6 @@ const NewTaskForm = () => {
               onChange={handleChange}
               value={newTask.title}
               placeholder="Add a task..."
-              // style={{ marginTop: '30px', fontColor: 'white' }}
             />
 
             {errors.title && touched.title && (
@@ -357,19 +353,6 @@ const NewTaskForm = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {touched.event_text && errors.event_text && (
-              <p
-                style={{
-                  color: 'red',
-                  marginTop: -9,
-                  marginBottom: 5,
-                  fontStyle: 'italic',
-                  fontSize: 10,
-                }}
-              >
-                {errors.event_text}
-              </p>
-            )}
           </div>
           <div className="task-form-buttons">
             <button
