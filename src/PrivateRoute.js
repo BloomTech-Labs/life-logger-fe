@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Route } from 'react-router-dom';
 import { isAuthenticated } from './utils/isAuthenticated';
@@ -10,9 +9,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
   const [hasAuth, setHasAuth] = useState(false);
   const token = window.localStorage.getItem('token');
 
-  useEffect(async () => {
-    const auth = await isAuthenticated(token);
-    setHasAuth(auth);
+  useEffect(() => {
+    const fetchAuth = async () => {
+      const auth = await isAuthenticated(token);
+      setHasAuth(auth);
+    };
+
+    fetchAuth();
   }, [token, isAuthenticated]);
 
   return (
