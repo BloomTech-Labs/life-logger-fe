@@ -37,12 +37,8 @@ const Header = () => {
           gridTemplateColumns: `repeat(auto-fit, minmax(50px, 100px))`,
         }}
       >
-        <StyledLink exact to="/">
-          Home
-        </StyledLink>
-        <StyledLink exact to="/dashboard">
-          Dashboard
-        </StyledLink>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/dashboard">Dashboard</StyledLink>
       </nav>
     </HeaderGrid>
   );
