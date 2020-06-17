@@ -20,15 +20,15 @@ export default {
   colors: {
     text: '#000',
     background: '#fff',
-    primary: '#07c',
-    secondary: '#30c',
-    muted: '#f6f6f6',
+    primary: '#FFB96F',
+    secondary: '#EF6116',
+    muted: '#FFE2BF',
     modes: {
       dark: {
         text: 'hsl(210, 50%, 96%)',
         background: 'hsl(230, 25%, 18%)',
-        primary: 'hsl(260, 100%, 80%)',
-        secondary: 'hsl(290, 100%, 80%)',
+        primary: '#A590DC',
+        secondary: '#9034DF',
         highlight: 'hsl(260, 20%, 40%)',
         purple: 'hsl(290, 100%, 80%)',
         muted: 'hsla(230, 20%, 0%, 20%)',
@@ -40,13 +40,47 @@ export default {
     primary: {
       padding: 2,
       borderRadius: 4,
-      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.125)',
+      boxShadow:
+        '0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)',
     },
     compact: {
       padding: 1,
       borderRadius: 2,
       border: '1px solid',
       borderColor: 'muted',
+    },
+  },
+  buttons: {
+    primary: {
+      bg: 'muted',
+      color: 'text',
+      transition: `all 0.15s ease-in-out`,
+
+      '&:hover': {
+        bg: 'secondary',
+        color: 'background',
+        boxShadow:
+          '0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)',
+
+        '&:focus': {
+          outline: 'none',
+        },
+      },
+    },
+  },
+  forms: {
+    input: {
+      border: 'none',
+      bg: 'muted',
+      transition: `all 0.15s ease-in-out`,
+
+      '&:focus': {
+        border: 'none',
+        outline: 'none',
+        bg: 'muted',
+        boxShadow:
+          '0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)',
+      },
     },
   },
   styles: {
