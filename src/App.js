@@ -3,7 +3,7 @@ import { jsx } from 'theme-ui';
 
 import Header from './components/header/Header';
 import PrivateRoute from './PrivateRoute';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 
 const App = () => {
   return (
