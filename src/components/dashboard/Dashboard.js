@@ -9,7 +9,7 @@ const Dashboard = () => {
       all_day: true,
       category: 1,
       event_ct_tm: '2020-05-28T03:36:47.000Z',
-      event_et_tm: '2020-05-11T17:00:00.000Z',
+      event_et_tm: '2020-05-01T17:00:00.000Z',
       event_resource: '',
       event_st_tm: '2020-05-11T16:00:00.000Z',
       event_text: 'Here are some notes',
