@@ -51,24 +51,67 @@ Log events, later searchable so you can remember when/where/what you did.
 - Search feature so you can remember when/where/what you did.
 - Functional user dashboard to manage events.
 
-## Tech Stack
-
-#### Front end built using:
+## Front End Tech Stack
 
     - React, using `create-react-app` as a framework.
     - Context API for state management.
+    - Theme UI and Emotion for styling
 
 #### Front end deployed to [Heroku](https://lyfe-logger-fe.herokuapp.com/)
 
 #### Back end deployed to [Heroku](https://lyfe-logger-be.herokuapp.com/)
 
-# Testing
+## Installation Instructions
 
-    React testing library suite. To run tests type `npm test` or `npm test -- --coverage --watchAll=false` at the command line in the root of the project.
+Clone this project and run `npm i` at the root of this project in your terminal.
 
-# Installation Instructions
+## Testing
 
-    type `npm i` in the root folder of the project.
+This app uses [React testing library](https://testing-library.com/docs/react-testing-library/intro). To run your tests, use the command `npm test`. Use the command `npm test -- --coverage --watchAll=false` to run a test coverage report.
+
+A more user-friendly way to read the test coverage report is to navigate to `coverage/lcov-report/index.html` and open that html file in your browser. Then you can click through the different folders and files to see highlights of parts of your code that might still be missing tests.
+
+### Adding more tests
+
+Any component that accesses any styling from the `theme` must be wrapped in a `ThemeProvider`. A utility function was created specifically for tests in `tests/themeProviderTestsUtil.js`. In a test file where you would normally import `render` from `@testing-library/react` import it from this utility function instead. For your convenience, in any file where you are importing from this utility function, you can also import any method available from `@testing-library/react` as they've all been re-exported in that file. `render` takes the following parameters:
+
+- `ui` -- \*\*required, the component you want to test
+- renderOptions (an object) -- \*\*optional, you can pass in a mock Context store or initial state here
+
+For any component that needs to be wrapped in a `Router`, a utility function was created at `tests/routerTestsUtil.js`. In a test file where you would normally import `renderWithRouter` from `@testing-library/react` import it from this utility function instead. `renderWithRouter` takes in the following parameters:
+
+- `Ui` -- \*\*required, the component you want to test
+- {path, route, history} -- \*\*optional, `path` and `route` default to `/` and `history` defaults to `createMemoryHistory({ initialEntries: [route] })` (`createMemoryHistory` is imported from `history`)
+- renderOptions (an object) -- \*\*optional, you can pass in a mock Context store or initial state here
+
+## Environment Variables
+
+Create a `.env.development` and `.env.production` file so you don't have to hard code any environment variables anywhere. Below is a list of environment variable names you will need:
+
+    - `BASE_HOST` -- the base URL for the backend server
+        - for development using your local server, set this to `http://localhost:5000` or whatever port your local backend runs on
+        - for production, set this to the deployed URL of the backend server
+
+## Styling
+
+This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for any Styled Components. The `theme` styles for this project are located at `src/theme/theme.js`
+
+In any component where you want to have any styling from the `theme` file needs to have the following imported at the very top of the file (including the comment):
+
+```js
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+```
+
+Import any Theme UI components from `@theme-ui/components`. For example:
+
+```js
+import { Card } from '@theme-ui/components';
+```
+
+A list of available components can be found in the Theme UI docs. To override any of the default styling for your own theme, you must [create a variant](https://theme-ui.com/components/variants) inside of your `theme` file.
+
+For example, according to the docs, the `Card` component is found in the `cards` variant group. This means that within your `theme` object, you can create a `cards` key, whose value is an object. Within that `cards` object, the default "variant" for a `Card` is called `primary`. In order to override Theme UI's default stylings for that basic, default `Card`, you must create a `primary` key inside of your `cards` object and provide your stylings there.
 
 ## Issue/Bug Request
 
