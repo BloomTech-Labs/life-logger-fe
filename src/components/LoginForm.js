@@ -1,5 +1,6 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const initialValues = {
     username: '',
@@ -54,7 +55,7 @@ export default function LoginForm() {
     onSubmit,
     validate
   })
-  console.log('form touched', formik.touched)
+  // console.log('form touched', formik.touched)
   // console.log('form errors', formik.errors)
   // console.log('Form values', formik.values);
   return (
@@ -75,6 +76,7 @@ export default function LoginForm() {
         />
         {formik.touched.username && formik.errors.username ? <div className='error'>{formik.errors.username}</div> : null}
         </div>
+
         <div className={formControl}>
         <label style={labelStyle} htmlFor="password">
           Password:
