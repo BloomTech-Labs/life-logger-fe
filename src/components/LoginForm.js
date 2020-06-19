@@ -9,8 +9,19 @@ const initialValues = {
   const onSubmit = value => {
       console.log("Form data", value)
   }
- 
-
+  const validate = values => {
+    let errors = {}
+    
+    if(!values.username) {
+        errors.username = 'Required'
+    }
+    if(!values.password) {
+        errors.password = 'Required'
+    } else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
+        errors.password = 'Invalid password'
+        return errors;
+        
+}
 const validationSchema = Yup.object({
   username: Yup.string()
   .required('Required'),
@@ -93,3 +104,4 @@ export default function LoginForm() {
     </div>
   );
 }
+
