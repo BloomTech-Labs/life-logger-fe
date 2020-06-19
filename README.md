@@ -73,6 +73,8 @@ A more user-friendly way to read the test coverage report is to navigate to `cov
 
 ### Adding more tests
 
+All test files can be found within a `__tests__` folder within the directory the original file is located. For example, for the file `src/components/dashboard/Dashboard.js`, the `Dashboard.test.js` file is located at `src/components/dashboard/__tests__/Dasboard.test.js`.
+
 Any component that accesses any styling from the `theme` must be wrapped in a `ThemeProvider`. A utility function was created specifically for tests in `tests/themeProviderTestsUtil.js`. In a test file where you would normally import `render` from `@testing-library/react` import it from this utility function instead. For your convenience, in any file where you are importing from this utility function, you can also import any method available from `@testing-library/react` as they've all been re-exported in that file. `render` takes the following parameters:
 
 - `ui` -- \*\*required, the component you want to test
@@ -112,6 +114,44 @@ import { Card } from '@theme-ui/components';
 A list of available components can be found in the Theme UI docs. To override any of the default styling for your own theme, you must [create a variant](https://theme-ui.com/components/variants) inside of your `theme` file.
 
 For example, according to the docs, the `Card` component is found in the `cards` variant group. This means that within your `theme` object, you can create a `cards` key, whose value is an object. Within that `cards` object, the default "variant" for a `Card` is called `primary`. In order to override Theme UI's default stylings for that basic, default `Card`, you must create a `primary` key inside of your `cards` object and provide your stylings there.
+
+## Eslint, Prettier, husky, and lint-staged
+
+As per Lambda's Labs Engineering Standards, we have included `eslint` (with the default rules) to help keep the codebase cleaner and more consistent across files. To change any of the linter rules, update the `.eslintrc.js` file at the root of the project.
+
+Likewise, to make any changes to the Prettier rules for this project, update the `.prettierrc.js` file at the root of the project.
+
+Husky is a library that can help prevent "bad" commits from being committed to your branch. In the `package.json` at the root of the project, you can configure the husky hooks to run certain commands when you want. See the [husky docs](https://github.com/typicode/husky#readme) for more info. In this project, we have configured husky so that on pre-commit, it will run our `lint-staged` rules. "Pre-commit" means that when you stage your changes and run a `git commit` command, husky will actually run your `pre-commit` git hook before it actually commits your changes.
+
+Lint-staged is a library that will run your linter against staged files. This can allow you to check if any of your changes break any linting rules. If they do, lint-staged steps in and the commit will not be run. See the [lint-staged docs here](https://github.com/okonet/lint-staged#readme). For this project, we configured lint-staged in the `package.json` so that our `eslint` rules will be run against all `.js` files and any of the following filetypes -- `js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx` -- will be run through our `prettier` rules and automatically changed to match the rules in the `.prettierrc.js` file and then being re-staged.
+
+When we use husky and lint-staged together, husky will make sure the linter and prettier get run before every single commit. This will help catch any errors and fix syntax inconsistencies to help streamline the process of writing more consistent code as a team working on the same repo.
+
+Docs:
+[eslint](https://eslint.org/docs/user-guide/getting-started)
+[prettier](https://prettier.io/docs/en/)
+[husky](https://github.com/typicode/husky#readme)
+[lint-staged](https://github.com/okonet/lint-staged#readme)
+
+## A note on eslint
+
+When creating a component that takes in props, eslint requires that you declare what the expected type is of each prop. For any component taking in props, you will need to import the following at the top of the file:
+
+```
+import PropTypes from 'prop-types';
+```
+
+Then you can use `PropTypes` to specify the types for your props. For example, the `Task` component takes in a `task` prop. We can declare what type we expect `task` to be like so (take note of the differences in capitalization -- it matters!):
+
+```js
+// ComponentName.propTypes
+Task.propTypes = {
+  // nameOfProp: PropTypes.expectedTypeHere
+  task: PropTypes.object,
+};
+```
+
+See the [docs](https://reactjs.org/docs/typechecking-with-proptypes.html) for more info.
 
 ## Issue/Bug Request
 
