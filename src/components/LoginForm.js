@@ -17,8 +17,7 @@ const initialValues = {
     }
     if(!values.password) {
         errors.password = 'Required'
-    } else if(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
-        errors.password = 'Invalid password'
+    }
         return errors;
         
 }
@@ -27,9 +26,8 @@ const validationSchema = Yup.object({
   .required('Required'),
   password: Yup.string()
   .required('Required')
-  .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
+  
 })
-
 //Styling
 const loginFormStyle = {
   display: 'flex',
@@ -55,6 +53,7 @@ const formControl = {
 const error = {
   color: 'red'
 }
+
 export default function LoginForm() {
   const formik = useFormik({
     initialValues,
@@ -76,7 +75,6 @@ export default function LoginForm() {
           style={inputStyle}
           type="text"
           id="username"
-          maxLength="25"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.username}
@@ -92,7 +90,6 @@ export default function LoginForm() {
           style={inputStyle}
           type="text"
           id="password"
-          minLength="8"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
