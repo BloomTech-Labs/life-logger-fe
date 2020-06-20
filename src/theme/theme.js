@@ -38,8 +38,8 @@ export default {
   },
   cards: {
     primary: {
-      padding: 2,
-      borderRadius: 4,
+      padding: `16px`,
+      borderRadius: `10px`,
       boxShadow:
         '0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)',
     },
