@@ -1,3 +1,6 @@
+/**@jsx jsx*/
+import {jsx} from'theme-ui';
+import {Input, Label, Button} from '@theme-ui/components'
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -41,7 +44,7 @@ const labelStyle = {
 };
 const inputStyle = {
   display: 'block',
-  width: '400px',
+  width: '265px',
   padding: '6 px 12px',
   fontSize: '14px',
   lineHeight: '1.5',
@@ -66,15 +69,26 @@ export default function LoginForm() {
   // console.log('Form values', formik.values);
   return (
     <div style={loginFormStyle}>
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={formik.handleSubmit}
+       sx={{
+        width: `300px`,
+        margin: `0 auto`,
+        display: `grid`,
+        gridGap: 2,
+        padding: 3,
+        borderRadius: `12px`,
+        bg: (t) => t.colors.primary,
+        boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
+      }} >
         <div className={formControl}>
-        <label style={labelStyle} htmlFor="username">
+        <Label style={labelStyle} htmlFor="username">
           Username:
-        </label>
-        <input
+        </Label>
+        <Input
           style={inputStyle}
           type="text"
           id="username"
+          name='username'
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.username}
@@ -83,20 +97,26 @@ export default function LoginForm() {
         </div>
 
         <div className={formControl}>
-        <label style={labelStyle} htmlFor="password">
+        <Label style={labelStyle} htmlFor="password">
           Password:
-        </label>
-        <input
+        </Label>
+        <Input
           style={inputStyle}
           type="text"
           id="password"
+          name='username'
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
         />
         {formik.touched.password && formik.errors.password ? <div className='error'>{formik.errors.username}</div> : null}
         </div>
-        <button type="submit">Submit</button>
+        <Button type="submit"    
+                sx={{
+              //   bg: (t) => t.colors.muted,
+              //   color: (t) => t.colors.text,
+                  margin: `0 auto`,
+            }}>Submit</Button>
       </form>
     </div>
   );
