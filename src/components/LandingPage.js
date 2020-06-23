@@ -2,7 +2,14 @@
 import { jsx } from 'theme-ui';
 
 const LandingPage = () => {
-  return <h1>This is a landing page if you are not logged in</h1>;
+  return (
+    <div>
+      <h1>Welcome to</h1>
+      <img src="OrangeLogo.png" alt="orange squares icon" />
+      <button>Sign Up!</button>
+      <button>Sign In!</button>
+    </div>
+  );
 };
 
 export default LandingPage;
