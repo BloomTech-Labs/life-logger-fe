@@ -68,7 +68,7 @@ export default function LoginForm() {
   // console.log('form errors', formik.errors)
   // console.log('Form values', formik.values);
   return (
-    <div style={loginFormStyle}>
+    <div sx={loginFormStyle}>
       <form onSubmit={formik.handleSubmit}
        sx={{
         width: `300px`,
@@ -81,11 +81,11 @@ export default function LoginForm() {
         boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
       }} >
         <div className={formControl}>
-        <Label style={labelStyle} htmlFor="username">
+        <Label sx={labelStyle} htmlFor="username">
           Username:
         </Label>
         <Input
-          style={inputStyle}
+          sx={inputStyle}
           type="text"
           id="username"
           name='username'
@@ -97,11 +97,11 @@ export default function LoginForm() {
         </div>
 
         <div className={formControl}>
-        <Label style={labelStyle} htmlFor="password">
+        <Label sx={labelStyle} htmlFor="password">
           Password:
         </Label>
         <Input
-          style={inputStyle}
+          sx={inputStyle}
           type="text"
           id="password"
           name='password'
