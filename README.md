@@ -51,24 +51,107 @@ Log events, later searchable so you can remember when/where/what you did.
 - Search feature so you can remember when/where/what you did.
 - Functional user dashboard to manage events.
 
-## Tech Stack
-
-#### Front end built using:
+## Front End Tech Stack
 
     - React, using `create-react-app` as a framework.
     - Context API for state management.
+    - Theme UI and Emotion for styling
 
 #### Front end deployed to [Heroku](https://lyfe-logger-fe.herokuapp.com/)
 
 #### Back end deployed to [Heroku](https://lyfe-logger-be.herokuapp.com/)
 
-# Testing
+## Installation Instructions
 
-    React testing library suite. To run tests type `npm test` or `npm test -- --coverage --watchAll=false` at the command line in the root of the project.
+Clone this project and run `npm i` at the root of this project in your terminal.
 
-# Installation Instructions
+## Testing
 
-    type `npm i` in the root folder of the project.
+This app uses [React testing library](https://testing-library.com/docs/react-testing-library/intro). To run your tests, use the command `npm test`. Use the command `npm test -- --coverage --watchAll=false` to run a test coverage report.
+
+A more user-friendly way to read the test coverage report is to navigate to `coverage/lcov-report/index.html` and open that html file in your browser. Then you can click through the different folders and files to see highlights of parts of your code that might still be missing tests.
+
+### Adding more tests
+
+All test files can be found within a `__tests__` folder within the directory the original file is located. For example, for the file `src/components/dashboard/Dashboard.js`, the `Dashboard.test.js` file is located at `src/components/dashboard/__tests__/Dasboard.test.js`.
+
+Any component that accesses any styling from the `theme` must be wrapped in a `ThemeProvider`. A utility function was created specifically for tests in `tests/themeProviderTestsUtil.js`. In a test file where you would normally import `render` from `@testing-library/react` import it from this utility function instead. For your convenience, in any file where you are importing from this utility function, you can also import any method available from `@testing-library/react` as they've all been re-exported in that file. `render` takes the following parameters:
+
+- `ui` -- \*\*required, the component you want to test
+- renderOptions (an object) -- \*\*optional, you can pass in a mock Context store or initial state here
+
+For any component that needs to be wrapped in a `Router`, a utility function was created at `tests/routerTestsUtil.js`. In a test file where you would normally import `renderWithRouter` from `@testing-library/react` import it from this utility function instead. `renderWithRouter` takes in the following parameters:
+
+- `Ui` -- \*\*required, the component you want to test
+- {path, route, history} -- \*\*optional, `path` and `route` default to `/` and `history` defaults to `createMemoryHistory({ initialEntries: [route] })` (`createMemoryHistory` is imported from `history`)
+- renderOptions (an object) -- \*\*optional, you can pass in a mock Context store or initial state here
+
+## Environment Variables
+
+Create a `.env.development` and `.env.production` file so you don't have to hard code any environment variables anywhere. Below is a list of environment variable names you will need:
+
+    - `BASE_HOST` -- the base URL for the backend server
+        - for development using your local server, set this to `http://localhost:5000` or whatever port your local backend runs on
+        - for production, set this to the deployed URL of the backend server
+
+## Styling
+
+This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for any Styled Components. The `theme` styles for this project are located at `src/theme/theme.js`
+
+In any component where you want to have any styling from the `theme` file needs to have the following imported at the very top of the file (including the comment):
+
+```js
+/** @jsx jsx */
+import { jsx } from 'theme-ui';
+```
+
+Import any Theme UI components from `@theme-ui/components`. For example:
+
+```js
+import { Card } from '@theme-ui/components';
+```
+
+A list of available components can be found in the Theme UI docs. To override any of the default styling for your own theme, you must [create a variant](https://theme-ui.com/components/variants) inside of your `theme` file.
+
+For example, according to the docs, the `Card` component is found in the `cards` variant group. This means that within your `theme` object, you can create a `cards` key, whose value is an object. Within that `cards` object, the default "variant" for a `Card` is called `primary`. In order to override Theme UI's default stylings for that basic, default `Card`, you must create a `primary` key inside of your `cards` object and provide your stylings there.
+
+## Eslint, Prettier, husky, and lint-staged
+
+As per Lambda's Labs Engineering Standards, we have included `eslint` (with the default rules) to help keep the codebase cleaner and more consistent across files. To change any of the linter rules, update the `.eslintrc.js` file at the root of the project.
+
+Likewise, to make any changes to the Prettier rules for this project, update the `.prettierrc.js` file at the root of the project.
+
+Husky is a library that can help prevent "bad" commits from being committed to your branch. In the `package.json` at the root of the project, you can configure the husky hooks to run certain commands when you want. See the [husky docs](https://github.com/typicode/husky#readme) for more info. In this project, we have configured husky so that on pre-commit, it will run our `lint-staged` rules. "Pre-commit" means that when you stage your changes and run a `git commit` command, husky will actually run your `pre-commit` git hook before it actually commits your changes.
+
+Lint-staged is a library that will run your linter against staged files. This can allow you to check if any of your changes break any linting rules. If they do, lint-staged steps in and the commit will not be run. See the [lint-staged docs here](https://github.com/okonet/lint-staged#readme). For this project, we configured lint-staged in the `package.json` so that our `eslint` rules will be run against all `.js` files and any of the following filetypes -- `js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx` -- will be run through our `prettier` rules and automatically changed to match the rules in the `.prettierrc.js` file and then being re-staged.
+
+When we use husky and lint-staged together, husky will make sure the linter and prettier get run before every single commit. This will help catch any errors and fix syntax inconsistencies to help streamline the process of writing more consistent code as a team working on the same repo.
+
+Docs:
+[eslint](https://eslint.org/docs/user-guide/getting-started)
+[prettier](https://prettier.io/docs/en/)
+[husky](https://github.com/typicode/husky#readme)
+[lint-staged](https://github.com/okonet/lint-staged#readme)
+
+## A note on eslint
+
+When creating a component that takes in props, eslint requires that you declare what the expected type is of each prop. For any component taking in props, you will need to import the following at the top of the file:
+
+```
+import PropTypes from 'prop-types';
+```
+
+Then you can use `PropTypes` to specify the types for your props. For example, the `Task` component takes in a `task` prop. We can declare what type we expect `task` to be like so (take note of the differences in capitalization -- it matters!):
+
+```js
+// ComponentName.propTypes
+Task.propTypes = {
+  // nameOfProp: PropTypes.expectedTypeHere
+  task: PropTypes.object,
+};
+```
+
+See the [docs](https://reactjs.org/docs/typechecking-with-proptypes.html) for more info.
 
 ## Issue/Bug Request
 
