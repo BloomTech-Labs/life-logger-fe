@@ -1,9 +1,11 @@
 /** @jsx jsx */
+import React, {useContext} from "react"
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import taskContext from "../context/task_context"
 
 const signupSchema = Yup.object().shape({
   name: Yup.string()
@@ -21,25 +23,34 @@ const signupSchema = Yup.object().shape({
     .required('**Password is required'),
 });
 
-const SignupForm = () => {
+const SignupForm = (props) => {
+
+  const { SignUp } = useContext(taskContext);
+
   const initialValues = {
     username: '',
     email: '',
     password: '',
   };
 
-  const handleSubmit = (values) => {
-    axiosWithAuth()
-      .post(`${process.env.BASE_HOST}/api/auth/register`, values)
-      .then((res) => console.log('Successfully signed up', res))
-      .catch((err) => console.log('Error signing up', err));
+  const handleSubmit = (val, e) => {
+    e.preventDefault()
+    
+    SignUp(val)
+    .then(res => {
+      props.history.push("/success")
+    })
+    // axiosWithAuth()
+    //   .post(`${process.env.BASE_HOST}/api/auth/register`, values)
+    //   .then((res) => console.log('Successfully signed up', res))
+    //   .catch((err) => console.log('Error signing up', err));
   };
 
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={signupSchema}
-      onSubmit={handleSubmit}
+      
     >
       {({ values, handleChange, errors, touched }) => (
         <Form
@@ -53,6 +64,7 @@ const SignupForm = () => {
             bg: (t) => t.colors.primary,
             boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
           }}
+          onSubmit={(e) => handleSubmit(values,e)}
         >
           <Label htmlFor="username">Username</Label>
           <Input
