@@ -16,7 +16,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     };
 
     fetchAuth();
-  }, [token, isAuthenticated]);
+  }, [token]);
 
   return (
     <Route

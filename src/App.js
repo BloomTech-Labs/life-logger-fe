@@ -4,7 +4,7 @@ import { jsx } from 'theme-ui';
 import Header from './components/header/Header';
 import PrivateRoute from './PrivateRoute';
 import LandingPage from './components/LandingPage';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
 
 import { Route } from 'react-router-dom';
 

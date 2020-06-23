@@ -9,7 +9,7 @@ const TaskList = ({ tasks }) => {
     <div
       sx={{
         display: `grid`,
-        gridTemplateColumns: `repeat(auto-fill, minmax(50px, 100px))`,
+        gridTemplateColumns: [`1fr`, `minmax(auto, 400px)`],
         gridGap: `15px`,
       }}
     >
