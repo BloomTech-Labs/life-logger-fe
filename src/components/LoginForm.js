@@ -104,7 +104,7 @@ export default function LoginForm() {
           style={inputStyle}
           type="text"
           id="password"
-          name='username'
+          name='password'
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           value={formik.values.password}
