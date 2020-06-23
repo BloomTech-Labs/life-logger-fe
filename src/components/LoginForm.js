@@ -102,7 +102,7 @@ export default function LoginForm() {
         </Label>
         <Input
           sx={inputStyle}
-          type="text"
+          type="password"
           id="password"
           name='password'
           onChange={formik.handleChange}
