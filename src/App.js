@@ -1,11 +1,12 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import taskContext from "./context/task_context";
+import SignUpForm from "./components/SignupForm"
 import Header from './components/header/Header';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import axios from "axios"
-
+import { Route } from "react-router-dom"
 
 
 const App = () => {
@@ -15,8 +16,8 @@ const App = () => {
   return (
     <taskContext.Provider value={{ fakedata }}>
     <div>
-      <Header />
-      <h1 sx={{ textAlign: `center` }}>Welcome to Lyfe Logger</h1>
+     
+      
 
       <PrivateRoute exact path="/dashboard" component={Dashboard} />
     </div>
