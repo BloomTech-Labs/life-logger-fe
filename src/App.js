@@ -26,7 +26,7 @@ const App = (props) => {
   return (
     <taskContext.Provider value={{ SignUp }}>
       <Route exact path="/" component={SignUpForm} />
-      <Route exact path="/" component={SignUpForm} />
+      
 
       
 
