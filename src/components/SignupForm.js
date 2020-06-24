@@ -44,7 +44,9 @@ const SignupForm = (props) => {
   };
 
   return (
+    
     <Formik
+    data-testid="form"
       initialValues={initialValues}
       validationSchema={signupSchema}
       onSubmit={(values) => {
@@ -116,6 +118,7 @@ const SignupForm = (props) => {
         </Form>
       )}
     </Formik>
+    
   );
 };
 //eslint validation

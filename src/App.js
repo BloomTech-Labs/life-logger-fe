@@ -20,7 +20,6 @@ const App = (props) => {
     .catch(err => {
       console.error(err)
     })
-    
   }
 
   return (
