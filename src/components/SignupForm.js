@@ -1,12 +1,16 @@
 /** @jsx jsx */
+import React, { useContext } from 'react';
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import taskContext from '../context/task_context';
+import PropTypes from 'prop-types';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
-  name: Yup.string()
+  username: Yup.string()
     .min(2, '**Too Short!')
     .max(20, '**Too Long!')
     .required('**Name is required'),
@@ -21,25 +25,35 @@ const signupSchema = Yup.object().shape({
     .required('**Password is required'),
 });
 
-const SignupForm = () => {
+const SignupForm = (props) => {
+  const { SignUp } = useContext(taskContext);
+
   const initialValues = {
     username: '',
     email: '',
     password: '',
   };
 
-  const handleSubmit = (values) => {
-    axiosWithAuth()
-      .post(`${process.env.BASE_HOST}/api/auth/register`, values)
-      .then((res) => console.log('Successfully signed up', res))
-      .catch((err) => console.log('Error signing up', err));
+  const handleSubmit = (e, val) => {
+    // e.preventDefault()
+    // SignUp(val)
+    // .then(res => {
+    //   props.history.push("/success")
+    // })
+    console.log('helelo');
   };
 
   return (
+    
     <Formik
+    data-testid="form"
       initialValues={initialValues}
       validationSchema={signupSchema}
-      onSubmit={handleSubmit}
+      onSubmit={(values) => {
+        SignUp(values).then((res) => {
+          props.history.push('/success');
+        });
+      }}
     >
       {({ values, handleChange, errors, touched }) => (
         <Form
@@ -104,7 +118,16 @@ const SignupForm = () => {
         </Form>
       )}
     </Formik>
+    
   );
 };
+//eslint validation
+//signupForm.PropTypes ?
 
+SignupForm.ReactRouterPropTypes = {
+  history: ReactRouterPropTypes.history,
+  location: ReactRouterPropTypes.location,
+  match: ReactRouterPropTypes.match,
+  route: ReactRouterPropTypes.route,
+};
 export default SignupForm;
