@@ -28,7 +28,8 @@ const StyledLink = styled(Link)`
 const Header = () => {
   return (
     <HeaderGrid>
-      <img src="" alt="Lyfe Logger logo" />
+      <img src="" alt="Lyfe Logger logo" />{' '}
+      {/* Can use OrangeLogo.png for the orange logo */}
       <DarkModeToggle />
       <nav
         sx={{
