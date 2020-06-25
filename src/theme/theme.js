@@ -55,8 +55,8 @@ export default {
   links: {
     nav: {
       '&:hover': {
-        color: "white",
-      }
+        color: 'white',
+      },
     },
     landingbuttons: {
       bg: 'muted',
@@ -68,11 +68,11 @@ export default {
       lineHeight: 'inherit',
       textDecoration: 'none',
       fontSize: 'inherit',
-      width: "150px",
+      width: '150px',
       px: 3,
       py: 2,
-      color: 'white',
-      bg: 'primary',
+      // color: 'white',
+      // bg: 'primary',
       border: 0,
       borderRadius: 4,
 
@@ -85,8 +85,8 @@ export default {
         '&:focus': {
           outline: 'none',
         },
-      }
-    }
+      },
+    },
   },
   buttons: {
     primary: {
