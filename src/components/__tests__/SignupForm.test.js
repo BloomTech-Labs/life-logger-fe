@@ -3,6 +3,6 @@ import SignupForm from '../SignupForm';
 
 describe('SignupForm component tests', () => {
   it('renders without crashing', () => {
-    renderWithRouter(SignupForm);
+    renderWithRouter(SignupForm, { path: '/signup', route: '/signup' });
   });
 });

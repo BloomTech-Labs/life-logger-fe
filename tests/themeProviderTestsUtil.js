@@ -4,11 +4,9 @@ import { ThemeProvider } from 'theme-ui';
 import PropTypes from 'prop-types';
 import theme from '../src/theme/theme';
 
-const render = (
-  ui,
-  { ...renderOptions } = {} // after we get Context set up, we'll need to pass in an initial state and context store
-) => {
-  // after we get Context set up, we'll need to include the ContextProvider in this Wrapper, too
+// use this render test utility function where you need access to the ThemeProvider and theme styles, but not the TaskContext
+
+const render = (ui, { ...renderOptions } = {}) => {
   const Wrapper = ({ children }) => {
     return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
   };
