@@ -26,7 +26,7 @@ const TaskProvider = ({ children }) => {
 };
 
 TaskProvider.propTypes = {
-  children: PropTypes.oneOf([
+  children: PropTypes.oneOfType([
     PropTypes.node,
     PropTypes.arrayOf(PropTypes.node),
   ]),
