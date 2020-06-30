@@ -1,12 +1,10 @@
 /** @jsx jsx */
-import React, { useContext } from 'react';
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import taskContext from '../context/task_context';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+import axios from 'axios';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
@@ -26,34 +24,31 @@ const signupSchema = Yup.object().shape({
 });
 
 const SignupForm = (props) => {
-  const { SignUp } = useContext(taskContext);
-
   const initialValues = {
     username: '',
     email: '',
     password: '',
   };
 
-  const handleSubmit = (e, val) => {
-    // e.preventDefault()
-    // SignUp(val)
-    // .then(res => {
-    //   props.history.push("/success")
-    // })
-    console.log('helelo');
+  const handleSubmit = (values) => {
+    return axios
+      .post('https://lyfe-logger-be.herokuapp.com/api/auth/register', values)
+      .then((res) => {
+        window.localStorage.setItem('token', res.data);
+        props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.log('Error signing up: ', err);
+        props.history.push('/');
+      });
   };
 
   return (
-    
     <Formik
-    data-testid="form"
+      data-testid="form"
       initialValues={initialValues}
       validationSchema={signupSchema}
-      onSubmit={(values) => {
-        SignUp(values).then((res) => {
-          props.history.push('/success');
-        });
-      }}
+      onSubmit={handleSubmit}
     >
       {({ values, handleChange, errors, touched }) => (
         <Form
@@ -118,16 +113,14 @@ const SignupForm = (props) => {
         </Form>
       )}
     </Formik>
-    
   );
 };
-//eslint validation
-//signupForm.PropTypes ?
-
-SignupForm.ReactRouterPropTypes = {
+// for eslint validation
+SignupForm.propTypes = {
   history: ReactRouterPropTypes.history,
   location: ReactRouterPropTypes.location,
   match: ReactRouterPropTypes.match,
   route: ReactRouterPropTypes.route,
 };
+
 export default SignupForm;
