@@ -14,9 +14,9 @@ const App = () => {
     <Fragment>
       <Router>
         <Switch>
-          <Route path="/LandingPage" component={LandingPage} />
+          <Route exact path="/" component={LandingPage} />
           <PrivateRoute exact path="/dashboard" component={Dashboard} />
-          <Route path="/" component={SignUpForm} />
+          <Route path="/signup" component={SignUpForm} />
           <Route path="/login" component={LoginForm} />
           <Route path="/Taskpage" component={TaskPage} />
         </Switch>
