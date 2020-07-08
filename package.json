@@ -11,6 +11,7 @@
     "axios": "^0.19.2",
     "dotenv": "^8.2.0",
     "formik": "^2.1.4",
+    "framer-motion": "^1.11.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
