@@ -3,13 +3,14 @@ import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-const TaskCheckmark = ({ toggleCheck, isChecked, id }) => {
+const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
   const label = isChecked ? 'Task marked complete' : 'Task not complete';
 
   return (
     <Fragment>
-      <label
-        htmlFor={`taskCheckbox${id}`}
+      <button
+        onKeyPress={handleEnterKeyPress}
+        aria-label={label}
         sx={{
           position: 'relative',
           top: '50%',
@@ -18,12 +19,15 @@ const TaskCheckmark = ({ toggleCheck, isChecked, id }) => {
           height: '50px',
           borderRadius: '50%',
           display: 'block',
+          background: 'none',
+          border: 'none',
+          padding: '0',
         }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 52 52"
-          onClick={toggleCheck}
+          onClick={toggleComplete}
           aria-label={label}
           sx={{
             cursor: 'pointer',
@@ -94,24 +98,15 @@ const TaskCheckmark = ({ toggleCheck, isChecked, id }) => {
             }}
           />
         </svg>
-      </label>
-      <input
-        type="checkbox"
-        name={`taskCheckbox${id}`}
-        id={`taskCheckbox${id}`}
-        sx={{
-          position: 'absolute',
-          left: '-300vw', // "hide" the actual checkbox offscreen
-        }}
-      />
+      </button>
     </Fragment>
   );
 };
 
 TaskCheckmark.propTypes = {
-  toggleCheck: PropTypes.func,
+  toggleComplete: PropTypes.func,
+  handleEnterKeyPress: PropTypes.func,
   isChecked: PropTypes.bool,
-  id: PropTypes.number,
 };
 
 export default TaskCheckmark;
