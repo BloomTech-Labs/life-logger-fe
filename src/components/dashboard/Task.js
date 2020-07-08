@@ -20,6 +20,15 @@ const Task = ({ task }) => {
     // make PUT request to backend to update `is_complete` for this task
   };
 
+  // for accessibility for "hidden" checkbox in `TaskCheckmark`
+  // the checkbox is "tabbable", so we need to allow the user to
+  // check the box when they press "Enter"
+  const handleEnterKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      toggleComplete();
+    }
+  };
+
   return (
     <div
       sx={{
@@ -27,8 +36,9 @@ const Task = ({ task }) => {
       }}
     >
       <TaskCheckmark
-        toggleCheck={toggleComplete}
+        toggleComplete={toggleComplete}
         isChecked={isComplete}
+        handleEnterKeyPress={handleEnterKeyPress}
         id={task.id}
       />
       <Card>
