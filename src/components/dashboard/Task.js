@@ -1,52 +1,63 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Card } from '@theme-ui/components';
+import { useState } from 'react';
+import TaskCheckmark from './TaskCheckmark';
 import PropTypes from 'prop-types';
+import Card from './Card';
 
 const pStyles = {
   margin: `0`,
 };
 
 const Task = ({ task }) => {
-  const taskDueDateObj = new Date(task.event_et_tm);
+  const [isComplete, setIsComplete] = useState(task.is_complete);
+
+  const taskDueDateObj = new Date(task.due_date);
   const dueDate = taskDueDateObj.toLocaleDateString();
 
-  return (
-    <Card
-      sx={{
-        bg: `primary`,
-        transition: `all 0.15s ease-in-out`,
+  const toggleComplete = () => {
+    setIsComplete(!isComplete);
+    // make PUT request to backend to update `is_complete` for this task
+  };
 
-        '&:hover': {
-          bg: `muted`,
-        },
+  return (
+    <div
+      sx={{
+        position: 'relative',
       }}
     >
-      <div
-        sx={{
-          display: `grid`,
-          gridTemplateColumns: `repeat(2, 1fr)`,
-          gridGap: `10px`,
-        }}
-      >
+      <TaskCheckmark
+        toggleCheck={toggleComplete}
+        isChecked={isComplete}
+        id={task.id}
+      />
+      <Card>
         <div
           sx={{
-            display: `flex`,
-            alignItems: `center`,
-            justifyContent: `space-between`,
-            gridColumn: `1 / span 2`,
+            display: `grid`,
+            gridTemplateColumns: `repeat(2, 1fr)`,
+            gridGap: `10px`,
           }}
         >
-          <p sx={{ ...pStyles, fontWeight: 700 }}>{task.title}</p>
-          <p sx={pStyles}>{'>'}</p>
-        </div>
+          <div
+            sx={{
+              display: `flex`,
+              alignItems: `center`,
+              justifyContent: `space-between`,
+              gridColumn: `1 / span 2`,
+            }}
+          >
+            <p sx={{ ...pStyles, fontWeight: 700 }}>{task.task_name}</p>
+            <p sx={pStyles}>{'>'}</p>
+          </div>
 
-        <p sx={pStyles}>Due date:</p>
-        <p sx={pStyles}>{dueDate}</p>
-        <p sx={pStyles}>Last completed:</p>
-        <p sx={pStyles}>I don&apos;t exist in the backend</p>
-      </div>
-    </Card>
+          <p sx={pStyles}>Due date:</p>
+          <p sx={pStyles}>{dueDate}</p>
+          <p sx={pStyles}>Last completed:</p>
+          <p sx={pStyles}>I don&apos;t exist in the backend</p>
+        </div>
+      </Card>
+    </div>
   );
 };
 
