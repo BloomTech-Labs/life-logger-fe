@@ -12,11 +12,9 @@ const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
         onKeyPress={handleEnterKeyPress}
         aria-label={label}
         sx={{
-          position: 'relative',
-          top: '50%',
           cursor: 'pointer',
-          width: '50px',
-          height: '50px',
+          width: '45px',
+          height: '45px',
           borderRadius: '50%',
           display: 'block',
           background: 'none',
@@ -35,10 +33,10 @@ const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
             height: '100%',
             borderRadius: '50%',
             display: 'block',
-            strokeWidth: '4',
+            strokeWidth: '6',
             stroke: 'background',
             strokeMiterlimit: '10',
-            boxShadow: 'inset 0px 0px 0px #A2FF59',
+            boxShadow: 'inset 0px 0px 0px #00ACEE',
             animation: isChecked
               ? `fill 0.4s ease-in-out forwards,
                             scale 0.3s ease-in-out 0.1s both`
@@ -55,7 +53,7 @@ const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
 
             '@keyframes fill': {
               '100%': {
-                boxShadow: 'inset 0px 0px 0px 30px #A2FF59',
+                boxShadow: 'inset 0px 0px 0px 30px #00ACEE',
               },
             },
           }}
@@ -68,9 +66,9 @@ const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
             sx={{
               strokeDasharray: '166',
               strokeDashoffset: '166',
-              strokeWidth: '4',
+              strokeWidth: '10',
               strokeMiterlimit: '10',
-              stroke: '#A2FF59',
+              stroke: '#00ACEE',
               fill: 'none',
               animation: `stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.2s forwards`,
 

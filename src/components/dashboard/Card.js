@@ -1,30 +1,24 @@
 /** @jsx jsx */
-import { jsx, useColorMode } from 'theme-ui';
+import { jsx } from 'theme-ui';
 import { Card as ThemeCard } from '@theme-ui/components';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
 const Card = ({ children }) => {
-  const [colorMode] = useColorMode();
-
   return (
-    <motion.div drag="x" dragConstraints={{ left: 0, right: 200 }}>
+    <motion.div drag="x" dragConstraints={{ left: -100, right: 0 }}>
       <ThemeCard
         sx={{
-          bg: `primary`,
+          bg: 'white',
           position: `relative`,
-          border: (t) => `2px solid ${t.colors.primary}`,
           zIndex: 2,
           transition: 'background 0.15s ease-in-out',
-
-          '&:hover': {
-            bg: `muted`,
-            border: (t) =>
-              colorMode === 'dark'
-                ? `2px solid ${t.colors.primary}`
-                : `2px solid ${t.colors.muted}`,
-            color: `primary`,
-          },
+          borderRadius: `3px`,
+          boxShadow: `5px 5px 9px rgba(224, 224, 224, 0.5)`,
+          display: `grid`,
+          gridTemplateColumns: `45px 1fr`,
+          gridGap: `24px`,
+          alignItems: `center`,
         }}
       >
         {children}
