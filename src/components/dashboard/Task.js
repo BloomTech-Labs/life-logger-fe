@@ -29,21 +29,11 @@ const Task = ({ task }) => {
     updateTask({ id: task.id, is_complete: isComplete });
   };
 
-  // for accessibility for "hidden" checkbox in `TaskCheckmark`
-  // the checkbox is "tabbable", so we need to allow the user to
-  // check the box when they press "Enter"
-  const handleEnterKeyPress = (e) => {
-    if (e.key === 'Enter') {
-      toggleComplete();
-    }
-  };
-
   return (
     <Card>
       <TaskCheckmark
         toggleComplete={toggleComplete}
         isChecked={isComplete}
-        handleEnterKeyPress={handleEnterKeyPress}
         id={task.id}
       />
       <div
@@ -66,7 +56,6 @@ const Task = ({ task }) => {
               ...pStyles,
               fontWeight: 700,
               color: isComplete ? `#9B9B9B` : 'text',
-              // textDecoration: isComplete ? 'line-through' : 'none',
               transition: isComplete
                 ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
                 : 'none',

@@ -2,33 +2,34 @@
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
 
-const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
+const TaskCheckmark = ({ toggleComplete, isChecked }) => {
   const label = isChecked ? 'Task marked complete' : 'Task not complete';
 
   return (
     <button
-      onKeyPress={handleEnterKeyPress}
+      onClick={toggleComplete}
       aria-label={label}
       sx={{
         cursor: 'pointer',
         width: '45px',
         height: '45px',
         borderRadius: '50%',
-        display: 'block',
         background: 'none',
         border: 'none',
         padding: '0',
+        display: `flex`,
+        alignItems: `center`,
+        justifyContent: `center`,
       }}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 52 52"
-        onClick={toggleComplete}
         aria-label={label}
         sx={{
           cursor: 'pointer',
-          width: '100%',
-          height: '100%',
+          width: '30px',
+          height: '30px',
           borderRadius: '50%',
           display: 'block',
           strokeWidth: '6',
@@ -37,7 +38,7 @@ const TaskCheckmark = ({ toggleComplete, isChecked, handleEnterKeyPress }) => {
           boxShadow: 'inset 0px 0px 0px #78B721',
           animation: isChecked
             ? `fill 0.4s ease-in-out forwards,
-                            scale 0.3s ease-in-out 0.1s both`
+                              scale 0.3s ease-in-out 0.1s both`
             : 'none',
 
           '@keyframes scale': {
