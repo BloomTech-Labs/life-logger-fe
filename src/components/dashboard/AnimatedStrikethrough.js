@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import { lighten } from '@theme-ui/color';
 import PropTypes from 'prop-types';
 
 const AnimatedStrikethrough = ({
@@ -22,8 +23,8 @@ const AnimatedStrikethrough = ({
           width: `100%`,
           height: `2px`,
           boxShadow: `0 1px rgba(255,255,255,0.6)`,
-          marginTop: `-0.7em`,
-          background: `#9B9B9B`,
+          marginTop: `-0.75em`,
+          bg: lighten('text', 0.5),
           transformOrigin: isStruckOut ? `center left` : `center right`,
           animation: isStruckOut
             ? `strikethrough 0.5s cubic-bezier(.55, 0, .1, 1) 1 forwards`

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import { lighten } from '@theme-ui/color';
 import { useState, useContext } from 'react';
 import TaskContext from '../../context/TaskContext';
 import PropTypes from 'prop-types';
@@ -55,7 +56,7 @@ const Task = ({ task }) => {
             sx={{
               ...pStyles,
               fontWeight: 700,
-              color: isComplete ? `#9B9B9B` : 'text',
+              color: isComplete ? lighten('text', 0.5) : 'text',
               transition: isComplete
                 ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
                 : 'none',
@@ -68,13 +69,15 @@ const Task = ({ task }) => {
             />
             {/* <AnimatedStrikethrough stringToStrike={task.name} isStruckOut={isComplete} isNotInitial={isNotInitial}/> */}
           </p>
-          <p sx={pStyles}>{'>'}</p>
         </div>
 
-        <p
+        <small
           sx={{
             ...pStyles,
-            color: `#9B9B9B`,
+            color: isComplete ? lighten('text', 0.5) : 'text',
+            transition: isComplete
+              ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
+              : 'none',
           }}
         >
           <AnimatedStrikethrough
@@ -82,7 +85,7 @@ const Task = ({ task }) => {
             isStruckOut={isComplete}
             isNotInitial={isNotInitial}
           />
-        </p>
+        </small>
       </div>
     </Card>
   );

@@ -19,6 +19,17 @@ const Card = ({ children }) => {
           gridTemplateColumns: `45px 1fr`,
           gridGap: `24px`,
           alignItems: `center`,
+
+          // for the task category color label
+          '&:after': {
+            content: `''`,
+            position: `absolute`,
+            display: `inline-block`,
+            right: `0`,
+            width: `5px`,
+            height: `20px`,
+            backgroundColor: `black`, // want to change color according to category
+          },
         }}
       >
         {children}
