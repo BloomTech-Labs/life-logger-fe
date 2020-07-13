@@ -66,7 +66,7 @@ const Task = ({ task }) => {
               ...pStyles,
               fontWeight: 700,
               color: isComplete ? `#9B9B9B` : 'text',
-              textDecoration: isComplete ? 'line-through' : 'none',
+              // textDecoration: isComplete ? 'line-through' : 'none',
               transition: isComplete
                 ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
                 : 'none',
