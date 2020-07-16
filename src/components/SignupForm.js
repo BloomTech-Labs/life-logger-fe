@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
+import { Link } from 'react-router-dom';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 // import PropTypes from 'prop-types';
@@ -110,6 +111,7 @@ const SignupForm = (props) => {
           >
             Signup
           </Button>
+          <Link to="/">Back</Link>
         </Form>
       )}
     </Formik>
