@@ -2,17 +2,23 @@
 import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
 import SignUpForm from './components/SignupForm';
-import CreateTask from './components/CreateTask'
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
-import { Route } from 'react-router-dom';
+import LandingPage from './components/LandingPage';
+import LoginForm from './components/LoginForm';
+import TaskPage from './components/TaskPage';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
     <Fragment>
-      <Route exact path="/signup" component={SignUpForm} />
-      <Route exact path="/createTask" component={CreateTask} />
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route path="/signup" component={SignUpForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/Taskpage" component={TaskPage} />
+      </Switch>
     </Fragment>
   );
 };
