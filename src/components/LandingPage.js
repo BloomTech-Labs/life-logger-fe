@@ -8,10 +8,10 @@ const LandingPage = () => {
       <h1>Welcome to</h1>
       <img src="OrangeLogo.png" alt="orange squares icon" />
 
-      <Link to="/SignUp">
+      <Link to="/signup">
         <button>Sign Up!</button>
       </Link>
-      <Link to="/Login">
+      <Link to="/login">
         <button>Sign In!</button>
       </Link>
     </div>
