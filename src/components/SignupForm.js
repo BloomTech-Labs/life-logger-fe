@@ -3,10 +3,12 @@ import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+// import PropTypes from 'prop-types';
+import axios from 'axios';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
-  name: Yup.string()
+  username: Yup.string()
     .min(2, '**Too Short!')
     .max(20, '**Too Long!')
     .required('**Name is required'),
@@ -21,7 +23,7 @@ const signupSchema = Yup.object().shape({
     .required('**Password is required'),
 });
 
-const SignupForm = () => {
+const SignupForm = (props) => {
   const initialValues = {
     username: '',
     email: '',
@@ -29,14 +31,21 @@ const SignupForm = () => {
   };
 
   const handleSubmit = (values) => {
-    axiosWithAuth()
-      .post(`${process.env.BASE_HOST}/api/auth/register`, values)
-      .then((res) => console.log('Successfully signed up', res))
-      .catch((err) => console.log('Error signing up', err));
+    return axios
+      .post('https://lyfe-logger-be.herokuapp.com/api/auth/register', values)
+      .then((res) => {
+        window.localStorage.setItem('token', res.data);
+        props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.log('Error signing up: ', err);
+        props.history.push('/');
+      });
   };
 
   return (
     <Formik
+      data-testid="form"
       initialValues={initialValues}
       validationSchema={signupSchema}
       onSubmit={handleSubmit}
@@ -105,6 +114,13 @@ const SignupForm = () => {
       )}
     </Formik>
   );
+};
+// for eslint validation
+SignupForm.propTypes = {
+  history: ReactRouterPropTypes.history,
+  location: ReactRouterPropTypes.location,
+  match: ReactRouterPropTypes.match,
+  route: ReactRouterPropTypes.route,
 };
 
 export default SignupForm;

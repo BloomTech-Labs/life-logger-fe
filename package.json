@@ -15,16 +15,20 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
+    "react-router-prop-types": "^1.0.4",
     "react-scripts": "3.4.1",
+    "serve": "^11.3.2",
     "theme-ui": "^0.3.1",
     "yup": "^0.29.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
+    "startDev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "coverage": "npm test -- --coverage --watchAll=false"
+    "coverage": "npm test -- --coverage --watchAll=false",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -66,7 +70,7 @@
     "*.js": [
       "eslint"
     ],
-    "*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|graphql|mdx)": [
+    "*.+(js|jsx|json|css|less|scss|ts|tsx|md|graphql|mdx)": [
       "prettier --write",
       "git add"
     ]
