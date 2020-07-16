@@ -7,7 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import LandingPage from './components/LandingPage';
 import LoginForm from './components/LoginForm';
 import TaskPage from './components/TaskPage';
-import { BrowserRouter as Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
