@@ -1,10 +1,13 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import PropTypes from 'prop-types';
+import { useContext } from 'react';
+import TaskContext from '../../context/TaskContext';
 
 import Task from './Task';
 
-const TaskList = ({ tasks }) => {
+const TaskList = () => {
+  const { tasks } = useContext(TaskContext);
+
   return (
     <div
       sx={{
@@ -18,11 +21,6 @@ const TaskList = ({ tasks }) => {
       ))}
     </div>
   );
-};
-
-// for eslint props validation
-TaskList.propTypes = {
-  tasks: PropTypes.array,
 };
 
 export default TaskList;
