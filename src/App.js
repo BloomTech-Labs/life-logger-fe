@@ -1,40 +1,25 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import taskContext from './context/task_context';
+import { Fragment } from 'react';
 import SignUpForm from './components/SignupForm';
-import Header from './components/header/Header';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
+import LandingPage from './components/LandingPage';
+import LoginForm from './components/LoginForm';
+import TaskPage from './components/TaskPage';
+import { Route, Switch } from 'react-router-dom';
 
-import axios from 'axios';
-import { Route } from 'react-router-dom';
-
-
-
-const App = (props) => {
-
-  const SignUp = (prop) => {
-    return axios.post("https://lyfe-logger-be.herokuapp.com/api/auth/register", prop)
-    .then(res => {
-      console.log(res)
-    })
-    .catch(err => {
-      console.error(err)
-    })
-  }
-
-
-
-
+const App = () => {
   return (
-
-    <taskContext.Provider value={{ SignUp }}>
-      <Route exact path="/" component={SignUpForm} />
-     
-
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
-    </taskContext.Provider>
-
+    <Fragment>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route path="/signup" component={SignUpForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/Taskpage" component={TaskPage} />
+      </Switch>
+    </Fragment>
   );
 };
 

@@ -2,13 +2,19 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { ThemeProvider } from 'theme-ui';
 import theme from './theme/theme';
+import { BrowserRouter as Router } from 'react-router-dom';
+import TaskProvider from './context/TaskProvider';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-        <App />
+      <TaskProvider>
+        <Router>
+          <App />
+        </Router>
+      </TaskProvider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

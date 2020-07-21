@@ -25,13 +25,13 @@ export default {
     muted: '#FFE2BF',
     modes: {
       dark: {
-        text: 'hsl(210, 50%, 96%)',
+        text: '#062647',
         background: 'hsl(230, 25%, 18%)',
-        primary: '#A590DC',
+        primary: '#CABBF2',
         secondary: '#9034DF',
         highlight: 'hsl(260, 20%, 40%)',
         purple: 'hsl(290, 100%, 80%)',
-        muted: 'hsla(230, 20%, 0%, 20%)',
+        muted: '#1c1e2e',
         gray: 'hsl(210, 50%, 60%)',
       },
     },
