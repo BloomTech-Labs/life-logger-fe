@@ -1,27 +1,42 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Card } from '@theme-ui/components';
+import { lighten } from '@theme-ui/color';
+import { useState, useContext } from 'react';
+import TaskContext from '../../context/TaskContext';
 import PropTypes from 'prop-types';
+
+import TaskCheckmark from './TaskCheckmark';
+import Card from './Card';
+import AnimatedStrikethrough from './AnimatedStrikethrough';
 
 const pStyles = {
   margin: `0`,
 };
 
 const Task = ({ task }) => {
-  const taskDueDateObj = new Date(task.event_et_tm);
+  const { updateTask } = useContext(TaskContext);
+  const [isComplete, setIsComplete] = useState(task.is_complete);
+  const [isNotInitial, setIsNotInitial] = useState(false); // state to prevent "unstrike" keyframe animation from running on mount
+
+  const taskDueDateObj = new Date(task.due_date);
   const dueDate = taskDueDateObj.toLocaleDateString();
 
-  return (
-    <Card
-      sx={{
-        bg: `primary`,
-        transition: `all 0.15s ease-in-out`,
+  const toggleComplete = () => {
+    setIsComplete(!isComplete);
+    setIsNotInitial(true); // allows "unstrike" animation to run now whenever a task is marked incomplete
 
-        '&:hover': {
-          bg: `muted`,
-        },
-      }}
-    >
+    // make PUT request to backend to update `is_complete` for this task
+    // need to pass in task id
+    updateTask({ id: task.id, is_complete: isComplete });
+  };
+
+  return (
+    <Card>
+      <TaskCheckmark
+        toggleComplete={toggleComplete}
+        isChecked={isComplete}
+        id={task.id}
+      />
       <div
         sx={{
           display: `grid`,
@@ -37,14 +52,40 @@ const Task = ({ task }) => {
             gridColumn: `1 / span 2`,
           }}
         >
-          <p sx={{ ...pStyles, fontWeight: 700 }}>{task.title}</p>
-          <p sx={pStyles}>{'>'}</p>
+          <p
+            sx={{
+              ...pStyles,
+              fontWeight: 700,
+              color: isComplete ? lighten('text', 0.5) : 'text',
+              transition: isComplete
+                ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
+                : 'none',
+            }}
+          >
+            <AnimatedStrikethrough
+              stringToStrike="I am a task"
+              isStruckOut={isComplete}
+              isNotInitial={isNotInitial}
+            />
+            {/* <AnimatedStrikethrough stringToStrike={task.name} isStruckOut={isComplete} isNotInitial={isNotInitial}/> */}
+          </p>
         </div>
 
-        <p sx={pStyles}>Due date:</p>
-        <p sx={pStyles}>{dueDate}</p>
-        <p sx={pStyles}>Last completed:</p>
-        <p sx={pStyles}>I don&apos;t exist in the backend</p>
+        <small
+          sx={{
+            ...pStyles,
+            color: isComplete ? lighten('text', 0.5) : 'text',
+            transition: isComplete
+              ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
+              : 'none',
+          }}
+        >
+          <AnimatedStrikethrough
+            stringToStrike={dueDate}
+            isStruckOut={isComplete}
+            isNotInitial={isNotInitial}
+          />
+        </small>
       </div>
     </Card>
   );
