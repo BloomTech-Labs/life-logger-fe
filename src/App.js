@@ -18,8 +18,8 @@ const App = () => {
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/Taskpage" component={TaskPage} />
-        <Route path="/CreateTask" component={CreateTask} />
+        <Route path="/taskpage" component={TaskPage} />
+        <Route path="/createtask" component={CreateTask} />
       </Switch>
     </Fragment>
   );
