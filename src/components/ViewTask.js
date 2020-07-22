@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 
-const TaskPage = () => {
+const ViewTask = () => {
   return <div></div>;
 };
 
-export default TaskPage;
+export default ViewTask;
