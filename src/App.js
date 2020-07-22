@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import LandingPage from './components/LandingPage';
 import LoginForm from './components/LoginForm';
 import TaskPage from './components/TaskPage';
+import CreateTask from './components/CreateTask';
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
         <Route path="/Taskpage" component={TaskPage} />
+        <Route path="/CreateTask" component={CreateTask} />
       </Switch>
     </Fragment>
   );
