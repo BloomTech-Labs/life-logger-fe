@@ -6,17 +6,15 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const CreateTask = () => {
   const initialValues = {
-      task_name: "",
-      category_name: "",
-      due_date: "",
-      all_day: "",
-      task_notes: "",
-      is_complete: ""
-    }
+    task_name: '',
+    category_name: '',
+    due_date: '',
+    all_day: '',
+    task_notes: '',
+    is_complete: '',
+  };
 
-
-
-  const handleSubmit = values => {
+  const handleSubmit = (values) => {
     axiosWithAuth()
       .post(`${process.env.BASE_HOST}/auth/tasks/insertTask`, values)
       .then((res) => console.log('Successfully Created a Task', res))
@@ -24,22 +22,20 @@ const CreateTask = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      onSubmit={handleSubmit}
-      >
+    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
       {({ values, handleChange }) => (
-      <Form
-        sx={{
-        width: `300px`,
-        margin: `0 auto`,
-        display: `grid`,
-        gridGap: 2,
-        padding: 3,
-        borderRadius: `12px`,
-        bg: (t) => t.colors.primary,
-        boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
-      }}>
+        <Form
+          sx={{
+            width: `300px`,
+            margin: `0 auto`,
+            display: `grid`,
+            gridGap: 2,
+            padding: 3,
+            borderRadius: `12px`,
+            bg: (t) => t.colors.primary,
+            boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
+          }}
+        >
           <div>
             <Label>Task Name</Label>
             <Input
@@ -96,12 +92,10 @@ const CreateTask = () => {
             />
           </div>
           <div>
-            <Button type="submit">
-              Create Task
-            </Button>
+            <Button type="submit">Create Task</Button>
           </div>
-      </Form>
-    )}
+        </Form>
+      )}
     </Formik>
   );
 };
