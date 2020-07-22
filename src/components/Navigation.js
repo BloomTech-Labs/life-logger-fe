@@ -16,13 +16,6 @@ const HeaderGrid = styled.header`
   `}
 `;
 
-// const StyledLink = styled(NavLink)`
-//   ${({ theme: t }) => `
-//   text-decoration: none;
-//   color: ${t.colors.text};
-//   `}
-// `;
-
 const Navigation = () => {
     return (
         <HeaderGrid>

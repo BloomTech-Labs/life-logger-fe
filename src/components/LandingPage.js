@@ -30,10 +30,10 @@ const LandingPage = () => {
             }} />
       <div sx={{display: 'flex', flexDirection: 'column', width: '45%', margin: '0 auto', alignItems: 'center', marginTop: '50px'}}>      
       <Link to='/signup'>
-        <button>Sign Up!</button>
+        <button sx={{width: "327px", height: "48px", background: "#82D1FF", color: "#002550", fontSize: "30px", marginBottom: "20px"}}>Sign Up</button>
       </Link>
       <Link to='/login'>
-        <button>Sign In!</button>
+        <button sx={{width: "327px", height: "48px", background: "#82D1FF", color: "#002550", fontSize: "30px"}}>Sign In</button>
       </Link>
       </div>
       </div>
