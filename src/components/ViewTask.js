@@ -2,6 +2,24 @@
 import { jsx } from 'theme-ui';
 import { useFormik } from 'formik';
 
+const initialValues = {
+  dueDate: new Date(),
+  description: '',
+};
+const onSubmit = (values) => {
+  console.log('form data', values);
+};
+const validate = (values) => {
+  let errors = {};
+  if (!values.dueDate) {
+    errors.dueDate = 'A Due Date is required';
+  }
+  if (!values.description) {
+    errors.description = 'A description is required';
+  }
+  return errors;
+};
+
 const ViewTask = () => {
   const viewTaskFormStyle = {
     display: 'flex',
@@ -22,13 +40,9 @@ const ViewTask = () => {
   };
 
   const formik = useFormik({
-    initialValues: {
-      dueDate: new Date(),
-      description: '',
-    },
-    onSubmit: (values) => {
-      console.log('form data', values);
-    },
+    initialValues,
+    onSubmit,
+    validate,
   });
 
   return (
