@@ -6,7 +6,6 @@ import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import LandingPage from './components/LandingPage';
 import LoginForm from './components/LoginForm';
-import TaskPage from './components/TaskPage';
 import { Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -17,10 +16,8 @@ const App = () => {
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/Taskpage" component={TaskPage} />
       </Switch>
     </Fragment>
   );
 };
-
 export default App;
