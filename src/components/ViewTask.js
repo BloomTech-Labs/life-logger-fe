@@ -26,6 +26,9 @@ const ViewTask = () => {
       dueDate: new Date(),
       description: '',
     },
+    onSubmit: (values) => {
+      console.log('form data', values);
+    },
   });
 
   return (
