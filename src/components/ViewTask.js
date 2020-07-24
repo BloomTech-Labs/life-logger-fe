@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { useFormik } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
 const initialValues = {
@@ -10,19 +10,10 @@ const initialValues = {
 const onSubmit = (values) => {
   console.log('form data', values);
 };
-// const validate = (values) => {
-//   let errors = {};
-//   if (!values.dueDate) {
-//     errors.dueDate = 'A Due Date is required';
-//   }
-//   if (!values.description) {
-//     errors.description = 'A description is required';
-//   }
-//   return errors;
-// };
+
 const validationSchema = Yup.object().shape({
   dueDate: Yup.date().required('Required').nullable(),
-  description: Yup.string().required('Required'),
+  description: Yup.string().required('Required!'),
 });
 
 const ViewTask = () => {
@@ -50,53 +41,37 @@ const ViewTask = () => {
     color: 'red',
   };
 
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    validationSchema,
-  });
-
   return (
-    <div style={viewTaskFormStyle}>
-      <form onSubmit={formik.handleSubmit}>
+    <Formik
+      style={viewTaskFormStyle}
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      <Form>
         <div className={formControl}>
           <label style={labelStyle} htmlFor="Due Date">
             Due Date
           </label>
-          <input
-            style={inputStyle}
-            type="date"
-            id="due date"
-            name="dueDate"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.dueDate}
-          />
-          {formik.touched.dueDate && formik.errors.dueDate ? (
-            <div className={error}>{formik.errors.dueDate}</div>
-          ) : null}
+          <Field style={inputStyle} type="date" id="due date" name="dueDate" />
+          <ErrorMessage className={error} name="dueDate" />
         </div>
 
         <div className={formControl}>
           <label style={labelStyle} htmlFor="Description">
             Description
           </label>
-          <input
+          <Field
             style={inputStyle}
             type="text"
             id="description"
             name="description"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            values={formik.values.description}
           />
-          {formik.touched.description && formik.errors.description ? (
-            <div className={error}>{formik.errors.description}</div>
-          ) : null}
+          <ErrorMessage className={error} name="description" />
         </div>
         <button type="completed">Complete Task</button>
-      </form>
-    </div>
+      </Form>
+    </Formik>
   );
 };
 
