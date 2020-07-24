@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const initialValues = {
   dueDate: new Date(),
@@ -9,16 +10,20 @@ const initialValues = {
 const onSubmit = (values) => {
   console.log('form data', values);
 };
-const validate = (values) => {
-  let errors = {};
-  if (!values.dueDate) {
-    errors.dueDate = 'A Due Date is required';
-  }
-  if (!values.description) {
-    errors.description = 'A description is required';
-  }
-  return errors;
-};
+// const validate = (values) => {
+//   let errors = {};
+//   if (!values.dueDate) {
+//     errors.dueDate = 'A Due Date is required';
+//   }
+//   if (!values.description) {
+//     errors.description = 'A description is required';
+//   }
+//   return errors;
+// };
+const validationSchema = Yup.object().shape({
+  dueDate: Yup.date().required('Required').nullable(),
+  description: Yup.string().required('Required'),
+});
 
 const ViewTask = () => {
   const viewTaskFormStyle = {
@@ -48,7 +53,7 @@ const ViewTask = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
   });
 
   return (
