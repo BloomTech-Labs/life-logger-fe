@@ -8,8 +8,8 @@ const TaskProvider = ({ children }) => {
 
   const getTasks = async (userId) => {
     try {
-      const taskList = await axiosWithAuth.get(
-        `https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/${userId}`
+      const taskList = await axiosWithAuth().get(
+        `http://localhost:5000/api/tasks/findByUserId/${userId}`
       );
 
       setTasks(taskList.data);
@@ -18,7 +18,28 @@ const TaskProvider = ({ children }) => {
     }
   };
 
-  const taskState = { tasks, getTasks };
+  const editTask = async (userId, taskId, updatedTask) => {
+    try {
+      const taskRes = await axiosWithAuth().put(
+        `http://localhost:5000/api/tasks/updateTask/user=${userId}/${taskId}`,
+        updatedTask
+      );
+
+      const updatedTasks = [...tasks];
+      const taskIndex = tasks.findIndex((task) => task.id === taskId);
+
+      updatedTasks[taskIndex] = {
+        ...updatedTasks[taskIndex],
+        ...taskRes.data[0],
+      };
+
+      setTasks(updatedTasks);
+    } catch (err) {
+      console.log('Error updating task: ', err);
+    }
+  };
+
+  const taskState = { tasks, getTasks, editTask };
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>
