@@ -1,6 +1,8 @@
 /**@jsx jsx*/
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
+import { darken } from '@theme-ui/color';
+import { Fragment } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -37,54 +39,73 @@ export default function LoginForm(props) {
     validationSchema,
   });
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      sx={{
-        width: `300px`,
-        margin: `0 auto`,
-        display: `grid`,
-        gridGap: 2,
-        padding: 3,
-        borderRadius: `12px`,
-        bg: (t) => t.colors.primary,
-        boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
-      }}
-    >
-      <Label htmlFor="username">Username</Label>
-      <Input
-        type="text"
-        id="username"
-        name="username"
-        mb={3}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.username}
-      />
-      {formik.touched.username && formik.errors.username ? (
-        <div className="error">{formik.errors.username}</div>
-      ) : null}
-      <Label htmlFor="password">Password</Label>
-      <Input
-        type="password"
-        id="password"
-        name="password"
-        mb={3}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-        value={formik.values.password}
-      />
-      {formik.touched.password && formik.errors.password ? (
-        <div className="error">{formik.errors.username}</div>
-      ) : null}
-      <Button
-        type="submit"
+    <Fragment>
+      <div
         sx={{
-          margin: `0 auto`,
+          width: `300px`,
+          margin: `0 auto 2rem`,
         }}
       >
-        Submit
-      </Button>
-    </form>
+        <h2
+          sx={{
+            fontSize: `2rem`,
+            marginBottom: `0`,
+          }}
+        >
+          Welcome Back
+        </h2>
+        <p sx={{ color: darken('muted', 0.5) }}>Sign in to continue</p>
+      </div>
+      <form
+        onSubmit={formik.handleSubmit}
+        sx={{
+          width: `300px`,
+          margin: `0 auto`,
+          display: `grid`,
+          gridGap: `2px`,
+        }}
+      >
+        <Label htmlFor="username" sx={{ fontSize: `1.25rem` }}>
+          Username
+        </Label>
+        <Input
+          type="text"
+          id="username"
+          name="username"
+          mb={3}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.username}
+        />
+        {formik.touched.username && formik.errors.username ? (
+          <div className="error">{formik.errors.username}</div>
+        ) : null}
+        <Label htmlFor="password" sx={{ fontSize: `1.25rem` }}>
+          Password
+        </Label>
+        <Input
+          type="password"
+          id="password"
+          name="password"
+          mb={3}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          value={formik.values.password}
+        />
+        {formik.touched.password && formik.errors.password ? (
+          <div className="error">{formik.errors.username}</div>
+        ) : null}
+        <Button
+          type="submit"
+          sx={{
+            margin: `4rem auto 0`,
+            width: `300px`,
+          }}
+        >
+          Login
+        </Button>
+      </form>
+    </Fragment>
   );
 }
 
