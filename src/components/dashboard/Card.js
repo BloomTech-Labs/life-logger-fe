@@ -6,12 +6,19 @@ import PropTypes from 'prop-types';
 
 const Card = ({ children }) => {
   return (
-    <motion.div drag="x" dragConstraints={{ left: -100, right: 0 }}>
+    <motion.div
+      drag="x"
+      dragConstraints={{ left: -100, right: 0 }}
+      sx={{
+        // these styles are so the task card will always be on top of the edit and trash can icons
+        zIndex: `2`,
+        position: `relative`,
+      }}
+    >
       <ThemeCard
         sx={{
           bg: 'white',
           position: `relative`,
-          zIndex: 2,
           transition: 'background 0.15s ease-in-out',
           borderRadius: `3px`,
           boxShadow: `5px 5px 9px rgba(224, 224, 224, 0.5)`,
