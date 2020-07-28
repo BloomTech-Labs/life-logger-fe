@@ -32,9 +32,10 @@ const SignupForm = (props) => {
 
   const handleSubmit = (values) => {
     return axios
-      .post('https://lyfe-logger-be.herokuapp.com/api/auth/register', values)
+      .post(`https://lyfe-logger-be.herokuapp.com/api/auth/register`, values)
       .then((res) => {
-        window.localStorage.setItem('token', res.data);
+        window.localStorage.setItem('token', res.data.token);
+        window.localStorage.setItem('userId', res.data.user_id); // needed for TaskContext to make axios requests for tasks
         props.history.push('/dashboard');
       })
       .catch((err) => {

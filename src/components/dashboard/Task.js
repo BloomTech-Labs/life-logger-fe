@@ -16,7 +16,7 @@ const pStyles = {
 };
 
 const Task = ({ task }) => {
-  const { updateTask } = useContext(TaskContext);
+  const { editTask } = useContext(TaskContext);
   const [isComplete, setIsComplete] = useState(task.is_complete);
   const [isNotInitial, setIsNotInitial] = useState(false); // state to prevent "unstrike" keyframe animation from running on mount
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -26,12 +26,15 @@ const Task = ({ task }) => {
   const dueDate = taskDueDateObj.toLocaleDateString();
 
   const toggleComplete = () => {
-    setIsComplete(!isComplete);
-    setIsNotInitial(true); // allows "unstrike" animation to run now whenever a task is marked incomplete
-
     // make PUT request to backend to update `is_complete` for this task
     // need to pass in task id
-    updateTask({ id: task.id, is_complete: isComplete });
+    editTask(localStorage.getItem('userId'), task.id, {
+      id: task.id,
+      is_complete: !isComplete,
+    });
+
+    setIsComplete(!isComplete);
+    setIsNotInitial(true); // allows "unstrike" animation to run now whenever a task is marked incomplete
   };
 
   const toggleIsEditModalOpen = () => {
