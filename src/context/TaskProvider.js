@@ -9,7 +9,7 @@ const TaskProvider = ({ children }) => {
   const getTasks = async (userId) => {
     try {
       const taskList = await axiosWithAuth().get(
-        `http://localhost:5000/api/tasks/findByUserId/${userId}`
+        `https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/${userId}`
       );
 
       setTasks(taskList.data);
@@ -21,7 +21,7 @@ const TaskProvider = ({ children }) => {
   const editTask = async (userId, taskId, updatedTask) => {
     try {
       const taskRes = await axiosWithAuth().put(
-        `http://localhost:5000/api/tasks/updateTask/user=${userId}/${taskId}`,
+        `https://lyfe-logger-be.herokuapp.com/api/tasks/updateTask/user=${userId}/${taskId}`,
         updatedTask
       );
 
