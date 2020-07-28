@@ -18,8 +18,10 @@ describe('SignupForm component tests', () => {
     });
 
     const mockResponse = {
-      token: 'fakeToken',
-      userId: 1,
+      data: {
+        token: 'fakeToken',
+        userId: 1,
+      },
     };
 
     axios.post.mockResolvedValue(mockResponse);
