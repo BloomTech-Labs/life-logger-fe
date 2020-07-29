@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
 import DarkModeToggle from './DarkModeToggle';
 
@@ -18,7 +17,7 @@ const HeaderGrid = styled.header`
   `}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.p`
   ${({ theme: t }) => `
   text-decoration: none;
   color: ${t.colors.text};
@@ -38,8 +37,10 @@ const Header = () => {
           gridTemplateColumns: `repeat(auto-fit, minmax(50px, 100px))`,
         }}
       >
-        <StyledLink to="/">Home</StyledLink>
+        <div>
+        <StyledLink data-testid="testtag" to="/">Home</StyledLink>
         <StyledLink to="/dashboard">Dashboard</StyledLink>
+        </div>
       </nav>
     </HeaderGrid>
   );

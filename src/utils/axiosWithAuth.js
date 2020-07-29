@@ -2,10 +2,12 @@ import axios from 'axios';
 
 export const axiosWithAuth = () => {
   const token = localStorage.getItem('token');
+  console.log('somewhere');
 
   return axios.create({
-    baseURL: process.env.BASE_HOST,
+    baseURL: 'https://lyfe-logger-be.herokuapp.com',
     headers: {
+      'Content-Type': 'application/json',
       Authorization: token,
     },
   });

@@ -1,12 +1,18 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import TaskContext from '../../context/TaskContext';
 
 import Task from './Task';
 
 const TaskList = () => {
-  const { tasks } = useContext(TaskContext);
+  const { tasks, getTasks } = useContext(TaskContext);
+
+  useEffect(() => {
+    const userId = window.localStorage.getItem('userId');
+
+    getTasks(userId);
+  }, []);
 
   return (
     <div
