@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { lighten } from '@theme-ui/color';
+import { darken } from '@theme-ui/color';
 import PropTypes from 'prop-types';
 
+// adapted from https://codepen.io/EdenSG/pen/jPENoE
 const AnimatedStrikethrough = ({
   stringToStrike,
   isStruckOut,
@@ -24,7 +25,7 @@ const AnimatedStrikethrough = ({
           height: `2px`,
           boxShadow: `0 1px rgba(255,255,255,0.6)`,
           marginTop: `-0.75em`,
-          bg: lighten('text', 0.5),
+          bg: darken('muted', 0.4),
           transformOrigin: isStruckOut ? `center left` : `center right`,
           animation: isStruckOut
             ? `strikethrough 0.5s cubic-bezier(.55, 0, .1, 1) 1 forwards`
