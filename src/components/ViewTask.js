@@ -1,7 +1,5 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { GrLink } from 'react-icons/gr';
-import { GrClose, GrSettingsOption } from 'react-icons/gr';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
@@ -45,16 +43,7 @@ const ViewTask = () => {
   const completeTaskButton = {
     marginLeft: '20%',
   };
-  const settingsIcon = {
-    marginLeft: '80%',
-  };
-  const grLink = {
-    marginLeft: '20%',
-    marginBottom: '30%',
-  };
-  const closeIcon = {
-    marginLeft: '20%',
-  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -62,14 +51,6 @@ const ViewTask = () => {
       onSubmit={onSubmit}
     >
       <Form sx={viewTaskFormStyle}>
-        <div>
-          <span style={closeIcon}>
-            <GrClose />{' '}
-          </span>
-          <span style={settingsIcon}>
-            <GrSettingsOption />
-          </span>
-        </div>
         <div style={formControl}>
           <label style={labelStyle} htmlFor="Due Date">
             Due Date
@@ -93,9 +74,6 @@ const ViewTask = () => {
           </div>
         </div>
         <br />
-        <div style={grLink}>
-          <GrLink /> Tag
-        </div>
         <button style={completeTaskButton} type="completed">
           Complete Task
         </button>
