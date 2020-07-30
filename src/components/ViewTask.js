@@ -5,11 +5,10 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 const ViewTask = () => {
-  useEffect((values) => {
+  useEffect(() => {
     axios
       .get(
-        'https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/:user_id',
-        values
+        'https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/:user_id'
       )
       .then((res) => {
         console.log(res);
