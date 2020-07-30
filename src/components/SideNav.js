@@ -9,13 +9,17 @@ const Ul = styled.ul`
   li {
     padding: 18px 10px;
   }
+  a {
+    text-decoration: none;
+    color: white;
+  }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #0D2538;
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(-250%)'};
     top: 0;
-    right: 0;
+    left: 0;
     height: 100vh;
     width: 300px;
     padding-top: 3.5rem;
