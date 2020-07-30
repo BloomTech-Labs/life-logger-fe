@@ -6,19 +6,20 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 
 const CreateTask = () => {
   const initialValues = {
+    user_id: parseInt(localStorage.getItem('userId')), // getting from localStorage returns it as a string, but we need it as an integer
     task_name: '',
     category_name: '',
     due_date: '',
-    all_day: '',
+    all_day: false,
     task_notes: '',
-    is_complete: '',
+    is_complete: false,
   };
 
   const handleSubmit = (values) => {
     axiosWithAuth()
-      .post(`${process.env.BASE_HOST}/auth/tasks/insertTask`, values)
+      .post(`https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`, values)
       .then((res) => console.log('Successfully Created a Task', res))
-      .catch((err) => console.error('Not Task Created', err));
+      .catch((err) => console.error('Error creating new task', err));
   };
 
   return (
