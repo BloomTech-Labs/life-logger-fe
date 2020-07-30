@@ -28,15 +28,15 @@ const Card = ({ children }) => {
           alignItems: `center`,
 
           // for the task category color label
-          '&:after': {
-            content: `''`,
-            position: `absolute`,
-            display: `inline-block`,
-            right: `0`,
-            width: `5px`,
-            height: `20px`,
-            backgroundColor: `black`, // want to change color according to category
-          },
+          // '&:after': {
+          //   content: `''`,
+          //   position: `absolute`,
+          //   display: `inline-block`,
+          //   right: `0`,
+          //   width: `5px`,
+          //   height: `20px`,
+          //   backgroundColor: `black`, // want to change color according to category
+          // },
         }}
       >
         {children}
