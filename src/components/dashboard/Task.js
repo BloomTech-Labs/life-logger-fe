@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { lighten } from '@theme-ui/color';
+import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
 import TaskContext from '../../context/TaskContext';
 import PropTypes from 'prop-types';
@@ -77,7 +77,7 @@ const Task = ({ task }) => {
                 sx={{
                   ...pStyles,
                   fontWeight: 700,
-                  color: isComplete ? lighten('text', 0.5) : 'text',
+                  color: isComplete ? darken('muted', 0.4) : 'text',
                   transition: isComplete
                     ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
                     : 'none',
@@ -94,7 +94,7 @@ const Task = ({ task }) => {
             <small
               sx={{
                 ...pStyles,
-                color: isComplete ? lighten('text', 0.5) : 'text',
+                color: isComplete ? darken('muted', 0.4) : 'text',
                 transition: isComplete
                   ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
                   : 'none',
