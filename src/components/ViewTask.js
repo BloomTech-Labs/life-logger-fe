@@ -1,23 +1,12 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 
-import { useEffect } from 'react';
-import axios from 'axios';
-
 const ViewTask = () => {
-  useEffect(() => {
-    axios
-      .get(
-        'https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/:user_id'
-      )
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log('Error getting tasks', err);
-      });
-  });
-
-  return <div></div>;
+  return (
+    <div>
+      <h2>Due Date</h2>
+      <h2>Description</h2>
+    </div>
+  );
 };
 export default ViewTask;
