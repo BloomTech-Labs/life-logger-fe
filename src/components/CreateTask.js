@@ -1,10 +1,18 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Input, Label, Button } from '@theme-ui/components';
+import { Fragment } from 'react';
+import { Input, Label, Button, Textarea } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { formatDate } from '../utils/formatDate';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
-const CreateTask = () => {
+import Header from './header/Header';
+import CustomCheckmark from './CustomCheckmark';
+
+const CreateTask = ({ history }) => {
+  const todayDate = formatDate(new Date()); // for min value for due date input
+
   const initialValues = {
     user_id: parseInt(localStorage.getItem('userId')), // getting from localStorage returns it as a string, but we need it as an integer
     task_name: '',
@@ -18,87 +26,137 @@ const CreateTask = () => {
   const handleSubmit = (values) => {
     axiosWithAuth()
       .post(`https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`, values)
-      .then((res) => console.log('Successfully Created a Task', res))
+      .then((res) => {
+        console.log('Successfully Created a Task', res);
+        history.push('/dashboard'); // go back to dashboard page after successful task creation
+      })
       .catch((err) => console.error('Error creating new task', err));
   };
 
   return (
-    <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      {({ values, handleChange }) => (
-        <Form
-          sx={{
-            width: `300px`,
-            margin: `0 auto`,
-            display: `grid`,
-            gridGap: 2,
-            padding: 3,
-            borderRadius: `12px`,
-            bg: (t) => t.colors.primary,
-            boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
-          }}
-        >
-          <div>
-            <Label>Task Name</Label>
-            <Input
-              type="text"
-              name="task_name"
-              value={values.taskNotes}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Category Name</Label>
-            <Input
-              type="text"
-              name="category_name"
-              value={values.taskNotes}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Due Date</Label>
-            <Input
-              type="date"
-              name="due_date"
-              required="required"
-              value={values.dueDate}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Notes</Label>
-            <Input
-              type="text"
-              name="task_notes"
-              value={values.taskNotes}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>All Day</Label>
-            <input
-              type="checkbox"
-              name="all_day"
-              value={values.all_day}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Task Completed</Label>
-            <input
-              type="checkbox"
-              name="is_complete"
-              value={values.taskNotes}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Button type="submit">Create Task</Button>
-          </div>
-        </Form>
-      )}
-    </Formik>
+    <Fragment>
+      <Header />
+      <Formik initialValues={initialValues} onSubmit={handleSubmit}>
+        {({ values, handleChange }) => (
+          <Form
+            sx={{
+              width: `95%`,
+              margin: `0 auto`,
+              display: `grid`,
+              gridGap: `20px`,
+              padding: 3,
+            }}
+          >
+            <div>
+              <Label htmlFor="task_name">Title</Label>
+              <Input
+                id="task_name"
+                type="text"
+                name="task_name"
+                value={values.taskNotes}
+                onChange={handleChange}
+                placeholder="Task name"
+              />
+            </div>
+
+            <div>
+              <Label
+                htmlFor="task_notes"
+                sx={{
+                  marginBottom: `0.5rem`,
+                }}
+              >
+                Description
+              </Label>
+              <Textarea
+                id="task_notes"
+                type="text"
+                name="task_notes"
+                value={values.taskNotes}
+                onChange={handleChange}
+                placeholder="Optional notes about your task"
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="due_date">Due Date</Label>
+              <Input
+                id="due_date"
+                type="date"
+                name="due_date"
+                required="required"
+                min={todayDate}
+                value={values.dueDate}
+                onChange={handleChange}
+                sx={{
+                  fontFamily: `inherit`,
+                }}
+              />
+            </div>
+
+            <div>
+              <Label htmlFor="category_name">Category Name</Label>
+              <Input
+                id="category_name"
+                type="text"
+                name="category_name"
+                value={values.taskNotes}
+                onChange={handleChange}
+                placeholder="Home, Work, etc."
+              />
+            </div>
+            <div
+              sx={{
+                display: `flex`,
+                alignItems: `center`,
+                position: `relative`,
+              }}
+            >
+              <input
+                id="is_complete"
+                type="checkbox"
+                name="is_complete"
+                value={values.is_complete}
+                onChange={handleChange}
+                sx={{
+                  position: `absolute`,
+                  left: `-100vw`, // "hide" checkbox off screen
+                }}
+              />
+              <Label
+                htmlFor="is_complete"
+                sx={{
+                  display: `flex`,
+                  alignItems: `center`,
+                }}
+              >
+                <CustomCheckmark
+                  isChecked={values.is_complete}
+                  extraStyles={{
+                    marginRight: `1rem`,
+                  }}
+                />
+                Task Completed
+              </Label>
+            </div>
+
+            <Button
+              type="submit"
+              sx={{
+                marginTop: `2rem`,
+              }}
+            >
+              Create Task
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </Fragment>
   );
+};
+
+CreateTask.propTypes = {
+  history: ReactRouterPropTypes.history,
 };
 
 export default CreateTask;
