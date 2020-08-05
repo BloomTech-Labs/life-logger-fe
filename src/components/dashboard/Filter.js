@@ -10,7 +10,7 @@ const Filter = ({ toggleFilterDropdown }) => {
       sx={{
         width: `45px`,
         height: `45px`,
-        fontSize: `1.25rem`,
+        fontSize: `1.75rem`,
         cursor: `pointer`,
         display: `flex`,
         alignItems: `center`,
