@@ -26,8 +26,7 @@ const CreateTask = ({ history }) => {
   const handleSubmit = (values) => {
     axiosWithAuth()
       .post(`https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`, values)
-      .then((res) => {
-        console.log('Successfully Created a Task', res);
+      .then(() => {
         history.push('/dashboard'); // go back to dashboard page after successful task creation
       })
       .catch((err) => console.error('Error creating new task', err));
