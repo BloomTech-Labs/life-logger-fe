@@ -5,6 +5,21 @@ import PropTypes from 'prop-types';
 
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState(null);
+
+  const editFilter = (filterValue) => {
+    console.log('filterValue: ', filterValue);
+    let newFilter = filter;
+    if (
+      filterValue === 'incomplete' ||
+      filterValue === 'complete' ||
+      filterValue === null
+    ) {
+      newFilter = filterValue;
+    }
+
+    setFilter(newFilter);
+  };
 
   const getTasks = async (userId) => {
     try {
@@ -39,7 +54,7 @@ const TaskProvider = ({ children }) => {
     }
   };
 
-  const taskState = { tasks, getTasks, editTask };
+  const taskState = { tasks, filter, editFilter, getTasks, editTask };
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>
