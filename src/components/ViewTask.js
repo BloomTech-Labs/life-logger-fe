@@ -1,19 +1,51 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
+import { AiTwotoneCalendar } from 'react-icons/ai';
+
 function ViewTask({ task }) {
-  const dueDateStyle = {
+  const h3Div = {
+    display: 'flex',
+  };
+  const AiTwoTone = {
+    paddingTop: '25px',
+  };
+  const dueDate = {
+    paddingLeft: '20px',
     color: '#b6b6b6',
   };
+  const dueDateActual = {
+    paddingLeft: '40px',
+    marginTop: '5px',
+  };
+  const categoryName = {
+    paddingLeft: '35px',
+  };
+
   return (
     <div>
       <h1>{task.task_name}</h1>
-      <h3 style={dueDateStyle}>Due Date </h3>
-      <p>{task.due_date}</p>
-      <h3>Category Name: </h3>
+      <div style={h3Div}>
+        <div style={AiTwoTone}>
+          <AiTwotoneCalendar />
+        </div>
+
+        <div>
+          <h3 style={dueDate}>Due Date</h3>
+        </div>
+      </div>
+
+      <p style={dueDateActual}>{task.due_date}</p>
+
       <p>{task.category_name}</p>
 
+      <div>
+        <h3 style={categoryName}>Category Name: </h3>
+      </div>
+
       <h3>Task Notes:</h3>
+
+      <div></div>
       <p>{task.task_notes}</p>
     </div>
   );
