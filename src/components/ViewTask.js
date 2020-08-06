@@ -45,7 +45,6 @@ function ViewTask({ task }) {
 
       <h3>Task Notes:</h3>
 
-      <div></div>
       <p>{task.task_notes}</p>
     </div>
   );
