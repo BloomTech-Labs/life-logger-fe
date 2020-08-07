@@ -32,7 +32,18 @@ const Dashboard = () => {
         <Filter toggleFilterDropdown={toggleFilterMenu} />
       </div>
       {isFilterMenuOpen && (
-        <Modal onClose={toggleFilterMenu}>
+        <Modal
+          onClose={toggleFilterMenu}
+          showX={false}
+          overrideStyles={{
+            width: `auto`,
+            height: `auto`,
+            borderRadius: `5px`,
+            position: `absolute`,
+            top: `100px`,
+            right: `1rem`,
+          }}
+        >
           <FilterDropdown editFilter={editFilter} filter={filter} />
         </Modal>
       )}
