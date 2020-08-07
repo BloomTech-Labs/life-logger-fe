@@ -8,7 +8,7 @@ import { useDetectOutsideClick } from '../../hooks/useDetectOutsideClick';
 import { IoMdClose } from 'react-icons/io';
 
 // referenced from https://medium.com/@seif_ghezala/how-to-create-an-accessible-react-modal-5b87e6a27503
-const Modal = ({ children, onClose, hideX = false, overrideStyles = {} }) => {
+const Modal = ({ children, onClose, showX = true, overrideStyles = {} }) => {
   const modalRef = createRef();
   useDetectOutsideClick(modalRef, onClose);
 
@@ -93,7 +93,7 @@ const Modal = ({ children, onClose, hideX = false, overrideStyles = {} }) => {
           ...overrideStyles,
         }}
       >
-        {hideX && (
+        {showX && (
           <button
             onClick={onClose}
             sx={{
