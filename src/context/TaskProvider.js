@@ -11,7 +11,6 @@ const TaskProvider = ({ children }) => {
       const taskList = await axiosWithAuth().get(
         `https://lyfe-logger-be.herokuapp.com/api/tasks/findByUserId/${userId}`
       );
-
       setTasks(taskList.data);
     } catch (err) {
       console.log(`Error fetching tasks: `, err);
@@ -39,7 +38,23 @@ const TaskProvider = ({ children }) => {
     }
   };
 
-  const taskState = { tasks, getTasks, editTask };
+  const deleteTask = async (userId, taskId) => {
+    try {
+      console.log(userId, taskId);
+      await axiosWithAuth().delete(
+        `https://lyfe-logger-be.herokuapp.com/api/tasks/deleteTask/user=${userId}/${taskId}`
+      );
+
+      const taskIndex = tasks.findIndex((task) => task.id === taskId);
+      const deleteTasks = [...tasks];
+      deleteTasks.splice(taskIndex, 1);
+      setTasks(deleteTasks);
+    } catch (err) {
+      console.error('Task Not Deleted', err);
+    }
+  };
+
+  const taskState = { tasks, getTasks, editTask, deleteTask };
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>

@@ -2,29 +2,33 @@
 import { jsx } from 'theme-ui';
 import { Button } from '@theme-ui/components';
 import PropTypes from 'prop-types';
-import { Formik, Form } from 'formik';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import { useContext } from 'react';
+import TaskContext from '../context/TaskContext';
 
 const DeleteTask = ({ task }) => {
-  const userId = window.localStorage.getItem('userId');
+  const { deleteTask } = useContext(TaskContext);
 
-  const handleSubmit = () => {
-    axiosWithAuth()
-      .delete(
-        `https://lyfe-logger-be.herokuapp.com/auth/tasks/deleteTask/${userId}/${task.id}`
-      )
-      .then((res) => console.log('Task Deleted', res))
-      .catch((err) => console.error('Task Not Deleted', err));
+  const userId = parseInt(localStorage.getItem('userId'));
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    deleteTask(userId, task.id);
   };
 
   return (
-    <Formik onSubmit={handleSubmit}>
-      <Form>
-        <h1>Are you sure want to delete this task?</h1>
-        <Button type="submit">Yes</Button>
-        <Button>No</Button>
-      </Form>
-    </Formik>
+    <form
+      onSubmit={handleSubmit}
+      sx={{
+        width: `300px`,
+        margin: `0 auto`,
+        display: `grid`,
+        gridGap: `2px`,
+      }}
+    >
+      <h1>Are you sure want to delete this task?</h1>
+      <Button type="submit">Yes</Button>
+      <Button>No</Button>
+    </form>
   );
 };
 
