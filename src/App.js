@@ -9,18 +9,20 @@ import LoginForm from './components/LoginForm';
 import ViewTask from './components/ViewTask';
 import CreateTask from './components/CreateTask';
 import { Route, Switch } from 'react-router-dom';
+import Header from './components/header/Header';
 
 const App = () => {
   return (
     <Fragment>
-      <Switch>
-        <Route exact path="/" component={LandingPage} />
-        <PrivateRoute exact path="/dashboard" component={Dashboard} />
-        <Route path="/signup" component={SignUpForm} />
-        <Route path="/login" component={LoginForm} />
-        <Route path="/viewtask" component={ViewTask} />
-        <Route path="/createtask" component={CreateTask} />
-      </Switch>
+        <Header />
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <Route path="/signup" component={SignUpForm} />
+          <Route path="/login" component={LoginForm} />
+          <Route path="/taskpage" component={TaskPage} />
+          <Route path="/createtask" component={CreateTask} />
+        </Switch>
     </Fragment>
   );
 };
