@@ -40,7 +40,6 @@ const TaskProvider = ({ children }) => {
 
   const deleteTask = async (userId, taskId) => {
     try {
-      console.log(userId, taskId);
       await axiosWithAuth().delete(
         `https://lyfe-logger-be.herokuapp.com/api/tasks/deleteTask/user=${userId}/${taskId}`
       );
