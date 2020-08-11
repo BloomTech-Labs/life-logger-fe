@@ -4,7 +4,6 @@ import { Fragment, useState, useContext } from 'react';
 import TaskContext from '../../context/TaskContext';
 
 import TaskList from './TaskList';
-import Navigation from '../Navigation';
 import Filter from './Filter';
 import Modal from '../dashboard/Modal';
 import FilterDropdown from '../dashboard/FilterDropdown';
@@ -20,7 +19,6 @@ const Dashboard = () => {
 
   return (
     <Fragment>
-      <Navigation />
       <div
         sx={{
           width: `100%`,
