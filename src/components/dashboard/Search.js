@@ -22,21 +22,27 @@ const Container = styled.div`
   margin-right: 10px;
 `;
 
+// function searchingFor(term) {
+//   return function(x){
+//       return x.login.toLowerCase().includes(term.toLowerCase()) || !term;
+//   }
+// }
+
 export default function Search() {
-  const { tasks } = React.useContext(TaskContext);
-  const [searchTerm, setSearchTerm] = React.useState('');
+  const { searchTerm, editSearch } = React.useContext(TaskContext);
+  // const [searchTerm, setSearchTerm] = React.useState('');
   const [open, setOpen] = React.useState(false);
-  const [searchResults, setSearchResults] = React.useState([]);
+  // const [searchResults, setSearchResults] = React.useState([]);
   const anchorRef = React.useRef(null);
 
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    editSearch(event.target.value);
   };
 
-  React.useEffect(() => {
-    const results = tasks.filter((task) => task.includes(searchTerm));
-    setSearchResults(results);
-  }, [searchTerm]);
+  // React.useEffect(() => {
+  //   const results = tasks.filter((task) => task.task_name.includes(searchTerm));
+  //   setSearchResults(results);
+  // }, [searchTerm]);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -111,7 +117,7 @@ export default function Search() {
                           onChange={handleChange}
                         />
                       </form>
-                      {searchResults.map((item) => item.task)}
+                      {/* {task.map((item) => item.task)} */}
                     </MenuList>
                   </ClickAwayListener>
                 </Paper>

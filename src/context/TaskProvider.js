@@ -6,6 +6,11 @@ import PropTypes from 'prop-types';
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [filter, setFilter] = useState(null);
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  const editSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   const editFilter = (filterValue) => {
     console.log('filterValue: ', filterValue);
@@ -54,7 +59,15 @@ const TaskProvider = ({ children }) => {
     }
   };
 
-  const taskState = { tasks, filter, editFilter, getTasks, editTask };
+  const taskState = {
+    tasks,
+    filter,
+    editFilter,
+    getTasks,
+    editTask,
+    searchTerm,
+    editSearch,
+  };
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>
