@@ -5,6 +5,26 @@ import PropTypes from 'prop-types';
 
 const TaskProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
+  const [filter, setFilter] = useState(null);
+  const [searchTerm, setSearchTerm] = React.useState('');
+
+  const editSearch = (term) => {
+    setSearchTerm(term);
+  };
+
+  const editFilter = (filterValue) => {
+    console.log('filterValue: ', filterValue);
+    let newFilter = filter;
+    if (
+      filterValue === 'incomplete' ||
+      filterValue === 'complete' ||
+      filterValue === null
+    ) {
+      newFilter = filterValue;
+    }
+
+    setFilter(newFilter);
+  };
 
   const getTasks = async (userId) => {
     try {
