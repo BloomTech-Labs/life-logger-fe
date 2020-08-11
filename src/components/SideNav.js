@@ -9,6 +9,10 @@ const Ul = styled.ul`
   li {
     padding: 18px 10px;
   }
+  a {
+    text-decoration: none;
+    color: white;
+  }
   @media (max-width: 768px) {
     flex-flow: column nowrap;
     background-color: #0D2538;
