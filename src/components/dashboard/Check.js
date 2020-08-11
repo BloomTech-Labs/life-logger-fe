@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 
+// currently used for the custom checkmarks for the FilterDropdown inputs
 const Check = () => {
   return (
     <div
