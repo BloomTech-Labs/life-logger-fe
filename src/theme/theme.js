@@ -20,7 +20,7 @@ export default {
     heading: 1.125,
   },
   colors: {
-    text: '#002550',
+    text: '#050533',
     background: '#fff',
     primary: '#82D1FF',
     secondary: '#002550',
@@ -37,15 +37,12 @@ export default {
       //   gray: 'hsl(210, 50%, 60%)',
       // },
       dark: {
-
         text: '#062647',
         background: 'hsl(230, 25%, 18%)',
-
         primary: '#CABBF2',
         secondary: '#9034DF',
         highlight: 'hsl(260, 20%, 40%)',
         purple: 'hsl(290, 100%, 80%)',
-
         muted: '#1c1e2e',
         gray: 'hsl(210, 50%, 60%)',
       },
@@ -129,6 +126,11 @@ export default {
         borderBottom: '1px solid',
         borderColor: 'text',
       },
+    },
+    textarea: {
+      border: `1px solid #EAEAEA`,
+      backgroundColor: `#FEFEFE`,
+      fontFamily: `inherit`,
     },
   },
   styles: {
