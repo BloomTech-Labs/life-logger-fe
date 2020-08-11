@@ -7,30 +7,41 @@ import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
+import TaskContext from '../../context/TaskContext';
 import MenuList from '@material-ui/core/MenuList';
 
 const FilterImg = styled.img `
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
 `
 
 const Container = styled.div `
-    // border: red solid 1px;
     display: flex;
-    justify-content: flex-end;
-    margin-top: -70px;
+    justify-content: flex-start;
+    margin-top: -80px;
     margin-right: 10px;
 `
 
-const Items = styled.h2 `
-    font-size: 20px;
-    margin: 0 auto;
-`
+export default function Search() {
 
-export default function Nav(props) {
-
+  const { tasks, setTasks } = React.useContext(TaskContext);
+  const [searchTerm, setSearchTerm] = React.useState("");
   const [open, setOpen] = React.useState(false);
+  const [searchResults, setSearchResults] = React.useState([]);
   const anchorRef = React.useRef(null);
+
+  console.log("Task", tasks);
+
+  const handleChange = event => {
+    setSearchTerm(event.target.value);
+  };
+
+  React.useEffect(() => {
+    const results = tasks.filter(task => 
+      task.includes(searchTerm)
+    );
+      setSearchResults(results);
+  }, [searchTerm]);
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -40,7 +51,6 @@ export default function Nav(props) {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -56,7 +66,6 @@ export default function Nav(props) {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
     }
-
     prevOpen.current = open;
   }, [open]);
 
@@ -69,10 +78,10 @@ export default function Nav(props) {
                 aria-controls={open ? 'menu-list-grow' : undefined}
                 aria-haspopup="true"
                 onClick={handleToggle}
-                src="./filtergrey.png"
+                src="./search.png"
                >
             </FilterImg>
-            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal style={{width: '12rem', margin: '0 auto'}}>
+            <Popper open={open} role={undefined} transition disablePortal style={{ marginTop: '85px', marginLeft: '60px', height: '30px'}}>
             {({ TransitionProps, placement }) => (
                 <Grow 
                 {...TransitionProps}
@@ -81,9 +90,17 @@ export default function Nav(props) {
                 <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
                     <MenuList style={{ backgroundColor: "white", display: 'flex', justifyContent: 'center', flexDirection: 'column'}} autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                        <Items to="/"><p style={{ backgroundColor: "white"}} onClick={handleClose}>completed tasks</p></Items>
-                        <Items to="/"><p style={{ backgroundColor: "white"}} onClick={handleClose}>incompleted tasks</p></Items>
-                        <Items to="/"><p style={{ backgroundColor: "white"}} onClick={handleClose}>view all tasks</p></Items>
+                        <form>
+                          <input 
+                            type="text"
+                            placeholder="Search..."
+                            value={searchTerm}
+                            onChange={handleChange}
+                          />
+                        </form>
+                        {searchResults.map(item => (
+                          item.task
+                        ))}
                     </MenuList>
                     </ClickAwayListener>
                 </Paper>
