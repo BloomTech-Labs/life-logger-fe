@@ -4,9 +4,8 @@ import { render } from '../../../../tests/themeProviderTestsUtil';
 
 import Header from '../Header.js';
 
-test("is here", () => {
-    const { getByTestId } = render(<Header />);
-  
-    expect(getByTestId("testtag")).toHaveTextContent("Home");
-    
-  });
+test('is here', () => {
+  const { getByTestId } = render(<Header />);
+
+  expect(getByTestId('testtag')).toHaveTextContent('Life Logger');
+});
