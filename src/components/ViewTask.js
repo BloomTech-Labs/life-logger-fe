@@ -25,22 +25,22 @@ function ViewTask({ task }) {
   return (
     <div>
       <h1>{task.task_name}</h1>
-      <div style={h3Div}>
-        <div style={AiTwoTone}>
+      <div sx={h3Div}>
+        <div sx={AiTwoTone}>
           <AiTwotoneCalendar />
         </div>
 
         <div>
-          <h3 style={dueDate}>Due Date</h3>
+          <h3 sx={dueDate}>Due Date</h3>
         </div>
       </div>
 
-      <p style={dueDateActual}>{task.due_date}</p>
+      <p sx={dueDateActual}>{task.due_date}</p>
 
       <p>{task.category_name}</p>
 
       <div>
-        <h3 style={categoryName}>Category Name: </h3>
+        <h3 sx={categoryName}>Category Name: </h3>
       </div>
 
       <h3>Task Notes:</h3>
