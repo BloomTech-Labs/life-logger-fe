@@ -8,17 +8,17 @@ import TaskContext from '../../context/TaskContext';
 import Task from './Task';
 
 const TaskList = () => {
-  const { tasks, getTasks, searchTerm } = useContext(TaskContext);
+  const { tasks, filter, getTasks, searchTerm } = useContext(TaskContext);
 
-  // const filterTasks = (task) => {
-  //   if (filter === null) {
-  //     return task;
-  //   } else if (filter === 'incomplete') {
-  //     return task.is_complete === false;
-  //   } else if (filter === 'complete') {
-  //     return task.is_complete === true;
-  //   }
-  // };
+  const filterTasks = (task) => {
+    if (filter === null) {
+      return task;
+    } else if (filter === 'incomplete') {
+      return task.is_complete === false;
+    } else if (filter === 'complete') {
+      return task.is_complete === true;
+    }
+  };
 
   const searchingFor = (task) => {
     if (task.task_name.includes(searchTerm)) {
@@ -42,10 +42,12 @@ const TaskList = () => {
           gridGap: `15px`,
         }}
       >
-        {/* {tasks.filter(filterTasks).map((task) => ( */}
-        {tasks.filter(searchingFor).map((task) => (
-          <Task key={task.id} task={task} />
-        ))}
+        {tasks
+          .filter(filterTasks)
+          .filter(searchingFor)
+          .map((task) => (
+            <Task key={task.id} task={task} />
+          ))}
       </div>
     </div>
   );
