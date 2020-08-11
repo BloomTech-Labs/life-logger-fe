@@ -51,6 +51,7 @@ const Dashboard = () => {
         sx={{
           width: `100%`,
           padding: `0 1rem`,
+          marginTop: '100px',
         }}
       >
         <TaskList />
