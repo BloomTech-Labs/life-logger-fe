@@ -29,8 +29,6 @@ export default function Search() {
   const [searchResults, setSearchResults] = React.useState([]);
   const anchorRef = React.useRef(null);
 
-  console.log('Task', tasks);
-
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
   };
