@@ -27,10 +27,10 @@ const Title = styled.h2`
 
 const Header = () => {
   return (
-    <HeaderDiv>
+    <HeaderDiv data-testid="testtag">
       <Logo src="/OrangeIcon.png" />
       <BurgerMenu />
-      <Title data-testid="testtag">Life Logger</Title>
+      <Title>Life Logger</Title>
     </HeaderDiv>
   );
 };
