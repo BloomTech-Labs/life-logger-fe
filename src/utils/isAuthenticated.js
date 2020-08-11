@@ -11,7 +11,6 @@ export const isAuthenticated = async (token) => {
         },
       }
     );
-    console.log('isAuthenticated res: ', res);
 
     return res.data.isAuthenticated;
   } catch (err) {
