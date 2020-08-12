@@ -1,13 +1,13 @@
 import React from 'react';
 import { render } from '../../../tests/contextProviderTestUtil';
 import { renderWithRouter } from '../../../tests/routerTestsUtil';
-import CreateTask from '../CreateTask';
+import DeleteTask from '../DeleteTask';
 
-describe('Create Task component tests', () => {
+describe('Delete Task component tests', () => {
   it('renders without crashing', () => {
-    renderWithRouter(CreateTask, { path: '/insertTask', route: '/insertTask' });
+    renderWithRouter(DeleteTask, { path: '/deleteTask', route: '/deleteTask' });
   });
   it('render all day input Element', () => {
-    render(<input />);
+    render(<h1>Are you sure want to delete this task?</h1>);
   });
 });
