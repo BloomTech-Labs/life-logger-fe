@@ -52,7 +52,7 @@ const Modal = ({ children, onClose, showX = true, overrideStyles = {} }) => {
 
     // remove event listener on componentWillUnmount
     return () => document.removeEventListener('keydown', keyListener);
-  }, []);
+  });
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
   // helps us keep track of the different keys we want to listen for
