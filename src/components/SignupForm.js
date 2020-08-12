@@ -1,12 +1,14 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import { Fragment } from 'react';
 import { Input, Label, Button } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axios from 'axios';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 const signupSchema = Yup.object().shape({
-  name: Yup.string()
+  username: Yup.string()
     .min(2, '**Too Short!')
     .max(20, '**Too Long!')
     .required('**Name is required'),
@@ -21,7 +23,7 @@ const signupSchema = Yup.object().shape({
     .required('**Password is required'),
 });
 
-const SignupForm = () => {
+const SignupForm = (props) => {
   const initialValues = {
     username: '',
     email: '',
@@ -29,82 +31,112 @@ const SignupForm = () => {
   };
 
   const handleSubmit = (values) => {
-    axiosWithAuth()
-      .post(`${process.env.BASE_HOST}/api/auth/register`, values)
-      .then((res) => console.log('Successfully signed up', res))
-      .catch((err) => console.log('Error signing up', err));
+    return axios
+      .post(`https://lyfe-logger-be.herokuapp.com/api/auth/register`, values)
+      .then((res) => {
+        window.localStorage.setItem('token', res.data.token);
+        window.localStorage.setItem('userId', res.data.user_id); // needed for TaskContext to make axios requests for tasks
+        props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.log('Error signing up: ', err);
+        props.history.push('/');
+      });
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={signupSchema}
-      onSubmit={handleSubmit}
-    >
-      {({ values, handleChange, errors, touched }) => (
-        <Form
-          sx={{
-            width: `300px`,
-            margin: `0 auto`,
-            display: `grid`,
-            gridGap: 2,
-            padding: 3,
-            borderRadius: `12px`,
-            bg: (t) => t.colors.primary,
-            boxShadow: `0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)`,
-          }}
-        >
-          <Label htmlFor="username">Username</Label>
-          <Input
-            id="username"
-            name="username"
-            type="text"
-            value={values.username}
-            onChange={handleChange}
-            mb={3}
-          />
-          {errors.username && touched.username ? (
-            <p>{errors.username}</p>
-          ) : null}
-
-          <Label htmlFor="email">Email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            value={values.email}
-            onChange={handleChange}
-            mb={3}
-          />
-          {errors.email && touched.email ? <p>{errors.email}</p> : null}
-
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            name="password"
-            type="password"
-            value={values.password}
-            onChange={handleChange}
-            mb={3}
-          />
-          {errors.password && touched.password ? (
-            <p>{errors.password}</p>
-          ) : null}
-
-          <Button
-            type="submit"
+    <Fragment>
+      {/* styling on h2 is so it lines up with the form */}
+      <h2
+        sx={{
+          width: `300px`,
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          fontSize: `2rem`,
+        }}
+      >
+        Welcome
+      </h2>
+      <Formik
+        data-testid="form"
+        initialValues={initialValues}
+        validationSchema={signupSchema}
+        onSubmit={handleSubmit}
+      >
+        {({ values, handleChange, errors, touched }) => (
+          <Form
             sx={{
-              //   bg: (t) => t.colors.muted,
-              //   color: (t) => t.colors.text,
+              width: `300px`,
               margin: `0 auto`,
+              display: `grid`,
+              gridGap: `2px`,
             }}
           >
-            Signup
-          </Button>
-        </Form>
-      )}
-    </Formik>
+            <Label htmlFor="username" sx={{ fontSize: `1.25rem` }}>
+              Username
+            </Label>
+            <Input
+              id="username"
+              name="username"
+              type="text"
+              value={values.username}
+              onChange={handleChange}
+              mb={3}
+            />
+            {errors.username && touched.username ? (
+              <p>{errors.username}</p>
+            ) : null}
+
+            <Label htmlFor="email" sx={{ fontSize: `1.25rem` }}>
+              Email
+            </Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              value={values.email}
+              onChange={handleChange}
+              mb={3}
+            />
+            {errors.email && touched.email ? <p>{errors.email}</p> : null}
+
+            <Label htmlFor="password" sx={{ fontSize: `1.25rem` }}>
+              Password
+            </Label>
+            <Input
+              id="password"
+              name="password"
+              type="password"
+              value={values.password}
+              onChange={handleChange}
+              mb={3}
+            />
+            {errors.password && touched.password ? (
+              <p>{errors.password}</p>
+            ) : null}
+
+            <Button
+              type="submit"
+              sx={{
+                margin: `4rem auto 0`,
+                width: `300px`,
+              }}
+            >
+              Signup
+            </Button>
+          </Form>
+        )}
+      </Formik>
+    </Fragment>
   );
+};
+
+// for eslint validation
+SignupForm.propTypes = {
+  history: ReactRouterPropTypes.history,
+  location: ReactRouterPropTypes.location,
+  match: ReactRouterPropTypes.match,
+  route: ReactRouterPropTypes.route,
 };
 
 export default SignupForm;

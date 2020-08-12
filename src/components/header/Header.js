@@ -1,46 +1,37 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import BurgerMenu from '../BurgerMenu';
 
-import DarkModeToggle from './DarkModeToggle';
-
-const HeaderGrid = styled.header`
-  ${({ theme: t }) => `
-    width: 100%;
-    height: 70px;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: minmax(40px, 225px) 1fr 40px minmax(100px, 200px);
-    grid-gap: 15px; 
-    align-items: center;
-    background: ${t.colors.primary}
-  `}
+const HeaderDiv = styled.div`
+  background: #002550;
+  height: 10vh;
+  display: flex;
+  justify-content: flex-start;
 `;
 
-const StyledLink = styled(Link)`
-  ${({ theme: t }) => `
-  text-decoration: none;
-  color: ${t.colors.text};
-  `}
+const Logo = styled.img`
+  width: 40px;
+  height: 50px;
+  margin-left: 15px;
+  margin-top: 15px;
+`;
+
+const Title = styled.h2`
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  margin-left: 130px;
 `;
 
 const Header = () => {
   return (
-    <HeaderGrid>
-      <img src="" alt="Lyfe Logger logo" />
-      <DarkModeToggle />
-      <nav
-        sx={{
-          gridColumnStart: `4`,
-          display: `grid`,
-          gridTemplateColumns: `repeat(auto-fit, minmax(50px, 100px))`,
-        }}
-      >
-        <StyledLink to="/">Home</StyledLink>
-        <StyledLink to="/dashboard">Dashboard</StyledLink>
-      </nav>
-    </HeaderGrid>
+    <HeaderDiv data-testid="testtag">
+      <Logo src="/OrangeIcon.png" />
+      <BurgerMenu />
+      <Title>Life Logger</Title>
+    </HeaderDiv>
   );
 };
 

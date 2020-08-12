@@ -1,19 +1,29 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-
-import Header from './components/header/Header';
+import { Fragment } from 'react';
+import SignUpForm from './components/SignupForm';
 import PrivateRoute from './PrivateRoute';
-import Dashboard from './components/Dashboard';
+import Dashboard from './components/dashboard/Dashboard';
+import LandingPage from './components/LandingPage';
+import LoginForm from './components/LoginForm';
+import ViewTask from './components/ViewTask';
+import CreateTask from './components/CreateTask';
+import { Route, Switch } from 'react-router-dom';
+import Header from './components/header/Header';
 
 const App = () => {
   return (
-    <div>
+    <Fragment>
       <Header />
-      <h1 sx={{ textAlign: `center` }}>Welcome to Lyfe Logger</h1>
-
-      <PrivateRoute exact path="/dashboard" component={Dashboard} />
-    </div>
+      <Switch>
+        <Route exact path="/" component={LandingPage} />
+        <PrivateRoute exact path="/dashboard" component={Dashboard} />
+        <Route path="/signup" component={SignUpForm} />
+        <Route path="/login" component={LoginForm} />
+        <Route path="/viewtask" component={ViewTask} />
+        <Route path="/createtask" component={CreateTask} />
+      </Switch>
+    </Fragment>
   );
 };
-
 export default App;

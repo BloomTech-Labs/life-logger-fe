@@ -26,7 +26,7 @@ const IconWrapper = styled.button`
     "icon button" in relation to its "social icon" siblings;
     leave the left untouched for some separation from the aforementioned
   */
-  margin-right: -11px;
+  margin-right: 20px;
   opacity: 0.75;
   /*
     allows us to use the default :focus
