@@ -90,6 +90,7 @@ const Modal = ({ children, onClose, showX = true, overrideStyles = {} }) => {
           width: `100%`,
           height: `100%`,
           bg: `background`,
+          borderRadius: `5px`,
           ...overrideStyles,
         }}
       >
