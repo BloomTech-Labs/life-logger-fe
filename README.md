@@ -65,6 +65,8 @@ Log events, later searchable so you can remember when/where/what you did.
 
 Clone this project and run `npm install` at the root of this project in your terminal.
 
+Run `npm run startDev` to spin up a local development server. The `start` script in the `package.json` is for Heroku to properly build the app.
+
 ## Testing
 
 This app uses [React testing library](https://testing-library.com/docs/react-testing-library/intro). To run your tests, use the command `npm test`. Use the command `npm test -- --coverage --watchAll=false` to run a test coverage report.
