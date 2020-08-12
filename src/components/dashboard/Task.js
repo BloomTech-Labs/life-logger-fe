@@ -4,6 +4,8 @@ import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
 import ViewTask from '../ViewTask';
 import TaskContext from '../../context/TaskContext';
+
+import EditTask from '../EditTask';
 import DeleteTask from '../DeleteTask';
 import PropTypes from 'prop-types';
 
@@ -144,23 +146,7 @@ const Task = ({ task }) => {
 
       {isEditModalOpen && (
         <Modal onClose={() => setIsEditModalOpen(!isEditModalOpen)}>
-          <div>
-            <p>I will be a form someday</p>
-            <form>
-              <label htmlFor="name">Name</label>
-              <input type="text" id="name" />
-              <label htmlFor="email">Email</label>
-              <input type="text" id="email" />
-              <button
-                type="submit"
-                onClick={() => {
-                  console.log('here');
-                }}
-              >
-                Submit
-              </button>
-            </form>
-          </div>
+          <EditTask key={task.id} task={task} />
         </Modal>
       )}
 

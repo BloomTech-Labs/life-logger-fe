@@ -61,7 +61,7 @@ const TaskProvider = ({ children }) => {
 
   const deleteTask = async (userId, taskId) => {
     try {
-      console.log(userId, taskId);
+
       await axiosWithAuth().delete(
         `https://lyfe-logger-be.herokuapp.com/api/tasks/deleteTask/user=${userId}/${taskId}`
       );
@@ -76,6 +76,7 @@ const TaskProvider = ({ children }) => {
   };
 
   const taskState = { tasks, filter, editFilter, getTasks, editTask, searchTerm, editSearch, deleteTask };
+
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>
