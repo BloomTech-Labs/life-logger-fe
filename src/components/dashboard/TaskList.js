@@ -37,9 +37,15 @@ const TaskList = () => {
       <Search />
       <div
         sx={{
-          display: `grid`,
+          // display: `grid`,
           gridTemplateColumns: [`1fr`, `minmax(auto, 400px)`],
           gridGap: `15px`,
+          position: "absolute",
+          zIndex: "-1",
+          width: "90%",
+          display: "flex",
+          flexDirection: "column",
+          alignContent: "center"
         }}
       >
         {tasks
