@@ -4,6 +4,7 @@ import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
 import ViewTask from '../ViewTask';
 import TaskContext from '../../context/TaskContext';
+import DeleteTask from '../DeleteTask';
 import PropTypes from 'prop-types';
 
 import TaskCheckmark from './TaskCheckmark';
@@ -166,7 +167,7 @@ const Task = ({ task }) => {
       {isDeleteModalOpen && (
         <Modal onClose={() => setIsDeleteModalOpen(!isDeleteModalOpen)}>
           <div>
-            <p>I will be a delete confirmation someday</p>
+            <DeleteTask key={task.id} task={task} />
           </div>
         </Modal>
       )}
