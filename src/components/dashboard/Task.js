@@ -3,6 +3,7 @@ import { jsx } from 'theme-ui';
 import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
 import TaskContext from '../../context/TaskContext';
+
 import EditTask from '../EditTask';
 import DeleteTask from '../DeleteTask';
 import PropTypes from 'prop-types';
