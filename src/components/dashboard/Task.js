@@ -2,6 +2,7 @@
 import { jsx } from 'theme-ui';
 import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
+import ViewTask from '../ViewTask';
 import TaskContext from '../../context/TaskContext';
 import DeleteTask from '../DeleteTask';
 import PropTypes from 'prop-types';
@@ -22,6 +23,7 @@ const Task = ({ task }) => {
   const [isNotInitial, setIsNotInitial] = useState(false); // state to prevent "unstrike" keyframe animation from running on mount
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isViewTaskOpen, setIsViewTaskOpen] = useState(false);
 
   const taskDueDateObj = new Date(task.due_date);
   const dueDate = taskDueDateObj.toLocaleDateString();
@@ -38,6 +40,9 @@ const Task = ({ task }) => {
     setIsNotInitial(true); // allows "unstrike" animation to run now whenever a task is marked incomplete
   };
 
+  const toggleViewTask = () => {
+    setIsViewTaskOpen(!isViewTaskOpen);
+  };
   const toggleIsEditModalOpen = () => {
     setIsEditModalOpen(!isEditModalOpen);
   };
@@ -45,7 +50,20 @@ const Task = ({ task }) => {
   const toggleIsDeleteModalOpen = () => {
     setIsDeleteModalOpen(!isDeleteModalOpen);
   };
-
+  const detailsButton = {
+    display: 'inline-block',
+    borderRadius: '4px',
+    backgroundColor: '#6db755',
+    border: 'none',
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: '14px',
+    padding: '10px',
+    width: '75px',
+    transition: 'all 0.5s',
+    cursor: 'pointer',
+    margin: '5px',
+  };
   return (
     <Fragment>
       <div
@@ -109,13 +127,20 @@ const Task = ({ task }) => {
             </small>
           </div>
         </Card>
-
+        <button style={detailsButton} type="details" onClick={toggleViewTask}>
+          Details
+        </button>
         <HiddenIcons
           toggleIsEditModalOpen={toggleIsEditModalOpen}
           toggleIsDeleteModalOpen={toggleIsDeleteModalOpen}
           task={task}
         />
       </div>
+      {isViewTaskOpen && (
+        <Modal onClose={() => setIsViewTaskOpen(!isViewTaskOpen)}>
+          <ViewTask task={task} />
+        </Modal>
+      )}
 
       {isEditModalOpen && (
         <Modal onClose={() => setIsEditModalOpen(!isEditModalOpen)}>
