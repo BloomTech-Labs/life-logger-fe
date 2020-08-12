@@ -77,7 +77,6 @@ const TaskProvider = ({ children }) => {
 
   const taskState = { tasks, filter, editFilter, getTasks, editTask, searchTerm, editSearch, deleteTask };
 
-
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>
   );

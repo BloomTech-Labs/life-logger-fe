@@ -27,7 +27,6 @@ const DeleteTask = ({ task }) => {
     >
       <h1>Are you sure want to delete this task?</h1>
       <Button type="submit">Yes</Button>
-      <Button>No</Button>
     </form>
   );
 };
