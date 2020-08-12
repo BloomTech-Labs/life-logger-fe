@@ -63,7 +63,7 @@ Log events, later searchable so you can remember when/where/what you did.
 
 ## Installation Instructions
 
-Clone this project and run `npm i` at the root of this project in your terminal.
+Clone this project and run `npm install` at the root of this project in your terminal.
 
 ## Testing
 
@@ -96,7 +96,7 @@ Create a `.env.development` and `.env.production` file so you don't have to hard
 
 ## Styling
 
-This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for any Styled Components. The `theme` styles for this project are located at `src/theme/theme.js`
+This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for some Styled Components (Theme UI uses Emotion under the hood, which is why we opted for Emotion vs. Styled Components). The `theme` styles for this project are located at `src/theme/theme.js`
 
 In any component where you want to have any styling from the `theme` file needs to have the following imported at the very top of the file (including the comment):
 
@@ -114,6 +114,10 @@ import { Card } from '@theme-ui/components';
 A list of available components can be found in the Theme UI docs. To override any of the default styling for your own theme, you must [create a variant](https://theme-ui.com/components/variants) inside of your `theme` file.
 
 For example, according to the docs, the `Card` component is found in the `cards` variant group. This means that within your `theme` object, you can create a `cards` key, whose value is an object. Within that `cards` object, the default "variant" for a `Card` is called `primary`. In order to override Theme UI's default stylings for that basic, default `Card`, you must create a `primary` key inside of your `cards` object and provide your stylings there.
+
+See the [official docs](https://theme-ui.com/getting-started/) or a [write-up by Janessa Garrow](https://janessagarrow.com/blog/2020-07-14-intro-to-theme-ui/) on some of the basics of Theme UI.
+
+This project also uses [Framer Motion](https://www.framer.com/api/motion/) for some animations, particularly for sliding the task cards in the mobile view. The docs are a great place to go. This [Egghead video compilation](https://egghead.io/playlists/animating-react-components-with-framer-motion-acecb152) is a nice intro, as well.
 
 ## Eslint, Prettier, husky, and lint-staged
 
