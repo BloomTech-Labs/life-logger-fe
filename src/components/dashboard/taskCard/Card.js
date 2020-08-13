@@ -23,7 +23,7 @@ const Card = ({ children }) => {
           borderRadius: `3px`,
           boxShadow: `5px 5px 9px rgba(224, 224, 224, 0.5)`,
           display: `grid`,
-          gridTemplateColumns: `45px 1fr`,
+          gridTemplateColumns: `45px 1fr 1.5rem`,
           gridGap: `24px`,
           alignItems: `center`,
 

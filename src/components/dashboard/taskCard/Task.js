@@ -4,6 +4,8 @@ import { useState, useContext, Fragment } from 'react';
 import TaskContext from '../../../context/TaskContext';
 import PropTypes from 'prop-types';
 
+import { FiChevronRight } from 'react-icons/fi';
+
 import EditTask from '../../forms/EditTask';
 import DeleteTask from '../../forms/DeleteTask';
 import ViewTask from '../../ViewTask';
@@ -43,20 +45,7 @@ const Task = ({ task }) => {
   const toggleIsDeleteModalOpen = () => {
     setIsDeleteModalOpen(!isDeleteModalOpen);
   };
-  const detailsButton = {
-    display: 'inline-block',
-    borderRadius: '4px',
-    backgroundColor: '#6db755',
-    border: 'none',
-    color: '#FFFFFF',
-    textAlign: 'center',
-    fontSize: '14px',
-    padding: '10px',
-    width: '75px',
-    transition: 'all 0.5s',
-    cursor: 'pointer',
-    margin: '5px',
-  };
+
   return (
     <Fragment>
       <div
@@ -78,10 +67,25 @@ const Task = ({ task }) => {
             isComplete={isComplete}
             isNotInitial={isNotInitial}
           />
+          <button
+            type="details"
+            onClick={toggleViewTask}
+            sx={{
+              width: `100%`,
+              height: `100%`,
+              display: `flex`,
+              alignItems: `center`,
+              justifyContent: `center`,
+              border: `none`,
+              bg: `background`,
+              padding: `0`,
+              fontSize: `1.5rem`,
+              cursor: `pointer`,
+            }}
+          >
+            <FiChevronRight />
+          </button>
         </Card>
-        <button style={detailsButton} type="details" onClick={toggleViewTask}>
-          Details
-        </button>
 
         {/* edit and delete icons "hiding" behind the card */}
         <HiddenIcons
