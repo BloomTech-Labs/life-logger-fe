@@ -1,23 +1,17 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
-import ViewTask from '../ViewTask';
-import TaskContext from '../../context/TaskContext';
-
-import EditTask from '../EditTask';
-import DeleteTask from '../DeleteTask';
+import TaskContext from '../../../context/TaskContext';
 import PropTypes from 'prop-types';
 
+import EditTask from '../../forms/EditTask';
+import DeleteTask from '../../forms/DeleteTask';
+import ViewTask from '../../ViewTask';
 import TaskCheckmark from './TaskCheckmark';
 import Card from './Card';
-import AnimatedStrikethrough from './AnimatedStrikethrough';
-import HiddenIcons from './HiddenIcons';
-import Modal from './Modal';
-
-const pStyles = {
-  margin: `0`,
-};
+import TaskCardContents from './TaskCardContents';
+import HiddenIcons from '../HiddenIcons';
+import Modal from '../Modal';
 
 const Task = ({ task }) => {
   const { editTask } = useContext(TaskContext);
@@ -26,9 +20,6 @@ const Task = ({ task }) => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isViewTaskOpen, setIsViewTaskOpen] = useState(false);
-
-  const taskDueDateObj = new Date(task.due_date);
-  const dueDate = taskDueDateObj.toLocaleDateString();
 
   const toggleComplete = () => {
     // make PUT request to backend to update `is_complete` for this task
@@ -74,70 +65,32 @@ const Task = ({ task }) => {
         }}
       >
         <Card>
+          {/* checkmark to toggle whether or not the task is complete */}
           <TaskCheckmark
             toggleComplete={toggleComplete}
             isChecked={isComplete}
             id={task.id}
           />
-          <div
-            sx={{
-              display: `grid`,
-              gridTemplateColumns: `repeat(2, 1fr)`,
-              gridGap: `10px`,
-            }}
-          >
-            <div
-              sx={{
-                display: `flex`,
-                alignItems: `center`,
-                justifyContent: `space-between`,
-                gridColumn: `1 / span 2`,
-              }}
-            >
-              <p
-                sx={{
-                  ...pStyles,
-                  fontWeight: 700,
-                  color: isComplete ? darken('muted', 0.4) : 'text',
-                  transition: isComplete
-                    ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
-                    : 'none',
-                }}
-              >
-                <AnimatedStrikethrough
-                  stringToStrike={task.task_name}
-                  isStruckOut={isComplete}
-                  isNotInitial={isNotInitial}
-                />
-              </p>
-            </div>
 
-            <small
-              sx={{
-                ...pStyles,
-                color: isComplete ? darken('muted', 0.4) : 'text',
-                transition: isComplete
-                  ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
-                  : 'none',
-              }}
-            >
-              <AnimatedStrikethrough
-                stringToStrike={dueDate}
-                isStruckOut={isComplete}
-                isNotInitial={isNotInitial}
-              />
-            </small>
-          </div>
+          {/* text content in the card */}
+          <TaskCardContents
+            task={task}
+            isComplete={isComplete}
+            isNotInitial={isNotInitial}
+          />
         </Card>
         <button style={detailsButton} type="details" onClick={toggleViewTask}>
           Details
         </button>
+
+        {/* edit and delete icons "hiding" behind the card */}
         <HiddenIcons
           toggleIsEditModalOpen={toggleIsEditModalOpen}
           toggleIsDeleteModalOpen={toggleIsDeleteModalOpen}
           task={task}
         />
       </div>
+
       {isViewTaskOpen && (
         <Modal onClose={() => setIsViewTaskOpen(!isViewTaskOpen)}>
           <ViewTask task={task} />

@@ -5,7 +5,7 @@ import Search from './Search';
 
 import TaskContext from '../../context/TaskContext';
 
-import Task from './Task';
+import Task from './taskCard/Task';
 
 const TaskList = () => {
   const { tasks, filter, getTasks, searchTerm } = useContext(TaskContext);

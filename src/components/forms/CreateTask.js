@@ -3,12 +3,12 @@ import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
 import { Input, Label, Button, Textarea } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { formatDate } from '../utils/formatDate';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { formatDate } from '../../utils/formatDate';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
 // import Navigation from './Navigation';
-import CustomCheckmark from './CustomCheckmark';
+import CustomCheckmark from '../CustomCheckmark';
 
 const CreateTask = ({ history }) => {
   const todayDate = formatDate(new Date()); // for min value for due date input
