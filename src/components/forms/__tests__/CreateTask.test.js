@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/contextProviderTestUtil';
-import { renderWithRouter } from '../../../tests/routerTestsUtil';
+import { render } from '../../../../tests/contextProviderTestUtil';
+import { renderWithRouter } from '../../../../tests/routerTestsUtil';
 import CreateTask from '../CreateTask';
 
 describe('Create Task component tests', () => {
