@@ -2,18 +2,18 @@
 import { jsx } from 'theme-ui';
 import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
-import ViewTask from '../ViewTask';
-import TaskContext from '../../context/TaskContext';
+import ViewTask from '../../ViewTask';
+import TaskContext from '../../../context/TaskContext';
 
-import EditTask from '../EditTask';
-import DeleteTask from '../DeleteTask';
+import EditTask from '../../EditTask';
+import DeleteTask from '../../DeleteTask';
 import PropTypes from 'prop-types';
 
 import TaskCheckmark from './TaskCheckmark';
 import Card from './Card';
 import AnimatedStrikethrough from './AnimatedStrikethrough';
-import HiddenIcons from './HiddenIcons';
-import Modal from './Modal';
+import HiddenIcons from '../HiddenIcons';
+import Modal from '../Modal';
 
 const pStyles = {
   margin: `0`,
@@ -86,31 +86,26 @@ const Task = ({ task }) => {
               gridGap: `10px`,
             }}
           >
-            <div
+            <p
               sx={{
+                ...pStyles,
                 display: `flex`,
                 alignItems: `center`,
                 justifyContent: `space-between`,
                 gridColumn: `1 / span 2`,
+                fontWeight: 700,
+                color: isComplete ? darken('muted', 0.4) : 'text',
+                transition: isComplete
+                  ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
+                  : 'none',
               }}
             >
-              <p
-                sx={{
-                  ...pStyles,
-                  fontWeight: 700,
-                  color: isComplete ? darken('muted', 0.4) : 'text',
-                  transition: isComplete
-                    ? 'color 0.1s cubic-bezier(.55, 0, .1, 1)'
-                    : 'none',
-                }}
-              >
-                <AnimatedStrikethrough
-                  stringToStrike={task.task_name}
-                  isStruckOut={isComplete}
-                  isNotInitial={isNotInitial}
-                />
-              </p>
-            </div>
+              <AnimatedStrikethrough
+                stringToStrike={task.task_name}
+                isStruckOut={isComplete}
+                isNotInitial={isNotInitial}
+              />
+            </p>
 
             <small
               sx={{
