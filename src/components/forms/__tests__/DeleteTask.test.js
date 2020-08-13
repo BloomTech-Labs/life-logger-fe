@@ -1,6 +1,6 @@
 import React from 'react';
-import { render } from '../../../tests/contextProviderTestUtil';
-import { renderWithRouter } from '../../../tests/routerTestsUtil';
+import { render } from '../../../../tests/contextProviderTestUtil';
+import { renderWithRouter } from '../../../../tests/routerTestsUtil';
 import DeleteTask from '../DeleteTask';
 
 describe('Delete Task component tests', () => {
