@@ -2,7 +2,7 @@
 import { jsx } from 'theme-ui';
 import { Input, Label, Button } from '@theme-ui/components';
 import { useContext } from 'react';
-import TaskContext from '../context/TaskContext';
+import TaskContext from '../../context/TaskContext';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 
@@ -12,7 +12,6 @@ const EditTask = ({ task }) => {
     ...task,
     user_id: parseInt(localStorage.getItem('userId')),
   };
-
 
   const handleSubmit = (values) => {
     editTask(task.user_id, task.id, values);

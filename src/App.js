@@ -1,14 +1,15 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
-import SignUpForm from './components/SignupForm';
+import { Route, Switch } from 'react-router-dom';
+
+import SignUpForm from './components/forms/SignupForm';
 import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import LandingPage from './components/LandingPage';
-import LoginForm from './components/LoginForm';
+import LoginForm from './components/forms/LoginForm';
 import ViewTask from './components/ViewTask';
-import CreateTask from './components/CreateTask';
-import { Route, Switch } from 'react-router-dom';
+import CreateTask from './components/forms/CreateTask';
 import Header from './components/header/Header';
 
 const App = () => {

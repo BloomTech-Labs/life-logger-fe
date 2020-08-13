@@ -2,13 +2,12 @@
 import { jsx } from 'theme-ui';
 import { darken } from '@theme-ui/color';
 import { useState, useContext, Fragment } from 'react';
-import ViewTask from '../../ViewTask';
 import TaskContext from '../../../context/TaskContext';
-
-import EditTask from '../../EditTask';
-import DeleteTask from '../../DeleteTask';
 import PropTypes from 'prop-types';
 
+import EditTask from '../../forms/EditTask';
+import DeleteTask from '../../forms/DeleteTask';
+import ViewTask from '../../ViewTask';
 import TaskCheckmark from './TaskCheckmark';
 import Card from './Card';
 import AnimatedStrikethrough from './AnimatedStrikethrough';
