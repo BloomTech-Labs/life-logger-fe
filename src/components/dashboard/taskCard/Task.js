@@ -65,11 +65,14 @@ const Task = ({ task }) => {
         }}
       >
         <Card>
+          {/* checkmark to toggle whether or not the task is complete */}
           <TaskCheckmark
             toggleComplete={toggleComplete}
             isChecked={isComplete}
             id={task.id}
           />
+
+          {/* text content in the card */}
           <TaskCardContents
             task={task}
             isComplete={isComplete}
@@ -79,12 +82,15 @@ const Task = ({ task }) => {
         <button style={detailsButton} type="details" onClick={toggleViewTask}>
           Details
         </button>
+
+        {/* edit and delete icons "hiding" behind the card */}
         <HiddenIcons
           toggleIsEditModalOpen={toggleIsEditModalOpen}
           toggleIsDeleteModalOpen={toggleIsDeleteModalOpen}
           task={task}
         />
       </div>
+
       {isViewTaskOpen && (
         <Modal onClose={() => setIsViewTaskOpen(!isViewTaskOpen)}>
           <ViewTask task={task} />
