@@ -28,7 +28,7 @@ const Title = styled.h2`
 const Header = () => {
   return (
     <HeaderDiv data-testid="testtag">
-      <Logo src="/OrangeIcon.png" />
+      <Logo src="/LifeLoggerBlueLogo.png" />
       <BurgerMenu />
       <Title>Life Logger</Title>
     </HeaderDiv>
