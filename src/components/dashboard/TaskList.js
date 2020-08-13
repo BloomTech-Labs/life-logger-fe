@@ -33,19 +33,24 @@ const TaskList = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      sx={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+      }}
+    >
       <Search />
       <div
         sx={{
           // display: `grid`,
           gridTemplateColumns: [`1fr`, `minmax(auto, 400px)`],
           gridGap: `15px`,
-          position: "absolute",
-          zIndex: "-1",
-          width: "90%",
-          display: "flex",
-          flexDirection: "column",
-          alignContent: "center"
+          position: 'absolute',
+          zIndex: '-1',
+          width: '90%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignContent: 'center',
         }}
       >
         {tasks

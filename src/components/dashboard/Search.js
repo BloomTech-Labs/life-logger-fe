@@ -3,115 +3,87 @@ import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 
 import React from 'react';
-import ClickAwayListener from '@material-ui/core/ClickAwayListener';
-import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
 import TaskContext from '../../context/TaskContext';
-import MenuList from '@material-ui/core/MenuList';
 
-const FilterImg = styled.img`
-  height: 30px;
-  width: 30px;
+const SearchForm = styled.form`
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 1s;
+  width: 50px;
+  height: 50px;
+  background: white;
+  box-sizing: border-box;
+  border-radius: 25px;
+  border: 4px solid white;
+  padding: 5px;
+
+  &:hover {
+    width: 200px;
+    cursor: pointer;
+  }
 `;
 
-const Container = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  margin-top: -80px;
-  margin-right: 10px;
+const InputForm = styled.input`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 42.5px;
+  line-height: 30px;
+  outline: 0;
+  border: 0;
+  font-size: 1em;
+  border-radius: 20px;
+
+  &:hover {
+    display: block;
+  }
+`;
+
+const SearchImg = styled.img`
+  box-sizing: border-box;
+  background: white;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  color: #07051a;
+  text-align: center;
+  font-size: 1.2em;
+  transition: all 1s;
+
+  &:hover {
+    color: white;
+  }
 `;
 
 export default function Search() {
   const { searchTerm, editSearch } = React.useContext(TaskContext);
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef(null);
 
   const handleChange = (event) => {
     editSearch(event.target.value);
   };
 
-  const handleToggle = () => {
-    setOpen((prevOpen) => !prevOpen);
-  };
-
-  const handleClose = (event) => {
-    if (anchorRef.current && anchorRef.current.contains(event.target)) {
-      return;
-    }
-    setOpen(false);
-  };
-
-  function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-      setOpen(false);
-    }
-  }
-
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
-    if (prevOpen.current === true && open === false) {
-      anchorRef.current.focus();
-    }
-    prevOpen.current = open;
-  }, [open]);
-
   return (
-    <div>
-      <div>
-        <Container>
-          <FilterImg
-            ref={anchorRef}
-            aria-controls={open ? 'menu-list-grow' : undefined}
-            aria-haspopup="true"
-            onClick={handleToggle}
-            src="./search.png"
-          ></FilterImg>
-          <Popper
-            open={open}
-            role={undefined}
-            transition
-            disablePortal
-            style={{ marginTop: '85px', marginLeft: '60px', height: '30px' }}
-          >
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                style={{
-                  transformOrigin:
-                    placement === 'bottom' ? 'right top' : 'right bottom',
-                }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList
-                      style={{
-                        backgroundColor: 'white',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexDirection: 'column',
-                      }}
-                      autoFocusItem={open}
-                      id="menu-list-grow"
-                      onKeyDown={handleListKeyDown}
-                    >
-                      <form>
-                        <input
-                          type="search"
-                          placeholder="Search..."
-                          value={searchTerm}
-                          onChange={handleChange}
-                        />
-                      </form>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
-        </Container>
-      </div>
+    <div
+      sx={{
+        marginTop: '-240px',
+      }}
+    >
+      <SearchForm>
+        <InputForm
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <SearchImg src="/search.png" />
+      </SearchForm>
     </div>
   );
 }
