@@ -10,12 +10,12 @@ You can find the deployed project at [lyfe-logger-fe.herokuapp.com](https://lyfe
 
 Web PT 11 Labs Group
 
- |                                    Ana Carrillo, TL]                                    |                                    Jackie Atwood]                                    |                                      Wade Coplen]                                     |                                    | :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
+| Ana Carrillo, TL | Jackie Atwood | Wade Coplen | | :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
 | [<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3) | [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood) | [<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen) |
-|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)  | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen) |
-|                                     [Janessa Garrow]                                      |                                      [David Moates]                                      |
-|   [<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow)    | [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates) |
-|   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow)    | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen) |
+| Janessa Garrow | David Moates |
+| [<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow) | [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates) |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates) |
 
 <br/>
 
@@ -24,7 +24,7 @@ Web PT 7 Labs Group
 | :------: | :------: | :------: | :------: |
 |[<img src="./contributors/carl.png" width = "200" />](https://github.com/Carl-Stanley)| [<img src="./contributors/sagdi.png" width = "200" />](https://github.com/sagdish)|[<img src="./contributors/joseph.png" width = "200" />](https://github.com/JHaydenDev)|[<img src="./contributors/karen.png" width = "200" />](https://github.com/kly001)|
 |[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Carl-Stanley)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/sagdish)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JHaydenDev)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kly001)|
-|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com//)|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)        |
+|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com//)|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
 |[Eric Wise](https://github.com/eric-wise)|[Denvinn Magsino](https://github.com/denvinnpaolo)|[Dave Vazquez](https://github.com/dave-vazquez)|
 |[<img src="./contributors/eric.png" width = "200" />](https://github.com/eric-wise)|[<img src="./contributors/denvinn.png" width = "200" />](https://github.com/denvinnpaolo)|[<img src="./contributors/dave.png" width = "200" />](https://github.com/dave-vazquez)|
 |[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/eric-wise)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denvinnpaolo)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dave-vazquez)|
