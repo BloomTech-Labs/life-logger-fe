@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-// import { Link } from 'theme-ui';
+import { Button } from '@theme-ui/components';
 import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
@@ -28,7 +28,8 @@ const LandingPage = () => {
         src="/LifeLoggerBlueWords.png"
         alt="orange squares icon"
         sx={{
-          width: '30em',
+          width: '80%',
+          maxWidth: '560px',
           margin: '0 auto',
           height: 'auto',
         }}
@@ -37,38 +38,55 @@ const LandingPage = () => {
         sx={{
           display: 'flex',
           flexDirection: 'column',
-          width: '45%',
+          width: '50%',
+          maxWidth: '200px',
           margin: '0 auto',
           alignItems: 'center',
           marginTop: '50px',
         }}
       >
-        <Link to="/signup">
-          <button
+        <Link
+          to="/signup"
+          sx={{
+            width: '100%',
+            height: '48px',
+            marginBottom: '20px',
+            textDecoration: 'none',
+          }}
+        >
+          <Button
             sx={{
-              width: '327px',
+              width: '100%',
               height: '48px',
-              background: '#82D1FF',
-              color: '#002550',
-              fontSize: '30px',
-              marginBottom: '20px',
+              fontSize: '1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             Sign Up
-          </button>
+          </Button>
         </Link>
-        <Link to="/login">
-          <button
+        <Link
+          to="/login"
+          sx={{
+            width: '100%',
+            height: '48px',
+            textDecoration: 'none',
+          }}
+        >
+          <Button
             sx={{
-              width: '327px',
+              width: '100%',
               height: '48px',
-              background: '#82D1FF',
-              color: '#002550',
-              fontSize: '30px',
+              fontSize: '1.5rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
             }}
           >
             Sign In
-          </button>
+          </Button>
         </Link>
       </div>
     </div>
