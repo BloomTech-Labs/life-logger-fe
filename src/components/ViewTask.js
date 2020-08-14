@@ -1,51 +1,122 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import PropTypes from 'prop-types';
-import { AiTwotoneCalendar } from 'react-icons/ai';
+import { GrCalendar } from 'react-icons/gr';
+import { GrNotes } from 'react-icons/gr';
+import { GrTask } from 'react-icons/gr';
 
 function ViewTask({ task }) {
-  const h3Div = {
-    display: 'flex',
-  };
-  const AiTwoTone = {
-    paddingTop: '25px',
-  };
-  const dueDate = {
-    paddingLeft: '20px',
-    color: '#b6b6b6',
-  };
-  const dueDateActual = {
-    paddingLeft: '40px',
-    marginTop: '5px',
-  };
-  const categoryName = {
-    paddingLeft: '35px',
-  };
-
   return (
     <div>
-      <h1>{task.task_name}</h1>
-      <div sx={h3Div}>
-        <div sx={AiTwoTone}>
-          <AiTwotoneCalendar />
+      <h1
+        sx={{
+          //just messing around. Remove this is you do not like it.
+          borderBottomWidth: '1px',
+          borderBottomColor: 'black',
+          borderBottomStyle: 'solid',
+        }}
+      >
+        {task.task_name}
+      </h1>
+
+      <div
+        sx={{
+          display: 'flex',
+        }}
+      >
+        <div
+          sx={{
+            paddingTop: '1.5rem',
+          }}
+        >
+          <GrCalendar />
         </div>
 
         <div>
-          <h3 sx={dueDate}>Due Date</h3>
+          <h3
+            sx={{
+              paddingLeft: '1rem',
+              color: 'black',
+            }}
+          >
+            Due Date
+          </h3>
+          <p
+            sx={{
+              paddingLeft: '1rem',
+              marginTop: '5px',
+            }}
+          >
+            {task.due_date}
+          </p>
         </div>
       </div>
 
-      <p sx={dueDateActual}>{task.due_date}</p>
+      <div
+        sx={{
+          display: 'flex',
+        }}
+      >
+        <div
+          sx={{
+            paddingTop: '1.5rem',
+          }}
+        >
+          <GrTask />
+        </div>
 
-      <p>{task.category_name}</p>
-
-      <div>
-        <h3 sx={categoryName}>Category Name: </h3>
+        <div>
+          <h3
+            sx={{
+              paddingLeft: '1rem',
+              color: 'black',
+            }}
+          >
+            Category
+          </h3>
+          <p
+            sx={{
+              paddingLeft: '1rem',
+              marginTop: '5px',
+            }}
+          >
+            {task.category_name}
+          </p>
+        </div>
       </div>
 
-      <h3>Task Notes:</h3>
+      <div
+        sx={{
+          display: 'flex',
+        }}
+      >
+        <div
+          sx={{
+            paddingTop: '1.5rem',
+          }}
+        >
+          <GrNotes />
+        </div>
 
-      <p>{task.task_notes}</p>
+        <div>
+          <h3
+            sx={{
+              paddingLeft: '1rem',
+              color: 'black',
+            }}
+          >
+            Task Notes
+          </h3>
+          <p
+            sx={{
+              paddingLeft: '1rem',
+              marginTop: '5px',
+            }}
+          >
+            {task.task_notes}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
