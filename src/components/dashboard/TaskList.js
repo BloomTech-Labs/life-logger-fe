@@ -42,6 +42,7 @@ const TaskList = () => {
         width: '90%',
         flexDirection: 'column',
         alignContent: 'center',
+        marginBottom: '80px', // this margin solves the problem of the add new task floating button from covering the cards
       }}
     >
       {tasks
