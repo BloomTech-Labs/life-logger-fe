@@ -5,6 +5,7 @@ import TaskContext from '../../context/TaskContext';
 
 import TaskList from './TaskList';
 import Filter from './Filter';
+import Search from './Search';
 import Modal from '../dashboard/Modal';
 import FilterDropdown from '../dashboard/FilterDropdown';
 import Footer from '../Footer';
@@ -23,11 +24,13 @@ const Dashboard = () => {
         sx={{
           width: `100%`,
           padding: `0 1rem`,
+          display: `flex`,
+          justifyContent: `space-between`,
+          alignItems: `center`,
         }}
       >
-        {/* search bar here */}
-
         <Filter toggleFilterDropdown={toggleFilterMenu} />
+        <Search />
       </div>
       {isFilterMenuOpen && (
         <Modal
@@ -38,8 +41,8 @@ const Dashboard = () => {
             height: `auto`,
             borderRadius: `5px`,
             position: `absolute`,
-            top: `100px`,
-            right: `1rem`,
+            top: `120px`,
+            left: `1rem`,
           }}
         >
           <FilterDropdown editFilter={editFilter} filter={filter} />
@@ -49,7 +52,6 @@ const Dashboard = () => {
         sx={{
           width: `100%`,
           padding: `0 1rem`,
-          marginTop: '100px',
         }}
       >
         <TaskList />
