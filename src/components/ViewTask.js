@@ -8,16 +8,17 @@ import { GrTask } from 'react-icons/gr';
 function ViewTask({ task }) {
   return (
     <div>
-      <h1
+      <p
         sx={{
           //just messing around. Remove this is you do not like it.
           borderBottomWidth: '1px',
           borderBottomColor: 'black',
           borderBottomStyle: 'solid',
+          fontSize: '30px',
         }}
       >
         {task.task_name}
-      </h1>
+      </p>
 
       <div
         sx={{

@@ -7,7 +7,7 @@ import TaskContext from '../../context/TaskContext';
 
 const SearchForm = styled.form`
   position: relative;
-  top: 50%;
+  top: 25px;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 1s;
@@ -70,11 +70,7 @@ export default function Search() {
   };
 
   return (
-    <div
-      sx={{
-        marginTop: '-240px',
-      }}
-    >
+    <div>
       <SearchForm>
         <InputForm
           type="text"
