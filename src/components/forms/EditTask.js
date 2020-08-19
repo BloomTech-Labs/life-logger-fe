@@ -1,12 +1,17 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Input, Label, Button } from '@theme-ui/components';
+import { Input, Label, Button, Textarea } from '@theme-ui/components';
+import CustomCheckmark from '../CustomCheckmark';
 import { useContext } from 'react';
 import TaskContext from '../../context/TaskContext';
 import PropTypes from 'prop-types';
 import { Formik, Form } from 'formik';
 
-const EditTask = ({ task }) => {
+import { formatDate } from '../../utils/formatDate';
+
+const EditTask = ({ task, close, setClose }) => {
+  const todayDate = formatDate(new Date());
+
   const { editTask } = useContext(TaskContext);
   const initialValues = {
     ...task,
@@ -15,6 +20,7 @@ const EditTask = ({ task }) => {
 
   const handleSubmit = (values) => {
     editTask(task.user_id, task.id, values);
+    setClose(!close);
   };
 
   return (
@@ -30,55 +36,100 @@ const EditTask = ({ task }) => {
           }}
         >
           <div>
-            <Label>Task Name</Label>
+            <Label htmlFor="task_name">Title</Label>
             <Input
+              id="task_name"
               type="text"
               name="task_name"
               value={values.task_name}
               onChange={handleChange}
+              placeholder="Task name"
             />
           </div>
           <div>
-            <Label>Category Name</Label>
-            <Input
-              type="text"
-              name="category_name"
-              value={values.category_name}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Due Date</Label>
-            <Input
-              type="date"
-              name="due_date"
-              required="required"
-              value={values.due_date}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Label>Notes</Label>
-            <Input
+            <Label
+              htmlFor="task_notes"
+              sx={{
+                marginBottom: `0.5rem`,
+              }}
+            >
+              Description
+            </Label>
+            <Textarea
+              id="task_notes"
               type="text"
               name="task_notes"
               value={values.task_notes}
               onChange={handleChange}
             />
           </div>
-
           <div>
-            <Label>Task Completed</Label>
+            <Label htmlFor="due_date">Due Date</Label>
+            <Input
+              id="due_date"
+              type="date"
+              name="due_date"
+              required="required"
+              min={todayDate}
+              value={values.due_date}
+              onChange={handleChange}
+              sx={{
+                fontFamily: `inherit`,
+              }}
+            />
+          </div>
+          <div>
+            <Label htmlFor="category_name">Category Name</Label>
+            <Input
+              id="category_name"
+              type="text"
+              name="category_name"
+              value={values.category_name}
+              onChange={handleChange}
+            />
+          </div>
+          <div
+            sx={{
+              display: `flex`,
+              alignItems: `center`,
+              position: `relative`,
+            }}
+          >
             <input
+              id="is_complete"
               type="checkbox"
               name="is_complete"
               value={values.is_complete}
               onChange={handleChange}
+              sx={{
+                position: `absolute`,
+                left: `-100vw`, // "hide" checkbox off screen
+              }}
             />
+            <Label
+              htmlFor="is_complete"
+              sx={{
+                display: `flex`,
+                alignItems: `center`,
+              }}
+            >
+              <CustomCheckmark
+                isChecked={values.is_complete}
+                extraStyles={{
+                  marginRight: `1rem`,
+                }}
+              />
+              Task Completed
+            </Label>
           </div>
-          <div>
-            <Button type="submit">Create Task</Button>
-          </div>
+          <Button
+            type="submit"
+            sx={{
+              marginTop: `2rem`,
+            }}
+          >
+            Edit Task
+          </Button>
         </Form>
       )}
     </Formik>
@@ -87,6 +138,8 @@ const EditTask = ({ task }) => {
 // for eslint props validation
 EditTask.propTypes = {
   task: PropTypes.object,
+  close: PropTypes.object,
+  setClose: PropTypes.object,
 };
 
 export default EditTask;
