@@ -3,34 +3,35 @@ import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import BurgerMenu from '../BurgerMenu';
 
-const HeaderDiv = styled.div`
-  background: #002550;
-  height: 10vh;
-  display: flex;
-  justify-content: flex-start;
+const HeaderDiv = styled.header`
+  ${({ theme }) => `
+    background: ${theme.colors.secondary};
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+  `}
 `;
 
 const Logo = styled.img`
   width: 40px;
   height: 50px;
-  margin-left: 15px;
-  margin-top: 15px;
 `;
 
 const Title = styled.h2`
-  color: white;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  margin-left: 130px;
+  ${({ theme }) => `
+    color: ${theme.colors.background};
+  `}
 `;
 
 const Header = () => {
   return (
     <HeaderDiv data-testid="testtag">
       <Logo src="/LifeLoggerBlueLogo.png" />
-      <BurgerMenu />
       <Title>Life Logger</Title>
+
+      <BurgerMenu />
     </HeaderDiv>
   );
 };
