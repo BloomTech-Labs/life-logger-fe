@@ -5,11 +5,9 @@ import SideNav from './SideNav';
 const StyledBurger = styled.div`
   width: 2rem;
   height: 2rem;
-  position: fixed;
-  top: 25px;
-  right: 20px;
-  z-index: 20;
   display: none;
+  z-index: 20;
+
   @media (max-width: 768px) {
     display: flex;
     justify-content: space-around;
