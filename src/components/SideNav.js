@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
+import PropTypes from 'prop-types';
 
 const Ul = styled.ul`
+  ${({ open, theme }) => `
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -11,13 +13,15 @@ const Ul = styled.ul`
   }
   a {
     text-decoration: none;
-    color: white;
+    color: ${theme.colors.background};
+    font-size: 1.25rem;
   }
+
   @media (max-width: 768px) {
     flex-flow: column nowrap;
-    background-color: #0D2538;
+    background-color: ${theme.colors.secondary};
     position: fixed;
-    transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
+    transform: ${open ? 'translateX(0)' : 'translateX(100%)'};
     top: 0;
     right: 0;
     z-index: 2;
@@ -26,19 +30,30 @@ const Ul = styled.ul`
     padding-top: 3.5rem;
     transition: transform 0.3s ease-in-out;
     li {
-      color: #fff;
+      color: ${theme.colors.background};
     }
-  }
+  }`}
 `;
 
 const SideNav = ({ open }) => {
   return (
     <Ul open={open}>
-      <li><a href="/">Home</a></li>
-      <li><a href="/">About Us</a></li>
-      <li><a href="/">Log Out</a></li>
+      <li>
+        <a href="/">Home</a>
+      </li>
+      <li>
+        <a href="/">About Us</a>
+      </li>
+      <li>
+        <a href="/">Log Out</a>
+      </li>
     </Ul>
-  )
-}
+  );
+};
+
+// for eslint props validation
+SideNav.propTypes = {
+  open: PropTypes.bool,
+};
 
 export default SideNav;
