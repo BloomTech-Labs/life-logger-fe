@@ -43,17 +43,9 @@ const TaskProvider = ({ children }) => {
         `https://lyfe-logger-be.herokuapp.com/api/tasks/updateTask/user=${userId}/${taskId}`,
         updatedTask
       );
+
+      // refetch tasks to update state
       getTasks(userId);
-
-      // const updatedTasks = [...tasks];
-      // const taskIndex = tasks.findIndex((task) => task.id === taskId);
-
-      // updatedTasks[taskIndex] = {
-      //   ...updatedTasks[taskIndex],
-      //   ...taskRes.data[0],
-      // };
-
-      // setTasks(updatedTasks);
     } catch (err) {
       console.log('Error updating task: ', err);
     }
