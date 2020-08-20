@@ -6,6 +6,9 @@ import { GrNotes } from 'react-icons/gr';
 import { GrTask } from 'react-icons/gr';
 
 function ViewTask({ task }) {
+  const taskDueDateObj = new Date(task.due_date);
+  const dueDate = taskDueDateObj.toLocaleDateString();
+
   return (
     <div>
       <p
@@ -48,7 +51,7 @@ function ViewTask({ task }) {
               marginTop: '5px',
             }}
           >
-            {task.due_date}
+            {dueDate}
           </p>
         </div>
       </div>
