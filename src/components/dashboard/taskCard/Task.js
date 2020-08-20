@@ -24,10 +24,12 @@ const Task = ({ task }) => {
   const [isViewTaskOpen, setIsViewTaskOpen] = useState(false);
 
   const toggleComplete = () => {
-    // make PUT request to backend to update `is_complete` for this task
-    // need to pass in task id
-    editTask(localStorage.getItem('userId'), task.id, {
-      id: task.id,
+    // convert userId from localStorage to an int (comes back as a string originally)
+    const userId = parseInt(localStorage.getItem('userId'));
+
+    // need to pass in whole task with all of the keys and values, regardless of how many of them are actually being changed
+    editTask(userId, task.id, {
+      ...task,
       is_complete: !isComplete,
     });
 
