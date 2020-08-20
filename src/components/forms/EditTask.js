@@ -12,6 +12,9 @@ import { formatDate } from '../../utils/formatDate';
 const EditTask = ({ task, close, setClose }) => {
   const todayDate = formatDate(new Date());
 
+  const dueDateObj = new Date(task.due_date);
+  const dueDate = formatDate(dueDateObj);
+
   const { editTask } = useContext(TaskContext);
   const initialValues = {
     ...task,
@@ -71,7 +74,7 @@ const EditTask = ({ task, close, setClose }) => {
               name="due_date"
               required="required"
               min={todayDate}
-              value={values.due_date}
+              value={dueDate}
               onChange={handleChange}
               sx={{
                 fontFamily: `inherit`,
@@ -138,8 +141,8 @@ const EditTask = ({ task, close, setClose }) => {
 // for eslint props validation
 EditTask.propTypes = {
   task: PropTypes.object,
-  close: PropTypes.object,
-  setClose: PropTypes.object,
+  close: PropTypes.bool,
+  setClose: PropTypes.func,
 };
 
 export default EditTask;
