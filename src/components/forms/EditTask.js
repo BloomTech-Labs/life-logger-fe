@@ -18,6 +18,7 @@ const EditTask = ({ task, close, setClose }) => {
   const { editTask } = useContext(TaskContext);
   const initialValues = {
     ...task,
+    due_date: dueDate,
     user_id: parseInt(localStorage.getItem('userId')),
   };
 
@@ -74,7 +75,7 @@ const EditTask = ({ task, close, setClose }) => {
               name="due_date"
               required="required"
               min={todayDate}
-              value={dueDate}
+              value={values.due_date}
               onChange={handleChange}
               sx={{
                 fontFamily: `inherit`,
