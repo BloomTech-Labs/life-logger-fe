@@ -52,7 +52,7 @@ const CreateTask = ({ history }) => {
                 id="task_name"
                 type="text"
                 name="task_name"
-                value={values.taskNotes}
+                value={values.task_name}
                 onChange={handleChange}
                 placeholder="Task name"
               />
@@ -71,7 +71,7 @@ const CreateTask = ({ history }) => {
                 id="task_notes"
                 type="text"
                 name="task_notes"
-                value={values.taskNotes}
+                value={values.task_notes}
                 onChange={handleChange}
                 placeholder="Optional notes about your task"
               />
@@ -85,7 +85,7 @@ const CreateTask = ({ history }) => {
                 name="due_date"
                 required="required"
                 min={todayDate}
-                value={values.dueDate}
+                value={values.due_date}
                 onChange={handleChange}
                 sx={{
                   fontFamily: `inherit`,
@@ -99,7 +99,7 @@ const CreateTask = ({ history }) => {
                 id="category_name"
                 type="text"
                 name="category_name"
-                value={values.taskNotes}
+                value={values.category_name}
                 onChange={handleChange}
                 placeholder="Home, Work, etc."
               />

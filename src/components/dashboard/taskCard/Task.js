@@ -103,7 +103,12 @@ const Task = ({ task }) => {
 
       {isEditModalOpen && (
         <Modal onClose={() => setIsEditModalOpen(!isEditModalOpen)}>
-          <EditTask key={task.id} task={task} />
+          <EditTask
+            key={task.id}
+            task={task}
+            close={isEditModalOpen}
+            setClose={setIsEditModalOpen}
+          />
         </Modal>
       )}
 
