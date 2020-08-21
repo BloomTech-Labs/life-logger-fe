@@ -15,22 +15,14 @@ const HeaderDiv = styled.header`
 `;
 
 const Logo = styled.img`
-  width: 40px;
-  height: 50px;
-`;
-
-const Title = styled.h2`
-  ${({ theme }) => `
-    color: ${theme.colors.background};
-  `}
+  width: 200px;
+  // height: 50px;
 `;
 
 const Header = () => {
   return (
     <HeaderDiv data-testid="testtag">
-      <Logo src="/LifeLoggerBlueLogo.png" />
-      <Title>Life Logger</Title>
-
+      <Logo src="/LifeLoggerBlue.png" />
       <BurgerMenu />
     </HeaderDiv>
   );

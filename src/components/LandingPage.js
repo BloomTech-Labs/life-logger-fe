@@ -20,6 +20,7 @@ const LandingPage = () => {
       <h1
         sx={{
           textAlign: 'center',
+          display: ['inline-block', 'inline-block', 'none'],
         }}
       >
         Welcome to
@@ -32,14 +33,15 @@ const LandingPage = () => {
           maxWidth: '560px',
           margin: '0 auto',
           height: 'auto',
+          display: ['inline-block', 'inline-block', 'none'],
         }}
       />
       <div
         sx={{
           display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          maxWidth: '200px',
+          flexDirection: ['column', 'column', 'row'],
+          width: ['100%', '100%', '20rem'],
+          maxWidth: '300px',
           margin: '0 auto',
           alignItems: 'center',
           marginTop: '50px',
@@ -50,8 +52,8 @@ const LandingPage = () => {
           sx={{
             width: '100%',
             height: '48px',
-            marginBottom: '20px',
             textDecoration: 'none',
+            marginBottom: '10px',
           }}
         >
           <Button
@@ -62,6 +64,7 @@ const LandingPage = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              bg: ['primary', 'primary', 'white'],
             }}
           >
             Sign Up
@@ -73,6 +76,7 @@ const LandingPage = () => {
             width: '100%',
             height: '48px',
             textDecoration: 'none',
+            marginBottom: '10px',
           }}
         >
           <Button
@@ -83,6 +87,7 @@ const LandingPage = () => {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              bg: ['primary', 'primary', 'white'],
             }}
           >
             Sign In
