@@ -20,7 +20,7 @@ jobs:
       - uses: paambaati/codeclimate-action@v2.4.0
         env:
           CI: true
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID}}
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageCommand: npm test -- --coverage --watchAll=false
           coverageLocations: 'client/coverage/lcov.info:lcov'
