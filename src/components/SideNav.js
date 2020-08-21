@@ -42,7 +42,7 @@ const SideNav = ({ open }) => {
         <a href="/">Home</a>
       </li>
       <li>
-        <a href="/">About Us</a>
+        <a href="/aboutus">About Us</a>
       </li>
       <li>
         <a href="/">Log Out</a>

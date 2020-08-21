@@ -25,7 +25,6 @@ const App = () => {
         <Route path="/login" component={LoginForm} />
         <Route path="/viewtask" component={ViewTask} />
         <Route path="/createtask" component={CreateTask} />
-        <Route path="/aboutus" component={AboutUs} />
       </Switch>
     </Fragment>
   );
