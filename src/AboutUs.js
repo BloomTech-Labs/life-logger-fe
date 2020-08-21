@@ -8,7 +8,7 @@ function AboutUs() {
             <h1 sx={{
                 textAlign: 'center'
             }}>
-                About Us
+                About LifeLogger
             </h1>
                 <p sx={{
                     paddingLeft: '20%',
