@@ -46,8 +46,8 @@ function AboutUs() {
       >
         We inherited Life Logger from a previous labs team. Although we did not
         start from scratch, the advantages afforded to us by working on other
-        developers code, has been a valuable learning tool. From analyzing a
-        front-end and making UX/UI decisions, to reconfiguring the back-end to
+        developers&apos; code, has been a valuable learning tool. From analyzing
+        a front-end and making UX/UI decisions, to reconfiguring the back-end to
         handle the new front-end...starting from scratch may not have been as
         beneficial. This team-dynamic also caused some interpersonal conflict.
         This is bound to happen in every team-based environment. Learning how to
