@@ -24,10 +24,9 @@ Web PT 11 Labs Group
 | :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
 | [<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3) | [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood) | [<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen) | [<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow) |
 |  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)  | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow) |
-|                                       David Moates                                        |
-
-| [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates)  
-| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates)
+|                                       David Moates                                        |                                                                                        |                                                                                          |
+| [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates)  |                                                                                        |                                                                                          |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates)  |                                                                                        |                                                                                          |
 
 <br/>
 
