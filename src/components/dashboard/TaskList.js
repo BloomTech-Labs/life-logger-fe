@@ -29,7 +29,7 @@ const TaskList = () => {
     const userId = window.localStorage.getItem('userId');
 
     getTasks(userId);
-  }, []);
+  }, [getTasks]);
 
   return (
     <div
