@@ -8,7 +8,6 @@ import PrivateRoute from './PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
 import LandingPage from './components/LandingPage';
 import LoginForm from './components/forms/LoginForm';
-import ViewTask from './components/ViewTask';
 import CreateTask from './components/forms/CreateTask';
 import AboutUs from './AboutUs';
 import Header from './components/header/Header';
@@ -23,9 +22,7 @@ const App = () => {
         <PrivateRoute exact path="/dashboard" component={Dashboard} />
         <Route path="/signup" component={SignUpForm} />
         <Route path="/login" component={LoginForm} />
-        <Route path="/viewtask" component={ViewTask} />
-        <Route path="/createtask" component={CreateTask} />
-        <Route path="/aboutus" component={AboutUs} />
+        <PrivateRoute path="/createtask" component={CreateTask} />
       </Switch>
     </Fragment>
   );
