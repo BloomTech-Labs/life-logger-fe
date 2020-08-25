@@ -1,7 +1,10 @@
 name: build
 
-on: [push, pull_request]
-
+on:
+  pull_request:
+  push:
+    branches:
+      - main
 jobs:
   coverage:
     name: Test and publish test coverage
@@ -21,3 +24,4 @@ jobs:
         with:
           coverageCommand: npm test -- --coverage --watchAll=false
           coverageLocations: 'client/coverage/lcov.info:lcov'
+          debug: true
