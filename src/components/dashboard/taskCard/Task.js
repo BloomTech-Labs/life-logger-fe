@@ -104,10 +104,14 @@ const Task = ({ task }) => {
       )}
 
       {isDeleteModalOpen && (
-        <Modal onClose={() => setIsDeleteModalOpen(!isDeleteModalOpen)}>
-          <div>
-            <DeleteTask key={task.id} task={task} />
-          </div>
+        <Modal
+          onClose={() => setIsDeleteModalOpen(!isDeleteModalOpen)}
+          showX={false}
+          overrideStyles={{
+            height: `auto`,
+          }}
+        >
+          <DeleteTask key={task.id} task={task} />
         </Modal>
       )}
     </Fragment>
