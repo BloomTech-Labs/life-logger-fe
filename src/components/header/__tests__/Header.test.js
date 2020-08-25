@@ -7,5 +7,5 @@ import Header from '../Header.js';
 test('is here', () => {
   const { getByTestId } = render(<Header />);
 
-  expect(getByTestId('testtag')).toHaveTextContent('Life Logger');
+  expect(getByTestId('testtag')).toHaveTextContent('Home');
 });
