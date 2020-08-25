@@ -19,13 +19,13 @@ const DeleteTask = ({ task }) => {
     <form
       onSubmit={handleSubmit}
       sx={{
-        width: `300px`,
-        margin: `0 auto`,
+        width: `100%`,
         display: `grid`,
         gridGap: `2px`,
+        textAlign: `center`,
       }}
     >
-      <h1>Are you sure want to delete this task?</h1>
+      <h2>Are you sure want to delete this task?</h2>
       <Button type="submit">Yes</Button>
     </form>
   );
