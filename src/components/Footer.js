@@ -1,8 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
+import PropTypes from 'prop-types';
+
 import AddTaskButton from './AddTaskButton.js';
 
-const Footer = () => {
+const Footer = ({ toggleCreateTaskForm }) => {
   return (
     <footer
       sx={{
@@ -16,9 +18,13 @@ const Footer = () => {
         bottom: '0',
       }}
     >
-      <AddTaskButton />
+      <AddTaskButton toggleCreateTaskForm={toggleCreateTaskForm} />
     </footer>
   );
+};
+
+Footer.propTypes = {
+  toggleCreateTaskForm: PropTypes.func,
 };
 
 export default Footer;
