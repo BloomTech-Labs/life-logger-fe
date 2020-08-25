@@ -8,14 +8,20 @@ import Filter from './Filter';
 import Search from './Search';
 import Modal from '../dashboard/Modal';
 import FilterDropdown from '../dashboard/FilterDropdown';
+import CreateTask from '../forms/CreateTask';
 import Footer from '../Footer';
 
 const Dashboard = () => {
   const { filter, editFilter } = useContext(TaskContext);
   const [isFilterMenuOpen, setIsFilterMenuOpen] = useState(false);
+  const [isCreateTaskFormOpen, setIsCreateTaskFormOpen] = useState(false);
 
   const toggleFilterMenu = () => {
     setIsFilterMenuOpen(!isFilterMenuOpen);
+  };
+
+  const toggleCreateTaskForm = () => {
+    setIsCreateTaskFormOpen(!isCreateTaskFormOpen);
   };
 
   return (
@@ -48,6 +54,12 @@ const Dashboard = () => {
           <FilterDropdown editFilter={editFilter} filter={filter} />
         </Modal>
       )}
+
+      {isCreateTaskFormOpen && (
+        <Modal onClose={toggleCreateTaskForm}>
+          <CreateTask toggleCreateTaskForm={toggleCreateTaskForm} />
+        </Modal>
+      )}
       <div
         sx={{
           width: `100%`,
@@ -56,7 +68,7 @@ const Dashboard = () => {
       >
         <TaskList />
       </div>
-      <Footer />
+      <Footer toggleCreateTaskForm={toggleCreateTaskForm} />
     </Fragment>
   );
 };
