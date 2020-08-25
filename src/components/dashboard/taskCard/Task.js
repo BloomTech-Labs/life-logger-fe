@@ -55,7 +55,7 @@ const Task = ({ task }) => {
           position: `relative`,
         }}
       >
-        <Card>
+        <Card toggleViewTask={toggleViewTask}>
           {/* checkmark to toggle whether or not the task is complete */}
           <TaskCheckmark
             toggleComplete={toggleComplete}
@@ -69,24 +69,13 @@ const Task = ({ task }) => {
             isComplete={isComplete}
             isNotInitial={isNotInitial}
           />
-          <button
-            type="details"
-            onClick={toggleViewTask}
+
+          {/* just for some UX to help the user know to swipe the card */}
+          <FiChevronRight
             sx={{
-              width: `100%`,
-              height: `100%`,
-              display: `flex`,
-              alignItems: `center`,
-              justifyContent: `center`,
-              border: `none`,
-              bg: `background`,
-              padding: `0`,
               fontSize: `1.5rem`,
-              cursor: `pointer`,
             }}
-          >
-            <FiChevronRight />
-          </button>
+          />
         </Card>
 
         {/* edit and delete icons "hiding" behind the card */}
