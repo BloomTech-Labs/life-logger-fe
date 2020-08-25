@@ -5,12 +5,11 @@ import { Input, Label, Button, Textarea } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
 import { axiosWithAuth } from '../../utils/axiosWithAuth';
 import { formatDate } from '../../utils/formatDate';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import PropTypes from 'prop-types';
 
-// import Navigation from './Navigation';
 import CustomCheckmark from '../CustomCheckmark';
 
-const CreateTask = ({ history }) => {
+const CreateTask = ({ toggleCreateTaskForm }) => {
   const todayDate = formatDate(new Date()); // for min value for due date input
 
   const initialValues = {
@@ -27,7 +26,7 @@ const CreateTask = ({ history }) => {
     axiosWithAuth()
       .post(`https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`, values)
       .then(() => {
-        history.push('/dashboard'); // go back to dashboard page after successful task creation
+        toggleCreateTaskForm();
       })
       .catch((err) => console.error('Error creating new task', err));
   };
@@ -155,7 +154,7 @@ const CreateTask = ({ history }) => {
 };
 
 CreateTask.propTypes = {
-  history: ReactRouterPropTypes.history,
+  toggleCreateTaskForm: PropTypes.func,
 };
 
 export default CreateTask;
