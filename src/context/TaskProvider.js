@@ -39,29 +39,20 @@ const TaskProvider = ({ children }) => {
 
   const editTask = async (userId, taskId, updatedTask) => {
     try {
-      const taskRes = await axiosWithAuth().put(
+      await axiosWithAuth().put(
         `https://lyfe-logger-be.herokuapp.com/api/tasks/updateTask/user=${userId}/${taskId}`,
         updatedTask
       );
 
-      const updatedTasks = [...tasks];
-      const taskIndex = tasks.findIndex((task) => task.id === taskId);
-
-      updatedTasks[taskIndex] = {
-        ...updatedTasks[taskIndex],
-        ...taskRes.data[0],
-      };
-
-      setTasks(updatedTasks);
+      // refetch tasks to update state
+      getTasks(userId);
     } catch (err) {
       console.log('Error updating task: ', err);
     }
   };
 
-
   const deleteTask = async (userId, taskId) => {
     try {
-
       await axiosWithAuth().delete(
         `https://lyfe-logger-be.herokuapp.com/api/tasks/deleteTask/user=${userId}/${taskId}`
       );
@@ -75,7 +66,16 @@ const TaskProvider = ({ children }) => {
     }
   };
 
-  const taskState = { tasks, filter, editFilter, getTasks, editTask, searchTerm, editSearch, deleteTask };
+  const taskState = {
+    tasks,
+    filter,
+    editFilter,
+    getTasks,
+    editTask,
+    searchTerm,
+    editSearch,
+    deleteTask,
+  };
 
   return (
     <TaskContext.Provider value={taskState}>{children}</TaskContext.Provider>

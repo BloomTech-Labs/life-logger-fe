@@ -1,11 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
 import { useContext, useEffect } from 'react';
-import Search from './Search';
 
 import TaskContext from '../../context/TaskContext';
 
-import Task from './Task';
+import Task from './taskCard/Task';
 
 const TaskList = () => {
   const { tasks, filter, getTasks, searchTerm } = useContext(TaskContext);
@@ -33,22 +32,25 @@ const TaskList = () => {
   }, []);
 
   return (
-    <div>
-      <Search />
-      <div
-        sx={{
-          display: `grid`,
-          gridTemplateColumns: [`1fr`, `minmax(auto, 400px)`],
-          gridGap: `15px`,
-        }}
-      >
-        {tasks
-          .filter(filterTasks)
-          .filter(searchingFor)
-          .map((task) => (
-            <Task key={task.id} task={task} />
-          ))}
-      </div>
+    <div
+      sx={{
+        display: `grid`,
+        gridTemplateColumns: [`1fr`, `minmax(auto, 400px)`],
+        gridGap: `15px`,
+        position: 'absolute',
+        zIndex: '-1',
+        width: '90%',
+        flexDirection: 'column',
+        alignContent: 'center',
+        marginBottom: '80px', // this margin solves the problem of the add new task floating button from covering the cards
+      }}
+    >
+      {tasks
+        .filter(filterTasks)
+        .filter(searchingFor)
+        .map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
     </div>
   );
 };

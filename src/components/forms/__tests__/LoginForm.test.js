@@ -1,4 +1,4 @@
-import { renderWithRouter } from '../../../tests/routerTestsUtil';
+import { renderWithRouter } from '../../../../tests/routerTestsUtil';
 import LoginForm from '../LoginForm';
 
 describe('LoginForm component tests', () => {

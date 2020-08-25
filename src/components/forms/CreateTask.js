@@ -3,12 +3,12 @@ import { jsx } from 'theme-ui';
 import { Fragment } from 'react';
 import { Input, Label, Button, Textarea } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
-import { axiosWithAuth } from '../utils/axiosWithAuth';
-import { formatDate } from '../utils/formatDate';
+import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import { formatDate } from '../../utils/formatDate';
 import ReactRouterPropTypes from 'react-router-prop-types';
 
 // import Navigation from './Navigation';
-import CustomCheckmark from './CustomCheckmark';
+import CustomCheckmark from '../CustomCheckmark';
 
 const CreateTask = ({ history }) => {
   const todayDate = formatDate(new Date()); // for min value for due date input
@@ -52,7 +52,7 @@ const CreateTask = ({ history }) => {
                 id="task_name"
                 type="text"
                 name="task_name"
-                value={values.taskNotes}
+                value={values.task_name}
                 onChange={handleChange}
                 placeholder="Task name"
               />
@@ -71,7 +71,7 @@ const CreateTask = ({ history }) => {
                 id="task_notes"
                 type="text"
                 name="task_notes"
-                value={values.taskNotes}
+                value={values.task_notes}
                 onChange={handleChange}
                 placeholder="Optional notes about your task"
               />
@@ -85,7 +85,7 @@ const CreateTask = ({ history }) => {
                 name="due_date"
                 required="required"
                 min={todayDate}
-                value={values.dueDate}
+                value={values.due_date}
                 onChange={handleChange}
                 sx={{
                   fontFamily: `inherit`,
@@ -99,7 +99,7 @@ const CreateTask = ({ history }) => {
                 id="category_name"
                 type="text"
                 name="category_name"
-                value={values.taskNotes}
+                value={values.category_name}
                 onChange={handleChange}
                 placeholder="Home, Work, etc."
               />
