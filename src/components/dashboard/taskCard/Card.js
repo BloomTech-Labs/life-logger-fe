@@ -4,9 +4,10 @@ import { Card as ThemeCard } from '@theme-ui/components';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
-const Card = ({ children }) => {
+const Card = ({ toggleViewTask, children }) => {
   return (
     <motion.div
+      onClick={() => toggleViewTask()}
       drag="x"
       dragConstraints={{ left: -100, right: 0 }}
       sx={{
@@ -49,6 +50,7 @@ const Card = ({ children }) => {
 // PropTypes.node means it can be of any type
 // PropTypes.oneOfType here is saying it's either going to be a single thing of any one type OR an array of things of any type
 Card.propTypes = {
+  toggleViewTask: PropTypes.func,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,
