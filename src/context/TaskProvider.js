@@ -37,6 +37,20 @@ const TaskProvider = ({ children }) => {
     }
   };
 
+  const createTask = async (newTask, userId) => {
+    try {
+      await axiosWithAuth().post(
+        `https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`,
+        newTask
+      );
+
+      getTasks(userId);
+    } catch (err) {
+      console.log(err);
+      console.log('Error creating new task: ', err);
+    }
+  };
+
   const editTask = async (userId, taskId, updatedTask) => {
     try {
       await axiosWithAuth().put(
@@ -71,6 +85,7 @@ const TaskProvider = ({ children }) => {
     filter,
     editFilter,
     getTasks,
+    createTask,
     editTask,
     searchTerm,
     editSearch,
