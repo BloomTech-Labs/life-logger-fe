@@ -23,7 +23,8 @@ const Task = ({ task }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isViewTaskOpen, setIsViewTaskOpen] = useState(false);
 
-  const toggleComplete = () => {
+  const toggleComplete = (e) => {
+    e.stopPropagation();
     // convert userId from localStorage to an int (comes back as a string originally)
     const userId = parseInt(localStorage.getItem('userId'));
 
