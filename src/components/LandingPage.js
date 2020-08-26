@@ -39,7 +39,7 @@ const LandingPage = () => {
       <div
         sx={{
           display: 'flex',
-          flexDirection: ['column', 'column', 'row'],
+          flexDirection: ['column', 'column', 'column'],
           width: ['100%', '100%', '20rem'],
           maxWidth: '300px',
           margin: '0 auto',
@@ -47,18 +47,26 @@ const LandingPage = () => {
           marginTop: '50px',
         }}
       >
+        <p sx={{ display: ['none', 'none', 'flex'], width: '150%' }}>
+          Life Logger seeks to help consumers track what is important to them.
+          Its main focus is on helping consumers track irregularly recurring
+          tasks. For example, oil changes or tire rotations. Air conditioning
+          maintenance or exterminator visits. We all have these expenses and
+          they never happen at the same time every month or year, which can make
+          predicting them, difficult.
+        </p>
         <Link
           to="/signup"
           sx={{
             width: '100%',
             height: '48px',
-            textDecoration: 'none',
             marginBottom: '10px',
+            textDecoration: ['none', 'none', 'underline'],
           }}
         >
           <Button
             sx={{
-              width: '100%',
+              width: ['100%', '100%', '80%'],
               height: '48px',
               fontSize: '1.5rem',
               display: 'flex',
@@ -75,13 +83,13 @@ const LandingPage = () => {
           sx={{
             width: '100%',
             height: '48px',
-            textDecoration: 'none',
+            textDecoration: ['none', 'none', 'underline'],
             marginBottom: '10px',
           }}
         >
           <Button
             sx={{
-              width: '100%',
+              width: ['100%', '100%', '80%'],
               height: '48px',
               fontSize: '1.5rem',
               display: 'flex',
