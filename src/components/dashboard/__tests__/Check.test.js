@@ -2,14 +2,10 @@
 import { jsx } from 'theme-ui';
 import { render } from '../../../../tests/themeProviderTestsUtil';
 
-import Card from '../Card';
+import Check from '../Check';
 
-describe('Card tests', () => {
+describe('Check tests', () => {
   it('renders without crashing', () => {
-    render(
-      <Card>
-        <p>I am test content</p>
-      </Card>
-    );
+    render(<Check />);
   });
 });

@@ -8,26 +8,29 @@ You can find the deployed project at [lyfe-logger-fe.herokuapp.com](https://lyfe
 
 ## Contributors
 
-<!-- Previous Labs Group
- |[Carl Stanley](https://github.com/Carl-Stanley)|[Sagdi Formanov](https://github.com/sagdish)|[Joseph Hayden](https://github.com/JHaydenDev)|[Karen Yearwood](https://github.com/kly001) |
-| :------: | :------: | :------: | :------: |
-|[<img src="./contributors/carl.png" width = "200" />](https://github.com/Carl-Stanley)| [<img src="./contributors/sagdi.png" width = "200" />](https://github.com/sagdish)|[<img src="./contributors/joseph.png" width = "200" />](https://github.com/JHaydenDev)|[<img src="./contributors/karen.png" width = "200" />](https://github.com/kly001)|
-|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Carl-Stanley)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/sagdish)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JHaydenDev)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kly001)|
-|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com//)|[<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)        |
-|[Eric Wise](https://github.com/eric-wise)|[Denvinn Magsino](https://github.com/denvinnpaolo)|[Dave Vazquez](https://github.com/dave-vazquez)|
-|[<img src="./contributors/eric.png" width = "200" />](https://github.com/eric-wise)|[<img src="./contributors/denvinn.png" width = "200" />](https://github.com/denvinnpaolo)|[<img src="./contributors/dave.png" width = "200" />](https://github.com/dave-vazquez)|
-|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/eric-wise)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denvinnpaolo)|[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dave-vazquez)|
-|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)|[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/)| -->
+Web PT 11 Labs Group
 
-|                                    [Ana Carrillo, TL]                                     |                                    [Jackie Atwood]                                     |                                      [Wade Coplen]                                       |                                    [Devin Dias]                                     |
-| :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
-| [<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3) | [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood) | [<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen) |  [<img src="./contributors/dDias.png" width = "200" />](https://github.com/devin5)  |
-|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)  | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/devin5) |
-|                                     [Janessa Garrow]                                      |                                     [Robert Kulp]                                      |                                      [David Moates]                                      |
-|   [<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow)    |  [<img src="./contributors/rKulp.png" width = "200" />](https://github.com/rabithole)  | [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates) |
-|   [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow)    | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/rabithole) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates) |
+|                                     Ana Carrillo, TL                                      |                                     Jackie Atwood                                      |                                       Wade Coplen                                        |                                    Janessa Garrow                                    |
+| :---------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------: |
+| [<img src="./contributors/aCarrillo.png" width = "200" />](https://github.com/acarrillo3) | [<img src="./contributors/jAtwood.png" width = "200" />](https://github.com/JaxAtwood) | [<img src="./contributors/wCoplen.png" width = "200" />](https://github.com/Wade-Coplen) | [<img src="./contributors/jGarrow.png" width = "200" />](https://github.com/jgarrow) |
+|  [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/acarrillo3)  | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JaxAtwood) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Wade-Coplen) | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/jgarrow) |
+|                                       David Moates                                        |                                                                                        |                                                                                          |
+| [<img src="./contributors/dMoates.png" width = "200" />](https://github.com/davidmoates)  |                                                                                        |                                                                                          |
+| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/davidmoates)  |                                                                                        |                                                                                          |
 
 <br/>
+
+Web PT 7 Labs Group
+
+|                                [Carl Stanley](https://github.com/Carl-Stanley)                                |                                 [Sagdi Formanov](https://github.com/sagdish)                                  |                                  [Joseph Hayden](https://github.com/JHaydenDev)                                  |                                  [Karen Yearwood](https://github.com/kly001)                                  |
+| :-----------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: |
+|            [<img src="./contributors/carl.png" width = "200" />](https://github.com/Carl-Stanley)             |              [<img src="./contributors/sagdi.png" width = "200" />](https://github.com/sagdish)               |              [<img src="./contributors/joseph.png" width = "200" />](https://github.com/JHaydenDev)              |               [<img src="./contributors/karen.png" width = "200" />](https://github.com/kly001)               |
+|           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/Carl-Stanley)           |             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/sagdish)              |             [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/JHaydenDev)              |              [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/kly001)              |
+| [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com//) | [<img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)  |  [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/)   | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) |
+|                                   [Eric Wise](https://github.com/eric-wise)                                   |                              [Denvinn Magsino](https://github.com/denvinnpaolo)                               |                                 [Dave Vazquez](https://github.com/dave-vazquez)                                  |
+|              [<img src="./contributors/eric.png" width = "200" />](https://github.com/eric-wise)              |           [<img src="./contributors/denvinn.png" width = "200" />](https://github.com/denvinnpaolo)           |              [<img src="./contributors/dave.png" width = "200" />](https://github.com/dave-vazquez)              |
+|            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/eric-wise)             |           [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/denvinnpaolo)           |            [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/dave-vazquez)             |
+| [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/) | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/) |
 
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
@@ -63,7 +66,9 @@ Log events, later searchable so you can remember when/where/what you did.
 
 ## Installation Instructions
 
-Clone this project and run `npm i` at the root of this project in your terminal.
+Clone this project and run `npm install` at the root of this project in your terminal.
+
+Run `npm run startDev` to spin up a local development server. The `start` script in the `package.json` is for Heroku to properly build the app.
 
 ## Testing
 
@@ -96,7 +101,7 @@ Create a `.env.development` and `.env.production` file so you don't have to hard
 
 ## Styling
 
-This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for any Styled Components. The `theme` styles for this project are located at `src/theme/theme.js`
+This project uses [Theme UI](https://theme-ui.com/getting-started), with [Emotion](https://emotion.sh/docs/styled) used for some Styled Components (Theme UI uses Emotion under the hood, which is why we opted for Emotion vs. Styled Components). The `theme` styles for this project are located at `src/theme/theme.js`
 
 In any component where you want to have any styling from the `theme` file needs to have the following imported at the very top of the file (including the comment):
 
@@ -114,6 +119,10 @@ import { Card } from '@theme-ui/components';
 A list of available components can be found in the Theme UI docs. To override any of the default styling for your own theme, you must [create a variant](https://theme-ui.com/components/variants) inside of your `theme` file.
 
 For example, according to the docs, the `Card` component is found in the `cards` variant group. This means that within your `theme` object, you can create a `cards` key, whose value is an object. Within that `cards` object, the default "variant" for a `Card` is called `primary`. In order to override Theme UI's default stylings for that basic, default `Card`, you must create a `primary` key inside of your `cards` object and provide your stylings there.
+
+See the [official docs](https://theme-ui.com/getting-started/) or a [write-up by Janessa Garrow](https://janessagarrow.com/blog/2020-07-14-intro-to-theme-ui/) on some of the basics of Theme UI.
+
+This project also uses [Framer Motion](https://www.framer.com/api/motion/) for some animations, particularly for sliding the task cards in the mobile view. The docs are a great place to go. This [Egghead video compilation](https://egghead.io/playlists/animating-react-components-with-framer-motion-acecb152) is a nice intro, as well.
 
 ## Eslint, Prettier, husky, and lint-staged
 

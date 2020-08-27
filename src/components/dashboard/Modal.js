@@ -3,12 +3,14 @@ import { jsx } from 'theme-ui';
 import { useEffect, createRef } from 'react';
 import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
+import { useDetectOutsideClick } from '../../hooks/useDetectOutsideClick';
 
 import { IoMdClose } from 'react-icons/io';
 
 // referenced from https://medium.com/@seif_ghezala/how-to-create-an-accessible-react-modal-5b87e6a27503
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children, onClose, showX = true, overrideStyles = {} }) => {
   const modalRef = createRef();
+  useDetectOutsideClick(modalRef, onClose);
 
   // trap the focus inside the modal while it's open
   const handleTabKey = (e) => {
@@ -50,7 +52,7 @@ const Modal = ({ children, onClose }) => {
 
     // remove event listener on componentWillUnmount
     return () => document.removeEventListener('keydown', keyListener);
-  }, []);
+  });
 
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
   // helps us keep track of the different keys we want to listen for
@@ -88,27 +90,31 @@ const Modal = ({ children, onClose }) => {
           width: `100%`,
           height: `100%`,
           bg: `background`,
+          borderRadius: `5px`,
+          ...overrideStyles,
         }}
       >
-        <button
-          onClick={onClose}
-          sx={{
-            bg: `background`,
-            border: `none`,
-            width: `45px`,
-            height: `45px`,
-            display: `flex`,
-            alignItems: `center`,
-            justifyContent: `center`,
-            cursor: `pointer`,
-          }}
-        >
-          <IoMdClose
+        {showX && (
+          <button
+            onClick={onClose}
             sx={{
-              fontSize: `1.25rem`,
+              bg: `background`,
+              border: `none`,
+              width: `45px`,
+              height: `45px`,
+              display: `flex`,
+              alignItems: `center`,
+              justifyContent: `center`,
+              cursor: `pointer`,
             }}
-          />
-        </button>
+          >
+            <IoMdClose
+              sx={{
+                fontSize: `1.25rem`,
+              }}
+            />
+          </button>
+        )}
         {children}
       </div>
     </div>,

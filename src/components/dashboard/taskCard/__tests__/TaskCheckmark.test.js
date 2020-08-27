@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { render } from '../../../../tests/themeProviderTestsUtil';
+
+import { render } from '../../../../../tests/themeProviderTestsUtil';
 
 import TaskCheckmark from '../TaskCheckmark';
 

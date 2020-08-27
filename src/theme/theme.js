@@ -1,3 +1,5 @@
+// import { withRouter } from "react-router-dom";
+
 export default {
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   breakpoints: ['40em', '56em', '64em'],
@@ -18,12 +20,22 @@ export default {
     heading: 1.125,
   },
   colors: {
-    text: '#002550',
+    text: '#050533',
     background: '#fff',
     primary: '#82D1FF',
     secondary: '#002550',
     muted: '#EDEDED',
     modes: {
+      // dark: {
+      //   text: 'hsl(210, 50%, 96%)',
+      //   background: 'hsl(230, 25%, 18%)',
+      //   primary: '#A590DC',
+      //   secondary: '#9034DF',
+      //   highlight: 'hsl(260, 20%, 40%)',
+      //   purple: 'hsl(290, 100%, 80%)',
+      //   muted: 'hsla(230, 20%, 0%, 20%)',
+      //   gray: 'hsl(210, 50%, 60%)',
+      // },
       dark: {
         text: '#062647',
         background: 'hsl(230, 25%, 18%)',
@@ -48,6 +60,40 @@ export default {
       borderRadius: 2,
       border: '1px solid',
       borderColor: 'muted',
+    },
+  },
+  links: {
+    nav: {
+      '&:hover': {
+        color: 'white',
+      },
+    },
+    landingbuttons: {
+      bg: 'muted',
+      color: 'text',
+      transition: `all 0.15s ease-in-out`,
+      appearance: 'none',
+      display: 'inline-block',
+      textAlign: 'center',
+      lineHeight: 'inherit',
+      textDecoration: 'none',
+      fontSize: 'inherit',
+      width: '150px',
+      px: 3,
+      py: 2,
+      border: 0,
+      borderRadius: 4,
+
+      '&:hover': {
+        bg: 'secondary',
+        color: 'background',
+        boxShadow:
+          '0 3px 3px 0 rgba(0, 0, 0, 0.16), 0 3px 3px 0 rgba(0, 0, 0, 0.23)',
+
+        '&:focus': {
+          outline: 'none',
+        },
+      },
     },
   },
   buttons: {
@@ -80,6 +126,11 @@ export default {
         borderBottom: '1px solid',
         borderColor: 'text',
       },
+    },
+    textarea: {
+      border: `1px solid #EAEAEA`,
+      backgroundColor: `#FEFEFE`,
+      fontFamily: `inherit`,
     },
   },
   styles: {

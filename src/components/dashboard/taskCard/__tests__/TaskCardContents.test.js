@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { render } from '../../../../tests/themeProviderTestsUtil';
+import { render } from '../../../../../tests/themeProviderTestsUtil';
 
-import Task from '../Task';
+import TaskCardContents from '../TaskCardContents';
 
-describe('Task tests', () => {
+describe('TaskCardContents tests', () => {
   it('renders without crashing', () => {
     const task = {
       all_day: true,
@@ -16,6 +16,8 @@ describe('Task tests', () => {
       user_id: 49,
     };
 
-    render(<Task task={task} />);
+    render(
+      <TaskCardContents task={task} isComplete={false} isNotInitial={true} />
+    );
   });
 });

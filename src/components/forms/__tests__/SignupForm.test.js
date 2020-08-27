@@ -1,4 +1,4 @@
-import { renderWithRouter } from '../../../tests/routerTestsUtil';
+import { renderWithRouter } from '../../../../tests/routerTestsUtil';
 import SignupForm from '../SignupForm';
 import axios from 'axios';
 import { fireEvent, wait } from '@testing-library/react';
@@ -18,8 +18,10 @@ describe('SignupForm component tests', () => {
     });
 
     const mockResponse = {
-      token: 'fakeToken',
-      userId: 1,
+      data: {
+        token: 'fakeToken',
+        userId: 1,
+      },
     };
 
     axios.post.mockResolvedValue(mockResponse);
