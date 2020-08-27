@@ -23,7 +23,8 @@ const Task = ({ task }) => {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [isViewTaskOpen, setIsViewTaskOpen] = useState(false);
 
-  const toggleComplete = () => {
+  const toggleComplete = (e) => {
+    e.stopPropagation();
     // convert userId from localStorage to an int (comes back as a string originally)
     const userId = parseInt(localStorage.getItem('userId'));
 
@@ -55,7 +56,7 @@ const Task = ({ task }) => {
           position: `relative`,
         }}
       >
-        <Card>
+        <Card toggleViewTask={toggleViewTask}>
           {/* checkmark to toggle whether or not the task is complete */}
           <TaskCheckmark
             toggleComplete={toggleComplete}
@@ -69,24 +70,13 @@ const Task = ({ task }) => {
             isComplete={isComplete}
             isNotInitial={isNotInitial}
           />
-          <button
-            type="details"
-            onClick={toggleViewTask}
+
+          {/* just for some UX to help the user know to swipe the card */}
+          <FiChevronRight
             sx={{
-              width: `100%`,
-              height: `100%`,
-              display: `flex`,
-              alignItems: `center`,
-              justifyContent: `center`,
-              border: `none`,
-              bg: `background`,
-              padding: `0`,
               fontSize: `1.5rem`,
-              cursor: `pointer`,
             }}
-          >
-            <FiChevronRight />
-          </button>
+          />
         </Card>
 
         {/* edit and delete icons "hiding" behind the card */}
@@ -115,10 +105,14 @@ const Task = ({ task }) => {
       )}
 
       {isDeleteModalOpen && (
-        <Modal onClose={() => setIsDeleteModalOpen(!isDeleteModalOpen)}>
-          <div>
-            <DeleteTask key={task.id} task={task} />
-          </div>
+        <Modal
+          onClose={() => setIsDeleteModalOpen(!isDeleteModalOpen)}
+          showX={false}
+          overrideStyles={{
+            height: `auto`,
+          }}
+        >
+          <DeleteTask key={task.id} task={task} />
         </Modal>
       )}
     </Fragment>

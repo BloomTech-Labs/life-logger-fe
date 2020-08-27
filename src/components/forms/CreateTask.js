@@ -1,20 +1,22 @@
 /** @jsx jsx */
 import { jsx } from 'theme-ui';
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { Input, Label, Button, Textarea } from '@theme-ui/components';
 import { Formik, Form } from 'formik';
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
+import TaskContext from '../../context/TaskContext';
 import { formatDate } from '../../utils/formatDate';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import PropTypes from 'prop-types';
 
-// import Navigation from './Navigation';
 import CustomCheckmark from '../CustomCheckmark';
 
-const CreateTask = ({ history }) => {
+const CreateTask = ({ toggleCreateTaskForm }) => {
+  const userId = parseInt(localStorage.getItem('userId'));
   const todayDate = formatDate(new Date()); // for min value for due date input
 
+  const { createTask } = useContext(TaskContext);
+
   const initialValues = {
-    user_id: parseInt(localStorage.getItem('userId')), // getting from localStorage returns it as a string, but we need it as an integer
+    user_id: userId, // getting from localStorage returns it as a string, but we need it as an integer
     task_name: '',
     category_name: '',
     due_date: '',
@@ -24,12 +26,8 @@ const CreateTask = ({ history }) => {
   };
 
   const handleSubmit = (values) => {
-    axiosWithAuth()
-      .post(`https://lyfe-logger-be.herokuapp.com/api/tasks/createTask`, values)
-      .then(() => {
-        history.push('/dashboard'); // go back to dashboard page after successful task creation
-      })
-      .catch((err) => console.error('Error creating new task', err));
+    createTask(values, userId);
+    toggleCreateTaskForm();
   };
 
   return (
@@ -155,7 +153,7 @@ const CreateTask = ({ history }) => {
 };
 
 CreateTask.propTypes = {
-  history: ReactRouterPropTypes.history,
+  toggleCreateTaskForm: PropTypes.func,
 };
 
 export default CreateTask;
