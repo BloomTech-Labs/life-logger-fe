@@ -3,6 +3,8 @@ import { jsx } from 'theme-ui';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
 
+import DarkModeToggle from './header/DarkModeToggle';
+
 const Ul = styled.ul`
   ${({ open, theme }) => `
   list-style: none;
@@ -46,6 +48,9 @@ const SideNav = ({ open }) => {
       </li>
       <li>
         <a href="/">Log Out</a>
+      </li>
+      <li>
+        <DarkModeToggle />
       </li>
     </Ul>
   );

@@ -1,7 +1,8 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui';
+import { jsx, useColorMode } from 'theme-ui';
 import styled from '@emotion/styled';
 import BurgerMenu from '../BurgerMenu';
+import Logo from '../Logo';
 
 const HeaderDiv = styled.header`
   ${({ theme }) => `
@@ -14,15 +15,20 @@ const HeaderDiv = styled.header`
   `}
 `;
 
-const Logo = styled.img`
-  width: 200px;
-  // height: 50px;
-`;
-
 const Header = () => {
+  const [colorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
+
   return (
     <HeaderDiv data-testid="testtag">
-      <Logo src="/LifeLoggerBlue.png" />
+      <div
+        sx={{
+          width: `50px`,
+          height: `50px`,
+        }}
+      >
+        <Logo hasSecondaryBackground={!isDark} />
+      </div>
       <BurgerMenu />
     </HeaderDiv>
   );
