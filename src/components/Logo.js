@@ -43,7 +43,7 @@ const Logo = ({ hasSecondaryBackground }) => {
         y="25%"
         x="40%"
         rx="2%"
-        sx={{ fill: hasSecondaryBackground ? `background` : `secondary` }}
+        sx={{ fill: hasSecondaryBackground ? `#014ea9` : `background` }}
       />
       <rect
         width="23%"
@@ -51,7 +51,7 @@ const Logo = ({ hasSecondaryBackground }) => {
         y="25%"
         x="65%"
         rx="2%"
-        sx={{ fill: hasSecondaryBackground ? `background` : `secondary` }}
+        sx={{ fill: hasSecondaryBackground ? `#014ea9` : `background` }}
       />
       <rect
         width="23%"
@@ -59,7 +59,7 @@ const Logo = ({ hasSecondaryBackground }) => {
         y="50%"
         x="65%"
         rx="2%"
-        sx={{ fill: hasSecondaryBackground ? `background` : `secondary` }}
+        sx={{ fill: hasSecondaryBackground ? `#014ea9` : `background` }}
       />
       <rect
         width="23%"
@@ -67,7 +67,7 @@ const Logo = ({ hasSecondaryBackground }) => {
         y="75%"
         x="65%"
         rx="2%"
-        sx={{ fill: hasSecondaryBackground ? `background` : `secondary` }}
+        sx={{ fill: hasSecondaryBackground ? `#014ea9` : `background` }}
       />
     </svg>
   );
